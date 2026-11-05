@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.sqlite3
+*.db
+agriculture_platform.db
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# IDE & OS
+.vscode/
+.idea/
+*.swp
+*.swo
+Thumbs.db
+.DS_Store
+
+# Temporary & test logs
+*.log
+scratch/
+test_*.py
+take_*.py
+
+# Test screens & temporary scripts
+static/test_screens/
+verify_links.py
+verify_all_links.py
+inspect_regions.py
