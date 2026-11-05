@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الوضع المستقبلي: قاعة المزاد الوطني الرقمي | منصة نماء</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        mewa: {
+                            50: '#f0f9f4',
+                            100: '#dbf0e4',
+                            600: '#006837',
+                            700: '#00542c',
+                            800: '#034424',
+                            900: '#02381e',
+                        },
+                        naamaGold: {
+                            100: '#fcf8ec',
+                            300: '#edd88b',
+                            400: '#e3b84c',
+                            500: '#c59b27',
+                            600: '#a7801a',
+                        }
+                    },
+                    fontFamily: {
+                        tajawal: ['Tajawal', 'Cairo', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="static/js/future_static_store.js"></script>
+    <style>
+        body { font-family: 'Tajawal', sans-serif; background-color: #f7f9fa; }
+        .gold-line { background: linear-gradient(90deg, #c59b27 0%, #e3b84c 50%, #c59b27 100%); }
+        .naama-card {
+            background: #ffffff;
+            border: 1px solid #e9ecef;
+            box-shadow: 0 4px 20px -2px rgba(0, 104, 55, 0.05);
+            transition: all 0.25s ease-in-out;
+        }
+        .naama-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px -4px rgba(0, 104, 55, 0.08);
+            border-color: #c59b27;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="text-slate-800 min-h-screen flex flex-col antialiased">
+
+    <!-- الشريط الذهبي العلوي -->
+    <div class="h-1.5 gold-line w-full"></div>
+
+    <!-- شريط الخدمات المصغر الموحد -->
+    <div class="bg-white border-b border-slate-200/80 text-xs py-2 text-slate-500 no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center gap-4 overflow-x-auto whitespace-nowrap no-scrollbar">
+            <div class="flex items-center gap-2 flex-shrink-0">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 inline-block animate-pulse"></span>
+                <span class="font-bold text-slate-700">المملكة العربية السعودية | بوابة المشتري والتاجر والتموين — قاعة المزاد وحساب الضمان</span>
+            </div>
+            <div class="flex items-center gap-2.5 sm:gap-3 flex-shrink-0">
+                <a href="future_portal.html" class="text-mewa-700 hover:underline font-bold flex items-center gap-1 transition text-[11px] sm:text-xs">
+                    <i data-lucide="layout-grid" class="w-3.5 h-3.5 text-mewa-600"></i> لوحة البوابات
+                </a>
+                <span class="text-slate-300">|</span>
+                <a href="portal.html" class="text-amber-800 bg-amber-50 hover:bg-amber-100 border border-amber-200 px-2.5 py-0.5 rounded-lg font-bold flex items-center gap-1 transition text-[11px] sm:text-xs">
+                    <i data-lucide="history" class="w-3.5 h-3.5 text-naamaGold-600"></i> الوضع السابق
+                </a>
+                <span class="text-slate-300">|</span>
+                <a href="future_coldchain.html" class="text-mewa-700 hover:underline font-bold flex items-center gap-1 transition text-[11px] sm:text-xs">
+                    <i data-lucide="truck" class="w-3.5 h-3.5 text-mewa-600"></i> سلاسل التبريد IoT
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ترويسة الصفحة الرسمية الموحدة -->
+    <header class="bg-white border-b border-slate-200 shadow-sm sticky top-0 z-50 no-print">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 flex items-center justify-between h-16 sm:h-24 gap-2 sm:gap-4">
+            <div class="flex items-center gap-3">
+                <a href="future_portal.html" class="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-mewa-50 text-mewa-800 hover:bg-mewa-700 hover:text-white border border-mewa-200 flex items-center justify-center transition shadow-xs">
+                    <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                </a>
+                <a href="future_portal.html" class="flex items-center gap-2 sm:gap-4 min-w-0">
+                    <img src="static/images/mewa_logo.png" alt="وزارة البيئة والمياه والزراعة" class="h-10 sm:h-16 w-auto object-contain flex-shrink-0">
+                    <div class="border-r-2 border-slate-200 pr-2.5 sm:pr-4 flex flex-col justify-center min-w-0">
+                        <h1 class="text-sm sm:text-xl md:text-2xl font-black text-mewa-800 tracking-tight leading-tight truncate">قاعة المزاد الوطني الرقمي الموحد</h1>
+                        <p class="hidden md:block text-[11px] sm:text-xs text-slate-500 font-medium leading-tight mt-0.5 truncate">تداول الجملة المباشر بين مناطق المملكة مع حماية الدفع بحساب الضمان (Escrow)</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <img src="static/images/naama_logo.png" alt="منصة نماء" class="h-8 sm:h-12 w-auto object-contain">
+                <div class="h-8 w-px bg-slate-200 hidden sm:block"></div>
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black bg-amber-50 text-amber-900 border border-amber-200">
+                    <span class="w-2 h-2 rounded-full bg-amber-500 animate-ping"></span>
+                    المزاد مباشر ونشط الآن
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow w-full space-y-6">
+
+        <!-- تابات التنقل الموحدة بين المستفيدين الثلاثة -->
+        <div class="bg-white p-1.5 sm:p-2 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-2 overflow-x-auto no-scrollbar scroll-smooth">
+            <a href="future_farmer_lots.html" class="shrink-0 px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black transition flex items-center justify-center gap-2 whitespace-nowrap text-slate-700 hover:text-mewa-800 hover:bg-slate-100/70 border border-transparent">
+                <i data-lucide="sprout" class="w-4 h-4 text-emerald-600"></i>
+                <span>المزارع والمنتج الزراعي</span>
+            </a>
+            <a href="future_auction.html" class="shrink-0 px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black transition flex items-center justify-center gap-2 whitespace-nowrap bg-mewa-700 text-white shadow-sm border border-mewa-800">
+                <i data-lucide="shopping-cart" class="w-4 h-4 text-naamaGold-300"></i>
+                <span>المشتري والتاجر والتموين (نشط)</span>
+            </a>
+            <a href="future_oversight.html" class="shrink-0 px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black transition flex items-center justify-center gap-2 whitespace-nowrap text-slate-700 hover:text-mewa-800 hover:bg-slate-100/70 border border-transparent">
+                <i data-lucide="shield-check" class="w-4 h-4 text-naamaGold-600"></i>
+                <span>إدارة السوق والرقابة والوزارة</span>
+            </a>
+            <a href="future_portal.html" class="shrink-0 px-3 sm:px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition flex items-center justify-center gap-1.5 whitespace-nowrap text-slate-500 hover:text-slate-800 hover:bg-slate-100/70 border border-transparent mr-auto">
+                <i data-lucide="layout-grid" class="w-3.5 h-3.5"></i>
+                <span>لوحة المنظومة الشاملة</span>
+            </a>
+        </div>
+
+        <!-- بطاقة حماية حساب الضمان بهوية نما -->
+        <div class="relative bg-gradient-to-r from-mewa-900 via-mewa-800 to-mewa-700 rounded-2xl p-6 text-white shadow-md border-b-4 border-naamaGold-500 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="space-y-2 max-w-2xl">
+                <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-white/10 text-xs font-bold text-emerald-200">
+                    <i data-lucide="shield-check" class="w-3.5 h-3.5"></i> حماية المشتري والبائع عبر حساب الضمان المالي (Escrow)
+                </div>
+                <h2 class="text-xl sm:text-2xl font-black">قاعة التداول المفتوحة لكافة أسواق النفع العام</h2>
+                <p class="text-xs sm:text-sm text-emerald-100 leading-relaxed font-normal">
+                    تستطيع من أي مدينة بالمملكة المزايدة والشراء عن بُعد لجميع الدفعات المعروضة في أسواق العزيزية، بريدة، جدة، والأحساء بالاعتماد على شهادة الفحص المخبري المعتمدة. يُحجز المبلغ في حساب الضمان ولا يُصرف للبائع إلا بعد تأكيد استلام الشحنة مطابقة للمواصفات.
+                </p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/20 text-center flex-shrink-0">
+                <div class="text-xs text-naamaGold-300 font-bold">رسوم المنصة التشغيلية</div>
+                <div class="text-2xl font-black text-amber-300">5% فقط</div>
+                <div class="text-[11px] text-emerald-100">شاملة الفحص وحساب الضمان</div>
+            </div>
+        </div>
+
+        <!-- بطاقات المزادات الحية النشطة -->
+        <div class="space-y-4">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h3 class="text-lg sm:text-xl font-black text-slate-900">جلسات المزاد المباشرة الجارية الآن</h3>
+                    <p class="text-xs text-slate-500">مزايدات حية معلنة مع إمكانية الترسية وتفعيل حساب الضمان</p>
+                </div>
+                <div class="flex items-center gap-2">
+                    <a href="future_coldchain.html" class="px-3 py-1.5 bg-emerald-50 text-emerald-800 hover:bg-emerald-100 border border-emerald-200 rounded-xl text-xs font-bold transition flex items-center gap-1.5">
+                        <i data-lucide="truck" class="w-3.5 h-3.5"></i> سلاسل التبريد المرتبطة
+                    </a>
+                    <button onclick="loadAuctions()" class="text-xs font-bold text-mewa-700 hover:underline flex items-center gap-1">
+                        <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i> تحديث القاعة
+                    </button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="auctions-container">
+                <div class="text-center py-12 text-slate-400 col-span-full">جاري جلب المزادات النشطة...</div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- نافذة منبثقة لتقديم مزايدة حية -->
+    <div id="bid-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 space-y-5 shadow-2xl border border-slate-100 naama-card border-t-4 border-t-naamaGold-500">
+            <div class="flex justify-between items-center border-b border-slate-100 pb-3">
+                <div class="flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-amber-500 animate-ping"></span>
+                    <h3 class="text-base font-black text-slate-900">تقديم مزايدة إلكترونية</h3>
+                </div>
+                <button onclick="closeBidModal()" class="text-slate-400 hover:text-slate-700">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+
+            <div class="bg-slate-50 p-3.5 rounded-2xl border border-slate-200/80 space-y-1 text-xs">
+                <div class="font-bold text-slate-900 text-sm" id="bid-modal-title">طماطم محمية قطاف اليوم</div>
+                <div class="text-slate-500 flex justify-between">
+                    <span>رقم المزاد: <span id="bid-modal-auc-id" class="font-mono font-bold">AUC-4401</span></span>
+                    <span>الكمية: <span id="bid-modal-qty" class="font-bold">1500 صندوق</span></span>
+                </div>
+                <div class="text-slate-500 flex justify-between">
+                    <span>رتبة الجودة: <span id="bid-modal-cert" class="font-bold text-mewa-700">نخب أول (Grade A)</span></span>
+                    <span>السعر الحالي: <span id="bid-modal-current-price" class="font-black text-emerald-800">19.50 ر.س</span></span>
+                </div>
+            </div>
+
+            <form id="bid-form" onsubmit="submitBid(event)" class="space-y-4 text-xs">
+                <input type="hidden" id="bm_auc_id">
+                <input type="hidden" id="bm_lot_id">
+
+                <div>
+                    <label class="block font-bold text-slate-700 mb-1">اسم المشتري / المفوض</label>
+                    <input type="text" id="bm_bidder_name" required value="عبد الرحمن الغامدي" class="w-full px-3 py-2 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:outline-none">
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">المنشأة / الشركة</label>
+                        <input type="text" id="bm_bidder_org" required value="شركة أسواق المزرعة" class="w-full px-3 py-2 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">المدينة</label>
+                        <select id="bm_bidder_city" required class="w-full px-3 py-2 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:outline-none font-bold">
+                            <option value="الرياض">الرياض</option>
+                            <option value="جدة">جدة</option>
+                            <option value="الدمام">الدمام</option>
+                            <option value="القصيم">القصيم</option>
+                            <option value="مكة المكرمة">مكة المكرمة</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="p-3 bg-amber-50 rounded-xl border border-amber-200 space-y-2">
+                    <label class="block font-black text-amber-900">قيمة مزايدتك للوحدة (ر.س):</label>
+                    <div class="flex items-center gap-2">
+                        <input type="number" step="0.25" id="bm_amount" required class="w-full px-3 py-2.5 border border-amber-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:outline-none font-black text-lg text-emerald-800 bg-white">
+                        <span class="text-xs font-bold text-amber-900 flex-shrink-0">ر.س / وحدة</span>
+                    </div>
+                    <div class="flex gap-2">
+                        <button type="button" onclick="incrementBid(0.25)" class="px-2.5 py-1 bg-white text-amber-900 border border-amber-300 rounded-lg font-bold hover:bg-amber-100">+ 0.25</button>
+                        <button type="button" onclick="incrementBid(0.50)" class="px-2.5 py-1 bg-white text-amber-900 border border-amber-300 rounded-lg font-bold hover:bg-amber-100">+ 0.50</button>
+                        <button type="button" onclick="incrementBid(1.00)" class="px-2.5 py-1 bg-white text-amber-900 border border-amber-300 rounded-lg font-bold hover:bg-amber-100">+ 1.00</button>
+                    </div>
+                </div>
+
+                <div class="text-[11px] text-slate-500 bg-slate-50 p-2.5 rounded-xl border border-slate-200 leading-relaxed">
+                    * بتقديم المزايدة، يتم حجز مبلغ أمانة مؤقت يعادل 5% من القيمة الإجمالية عبر المحفظة أو الضمان البنكي.
+                </div>
+
+                <button type="submit" class="w-full py-3 bg-mewa-700 hover:bg-mewa-800 text-white font-black rounded-xl shadow-md transition flex items-center justify-center gap-2">
+                    <i data-lucide="check" class="w-4 h-4"></i> تأكيد وإرسال المزايدة
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- الفوتر الرسمي -->
+    <footer class="bg-white border-t border-slate-200 mt-12 py-6 text-xs text-slate-500 no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-2">
+                <img src="static/images/naama_logo.png" alt="نماء" class="h-6 w-auto">
+                <span class="font-bold text-slate-700">منظومة أسواق النفع العام — قاعة المزاد الوطني</span>
+                <span>•</span>
+                <span>وزارة البيئة والمياه والزراعة</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="future_portal.html" class="hover:text-emerald-700 transition">لوحة البوابات</a>
+                <a href="future_coldchain.html" class="hover:text-emerald-700 transition font-bold text-emerald-700">سلاسل التبريد IoT</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        if (typeof lucide !== 'undefined' && lucide.createIcons) lucide.createIcons();
+
+        let activeAuctions = [];
+
+        function loadAuctions() {
+            if (window.location.protocol === 'file:' && window.FutureStaticStore) {
+                activeAuctions = window.FutureStaticStore.getAuctions();
+                renderAuctions(activeAuctions);
+                return;
+            }
+
+            fetch('/api/future/auctions')
+                .then(res => res.ok ? res.json() : Promise.reject())
+                .then(auctions => {
+                    activeAuctions = auctions;
+                    renderAuctions(activeAuctions);
+                })
+                .catch(() => {
+                    if (window.FutureStaticStore) {
+                        activeAuctions = window.FutureStaticStore.getAuctions();
+                        renderAuctions(activeAuctions);
+                    }
+                });
+        }
+
+        function renderAuctions(auctions) {
+            const container = document.getElementById('auctions-container');
+            if (auctions.length === 0) {
+                container.innerHTML = '<div class="text-center py-10 text-slate-400 col-span-full">لا توجد مزادات نشطة حالياً</div>';
+                return;
+            }
+
+            container.innerHTML = auctions.map(auc => {
+                const lot = auc.lot || {};
+                const assay = auc.assaying || {};
+                const isClosed = auc.auction_status === 'closed';
+
+                return `
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm flex flex-col justify-between hover:border-mewa-600 transition naama-card border-t-4 border-t-naamaGold-500">
+                    
+                    <!-- رأس الكرت وصورة المحصول والبادجات -->
+                    <div class="h-44 bg-gradient-to-br from-mewa-800 to-slate-900 relative overflow-hidden flex items-center justify-center">
+                        <img src="${lot.image_url || ''}" class="w-full h-full object-cover absolute inset-0" onerror="this.style.display='none'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+                        
+                        <div class="absolute top-3 right-3 flex items-center gap-1.5 z-10">
+                            <span class="px-2.5 py-1 rounded-lg text-[11px] font-black bg-mewa-700 text-white shadow-md border border-mewa-600">
+                                ${assay.quality_grade || 'درجة أولى'}
+                            </span>
+                            <span class="px-2.5 py-1 rounded-lg text-[11px] font-black bg-emerald-600 text-white shadow-md">
+                                سعودي جاب
+                            </span>
+                        </div>
+
+                        <div class="absolute bottom-3 right-3 left-3 text-white z-10">
+                            <span class="text-[10px] text-amber-300 font-mono block">${auc.lot_id} • ${auc.auction_id}</span>
+                            <h4 class="text-base font-black leading-tight">${lot.commodity || 'محصول زراعي'}</h4>
+                            <span class="text-[11px] text-slate-200">${lot.farm_location || 'المملكة'} • ${lot.quantity ? Number(lot.quantity).toLocaleString() : 0} ${lot.unit || ''}</span>
+                        </div>
+                    </div>
+
+                    <!-- تفاصيل السعر والمزايدات -->
+                    <div class="p-5 space-y-4">
+                        <div class="grid grid-cols-2 gap-3 bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs">
+                            <div>
+                                <span class="text-slate-400 block">السعر المرجعي:</span>
+                                <span class="font-bold text-slate-700">${assay.reference_price || auc.start_price} ر.س</span>
+                            </div>
+                            <div>
+                                <span class="text-slate-400 block">عدد المزايدات:</span>
+                                <span class="font-bold text-emerald-800">${auc.bid_count} مزايدة</span>
+                            </div>
+                        </div>
+
+                        <div class="p-3.5 bg-mewa-50/70 rounded-xl border border-mewa-200 text-center">
+                            <span class="text-xs text-mewa-900 font-bold block mb-0.5">السعر الحالي الأعلى للوحدة:</span>
+                            <div class="text-2xl font-black text-emerald-800">${auc.current_bid.toFixed(2)} ر.س</div>
+                            <span class="text-[11px] text-slate-600 font-medium block mt-0.5">المزايد: ${auc.highest_bidder_name} (${auc.highest_bidder_city})</span>
+                        </div>
+
+                        ${!isClosed ? `
+                        <div class="flex gap-2">
+                            <button onclick="openBidModal('${auc.auction_id}', '${auc.lot_id}', '${lot.commodity}', ${auc.current_bid}, '${lot.quantity} ${lot.unit}', '${assay.quality_grade || 'معتمد'}')" class="flex-1 py-2.5 bg-mewa-700 hover:bg-mewa-800 text-white text-xs font-black rounded-xl shadow-sm transition flex items-center justify-center gap-1.5">
+                                <i data-lucide="gavel" class="w-4 h-4"></i> تقديم مزايدة
+                            </button>
+                            <button onclick="closeAndEscrow('${auc.auction_id}')" class="px-3.5 py-2.5 bg-naamaGold-500 hover:bg-naamaGold-600 text-mewa-950 text-xs font-black rounded-xl transition" title="ترسية وتفعيل حساب الضمان">
+                                <i data-lucide="check-check" class="w-4 h-4"></i> ترسية
+                            </button>
+                        </div>
+                        ` : `
+                        <div class="py-2.5 bg-emerald-50 text-emerald-800 text-xs font-bold text-center rounded-xl border border-emerald-200">
+                            تمت الترسية وتفعيل حساب الضمان ونقل الشحنة
+                        </div>
+                        `}
+                    </div>
+
+                </div>
+                `;
+            }).join('');
+            if (typeof lucide !== 'undefined' && lucide.createIcons) lucide.createIcons();
+        }
+
+        function openBidModal(aucId, lotId, comm, currBid, qty, cert) {
+            document.getElementById('bm_auc_id').value = aucId;
+            document.getElementById('bm_lot_id').value = lotId;
+            document.getElementById('bid-modal-auc-id').innerText = aucId;
+            document.getElementById('bid-modal-title').innerText = comm;
+            document.getElementById('bid-modal-current-price').innerText = currBid.toFixed(2) + ' ر.س';
+            document.getElementById('bid-modal-qty').innerText = qty;
+            document.getElementById('bid-modal-cert').innerText = cert;
+            document.getElementById('bm_amount').value = (currBid + 0.50).toFixed(2);
+            document.getElementById('bid-modal').classList.remove('hidden');
+        }
+
+        function closeBidModal() {
+            document.getElementById('bid-modal').classList.add('hidden');
+        }
+
+        function incrementBid(step) {
+            const input = document.getElementById('bm_amount');
+            let val = parseFloat(input.value) || 0;
+            val += step;
+            input.value = val.toFixed(2);
+        }
+
+        async function submitBid(e) {
+            e.preventDefault();
+            const aucId = document.getElementById('bm_auc_id').value;
+            const payload = {
+                auction_id: aucId,
+                lot_id: document.getElementById('bm_lot_id').value,
+                bidder_name: document.getElementById('bm_bidder_name').value,
+                bidder_org: document.getElementById('bm_bidder_org').value,
+                bidder_city: document.getElementById('bm_bidder_city').value,
+                bid_amount: parseFloat(document.getElementById('bm_amount').value)
+            };
+
+            try {
+                if (window.location.protocol !== 'file:') {
+                    const res = await fetch(`/api/future/auctions/${aucId}/bid`, {
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify(payload)
+                    });
+                    if (res.ok) {
+                        const data = await res.json();
+                        alert(data.message);
+                        closeBidModal();
+                        loadAuctions();
+                        return;
+                    }
+                }
+            } catch (err) {
+                console.log('Using static store fallback for bid');
+            }
+
+            if (window.FutureStaticStore) {
+                try {
+                    window.FutureStaticStore.placeBid(aucId, payload);
+                    alert(`تم قبول مزايدتك بنجاح بقيمة ${payload.bid_amount.toFixed(2)} ر.س! أنت الآن صاحب أعلى مزايدة.`);
+                    closeBidModal();
+                    loadAuctions();
+                } catch (err) {
+                    alert('تنبيه: ' + err.message);
+                }
+            }
+        }
+
+        async function closeAndEscrow(aucId) {
+            if (!confirm('هل تريد إغلاق المزاد وترسية الصفقة على صاحب أعلى مزايدة وتفعيل حساب الضمان المالي الرقمي؟')) return;
+            try {
+                if (window.location.protocol !== 'file:') {
+                    const res = await fetch(`/api/future/auctions/${aucId}/close-and-escrow`, { method: 'POST' });
+                    if (res.ok) {
+                        const data = await res.json();
+                        alert(data.message);
+                        loadAuctions();
+                        return;
+                    }
+                }
+            } catch (err) {
+                console.log('Using static store fallback for close and escrow');
+            }
+
+            if (window.FutureStaticStore) {
+                const res = window.FutureStaticStore.closeAndEscrow(aucId);
+                alert(`تم بنجاح ترسية المزاد (${aucId}) وتفعيل حساب الضمان المالي الرقمي (${res.escrow.escrow_no}) بقيمة صافية للمزارع قدرها ${Number(res.escrow.seller_net).toLocaleString()} ر.س.`);
+                loadAuctions();
+            }
+        }
+
+        loadAuctions();
+    </script>
+</body>
+</html>

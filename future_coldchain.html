@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الوضع المستقبلي: سلاسل الإمداد والتبريد اللحظي | منصة نماء</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        mewa: {
+                            50: '#f0f9f4',
+                            100: '#dbf0e4',
+                            600: '#006837',
+                            700: '#00542c',
+                            800: '#034424',
+                            900: '#02381e',
+                        },
+                        naamaGold: {
+                            100: '#fcf8ec',
+                            300: '#edd88b',
+                            400: '#e3b84c',
+                            500: '#c59b27',
+                            600: '#a7801a',
+                        }
+                    },
+                    fontFamily: {
+                        tajawal: ['Tajawal', 'Cairo', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="static/js/future_static_store.js"></script>
+    <style>
+        body { font-family: 'Tajawal', sans-serif; background-color: #f7f9fa; }
+        .gold-line { background: linear-gradient(90deg, #c59b27 0%, #e3b84c 50%, #c59b27 100%); }
+        .naama-card {
+            background: #ffffff;
+            border: 1px solid #e9ecef;
+            box-shadow: 0 4px 20px -2px rgba(0, 104, 55, 0.05);
+            transition: all 0.25s ease-in-out;
+        }
+        .naama-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px -4px rgba(0, 104, 55, 0.1);
+            border-color: #c59b27;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="text-slate-800 min-h-screen flex flex-col antialiased">
+
+    <!-- الشريط الذهبي العلوي -->
+    <div class="h-1.5 gold-line w-full"></div>
+
+    <!-- شريط الخدمات المصغر الموحد -->
+    <div class="bg-white border-b border-slate-200/80 text-xs py-2 text-slate-500 no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center gap-4 overflow-x-auto whitespace-nowrap no-scrollbar">
+            <div class="flex items-center gap-2 flex-shrink-0">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 inline-block animate-pulse"></span>
+                <span class="font-bold text-slate-700">المملكة العربية السعودية | منظومة سلاسل الإمداد والتبريد اللحظي IoT — الوضع المستقبلي</span>
+            </div>
+            <div class="flex items-center gap-2.5 sm:gap-3 flex-shrink-0">
+                <a href="future_portal.html" class="text-mewa-700 hover:underline font-bold flex items-center gap-1 transition text-[11px] sm:text-xs">
+                    <i data-lucide="layout-grid" class="w-3.5 h-3.5 text-mewa-600"></i> لوحة البوابات
+                </a>
+                <span class="text-slate-300">|</span>
+                <a href="portal.html" class="text-amber-800 bg-amber-50 hover:bg-amber-100 border border-amber-200 px-2.5 py-0.5 rounded-lg font-bold flex items-center gap-1 transition text-[11px] sm:text-xs">
+                    <i data-lucide="history" class="w-3.5 h-3.5 text-naamaGold-600"></i> الوضع السابق
+                </a>
+                <span class="text-slate-300">|</span>
+                <a href="future_infographic.html" class="text-mewa-700 hover:underline font-bold flex items-center gap-1 transition text-[11px] sm:text-xs">
+                    <i data-lucide="presentation" class="w-3.5 h-3.5 text-mewa-600"></i> الإنفوجرافيك 4K
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ترويسة الصفحة الرسمية الموحدة -->
+    <header class="bg-white border-b border-slate-200 shadow-sm sticky top-0 z-50 no-print">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 flex items-center justify-between h-16 sm:h-24 gap-2 sm:gap-4">
+            <div class="flex items-center gap-3">
+                <a href="future_portal.html" class="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-mewa-50 text-mewa-800 hover:bg-mewa-700 hover:text-white border border-mewa-200 flex items-center justify-center transition shadow-xs" title="العودة للبوابة الرئيسية">
+                    <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                </a>
+                <a href="future_portal.html" class="flex items-center gap-2 sm:gap-4 min-w-0">
+                    <img src="static/images/mewa_logo.png" alt="وزارة البيئة والمياه والزراعة" class="h-10 sm:h-16 w-auto object-contain flex-shrink-0">
+                    <div class="border-r-2 border-slate-200 pr-2.5 sm:pr-4 flex flex-col justify-center min-w-0">
+                        <h1 class="text-sm sm:text-xl md:text-2xl font-black text-mewa-800 tracking-tight leading-tight truncate">سلاسل الإمداد والتبريد اللحظي (IoT)</h1>
+                        <p class="hidden md:block text-[11px] sm:text-xs text-slate-500 font-medium leading-tight mt-0.5 truncate">مراقبة درجات الحرارة والرطوبة ونافذة التبريد الملزمة للشاحنات لخفض الهدر الزراعي</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <img src="static/images/naama_logo.png" alt="منصة نماء" class="h-8 sm:h-12 w-auto object-contain">
+                <div class="h-8 w-px bg-slate-200 hidden sm:block"></div>
+                <span class="hidden sm:inline-flex px-3 py-1 rounded-full text-xs font-black bg-cyan-50 text-cyan-800 border border-cyan-200">
+                    <i data-lucide="snowflake" class="w-3.5 h-3.5 inline ml-1"></i> تتبع مبرد متصل
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow w-full space-y-6">
+
+        <!-- تابات التنقل الموحدة بين المستفيدين الثلاثة -->
+        <div class="bg-white p-1.5 sm:p-2 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-2 overflow-x-auto no-scrollbar scroll-smooth">
+            <a href="future_farmer_lots.html" class="shrink-0 px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black transition flex items-center justify-center gap-2 whitespace-nowrap text-slate-700 hover:text-mewa-800 hover:bg-slate-100/70 border border-transparent">
+                <i data-lucide="sprout" class="w-4 h-4 text-emerald-600"></i>
+                <span>المزارع والمنتج الزراعي</span>
+            </a>
+            <a href="future_coldchain.html" class="shrink-0 px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black transition flex items-center justify-center gap-2 whitespace-nowrap bg-mewa-700 text-white shadow-sm border border-mewa-800">
+                <i data-lucide="shopping-cart" class="w-4 h-4 text-naamaGold-300"></i>
+                <span>المشتري والتاجر والتموين (نشط)</span>
+            </a>
+            <a href="future_oversight.html" class="shrink-0 px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black transition flex items-center justify-center gap-2 whitespace-nowrap text-slate-700 hover:text-mewa-800 hover:bg-slate-100/70 border border-transparent">
+                <i data-lucide="shield-check" class="w-4 h-4 text-naamaGold-600"></i>
+                <span>إدارة السوق والرقابة والوزارة</span>
+            </a>
+            <a href="future_portal.html" class="shrink-0 px-3 sm:px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition flex items-center justify-center gap-1.5 whitespace-nowrap text-slate-500 hover:text-slate-800 hover:bg-slate-100/70 border border-transparent mr-auto">
+                <i data-lucide="layout-grid" class="w-3.5 h-3.5"></i>
+                <span>لوحة المنظومة الشاملة</span>
+            </a>
+        </div>
+
+        <!-- بطاقة تعريفية بأهمية سلاسل التبريد بهوية نما -->
+        <div class="relative bg-gradient-to-r from-mewa-900 via-mewa-800 to-mewa-700 rounded-2xl p-6 text-white shadow-md border-b-4 border-naamaGold-500 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="space-y-2 max-w-2xl">
+                <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-white/10 text-xs font-bold text-emerald-200">
+                    <i data-lucide="shield-check" class="w-3.5 h-3.5"></i> حل جذري لمنع تدهور الخضار والفاكهة وخفض الفاقد الوطني
+                </div>
+                <h2 class="text-xl sm:text-2xl font-black">الرقابة اللحظية على نافذة التبريد الملزمة للشاحنات</h2>
+                <p class="text-xs sm:text-sm text-emerald-100 leading-relaxed font-normal">
+                    تضمن المنصة التزام كافة شاحنات التوريد بنافذة تبريد إلزامية (4 إلى 6 ساعات كحد أقصى) مع قراءة آنية لدرجات الحرارة والرطوبة بحساسات IoT وموقع الشاحنة عبر GPS، لضمان استلام المشتري لمحصول طازج بمطابقة تامة للمواصفات.
+                </p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/20 text-center flex-shrink-0">
+                <div class="text-xs text-emerald-200 font-bold">مستهدف خفض الفاقد الزراعي</div>
+                <div class="text-3xl font-black text-naamaGold-400">أقل من 5%</div>
+                <div class="text-[11px] text-emerald-100">بدلاً من 30% سابقاً بالأسواق التقليدية</div>
+            </div>
+        </div>
+
+        <!-- قسم قائمة الشاحنات والشحنات المبردة المربوطة بحساسات IoT -->
+        <div class="space-y-4">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h3 class="text-base sm:text-lg font-black text-slate-900">حالة الشاحنات وقراءات الحساسات النشطة الآن</h3>
+                    <p class="text-xs text-slate-500">بيانات آنية مرسلة من أجهزة التتبع والحساسات المدمجة بحاويات النقل</p>
+                </div>
+                <button onclick="loadColdChain()" class="text-xs font-bold text-mewa-700 hover:text-mewa-800 bg-white border border-slate-200 hover:border-mewa-600 px-3 py-1.5 rounded-xl transition flex items-center gap-1.5 shadow-xs">
+                    <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-mewa-600"></i> تحديث الحساسات
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="coldchain-list">
+                <div class="text-center py-12 text-slate-400 col-span-full">جاري قراءة الحساسات المتصلة...</div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- تذييل الصفحة الرسمي -->
+    <footer class="bg-white border-t border-slate-200 mt-12 py-6 text-center text-xs text-slate-500 no-print">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-2">
+                <img src="static/images/mewa_logo.png" alt="وزارة البيئة والمياه والزراعة" class="h-6 w-auto opacity-70">
+                <span>وزارة البيئة والمياه والزراعة — وكالة الزراعة • المملكة العربية السعودية</span>
+            </div>
+            <div class="flex items-center gap-3 font-semibold text-slate-600">
+                <a href="future_portal.html" class="hover:text-mewa-700">بوابة الوضع المستقبلي</a>
+                <span>•</span>
+                <a href="future_auction.html" class="hover:text-mewa-700">المزاد الوطني</a>
+                <span>•</span>
+                <a href="future_infographic.html" class="hover:text-mewa-700">الإنفوجرافيك 4K</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function initIcons() {
+            if (typeof lucide !== 'undefined' && lucide.createIcons) lucide.createIcons();
+        }
+
+        function loadColdChain() {
+            if (window.location.protocol === 'file:' && window.FutureStaticStore) {
+                renderColdChain(window.FutureStaticStore.getColdChain());
+                return;
+            }
+
+            fetch('/api/future/coldchain')
+                .then(res => res.ok ? res.json() : Promise.reject())
+                .then(items => renderColdChain(items))
+                .catch(() => {
+                    if (window.FutureStaticStore) {
+                        renderColdChain(window.FutureStaticStore.getColdChain());
+                    }
+                });
+        }
+
+        function renderColdChain(items) {
+            const container = document.getElementById('coldchain-list');
+            if (!container) return;
+            if (!items || items.length === 0) {
+                container.innerHTML = '<div class="text-center py-10 text-slate-400 col-span-full">لا توجد شحنات تحت التتبع اللحظي حالياً</div>';
+                return;
+            }
+
+            container.innerHTML = items.map(c => {
+                const isNormal = c.temp_status === 'normal';
+
+                return `
+                <div class="bg-white rounded-2xl p-6 border ${isNormal ? 'border-slate-200' : 'border-rose-400 bg-rose-50/20'} shadow-sm space-y-5 transition naama-card border-t-4 ${isNormal ? 'border-t-mewa-600' : 'border-t-rose-600'}">
+                    
+                    <!-- الترويسة -->
+                    <div class="flex justify-between items-start border-b border-slate-100 pb-4">
+                        <div>
+                            <span class="font-mono text-xs font-bold text-mewa-800 bg-mewa-50 px-2.5 py-0.5 rounded-lg border border-mewa-200">
+                                ${c.lot_id}
+                            </span>
+                            <h3 class="text-base font-black text-slate-900 mt-1">${c.commodity}</h3>
+                            <span class="text-xs text-slate-500">${c.farmer_name} • ${Number(c.quantity).toLocaleString()} ${c.unit}</span>
+                        </div>
+                        <div class="text-left">
+                            ${isNormal ? `
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black bg-emerald-100 text-emerald-800 border border-emerald-200">
+                                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+                                تبريد سليم ومطابق
+                            </span>
+                            ` : `
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black bg-rose-100 text-rose-800 border border-rose-300 animate-pulse">
+                                <i data-lucide="alert-triangle" class="w-3.5 h-3.5"></i>
+                                تنبيه: تجاوز النطاق الآمن
+                            </span>
+                            `}
+                        </div>
+                    </div>
+
+                    <!-- قراءات الحساسات اللحظية -->
+                    <div class="grid grid-cols-3 gap-3 text-center">
+                        <div class="p-3 bg-slate-50 rounded-xl border border-slate-100">
+                            <span class="text-[11px] text-slate-400 block mb-1 font-semibold">الحرارة الحالية:</span>
+                            <div class="text-2xl font-black ${isNormal ? 'text-mewa-700' : 'text-rose-600'}">${c.current_temp}°C</div>
+                            <span class="text-[10px] text-slate-500 block">النطاق: ${c.target_temp_range}</span>
+                        </div>
+
+                        <div class="p-3 bg-slate-50 rounded-xl border border-slate-100">
+                            <span class="text-[11px] text-slate-400 block mb-1 font-semibold">الرطوبة النسبية:</span>
+                            <div class="text-2xl font-black text-slate-800">${c.current_humidity}%</div>
+                            <span class="text-[10px] text-slate-500 block">مثالية للمحصول</span>
+                        </div>
+
+                        <div class="p-3 bg-slate-50 rounded-xl border border-slate-100">
+                            <span class="text-[11px] text-slate-400 block mb-1 font-semibold">نافذة التبريد:</span>
+                            <div class="text-2xl font-black text-amber-700">${c.cold_window_hours} ساعات</div>
+                            <span class="text-[10px] text-slate-500 block">حد أقصى ملزم</span>
+                        </div>
+                    </div>
+
+                    <!-- بيانات الشاحنة والسائق والوجهة -->
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 text-xs space-y-2">
+                        <div class="flex justify-between items-center">
+                            <span class="text-slate-400">بيانات المركبة والسائق:</span>
+                            <strong class="text-slate-800">${c.driver_name} (${c.driver_phone}) • لوحة: ${c.truck_plate}</strong>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-slate-400">الموقع اللحظي (GPS):</span>
+                            <strong class="text-slate-800 flex items-center gap-1">
+                                <i data-lucide="map-pin" class="w-3.5 h-3.5 text-rose-500"></i> ${c.current_location}
+                            </strong>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-slate-400">الوجهة وموعد الوصول:</span>
+                            <strong class="text-emerald-700 font-bold">${c.destination_market} (${c.eta})</strong>
+                        </div>
+                    </div>
+
+                    <!-- أزرار المحاكاة والتفاعل -->
+                    <div class="pt-2 flex items-center justify-between text-xs">
+                        <span class="text-slate-400 font-medium flex items-center gap-1">
+                            <span class="w-2 h-2 rounded-full bg-emerald-500"></span> حساسات متصلة بالمنصة
+                        </span>
+                        <div class="flex gap-2">
+                            <button onclick="simulateSensor('${c.lot_id}', 9.2, 85, 'normal')" class="px-2.5 py-1 bg-emerald-50 text-emerald-800 hover:bg-emerald-100 rounded-lg font-bold border border-emerald-200 transition">
+                                محاكاة طبيعي (9.2°C)
+                            </button>
+                            <button onclick="simulateSensor('${c.lot_id}', 14.8, 60, 'breach')" class="px-2.5 py-1 bg-rose-50 text-rose-700 hover:bg-rose-100 rounded-lg font-bold border border-rose-200 transition">
+                                محاكاة انحراف (14.8°C)
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+                `;
+            }).join('');
+            initIcons();
+        }
+
+        async function simulateSensor(lotId, temp, hum, status) {
+            const payload = {
+                lot_id: lotId,
+                current_temp: temp,
+                current_humidity: hum,
+                temp_status: status,
+                current_location: "طريق الرياض - الخرج السريع (نقطة التفتيش 3)",
+                eta: "خلال 30 دقيقة"
+            };
+
+            try {
+                if (window.location.protocol !== 'file:') {
+                    const res = await fetch('/api/future/coldchain/update', {
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify(payload)
+                    });
+                    if (res.ok) {
+                        loadColdChain();
+                        return;
+                    }
+                }
+            } catch (err) {
+                console.log('Using static store fallback for sensor update');
+            }
+
+            if (window.FutureStaticStore) {
+                window.FutureStaticStore.updateColdChainSensor(lotId, payload);
+                loadColdChain();
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initIcons();
+            loadColdChain();
+        });
+        loadColdChain();
+    </script>
+</body>
+</html>

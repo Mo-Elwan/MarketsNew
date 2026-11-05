@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الوضع المستقبلي: مختبر الفحص والتصنيف القياسي | منصة نماء</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        mewa: {
+                            50: '#f0f9f4',
+                            100: '#dbf0e4',
+                            600: '#006837',
+                            700: '#00542c',
+                            800: '#034424',
+                            900: '#02381e',
+                        },
+                        naamaGold: {
+                            100: '#fcf8ec',
+                            300: '#edd88b',
+                            400: '#e3b84c',
+                            500: '#c59b27',
+                            600: '#a7801a',
+                        }
+                    },
+                    fontFamily: {
+                        tajawal: ['Tajawal', 'Cairo', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="static/js/future_static_store.js"></script>
+    <style>
+        body { font-family: 'Tajawal', sans-serif; background-color: #f7f9fa; }
+        .gold-line { background: linear-gradient(90deg, #c59b27 0%, #e3b84c 50%, #c59b27 100%); }
+        .naama-card {
+            background: #ffffff;
+            border: 1px solid #e9ecef;
+            box-shadow: 0 4px 20px -2px rgba(0, 104, 55, 0.05);
+            transition: all 0.25s ease-in-out;
+        }
+        .naama-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px -4px rgba(0, 104, 55, 0.1);
+            border-color: #c59b27;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="text-slate-800 min-h-screen flex flex-col antialiased">
+
+    <!-- الشريط الذهبي العلوي -->
+    <div class="h-1.5 gold-line w-full"></div>
+
+    <!-- شريط الخدمات المصغر الموحد -->
+    <div class="bg-white border-b border-slate-200/80 text-xs py-2 text-slate-500 no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center gap-4 overflow-x-auto whitespace-nowrap no-scrollbar">
+            <div class="flex items-center gap-2 flex-shrink-0">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 inline-block animate-pulse"></span>
+                <span class="font-bold text-slate-700">المملكة العربية السعودية | مختبرات الفحص والتحليل القياسي المعتمدة — الوضع المستقبلي</span>
+            </div>
+            <div class="flex items-center gap-2.5 sm:gap-3 flex-shrink-0">
+                <a href="future_portal.html" class="text-mewa-700 hover:underline font-bold flex items-center gap-1 transition text-[11px] sm:text-xs">
+                    <i data-lucide="layout-grid" class="w-3.5 h-3.5 text-mewa-600"></i> لوحة البوابات
+                </a>
+                <span class="text-slate-300">|</span>
+                <a href="portal.html" class="text-amber-800 bg-amber-50 hover:bg-amber-100 border border-amber-200 px-2.5 py-0.5 rounded-lg font-bold flex items-center gap-1 transition text-[11px] sm:text-xs">
+                    <i data-lucide="history" class="w-3.5 h-3.5 text-naamaGold-600"></i> الوضع السابق
+                </a>
+                <span class="text-slate-300">|</span>
+                <a href="future_infographic.html" class="text-mewa-700 hover:underline font-bold flex items-center gap-1 transition text-[11px] sm:text-xs">
+                    <i data-lucide="presentation" class="w-3.5 h-3.5 text-mewa-600"></i> الإنفوجرافيك 4K
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ترويسة الصفحة الرسمية الموحدة -->
+    <header class="bg-white border-b border-slate-200 shadow-sm sticky top-0 z-50 no-print">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 flex items-center justify-between h-16 sm:h-24 gap-2 sm:gap-4">
+            <div class="flex items-center gap-3">
+                <a href="future_portal.html" class="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-mewa-50 text-mewa-800 hover:bg-mewa-700 hover:text-white border border-mewa-200 flex items-center justify-center transition shadow-xs" title="العودة للبوابة الرئيسية">
+                    <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                </a>
+                <a href="future_portal.html" class="flex items-center gap-2 sm:gap-4 min-w-0">
+                    <img src="static/images/mewa_logo.png" alt="وزارة البيئة والمياه والزراعة" class="h-10 sm:h-16 w-auto object-contain flex-shrink-0">
+                    <div class="border-r-2 border-slate-200 pr-2.5 sm:pr-4 flex flex-col justify-center min-w-0">
+                        <h1 class="text-sm sm:text-xl md:text-2xl font-black text-mewa-800 tracking-tight leading-tight truncate">مختبر الفحص والتصنيف القياسي</h1>
+                        <p class="hidden md:block text-[11px] sm:text-xs text-slate-500 font-medium leading-tight mt-0.5 truncate">إصدار شهادات الرتب الرقمية وتحديد الأسعار المرجعية قبل المزايدة</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <img src="static/images/naama_logo.png" alt="منصة نماء" class="h-8 sm:h-12 w-auto object-contain">
+                <div class="h-8 w-px bg-slate-200 hidden sm:block"></div>
+                <span class="hidden sm:inline-flex px-3 py-1 rounded-full text-xs font-black bg-emerald-50 text-emerald-800 border border-emerald-200">
+                    <i data-lucide="flask-conical" class="w-3.5 h-3.5 inline ml-1 text-emerald-600"></i> مختبر معتمد بالبوابة
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow w-full space-y-6">
+
+        <!-- تابات التنقل الموحدة بين المستفيدين الثلاثة -->
+        <div class="bg-white p-1.5 sm:p-2 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-2 overflow-x-auto no-scrollbar scroll-smooth">
+            <a href="future_farmer_lots.html" class="shrink-0 px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black transition flex items-center justify-center gap-2 whitespace-nowrap text-slate-700 hover:text-mewa-800 hover:bg-slate-100/70 border border-transparent">
+                <i data-lucide="sprout" class="w-4 h-4 text-emerald-600"></i>
+                <span>المزارع والمنتج الزراعي</span>
+            </a>
+            <a href="future_auction.html" class="shrink-0 px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black transition flex items-center justify-center gap-2 whitespace-nowrap text-slate-700 hover:text-mewa-800 hover:bg-slate-100/70 border border-transparent">
+                <i data-lucide="shopping-cart" class="w-4 h-4 text-emerald-600"></i>
+                <span>المشتري والتاجر والتموين</span>
+            </a>
+            <a href="future_assaying.html" class="shrink-0 px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black transition flex items-center justify-center gap-2 whitespace-nowrap bg-mewa-700 text-white shadow-sm border border-mewa-800">
+                <i data-lucide="shield-check" class="w-4 h-4 text-naamaGold-300"></i>
+                <span>إدارة السوق والرقابة والوزارة (نشط)</span>
+            </a>
+            <a href="future_portal.html" class="shrink-0 px-3 sm:px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition flex items-center justify-center gap-1.5 whitespace-nowrap text-slate-500 hover:text-slate-800 hover:bg-slate-100/70 border border-transparent mr-auto">
+                <i data-lucide="layout-grid" class="w-3.5 h-3.5"></i>
+                <span>لوحة المنظومة الشاملة</span>
+            </a>
+        </div>
+
+        <!-- بنر تعريفي بمختبر الفحص بهوية نما -->
+        <div class="relative bg-gradient-to-r from-mewa-900 via-mewa-800 to-mewa-700 rounded-2xl p-6 text-white shadow-md border-b-4 border-naamaGold-500 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="space-y-2 max-w-2xl">
+                <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-white/10 text-xs font-bold text-emerald-200">
+                    <i data-lucide="check-check" class="w-3.5 h-3.5"></i> الفحص المعتمد أساس الثقة والمزايدة الرقمية عن بُعد
+                </div>
+                <h2 class="text-xl sm:text-2xl font-black">مختبر الجودة والتحليل القياسي لأسواق النفع العام</h2>
+                <p class="text-xs sm:text-sm text-emerald-100 leading-relaxed font-normal">
+                    لا تكتمل الشفافية بدون فحص معتمد. يتم سحب عينات عشوائية من كل دفعة فور وصولها لبوابة السوق وقياس الرطوبة، النقاوة، ونسبة العيوب، لإصدار شهادة جودة رقمية تحدد رتبة المحصول وتُعلن في المزاد قبل بدء المزايدة مع السعر الاسترشادي.
+                </p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/20 text-center flex-shrink-0">
+                <div class="text-xs text-emerald-200 font-bold">نسبة إلزامية الفحص بالبوابة</div>
+                <div class="text-3xl font-black text-naamaGold-400">100%</div>
+                <div class="text-[11px] text-emerald-100">فحص فوري قبل فتح المزاد للمشترين</div>
+            </div>
+        </div>
+
+        <!-- قسم العمليات: نموذج الفحص + قائمة الشهادات الصادرة -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <!-- نموذج إدخال نتائج الفحص (عمود 1) -->
+            <div class="lg:col-span-1 bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-5 naama-card border-t-4 border-t-mewa-600">
+                <div class="flex items-center gap-2 border-b border-slate-100 pb-3">
+                    <div class="w-10 h-10 rounded-xl bg-mewa-50 text-mewa-700 flex items-center justify-center font-bold border border-mewa-100">
+                        <i data-lucide="flask-conical" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-black text-slate-900">تسجيل نتائج الفحص المخبري</h3>
+                        <p class="text-[11px] text-slate-500">إصدار الشهادة وتحديد السعر المرجعي</p>
+                    </div>
+                </div>
+
+                <form id="assaying-form" onsubmit="submitAssaying(event)" class="space-y-4 text-xs">
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">اختيار الدفعة الواصلة للبوابة</label>
+                        <select id="a_lot_id" required onchange="handleLotSelect(this.value)" class="w-full px-3 py-2.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-mewa-600 focus:outline-none font-bold text-slate-800 bg-slate-50/50">
+                            <option value="">-- جاري تحميل الدفعات --</option>
+                        </select>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label class="block font-bold text-slate-700 mb-1">اسم المفتش / الفاحص</label>
+                            <input type="text" id="a_inspector" required value="م. عبد العزيز الدوسري" class="w-full px-3 py-2 border border-slate-200 rounded-xl focus:ring-2 focus:ring-mewa-600 focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block font-bold text-slate-700 mb-1">المختبر المعتمد</label>
+                            <input type="text" id="a_lab" required value="مختبر الجودة المركزي - الرياض" class="w-full px-3 py-2 border border-slate-200 rounded-xl focus:ring-2 focus:ring-mewa-600 focus:outline-none">
+                        </div>
+                    </div>
+
+                    <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-3">
+                        <div class="font-bold text-slate-800 text-[11px] flex items-center gap-1">
+                            <i data-lucide="sliders" class="w-3.5 h-3.5 text-mewa-600"></i> المعايير الفيزيائية والمخبرية:
+                        </div>
+                        
+                        <div class="grid grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-slate-600 mb-1">نسبة الرطوبة (%)</label>
+                                <input type="number" step="0.1" id="a_moisture" required value="88.5" class="w-full px-2.5 py-1.5 border border-slate-200 rounded-lg bg-white focus:ring-1 focus:ring-mewa-600">
+                            </div>
+                            <div>
+                                <label class="block text-slate-600 mb-1">نسبة النقاوة (%)</label>
+                                <input type="number" step="0.1" id="a_purity" required value="99.2" class="w-full px-2.5 py-1.5 border border-slate-200 rounded-lg bg-white focus:ring-1 focus:ring-mewa-600">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-slate-600 mb-1">نسبة العيوب والتلف (%)</label>
+                                <input type="number" step="0.1" id="a_defect" required value="1.2" class="w-full px-2.5 py-1.5 border border-slate-200 rounded-lg bg-white focus:ring-1 focus:ring-mewa-600">
+                            </div>
+                            <div>
+                                <label class="block text-slate-600 mb-1">درجة الحلاوة (Brix)</label>
+                                <input type="number" step="0.1" id="a_brix" value="5.8" class="w-full px-2.5 py-1.5 border border-slate-200 rounded-lg bg-white focus:ring-1 focus:ring-mewa-600">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label class="block font-bold text-slate-700 mb-1">رتبة الجودة الممنوحة</label>
+                            <select id="a_grade" required onchange="updateRefPrice(this.value)" class="w-full px-3 py-2 border border-slate-200 rounded-xl focus:ring-2 focus:ring-mewa-600 focus:outline-none font-black text-mewa-900 bg-mewa-50/50">
+                                <option value="نخب أول ممتاز (Grade A)">نخب أول ممتاز (Grade A)</option>
+                                <option value="نخب ثاني (Grade B)">نخب ثاني (Grade B)</option>
+                                <option value="نخب ثالث (Grade C)">نخب ثالث (Grade C)</option>
+                                <option value="مرفوض (غير مطابق)">مرفوض (غير مطابق)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block font-bold text-slate-700 mb-1">السعر المرجعي (ر.س)</label>
+                            <input type="number" step="0.25" id="a_ref_price" required value="18.50" class="w-full px-3 py-2 border border-slate-200 rounded-xl focus:ring-2 focus:ring-mewa-600 focus:outline-none font-black text-emerald-800 bg-emerald-50/50">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">ملاحظات الفاحص وتوصية التبريد</label>
+                        <textarea id="a_notes" rows="2" class="w-full px-3 py-2 border border-slate-200 rounded-xl focus:ring-2 focus:ring-mewa-600 focus:outline-none">مطابق للمواصفات القياسية السعودية، خالي من بقايا المبيدات، ينصح بدرجة حرارة نقل 8-10 مئوية.</textarea>
+                    </div>
+
+                    <button type="submit" class="w-full py-3 bg-mewa-700 hover:bg-mewa-800 text-white font-black rounded-xl shadow-md transition flex items-center justify-center gap-2">
+                        <i data-lucide="award" class="w-4 h-4 text-naamaGold-300"></i> إصدار الشهادة واعتماد الرتبة
+                    </button>
+                </form>
+            </div>
+
+            <!-- قائمة الشهادات الصادرة والدفعات المفحوصة (عمودين 2 و 3) -->
+            <div class="lg:col-span-2 space-y-4">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h3 class="text-base sm:text-lg font-black text-slate-900">سجل شهادات الفحص المخبري المعتمدة</h3>
+                        <p class="text-xs text-slate-500">الشهادات الصادرة تظهر فوراً في قاعة المزاد الوطني الإلكتروني</p>
+                    </div>
+                    <button onclick="loadAssayingLots()" class="text-xs font-bold text-mewa-700 hover:text-mewa-800 bg-white border border-slate-200 hover:border-mewa-600 px-3 py-1.5 rounded-xl transition flex items-center gap-1.5 shadow-xs">
+                        <i data-lucide="refresh-cw" class="w-3.5 h-3.5 text-mewa-600"></i> تحديث
+                    </button>
+                </div>
+
+                <div class="space-y-3" id="certificates-list">
+                    <div class="text-center py-12 text-slate-400">جاري تحميل الشهادات...</div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- تذييل الصفحة الرسمي -->
+    <footer class="bg-white border-t border-slate-200 mt-12 py-6 text-center text-xs text-slate-500 no-print">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-2">
+                <img src="static/images/mewa_logo.png" alt="وزارة البيئة والمياه والزراعة" class="h-6 w-auto opacity-70">
+                <span>وزارة البيئة والمياه والزراعة — وكالة الزراعة • المملكة العربية السعودية</span>
+            </div>
+            <div class="flex items-center gap-3 font-semibold text-slate-600">
+                <a href="future_portal.html" class="hover:text-mewa-700">بوابة الوضع المستقبلي</a>
+                <span>•</span>
+                <a href="future_oversight.html" class="hover:text-mewa-700">غرفة الرقابة وفض النزاعات</a>
+                <span>•</span>
+                <a href="future_infographic.html" class="hover:text-mewa-700">الإنفوجرافيك 4K</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function initIcons() {
+            if (typeof lucide !== 'undefined' && lucide.createIcons) lucide.createIcons();
+        }
+
+        let allLots = [];
+
+        async function loadAssayingLots() {
+            try {
+                if (window.location.protocol !== 'file:') {
+                    const res = await fetch('/api/future/lots');
+                    if (res.ok) {
+                        allLots = await res.json();
+                        populateSelect(allLots);
+                        renderCertificates(allLots);
+                        return;
+                    }
+                }
+            } catch (e) {
+                console.log('Using static store fallback for assaying lots');
+            }
+
+            if (window.FutureStaticStore) {
+                allLots = window.FutureStaticStore.getLots();
+                populateSelect(allLots);
+                renderCertificates(allLots);
+            }
+        }
+
+        function populateSelect(lots) {
+            const select = document.getElementById('a_lot_id');
+            if (!select) return;
+            select.innerHTML = '<option value="">-- اختر الدفعة المراد فحصها --</option>' +
+                lots.map(l => `<option value="${l.lot_id}">[${l.lot_id}] ${l.commodity} - ${l.farmer_name} (${Number(l.quantity).toLocaleString()} ${l.unit})</option>`).join('');
+        }
+
+        function handleLotSelect(lotId) {
+            const lot = allLots.find(l => l.lot_id === lotId);
+            if (!lot) return;
+            if (lot.commodity.includes('طماطم')) {
+                document.getElementById('a_moisture').value = 89.2;
+                document.getElementById('a_purity').value = 99.4;
+                document.getElementById('a_defect').value = 1.1;
+                document.getElementById('a_brix').value = 5.6;
+                document.getElementById('a_ref_price').value = 18.50;
+                document.getElementById('a_notes').value = "مطابق لاشتراطات سعودي جاب، صلابة ممتازة، لا توجد لسعات شمس، جاهز للتبريد المباشر.";
+            } else if (lot.commodity.includes('بطاطس')) {
+                document.getElementById('a_moisture').value = 78.5;
+                document.getElementById('a_purity').value = 98.8;
+                document.getElementById('a_defect').value = 1.8;
+                document.getElementById('a_brix').value = 0.0;
+                document.getElementById('a_ref_price').value = 2.40;
+                document.getElementById('a_notes').value = "درنات مائدة صلبة خالية من العفن، أقطار متجانسة بين 70-85 ملم.";
+            } else if (lot.commodity.includes('تمر')) {
+                document.getElementById('a_moisture').value = 14.5;
+                document.getElementById('a_purity').value = 99.7;
+                document.getElementById('a_defect').value = 0.4;
+                document.getElementById('a_brix').value = 68.0;
+                document.getElementById('a_ref_price').value = 185.00;
+                document.getElementById('a_notes').value = "خلاص فاخر مكنوز بحبة ملكية جامبو، لون أشقر متجانس ونسبة سكر ممتازة.";
+            } else if (lot.commodity.includes('خيار')) {
+                document.getElementById('a_moisture').value = 95.0;
+                document.getElementById('a_purity').value = 99.1;
+                document.getElementById('a_defect').value = 0.8;
+                document.getElementById('a_brix').value = 3.2;
+                document.getElementById('a_ref_price').value = 16.00;
+                document.getElementById('a_notes').value = "خيار بيوت محمية نخب أول، طازج قطاف الفجر، لا توجد انحناءات مفرطة.";
+            }
+        }
+
+        function updateRefPrice(grade) {
+            let base = parseFloat(document.getElementById('a_ref_price').value);
+            if (grade.includes('A')) base = Math.max(base, base);
+            else if (grade.includes('B')) base = base * 0.85;
+            else if (grade.includes('C')) base = base * 0.70;
+            document.getElementById('a_ref_price').value = base.toFixed(2);
+        }
+
+        function renderCertificates(lots) {
+            const container = document.getElementById('certificates-list');
+            if (!container) return;
+            const certifiedLots = lots.filter(l => l.assaying);
+
+            if (certifiedLots.length === 0) {
+                container.innerHTML = '<div class="text-center py-10 text-slate-400">لا توجد شهادات فحص صادرة حتى الآن</div>';
+                return;
+            }
+
+            container.innerHTML = certifiedLots.map(lot => {
+                const a = lot.assaying;
+                return `
+                <div class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-sm space-y-4 hover:border-mewa-600 transition naama-card border-t-4 border-t-mewa-600">
+                    <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2 border-b border-slate-100 pb-3">
+                        <div class="flex items-center gap-3">
+                            <span class="px-3 py-1 rounded-xl text-xs font-black bg-mewa-700 text-white shadow-sm border border-mewa-800">
+                                ${a.quality_grade}
+                            </span>
+                            <div>
+                                <span class="font-black text-sm text-slate-900">${lot.commodity}</span>
+                                <span class="text-xs text-slate-400 font-mono block">رقم الدفعة: ${lot.lot_id} | شهادة رقم: ${a.certificate_no}</span>
+                            </div>
+                        </div>
+                        <div class="text-left">
+                            <span class="text-[11px] text-slate-400 block">السعر المرجعي اليومي:</span>
+                            <span class="text-base font-black text-emerald-700">${a.reference_price} ر.س / ${lot.unit}</span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs">
+                        <div>
+                            <span class="text-slate-400 block">نسبة الرطوبة:</span>
+                            <span class="font-bold text-slate-800">${a.moisture_pct}%</span>
+                        </div>
+                        <div>
+                            <span class="text-slate-400 block">نسبة النقاوة:</span>
+                            <span class="font-bold text-emerald-700 font-black">${a.purity_pct}%</span>
+                        </div>
+                        <div>
+                            <span class="text-slate-400 block">نسبة العيوب:</span>
+                            <span class="font-bold text-rose-700">${a.defect_pct}%</span>
+                        </div>
+                        <div>
+                            <span class="text-slate-400 block">الصلابة / بريكس:</span>
+                            <span class="font-bold text-slate-800">${a.sugar_brix > 0 ? a.sugar_brix + ' Brix' : 'قياسي'}</span>
+                        </div>
+                    </div>
+
+                    <div class="text-xs text-slate-600 bg-mewa-50/50 p-2.5 rounded-xl border border-mewa-100/60 flex items-start gap-2">
+                        <i data-lucide="file-check-2" class="w-4 h-4 text-mewa-700 flex-shrink-0 mt-0.5"></i>
+                        <div>
+                            <strong class="text-mewa-900">تقرير المفتش (${a.inspector_name}):</strong> ${a.inspection_notes}
+                            <div class="text-[10px] text-slate-400 mt-0.5">المختبر: ${a.lab_name} • فحص وتوثيق رقمي رسمي معتمد</div>
+                        </div>
+                    </div>
+                </div>
+                `;
+            }).join('');
+            initIcons();
+        }
+
+        async function submitAssaying(e) {
+            e.preventDefault();
+            const lotId = document.getElementById('a_lot_id').value;
+            if (!lotId) {
+                alert('الرجاء اختيار الدفعة');
+                return;
+            }
+
+            const payload = {
+                lot_id: lotId,
+                inspector_name: document.getElementById('a_inspector').value,
+                lab_name: document.getElementById('a_lab').value,
+                moisture_pct: parseFloat(document.getElementById('a_moisture').value),
+                purity_pct: parseFloat(document.getElementById('a_purity').value),
+                defect_pct: parseFloat(document.getElementById('a_defect').value),
+                sugar_brix: parseFloat(document.getElementById('a_brix').value || 0),
+                quality_grade: document.getElementById('a_grade').value,
+                reference_price: parseFloat(document.getElementById('a_ref_price').value),
+                inspection_notes: document.getElementById('a_notes').value
+            };
+
+            try {
+                if (window.location.protocol !== 'file:') {
+                    const res = await fetch('/api/future/assaying', {
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify(payload)
+                    });
+                    if (res.ok) {
+                        const data = await res.json();
+                        alert(data.message);
+                        loadAssayingLots();
+                        return;
+                    }
+                }
+            } catch (err) {
+                console.log('Using static store fallback for assaying submission');
+            }
+
+            if (window.FutureStaticStore) {
+                const cert = window.FutureStaticStore.addAssaying(payload);
+                alert(`تم بنجاح اعتماد الفحص وإصدار شهادة الرتبة (${cert.certificate_no}) للدفعة ${payload.lot_id}`);
+                loadAssayingLots();
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initIcons();
+            loadAssayingLots();
+        });
+        loadAssayingLots();
+    </script>
+</body>
+</html>

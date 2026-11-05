@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الوضع المستقبلي: بوابة المزارع والمنتج الزراعي | منصة نماء</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        mewa: {
+                            50: '#f0f9f4',
+                            100: '#dbf0e4',
+                            600: '#006837',
+                            700: '#00542c',
+                            800: '#034424',
+                            900: '#02381e',
+                        },
+                        naamaGold: {
+                            100: '#fcf8ec',
+                            300: '#edd88b',
+                            400: '#e3b84c',
+                            500: '#c59b27',
+                            600: '#a7801a',
+                        }
+                    },
+                    fontFamily: {
+                        tajawal: ['Tajawal', 'Cairo', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="static/js/qrcode.min.js"></script>
+    <script src="static/js/future_static_store.js"></script>
+    <style>
+        body { font-family: 'Tajawal', sans-serif; background-color: #f7f9fa; }
+        .gold-line { background: linear-gradient(90deg, #c59b27 0%, #e3b84c 50%, #c59b27 100%); }
+        .naama-card {
+            background: #ffffff;
+            border: 1px solid #e9ecef;
+            box-shadow: 0 4px 20px -2px rgba(0, 104, 55, 0.05);
+            transition: all 0.25s ease-in-out;
+        }
+        .naama-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px -4px rgba(0, 104, 55, 0.08);
+            border-color: #c59b27;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="text-slate-800 min-h-screen flex flex-col antialiased">
+
+    <!-- الشريط الذهبي العلوي -->
+    <div class="h-1.5 gold-line w-full"></div>
+
+    <!-- شريط الخدمات المصغر الموحد -->
+    <div class="bg-white border-b border-slate-200/80 text-xs py-2 text-slate-500 no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center gap-4 overflow-x-auto whitespace-nowrap no-scrollbar">
+            <div class="flex items-center gap-2 flex-shrink-0">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 inline-block animate-pulse"></span>
+                <span class="font-bold text-slate-700">المملكة العربية السعودية | بوابة المزارع والمنتج الزراعي — الوضع المستقبلي</span>
+            </div>
+            <div class="flex items-center gap-2.5 sm:gap-3 flex-shrink-0">
+                <a href="future_portal.html" class="text-mewa-700 hover:underline font-bold flex items-center gap-1 transition text-[11px] sm:text-xs">
+                    <i data-lucide="layout-grid" class="w-3.5 h-3.5 text-mewa-600"></i> لوحة البوابات
+                </a>
+                <span class="text-slate-300">|</span>
+                <a href="portal.html" class="text-amber-800 bg-amber-50 hover:bg-amber-100 border border-amber-200 px-2.5 py-0.5 rounded-lg font-bold flex items-center gap-1 transition text-[11px] sm:text-xs">
+                    <i data-lucide="history" class="w-3.5 h-3.5 text-naamaGold-600"></i> الوضع السابق
+                </a>
+                <span class="text-slate-300">|</span>
+                <a href="future_infographic.html" class="text-mewa-700 hover:underline font-bold flex items-center gap-1 transition text-[11px] sm:text-xs">
+                    <i data-lucide="presentation" class="w-3.5 h-3.5 text-mewa-600"></i> الإنفوجرافيك 4K
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ترويسة الصفحة الرسمية الموحدة -->
+    <header class="bg-white border-b border-slate-200 shadow-sm sticky top-0 z-50 no-print">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 flex items-center justify-between h-16 sm:h-24 gap-2 sm:gap-4">
+            <div class="flex items-center gap-3">
+                <a href="future_portal.html" class="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-mewa-50 text-mewa-800 hover:bg-mewa-700 hover:text-white border border-mewa-200 flex items-center justify-center transition shadow-xs">
+                    <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                </a>
+                <a href="future_portal.html" class="flex items-center gap-2 sm:gap-4 min-w-0">
+                    <img src="static/images/mewa_logo.png" alt="وزارة البيئة والمياه والزراعة" class="h-10 sm:h-16 w-auto object-contain flex-shrink-0">
+                    <div class="border-r-2 border-slate-200 pr-2.5 sm:pr-4 flex flex-col justify-center min-w-0">
+                        <h1 class="text-sm sm:text-xl md:text-2xl font-black text-mewa-800 tracking-tight leading-tight truncate">بوابة المزارع والمنتج الزراعي</h1>
+                        <p class="hidden md:block text-[11px] sm:text-xs text-slate-500 font-medium leading-tight mt-0.5 truncate">إدارة الدفعات، كود الهوية الرقمي (Lot ID)، وتصريح البوابة الذكية</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <img src="static/images/naama_logo.png" alt="منصة نماء" class="h-8 sm:h-12 w-auto object-contain">
+                <div class="h-8 w-px bg-slate-200 hidden sm:block"></div>
+                <span class="hidden sm:inline-flex px-3 py-1 rounded-full text-xs font-black bg-emerald-50 text-emerald-800 border border-emerald-200">
+                    نظام سعودي جاب المعتمد
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow w-full space-y-6">
+
+        <!-- تابات التنقل الموحدة بين المستفيدين الثلاثة -->
+        <div class="bg-white p-1.5 sm:p-2 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-2 overflow-x-auto no-scrollbar scroll-smooth">
+            <a href="future_farmer_lots.html" class="shrink-0 px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black transition flex items-center justify-center gap-2 whitespace-nowrap bg-mewa-700 text-white shadow-sm border border-mewa-800">
+                <i data-lucide="sprout" class="w-4 h-4 text-naamaGold-300"></i>
+                <span>المزارع والمنتج الزراعي (نشط)</span>
+            </a>
+            <a href="future_auction.html" class="shrink-0 px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black transition flex items-center justify-center gap-2 whitespace-nowrap text-slate-700 hover:text-mewa-800 hover:bg-slate-100/70 border border-transparent">
+                <i data-lucide="shopping-cart" class="w-4 h-4 text-emerald-600"></i>
+                <span>المشتري والتاجر والتموين</span>
+            </a>
+            <a href="future_oversight.html" class="shrink-0 px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black transition flex items-center justify-center gap-2 whitespace-nowrap text-slate-700 hover:text-mewa-800 hover:bg-slate-100/70 border border-transparent">
+                <i data-lucide="shield-check" class="w-4 h-4 text-naamaGold-600"></i>
+                <span>إدارة السوق والرقابة والوزارة</span>
+            </a>
+            <a href="future_portal.html" class="shrink-0 px-3 sm:px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition flex items-center justify-center gap-1.5 whitespace-nowrap text-slate-500 hover:text-slate-800 hover:bg-slate-100/70 border border-transparent mr-auto">
+                <i data-lucide="layout-grid" class="w-3.5 h-3.5"></i>
+                <span>لوحة المنظومة الشاملة</span>
+            </a>
+        </div>
+
+        <!-- بنر ترحيبي وإحصائي بهوية نما -->
+        <div class="relative bg-gradient-to-r from-mewa-900 via-mewa-800 to-mewa-700 rounded-2xl p-6 text-white shadow-md border-b-4 border-naamaGold-500 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="space-y-2 max-w-2xl">
+                <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-white/10 text-xs font-bold text-emerald-200">
+                    <i data-lucide="shield-check" class="w-3.5 h-3.5"></i> توثيق رسمي يحفظ حقوق المزارعين
+                </div>
+                <h2 class="text-xl sm:text-2xl font-black">تسجيل الشحنة الزراعية وحجز مسار الدخول الذكي</h2>
+                <p class="text-xs sm:text-sm text-emerald-100 leading-relaxed font-normal">
+                    من خلال إصدار الهوية الرقمية للدفعة (Lot ID) قبل انطلاق الشاحنة من المزرعة، يتم تخصيص مسار سريع في بوابة سوق النفع العام، وإشعار مختبر الجودة لتجهيز فحص المطابقة، وضمان دخول الدفعة مباشرة في المزاد الوطني الموحد دون الحاجة لوسطاء مجهولين.
+                </p>
+            </div>
+            <div class="flex gap-4 text-center flex-shrink-0">
+                <div class="bg-white/10 backdrop-blur-md p-3.5 rounded-xl border border-white/20">
+                    <div class="text-xl font-black text-amber-300" id="stat-total-lots">5 دفعات</div>
+                    <div class="text-[11px] text-emerald-100 font-bold">إجمالي دفعاتك</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md p-3.5 rounded-xl border border-white/20">
+                    <div class="text-xl font-black text-emerald-300" id="stat-auction-lots">3 دفعات</div>
+                    <div class="text-[11px] text-emerald-100 font-bold">في المزاد الحي</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <!-- نموذج تسجيل دفعة جديدة (عمود 1) -->
+            <div class="lg:col-span-1 bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-5 border-t-4 border-t-mewa-600 naama-card">
+                <div class="flex items-center gap-2 border-b border-slate-100 pb-3">
+                    <div class="w-8 h-8 rounded-lg bg-mewa-50 text-mewa-700 flex items-center justify-center font-bold">
+                        <i data-lucide="package-plus" class="w-4 h-4"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-black text-slate-900">تسجيل دفعة محصول جديدة</h3>
+                        <p class="text-[11px] text-slate-500">إصدار رمز التعقب الذكي Lot Digital ID</p>
+                    </div>
+                </div>
+
+                <form id="new-lot-form" onsubmit="submitNewLot(event)" class="space-y-4 text-xs">
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">اسم المزارع / المؤسسة</label>
+                        <input type="text" id="f_farmer_name" required value="مزارع القصيم النموذجية" class="w-full px-3 py-2 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:outline-none">
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label class="block font-bold text-slate-700 mb-1">رقم الجوال (نفاذ)</label>
+                            <input type="text" id="f_farmer_phone" required value="0551122334" class="w-full px-3 py-2 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block font-bold text-slate-700 mb-1">موقع المزرعة</label>
+                            <input type="text" id="f_farm_location" required value="بريدة - منطقة القصيم" class="w-full px-3 py-2 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:outline-none">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">رقم ترخيص / شهادة سعودي جاب</label>
+                        <input type="text" id="f_saudi_gap" required value="GAP-SA-2026-6655" class="w-full px-3 py-2 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:outline-none font-mono">
+                    </div>
+
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">المحصول الزراعي والصنف</label>
+                        <select id="f_commodity" required class="w-full px-3 py-2 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:outline-none font-bold">
+                            <option value="طماطم محمية قطاف اليوم">طماطم محمية قطاف اليوم (المرحلة 1: سريع التلف)</option>
+                            <option value="خيار بيوت محمية نخب أول">خيار بيوت محمية (المرحلة 1: سريع التلف)</option>
+                            <option value="بطاطس مائدة صنف سبونتا">بطاطس مائدة حائلي (المرحلة 2: متوسط التلف)</option>
+                            <option value="بصل أحمر قصيمي مجفف">بصل أحمر قصيمي (المرحلة 2: متوسط التلف)</option>
+                            <option value="تمر خلاص الأحساء الفاخر">تمر خلاص الأحساء الفاخر (المرحلة 3: قابل للتخزين)</option>
+                            <option value="حبحب وادي الدواسر أحمر">حبحب وادي الدواسر أحمر (المرحلة 1: سريع التلف)</option>
+                        </select>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label class="block font-bold text-slate-700 mb-1">الكمية الإجمالية</label>
+                            <input type="number" id="f_quantity" required value="1500" step="1" class="w-full px-3 py-2 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block font-bold text-slate-700 mb-1">وحدة التعبئة</label>
+                            <select id="f_unit" required class="w-full px-3 py-2 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:outline-none font-bold">
+                                <option value="صندوق (6 كجم)">صندوق (6 كجم)</option>
+                                <option value="كرتون (8 كجم)">كرتون (8 كجم)</option>
+                                <option value="كيس شبكي (15 كجم)">كيس شبكي (15 كجم)</option>
+                                <option value="كرتون (3 كجم)">كرتون (3 كجم)</option>
+                                <option value="طن متري">طن متري</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">سوق النفع العام المستهدف</label>
+                        <select id="f_market" required class="w-full px-3 py-2 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:outline-none font-bold">
+                            <option value="سوق العزيزية المركزي - الرياض">سوق العزيزية المركزي - الرياض (بوابة 1)</option>
+                            <option value="سوق الخضار والفواكه المركزي - بريدة">سوق الخضار والفواكه المركزي - بريدة</option>
+                            <option value="سوق الخضار المركزي بالصفا - جدة">سوق الخضار المركزي بالصفا - جدة</option>
+                            <option value="سوق التمور والخضار المركزي - الأحساء">سوق التمور والخضار المركزي - الأحساء</option>
+                            <option value="سوق الخضار المركزي - الدمام">سوق الخضار المركزي - الدمام</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">موعد الوصول المجدول للبوابة</label>
+                        <input type="datetime-local" id="f_arrival" required class="w-full px-3 py-2 border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:outline-none">
+                    </div>
+
+                    <button type="submit" class="w-full py-3 bg-mewa-700 hover:bg-mewa-800 text-white font-black rounded-xl shadow-md transition flex items-center justify-center gap-2">
+                        <i data-lucide="check-circle" class="w-4 h-4"></i> إصدار الهوية وحجز البوابة
+                    </button>
+                </form>
+            </div>
+
+            <!-- سجل الدفعات المسجلة والهوية الرقمية (عمودين 2 و 3) -->
+            <div class="lg:col-span-2 space-y-4">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h3 class="text-base sm:text-lg font-black text-slate-900">سجل الدفعات النشطة والهوية الرقمية</h3>
+                        <p class="text-xs text-slate-500">متابعة مسار الدفعة من البوابة حتى صرف المستحقات البنكية</p>
+                    </div>
+                    <button onclick="loadLots()" class="text-xs font-bold text-mewa-700 hover:underline flex items-center gap-1">
+                        <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i> تحديث
+                    </button>
+                </div>
+
+                <div class="space-y-3" id="lots-list">
+                    <div class="text-center py-12 text-slate-400">جاري تحميل الدفعات...</div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- نافذة منبثقة لعرض وطباعة رمز الدفعة الرقمي QR Pass -->
+    <div id="qr-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 space-y-6 shadow-2xl border border-slate-100 text-center">
+            <div class="flex justify-between items-center">
+                <span class="text-xs font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full">تصريح دخول البوابة الذكية</span>
+                <button onclick="closeQrModal()" class="text-slate-400 hover:text-slate-700">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+
+            <div class="space-y-1">
+                <h3 class="text-lg font-black text-slate-900" id="qr-lot-id">LOT-SA-2026-0001</h3>
+                <p class="text-xs text-slate-500" id="qr-commodity">طماطم محمية قطاف اليوم</p>
+            </div>
+
+            <div class="p-4 bg-slate-50 rounded-2xl inline-block border border-slate-200">
+                <canvas id="qr-canvas" class="mx-auto"></canvas>
+            </div>
+
+            <div class="text-xs text-slate-600 bg-amber-50 p-3 rounded-xl border border-amber-200 text-right space-y-1">
+                <div class="font-bold text-amber-900 flex items-center gap-1">
+                    <i data-lucide="info" class="w-3.5 h-3.5"></i> تعليمات السائق عند الوصول:
+                </div>
+                <div>• التوجه مباشرة للمسار السريع (بوابة المزارعين المعتمدين).</div>
+                <div>• مسح الرمز عند قارئ البوابة لفتح الحاجز الآلي والوزن التلقائي.</div>
+                <div>• أخذ عينة الفحص في مختبر السوق خلال 15 دقيقة من الوصول.</div>
+            </div>
+
+            <button onclick="window.print()" class="w-full py-2.5 bg-mewa-700 hover:bg-mewa-800 text-white text-xs font-bold rounded-xl transition flex items-center justify-center gap-2">
+                <i data-lucide="printer" class="w-4 h-4"></i> طباعة تصريح الدخول والملصق
+            </button>
+        </div>
+    </div>
+
+    <!-- الفوتر الرسمي -->
+    <footer class="bg-white border-t border-slate-200 mt-12 py-6 text-xs text-slate-500 no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-2">
+                <img src="static/images/naama_logo.png" alt="نماء" class="h-6 w-auto">
+                <span class="font-bold text-slate-700">منظومة أسواق النفع العام — بوابة المزارعين</span>
+                <span>•</span>
+                <span>وزارة البيئة والمياه والزراعة</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="future_portal.html" class="hover:text-emerald-700 transition">لوحة البوابات</a>
+                <a href="future_auction.html" class="hover:text-emerald-700 transition font-bold text-emerald-700">قاعة المزاد الوطني</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        if (typeof lucide !== 'undefined' && lucide.createIcons) lucide.createIcons();
+
+        // ضبط التوقيت التلقائي لموعد الوصول بعد ساعتين
+        const now = new Date();
+        now.setHours(now.getHours() + 2);
+        document.getElementById('f_arrival').value = now.toISOString().slice(0, 16);
+
+        function loadLots() {
+            if (window.location.protocol === 'file:' && window.FutureStaticStore) {
+                renderLots(window.FutureStaticStore.getLots());
+                return;
+            }
+
+            fetch('/api/future/lots')
+                .then(res => res.ok ? res.json() : Promise.reject())
+                .then(lots => renderLots(lots))
+                .catch(() => {
+                    if (window.FutureStaticStore) {
+                        renderLots(window.FutureStaticStore.getLots());
+                    }
+                });
+        }
+
+        function renderLots(lots) {
+            const container = document.getElementById('lots-list');
+            document.getElementById('stat-total-lots').innerText = lots.length + ' دفعات';
+            
+            let auctionCount = 0;
+            lots.forEach(l => { if (l.status === 'auction_active') auctionCount++; });
+            document.getElementById('stat-auction-lots').innerText = auctionCount + ' دفعات';
+
+            if (lots.length === 0) {
+                container.innerHTML = '<div class="text-center py-10 text-slate-400">لا توجد دفعات مسجلة حالياً</div>';
+                return;
+            }
+
+            container.innerHTML = lots.map(lot => {
+                let statusBadge = '';
+                if (lot.status === 'registered') statusBadge = '<span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-slate-100 text-slate-700">1. مسجلة مسبقاً</span>';
+                else if (lot.status === 'graded') statusBadge = '<span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-blue-100 text-blue-800">2. تم الفحص والتصنيف</span>';
+                else if (lot.status === 'auction_active') statusBadge = '<span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-100 text-amber-800 animate-pulse">3. في المزاد اللحظي</span>';
+                else if (lot.status === 'in_transit') statusBadge = '<span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-cyan-100 text-cyan-800">4. نقل مبرد ملزم</span>';
+                else if (lot.status === 'accepted') statusBadge = '<span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-100 text-emerald-800">5. مكتمل ومصروف للبنك</span>';
+                else statusBadge = `<span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-purple-100 text-purple-800">${lot.status}</span>`;
+
+                return `
+                <div class="bg-white rounded-2xl p-5 border border-slate-200 hover:border-mewa-600 shadow-sm transition space-y-4 naama-card border-t-4 border-t-mewa-600">
+                    <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2 border-b border-slate-100 pb-3">
+                        <div class="flex items-center gap-3">
+                            <span class="font-black text-sm font-mono text-mewa-800 bg-mewa-50 px-3 py-1 rounded-xl border border-mewa-200">
+                                ${lot.lot_id}
+                            </span>
+                            <span class="text-sm font-bold text-slate-800">${lot.commodity}</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            ${statusBadge}
+                            <button onclick="showQrModal('${lot.lot_id}', '${lot.commodity}')" class="p-1.5 text-slate-400 hover:text-mewa-700 bg-slate-50 hover:bg-slate-100 rounded-lg transition" title="عرض رمز الدخول QR">
+                                <i data-lucide="qr-code" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
+                        <div>
+                            <span class="text-slate-400 block">المزرعة والموقع:</span>
+                            <span class="font-bold text-slate-700">${lot.farm_location}</span>
+                        </div>
+                        <div>
+                            <span class="text-slate-400 block">الكمية المسجلة:</span>
+                            <span class="font-bold text-slate-700">${Number(lot.quantity).toLocaleString()} ${lot.unit}</span>
+                        </div>
+                        <div>
+                            <span class="text-slate-400 block">السوق المستهدف:</span>
+                            <span class="font-bold text-slate-700">${lot.target_market}</span>
+                        </div>
+                        <div>
+                            <span class="text-slate-400 block">فئة التلف:</span>
+                            <span class="font-bold text-amber-700">${lot.spoilage_tier}</span>
+                        </div>
+                    </div>
+
+                    ${lot.assaying ? `
+                    <div class="p-3 bg-mewa-50/70 rounded-xl border border-mewa-100 text-xs flex flex-wrap items-center justify-between gap-2">
+                        <div class="flex items-center gap-2">
+                            <span class="px-2 py-0.5 rounded-lg bg-mewa-700 text-white font-bold text-[11px]">${lot.assaying.quality_grade}</span>
+                            <span class="font-bold text-mewa-900">شهادة رقم: ${lot.assaying.certificate_no}</span>
+                            <span class="text-slate-500">• نقاوة: ${lot.assaying.purity_pct}%</span>
+                            <span class="text-slate-500">• عيوب: ${lot.assaying.defect_pct}%</span>
+                        </div>
+                        <div class="font-black text-emerald-800">
+                            السعر المرجعي: ${lot.assaying.reference_price} ر.س / ${lot.unit}
+                        </div>
+                    </div>
+                    ` : `
+                    <div class="text-xs text-slate-400 bg-slate-50 p-2.5 rounded-xl border border-dashed border-slate-200 flex items-center gap-2">
+                        <i data-lucide="clock" class="w-4 h-4 text-amber-500"></i> في انتظار وصول الدفعة لبوابة السوق لإجراء الفحص المخبري المعتمد
+                    </div>
+                    `}
+
+                    ${lot.auction ? `
+                    <div class="p-3 bg-amber-50/70 rounded-xl border border-amber-200 text-xs flex items-center justify-between">
+                        <div>
+                            <span class="font-bold text-amber-900">المزاد اللحظي (${lot.auction.auction_id}):</span>
+                            <span class="text-slate-600 mr-2">أعلى مزايدة: <strong class="text-emerald-700">${lot.auction.current_bid} ر.س</strong> (${lot.auction.highest_bidder_name})</span>
+                        </div>
+                        <a href="future_auction.html" class="px-3 py-1 bg-mewa-700 text-white rounded-lg font-bold hover:bg-mewa-800 transition">
+                            متابعة المزاد
+                        </a>
+                    </div>
+                    ` : ''}
+
+                </div>
+                `;
+            }).join('');
+            if (typeof lucide !== 'undefined' && lucide.createIcons) lucide.createIcons();
+        }
+
+        async function submitNewLot(e) {
+            e.preventDefault();
+            const payload = {
+                farmer_name: document.getElementById('f_farmer_name').value,
+                farmer_phone: document.getElementById('f_farmer_phone').value,
+                farm_name: document.getElementById('f_farmer_name').value,
+                farm_location: document.getElementById('f_farm_location').value,
+                saudi_gap_cert: document.getElementById('f_saudi_gap').value,
+                commodity: document.getElementById('f_commodity').value,
+                category: "خضار وفواكه",
+                spoilage_tier: document.getElementById('f_commodity').value.includes('طماطم') || document.getElementById('f_commodity').value.includes('خيار') ? 'المرحلة 1: سريع التلف' : 'المرحلة 2: متوسط التلف',
+                quantity: parseFloat(document.getElementById('f_quantity').value),
+                unit: document.getElementById('f_unit').value,
+                target_market: document.getElementById('f_market').value,
+                scheduled_arrival: document.getElementById('f_arrival').value.replace('T', ' ')
+            };
+
+            try {
+                if (window.location.protocol !== 'file:') {
+                    const res = await fetch('/api/future/lots', {
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify(payload)
+                    });
+                    if (res.ok) {
+                        const data = await res.json();
+                        alert(data.message);
+                        loadLots();
+                        showQrModal(data.lot_id, payload.commodity);
+                        return;
+                    }
+                }
+            } catch (err) {
+                console.log('Using static store fallback for lot creation');
+            }
+
+            if (window.FutureStaticStore) {
+                const newLot = window.FutureStaticStore.addLot(payload);
+                alert(`تم بنجاح إصدار الهوية الرقمية للدفعة (${newLot.lot_id}) وحجز موعد البوابة`);
+                loadLots();
+                showQrModal(newLot.lot_id, payload.commodity);
+            }
+        }
+
+        function showQrModal(lotId, commodity) {
+            document.getElementById('qr-lot-id').innerText = lotId;
+            document.getElementById('qr-commodity').innerText = commodity;
+            const canvas = document.getElementById('qr-canvas');
+            if (typeof QRCode !== 'undefined' && QRCode.toCanvas) {
+                QRCode.toCanvas(canvas, `https://mewa.gov.sa/lot-pass/${lotId}`, { width: 180 }, function (error) {
+                    if (error) console.error(error);
+                });
+            } else {
+                const ctx = canvas.getContext('2d');
+                canvas.width = 180;
+                canvas.height = 180;
+                ctx.fillStyle = "#ffffff";
+                ctx.fillRect(0, 0, 180, 180);
+                ctx.fillStyle = "#00542c";
+                ctx.fillRect(20, 20, 40, 40);
+                ctx.fillRect(120, 20, 40, 40);
+                ctx.fillRect(20, 120, 40, 40);
+                ctx.fillStyle = "#ffffff";
+                ctx.fillRect(28, 28, 24, 24);
+                ctx.fillRect(128, 28, 24, 24);
+                ctx.fillRect(28, 128, 24, 24);
+                ctx.fillStyle = "#00542c";
+                ctx.fillRect(34, 34, 12, 12);
+                ctx.fillRect(134, 34, 12, 12);
+                ctx.fillRect(34, 134, 12, 12);
+                ctx.font = "bold 12px monospace";
+                ctx.fillText(lotId, 30, 95);
+            }
+            document.getElementById('qr-modal').classList.remove('hidden');
+        }
+
+        function closeQrModal() {
+            document.getElementById('qr-modal').classList.add('hidden');
+        }
+
+        loadLots();
+    </script>
+</body>
+</html>
