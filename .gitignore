@@ -32,3 +32,12 @@ static/test_screens/
 verify_links.py
 verify_all_links.py
 inspect_regions.py
+
+# Intermediate draft mockups
+static/images/executive_infographic_v*.jpg
+static/images/executive_infographic_*naama*.png
+static/images/blank_*.jpg
+static/images/executive_slide.png
+static/images/debug_*.png
+*_4k.jpg
+static/images/*_4k.jpg
