@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المنصة الوطنية لأسواق النفع العام | Infographic Executive 4K</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #f7f9fa;
+            margin: 0;
+            padding: 0;
+            width: 3840px;
+            height: 2160px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* خطوط مذهبة وفخمة */
+        .gold-border {
+            border-color: #c59b27;
+        }
+        .gold-gradient {
+            background: linear-gradient(135deg, #d4af37 0%, #c59b27 50%, #aa7c11 100%);
+        }
+        .green-gradient {
+            background: linear-gradient(135deg, #00542c 0%, #004222 50%, #012915 100%);
+        }
+
+        /* الدائرة المركزية الفاخرة */
+        .luxury-hub {
+            width: 440px;
+            height: 440px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 30%, #006837 0%, #004424 60%, #012212 100%);
+            border: 8px solid #c59b27;
+            box-shadow: 0 0 0 12px rgba(197, 155, 39, 0.25), 0 30px 80px rgba(0, 40, 20, 0.6);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            z-index: 30;
+        }
+
+        /* كبسولات مسار الرحلة */
+        .step-pill {
+            background: #ffffff;
+            border: 2.5px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 6px 18px -4px rgba(0, 0, 0, 0.05);
+            transition: all 0.2s ease;
+        }
+
+        /* بطاقات المخرجات النهائية */
+        .outcome-card {
+            border-radius: 24px;
+            padding: 24px 28px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        /* الأسهم الذهبية الواصلة */
+        .down-arrow {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 28px;
+            color: #c59b27;
+        }
+    </style>
+</head>
+<body class="p-12 text-slate-800">
+
+    <!-- الشريط الذهبي السيادي العلوي -->
+    <div class="h-3 w-full bg-gradient-to-r from-amber-600 via-amber-400 to-amber-600 rounded-full mb-6 shrink-0"></div>
+
+    <!-- ==================== 1. الترويسة الرئيسية التنفيذية ==================== -->
+    <header class="flex items-center justify-between gap-12 bg-white rounded-3xl p-8 border border-slate-200/80 shadow-md shrink-0">
+        
+        <!-- الطرف الأيمن: شعار الوزارة وشعار نما -->
+        <div class="flex items-center gap-8 shrink-0">
+            <img src="static/images/mewa_logo_hd.png" alt="وزارة البيئة والمياه والزراعة" class="h-24 w-auto object-contain">
+            <div class="h-16 w-0.5 bg-slate-200"></div>
+            <img src="static/images/naama_logo_hd.png" alt="منظومة نما" class="h-20 w-auto object-contain">
+        </div>
+
+        <!-- المنتصف: العنوان الرئيسي والملخص الاستراتيجي -->
+        <div class="text-center flex-1 max-w-4xl px-6">
+            <h1 class="text-5xl font-black text-[#004d28] tracking-tight leading-tight">
+                المنصة الوطنية لأسواق النفع العام
+            </h1>
+            <p class="text-xl text-slate-600 font-medium leading-relaxed mt-2.5">
+                منصة رقمية وطنية موحدة لإدارة وتنظيم وتشغيل أسواق النفع العام، تربط المنتجين والمزارع ومراكز الخدمة والمستهلكين والجهات الإشرافية ضمن منظومة رقمية متكاملة للحوكمة والتشغيل والرقابة.
+            </p>
+        </div>
+
+        <!-- الطرف الأيسر: شعار رؤية المملكة 2030 -->
+        <div class="flex items-center gap-6 shrink-0">
+            <div class="text-left">
+                <span class="text-xl font-black text-emerald-800 block leading-tight">مستقبل مستدام</span>
+                <span class="text-base text-slate-500 font-bold block leading-tight">لبيئة مزدهرة</span>
+            </div>
+            <div class="bg-slate-50 border border-slate-200 p-4 rounded-2xl flex items-center gap-3">
+                <div class="text-right border-l-2 border-slate-300 pl-3">
+                    <span class="text-xs font-bold text-slate-400 block leading-none">رؤيـــــة</span>
+                    <span class="text-3xl font-black text-slate-900 tracking-wider block">2030</span>
+                    <span class="text-xs font-bold text-slate-500 block leading-none">VISION</span>
+                </div>
+                <div class="text-sm font-bold text-emerald-800 leading-tight">
+                    المملكة العربية السعودية<br>
+                    <span class="text-xs text-slate-400 font-normal">KINGDOM OF SAUDI ARABIA</span>
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+    <!-- ==================== 2. جسم الانفوجرافيك: مسارات الرحلات المتوازية الثلاث + الدائرة المركزية ==================== -->
+    <main class="flex-1 my-6 flex items-stretch justify-between gap-10 relative">
+
+        <!-- ------------------- المسار 1 (اليمين): البائع / المزرعة / مركز الخدمة ------------------- -->
+        <div class="flex-1 bg-white rounded-3xl p-8 border-2 border-emerald-600/30 shadow-md flex flex-col justify-between">
+            
+            <!-- رأس المسار -->
+            <div class="bg-gradient-to-l from-emerald-800 to-mewa-900 text-white rounded-2xl p-5 flex items-center justify-between shadow-sm">
+                <div class="flex items-center gap-4">
+                    <div class="w-14 h-14 rounded-2xl bg-white/15 flex items-center justify-center text-amber-300">
+                        <i data-lucide="sprout" class="w-8 h-8"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-black">البائع / المزرعة / مركز الخدمة</h2>
+                        <span class="text-sm text-emerald-200 font-medium">رحلة المنتج المحلي من الحقل إلى منافذ البيع</span>
+                    </div>
+                </div>
+                <span class="text-xs bg-emerald-700/80 px-3 py-1 rounded-full font-bold border border-emerald-500/30">8 مراحل</span>
+            </div>
+
+            <!-- خطوات رحلة البائع -->
+            <div class="my-4 space-y-1.5 flex-1 flex flex-col justify-around">
+                
+                <div class="step-pill">
+                    <div class="flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center font-black text-sm">1</span>
+                        <span class="text-lg font-bold text-slate-800">التسجيل والاعتماد</span>
+                    </div>
+                    <i data-lucide="user-check" class="w-6 h-6 text-emerald-600"></i>
+                </div>
+                <div class="down-arrow"><i data-lucide="chevron-down" class="w-6 h-6"></i></div>
+
+                <div class="step-pill">
+                    <div class="flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center font-black text-sm">2</span>
+                        <span class="text-lg font-bold text-slate-800">إضافة المنتجات</span>
+                    </div>
+                    <i data-lucide="plus-circle" class="w-6 h-6 text-emerald-600"></i>
+                </div>
+                <div class="down-arrow"><i data-lucide="chevron-down" class="w-6 h-6"></i></div>
+
+                <div class="step-pill">
+                    <div class="flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center font-black text-sm">3</span>
+                        <span class="text-lg font-bold text-slate-800">إدارة المخزون</span>
+                    </div>
+                    <i data-lucide="boxes" class="w-6 h-6 text-emerald-600"></i>
+                </div>
+                <div class="down-arrow"><i data-lucide="chevron-down" class="w-6 h-6"></i></div>
+
+                <div class="step-pill">
+                    <div class="flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center font-black text-sm">4</span>
+                        <span class="text-lg font-bold text-slate-800">استقبال الطلبات</span>
+                    </div>
+                    <i data-lucide="inbox" class="w-6 h-6 text-emerald-600"></i>
+                </div>
+                <div class="down-arrow"><i data-lucide="chevron-down" class="w-6 h-6"></i></div>
+
+                <div class="step-pill">
+                    <div class="flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center font-black text-sm">5</span>
+                        <span class="text-lg font-bold text-slate-800">تجهيز الطلبات</span>
+                    </div>
+                    <i data-lucide="package-check" class="w-6 h-6 text-emerald-600"></i>
+                </div>
+                <div class="down-arrow"><i data-lucide="chevron-down" class="w-6 h-6"></i></div>
+
+                <div class="step-pill">
+                    <div class="flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center font-black text-sm">6</span>
+                        <span class="text-lg font-bold text-slate-800">التسليم والشحن</span>
+                    </div>
+                    <i data-lucide="truck" class="w-6 h-6 text-emerald-600"></i>
+                </div>
+                <div class="down-arrow"><i data-lucide="chevron-down" class="w-6 h-6"></i></div>
+
+                <div class="step-pill">
+                    <div class="flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center font-black text-sm">7</span>
+                        <span class="text-lg font-bold text-slate-800">استلام المستحقات</span>
+                    </div>
+                    <i data-lucide="banknote" class="w-6 h-6 text-emerald-600"></i>
+                </div>
+                <div class="down-arrow"><i data-lucide="chevron-down" class="w-6 h-6"></i></div>
+
+                <div class="step-pill">
+                    <div class="flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center font-black text-sm">8</span>
+                        <span class="text-lg font-bold text-slate-800">التقارير والإحصائيات</span>
+                    </div>
+                    <i data-lucide="line-chart" class="w-6 h-6 text-emerald-600"></i>
+                </div>
+
+            </div>
+
+            <!-- مخرجات مسار البائع (Outcome) -->
+            <div class="outcome-card bg-emerald-50/80 border-2 border-emerald-200">
+                <span class="text-xs font-black text-emerald-800 uppercase tracking-wider">مخرجات وقيمة المسار (Outcome):</span>
+                <div class="grid grid-cols-3 gap-3 text-center">
+                    <div class="bg-white p-3 rounded-xl border border-emerald-200 shadow-xs">
+                        <i data-lucide="trending-up" class="w-6 h-6 text-emerald-600 mx-auto mb-1"></i>
+                        <span class="text-base font-black text-slate-800">زيادة المبيعات</span>
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-emerald-200 shadow-xs">
+                        <i data-lucide="check-circle" class="w-6 h-6 text-emerald-600 mx-auto mb-1"></i>
+                        <span class="text-base font-black text-slate-800">تحسين إدارة المخزون</span>
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-emerald-200 shadow-xs">
+                        <i data-lucide="zap" class="w-6 h-6 text-emerald-600 mx-auto mb-1"></i>
+                        <span class="text-base font-black text-slate-800">تسريع دورة التوريد</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ------------------- العنصر المركزي الفاخر: الدائرة المركزية (Luxury Circular Hub) ------------------- -->
+        <div class="w-96 flex flex-col items-center justify-center shrink-0 relative z-20">
+            
+            <!-- خطوط الاتصال الذهبية الرابطة مع المسارات -->
+            <div class="absolute w-[110%] h-1 bg-gradient-to-r from-emerald-600 via-amber-400 to-emerald-800 top-1/2 -translate-y-1/2 z-0 opacity-40"></div>
+
+            <div class="luxury-hub">
+                <!-- الأيقونة والزخرفة المذهبة -->
+                <div class="w-20 h-20 rounded-full bg-emerald-900/90 border-2 border-amber-400 flex items-center justify-center mb-3 shadow-inner">
+                    <i data-lucide="wheat" class="w-10 h-10 text-amber-300"></i>
+                </div>
+
+                <!-- نص الدائرة المطلوب بالنص -->
+                <h3 class="text-3xl font-black text-white px-4 leading-tight drop-shadow-md">
+                    المنصة الوطنية<br>لأسواق النفع العام
+                </h3>
+
+                <!-- الشعار الفرعي المعتمد -->
+                <div class="mt-3 bg-amber-400 text-slate-950 font-black text-base px-6 py-1.5 rounded-full shadow-md">
+                    ربط • تمكين • استدامة
+                </div>
+
+                <!-- أسفل الدائرة: نفاذ الوطني -->
+                <div class="mt-6 flex items-center gap-2 text-sm text-emerald-200 bg-black/40 px-5 py-2 rounded-full border border-emerald-400/40">
+                    <i data-lucide="shield-check" class="w-5 h-5 text-amber-400"></i>
+                    <span class="font-bold">تسجيل الدخول عبر نفاذ</span>
+                </div>
+            </div>
+
+            <!-- بطاقة تعريف المنظومة تحت الدائرة -->
+            <div class="mt-8 bg-white border border-slate-200 p-4 rounded-2xl shadow-sm text-center max-w-xs">
+                <span class="text-xs text-slate-500 font-bold block">منظومة موحدة تربط سلاسل القيمة</span>
+                <span class="text-sm font-black text-emerald-800 block mt-1">تخصيص ذكي حسب دور المستفيد</span>
+            </div>
+
+        </div>
+
+        <!-- ------------------- المسار 2 (الوسط): المستهلك ------------------- -->
+        <div class="flex-1 bg-white rounded-3xl p-8 border-2 border-amber-500/40 shadow-md flex flex-col justify-between">
+            
+            <!-- رأس المسار -->
+            <div class="bg-gradient-to-l from-emerald-700 to-teal-900 text-white rounded-2xl p-5 flex items-center justify-between shadow-sm">
+                <div class="flex items-center gap-4">
+                    <div class="w-14 h-14 rounded-2xl bg-white/15 flex items-center justify-center text-amber-300">
+                        <i data-lucide="shopping-cart" class="w-8 h-8"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-black">المستهلك</h2>
+                        <span class="text-sm text-emerald-100 font-medium">تجربة تسوق موثوقة من المزارع إلى مائدة الأسرة</span>
+                    </div>
+                </div>
+                <span class="text-xs bg-emerald-600/80 px-3 py-1 rounded-full font-bold border border-emerald-400/30">7 مراحل</span>
+            </div>
+
+            <!-- خطوات رحلة المستهلك -->
+            <div class="my-4 space-y-2.5 flex-1 flex flex-col justify-around">
+                
+                <div class="step-pill">
+                    <div class="flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-amber-100 text-amber-900 flex items-center justify-center font-black text-sm">1</span>
+                        <span class="text-lg font-bold text-slate-800">استعراض الأسواق</span>
+                    </div>
+                    <i data-lucide="store" class="w-6 h-6 text-amber-600"></i>
+                </div>
+                <div class="down-arrow"><i data-lucide="chevron-down" class="w-6 h-6"></i></div>
+
+                <div class="step-pill">
+                    <div class="flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-amber-100 text-amber-900 flex items-center justify-center font-black text-sm">2</span>
+                        <span class="text-lg font-bold text-slate-800">البحث عن المنتجات</span>
+                    </div>
+                    <i data-lucide="search" class="w-6 h-6 text-amber-600"></i>
+                </div>
+                <div class="down-arrow"><i data-lucide="chevron-down" class="w-6 h-6"></i></div>
+
+                <div class="step-pill">
+                    <div class="flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-amber-100 text-amber-900 flex items-center justify-center font-black text-sm">3</span>
+                        <span class="text-lg font-bold text-slate-800">إضافة للسلة</span>
+                    </div>
+                    <i data-lucide="shopping-bag" class="w-6 h-6 text-amber-600"></i>
+                </div>
+                <div class="down-arrow"><i data-lucide="chevron-down" class="w-6 h-6"></i></div>
+
+                <div class="step-pill">
+                    <div class="flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-amber-100 text-amber-900 flex items-center justify-center font-black text-sm">4</span>
+                        <span class="text-lg font-bold text-slate-800">الدفع الإلكتروني</span>
+                    </div>
+                    <i data-lucide="credit-card" class="w-6 h-6 text-amber-600"></i>
+                </div>
+                <div class="down-arrow"><i data-lucide="chevron-down" class="w-6 h-6"></i></div>
+
+                <div class="step-pill">
+                    <div class="flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-amber-100 text-amber-900 flex items-center justify-center font-black text-sm">5</span>
+                        <span class="text-lg font-bold text-slate-800">متابعة الطلب</span>
+                    </div>
+                    <i data-lucide="navigation" class="w-6 h-6 text-amber-600"></i>
+                </div>
+                <div class="down-arrow"><i data-lucide="chevron-down" class="w-6 h-6"></i></div>
+
+                <div class="step-pill">
+                    <div class="flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-amber-100 text-amber-900 flex items-center justify-center font-black text-sm">6</span>
+                        <span class="text-lg font-bold text-slate-800">استلام المنتج</span>
+                    </div>
+                    <i data-lucide="check-circle-2" class="w-6 h-6 text-amber-600"></i>
+                </div>
+                <div class="down-arrow"><i data-lucide="chevron-down" class="w-6 h-6"></i></div>
+
+                <div class="step-pill">
+                    <div class="flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-amber-100 text-amber-900 flex items-center justify-center font-black text-sm">7</span>
+                        <span class="text-lg font-bold text-slate-800">التقييم</span>
+                    </div>
+                    <i data-lucide="star" class="w-6 h-6 text-amber-600"></i>
+                </div>
+
+            </div>
+
+            <!-- مخرجات مسار المستهلك (Outcome) -->
+            <div class="outcome-card bg-amber-50/80 border-2 border-amber-200">
+                <span class="text-xs font-black text-amber-900 uppercase tracking-wider">مخرجات وقيمة المسار (Outcome):</span>
+                <div class="grid grid-cols-3 gap-3 text-center">
+                    <div class="bg-white p-3 rounded-xl border border-amber-200 shadow-xs">
+                        <i data-lucide="shield-check" class="w-6 h-6 text-amber-600 mx-auto mb-1"></i>
+                        <span class="text-base font-black text-slate-800">شراء موثوق</span>
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-amber-200 shadow-xs">
+                        <i data-lucide="smile" class="w-6 h-6 text-amber-600 mx-auto mb-1"></i>
+                        <span class="text-base font-black text-slate-800">تجربة سهلة</span>
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-amber-200 shadow-xs">
+                        <i data-lucide="truck" class="w-6 h-6 text-amber-600 mx-auto mb-1"></i>
+                        <span class="text-base font-black text-slate-800">وصول أسرع للمنتجات</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ------------------- المسار 3 (اليسار): مدير النظام ------------------- -->
+        <div class="flex-1 bg-white rounded-3xl p-8 border-2 border-slate-700/30 shadow-md flex flex-col justify-between">
+            
+            <!-- رأس المسار -->
+            <div class="bg-gradient-to-l from-slate-900 to-[#003819] text-white rounded-2xl p-5 flex items-center justify-between shadow-sm">
+                <div class="flex items-center gap-4">
+                    <div class="w-14 h-14 rounded-2xl bg-white/15 flex items-center justify-center text-amber-300">
+                        <i data-lucide="layout-dashboard" class="w-8 h-8"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-black">مدير النظام</h2>
+                        <span class="text-sm text-emerald-200 font-medium">الرقابة المركزية والحوكمة وضبط الامتثال</span>
+                    </div>
+                </div>
+                <span class="text-xs bg-slate-800 px-3 py-1 rounded-full font-bold border border-slate-600">8 مراحل</span>
+            </div>
+
+            <!-- خطوات رحلة مدير النظام -->
+            <div class="my-4 space-y-1.5 flex-1 flex flex-col justify-around">
+                
+                <div class="step-pill">
+                    <div class="flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-slate-100 text-slate-800 flex items-center justify-center font-black text-sm">1</span>
+                        <span class="text-lg font-bold text-slate-800">استقبال الطلبات</span>
+                    </div>
+                    <i data-lucide="clipboard-list" class="w-6 h-6 text-slate-700"></i>
+                </div>
+                <div class="down-arrow"><i data-lucide="chevron-down" class="w-6 h-6"></i></div>
+
+                <div class="step-pill">
+                    <div class="flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-slate-100 text-slate-800 flex items-center justify-center font-black text-sm">2</span>
+                        <span class="text-lg font-bold text-slate-800">مراجعة البيانات</span>
+                    </div>
+                    <i data-lucide="file-search" class="w-6 h-6 text-slate-700"></i>
+                </div>
+                <div class="down-arrow"><i data-lucide="chevron-down" class="w-6 h-6"></i></div>
+
+                <div class="step-pill">
+                    <div class="flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-slate-100 text-slate-800 flex items-center justify-center font-black text-sm">3</span>
+                        <span class="text-lg font-bold text-slate-800">اعتماد الأنشطة</span>
+                    </div>
+                    <i data-lucide="badge-check" class="w-6 h-6 text-slate-700"></i>
+                </div>
+                <div class="down-arrow"><i data-lucide="chevron-down" class="w-6 h-6"></i></div>
+
+                <div class="step-pill">
+                    <div class="flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-slate-100 text-slate-800 flex items-center justify-center font-black text-sm">4</span>
+                        <span class="text-lg font-bold text-slate-800">إدارة المستخدمين</span>
+                    </div>
+                    <i data-lucide="users" class="w-6 h-6 text-slate-700"></i>
+                </div>
+                <div class="down-arrow"><i data-lucide="chevron-down" class="w-6 h-6"></i></div>
+
+                <div class="step-pill">
+                    <div class="flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-slate-100 text-slate-800 flex items-center justify-center font-black text-sm">5</span>
+                        <span class="text-lg font-bold text-slate-800">متابعة العمليات</span>
+                    </div>
+                    <i data-lucide="activity" class="w-6 h-6 text-slate-700"></i>
+                </div>
+                <div class="down-arrow"><i data-lucide="chevron-down" class="w-6 h-6"></i></div>
+
+                <div class="step-pill">
+                    <div class="flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-slate-100 text-slate-800 flex items-center justify-center font-black text-sm">6</span>
+                        <span class="text-lg font-bold text-slate-800">معالجة النزاعات</span>
+                    </div>
+                    <i data-lucide="scale" class="w-6 h-6 text-slate-700"></i>
+                </div>
+                <div class="down-arrow"><i data-lucide="chevron-down" class="w-6 h-6"></i></div>
+
+                <div class="step-pill">
+                    <div class="flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-slate-100 text-slate-800 flex items-center justify-center font-black text-sm">7</span>
+                        <span class="text-lg font-bold text-slate-800">الرقابة والحوكمة</span>
+                    </div>
+                    <i data-lucide="shield" class="w-6 h-6 text-slate-700"></i>
+                </div>
+                <div class="down-arrow"><i data-lucide="chevron-down" class="w-6 h-6"></i></div>
+
+                <div class="step-pill">
+                    <div class="flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-full bg-slate-100 text-slate-800 flex items-center justify-center font-black text-sm">8</span>
+                        <span class="text-lg font-bold text-slate-800">المؤشرات والتقارير</span>
+                    </div>
+                    <i data-lucide="bar-chart-3" class="w-6 h-6 text-slate-700"></i>
+                </div>
+
+            </div>
+
+            <!-- مخرجات مسار مدير النظام (Outcome) -->
+            <div class="outcome-card bg-slate-50 border-2 border-slate-300">
+                <span class="text-xs font-black text-slate-800 uppercase tracking-wider">مخرجات وقيمة المسار (Outcome):</span>
+                <div class="grid grid-cols-3 gap-3 text-center">
+                    <div class="bg-white p-3 rounded-xl border border-slate-200 shadow-xs">
+                        <i data-lucide="check-check" class="w-6 h-6 text-emerald-700 mx-auto mb-1"></i>
+                        <span class="text-base font-black text-slate-800">امتثال أعلى</span>
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-slate-200 shadow-xs">
+                        <i data-lucide="eye" class="w-6 h-6 text-emerald-700 mx-auto mb-1"></i>
+                        <span class="text-base font-black text-slate-800">رقابة أفضل</span>
+                    </div>
+                    <div class="bg-white p-3 rounded-xl border border-slate-200 shadow-xs">
+                        <i data-lucide="sliders" class="w-6 h-6 text-emerald-700 mx-auto mb-1"></i>
+                        <span class="text-base font-black text-slate-800">حوكمة فعالة</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- ==================== 3. طبقة الخدمات المشتركة (Shared Services Layer) ==================== -->
+    <section class="bg-emerald-950 text-white rounded-3xl p-5 border-2 border-amber-500/50 shadow-md shrink-0 mb-4">
+        <div class="flex items-center justify-between gap-6 px-4">
+            <span class="text-base font-black text-amber-400 shrink-0">طبقة الخدمات المشتركة:</span>
+            
+            <div class="flex items-center justify-around flex-1 text-lg font-bold">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="shield-check" class="w-6 h-6 text-emerald-400"></i>
+                    <span>نفاذ الوطني</span>
+                </div>
+                <span class="text-slate-500">│</span>
+
+                <div class="flex items-center gap-2">
+                    <i data-lucide="key-round" class="w-6 h-6 text-emerald-400"></i>
+                    <span>إدارة الصلاحيات</span>
+                </div>
+                <span class="text-slate-500">│</span>
+
+                <div class="flex items-center gap-2">
+                    <i data-lucide="bell" class="w-6 h-6 text-emerald-400"></i>
+                    <span>الإشعارات</span>
+                </div>
+                <span class="text-slate-500">│</span>
+
+                <div class="flex items-center gap-2">
+                    <i data-lucide="credit-card" class="w-6 h-6 text-emerald-400"></i>
+                    <span>المدفوعات الإلكترونية</span>
+                </div>
+                <span class="text-slate-500">│</span>
+
+                <div class="flex items-center gap-2">
+                    <i data-lucide="navigation-2" class="w-6 h-6 text-emerald-400"></i>
+                    <span>التتبع</span>
+                </div>
+                <span class="text-slate-500">│</span>
+
+                <div class="flex items-center gap-2">
+                    <i data-lucide="pie-chart" class="w-6 h-6 text-emerald-400"></i>
+                    <span>التقارير والتحليلات</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== 4. البنر الختامي وركائز الرؤية ==================== -->
+    <footer class="bg-gradient-to-r from-mewa-950 via-[#004d28] to-mewa-950 text-white rounded-3xl p-6 border-t-4 border-amber-500 shadow-lg shrink-0">
+        <div class="flex items-center justify-between gap-8">
+            
+            <!-- العبارة الختامية -->
+            <div class="pr-4">
+                <h4 class="text-2xl font-black text-white">
+                    منصة واحدة • ثلاث رحلات مترابطة • قيمة مستدامة للقطاع الزراعي
+                </h4>
+            </div>
+
+            <!-- ركائز الرؤية الثلاث المطلوبة -->
+            <div class="flex items-center gap-12 text-xl font-bold">
+                <div class="flex items-center gap-3">
+                    <i data-lucide="sprout" class="w-7 h-7 text-emerald-400"></i>
+                    <span>أمن غذائي مستدام</span>
+                </div>
+                <div class="h-6 w-0.5 bg-emerald-700"></div>
+
+                <div class="flex items-center gap-3">
+                    <i data-lucide="store" class="w-7 h-7 text-amber-400"></i>
+                    <span>أسواق أكثر كفاءة</span>
+                </div>
+                <div class="h-6 w-0.5 bg-emerald-700"></div>
+
+                <div class="flex items-center gap-3">
+                    <i data-lucide="trending-up" class="w-7 h-7 text-emerald-300"></i>
+                    <span>اقتصاد مزدهر</span>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

@@ -1,0 +1,784 @@
+import os
+import subprocess
+from PIL import Image
+
+html_content = """<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>المنصة الوطنية لأسواق النفع العام</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+}
+body {
+    width: 2560px;
+    height: 1440px;
+    overflow: hidden;
+    background: #f8fafc;
+    font-family: 'Cairo', 'Tajawal', 'Segoe UI', Tahoma, sans-serif;
+    color: #1e293b;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* ================= 1. HEADER ================= */
+.header {
+    background: #ffffff;
+    height: 175px;
+    padding: 12px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #e2e8f0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    position: relative;
+    z-index: 20;
+}
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.header-right img.mewa {
+    height: 75px;
+}
+.header-right img.naama {
+    height: 70px;
+}
+.header-right .tagline {
+    font-size: 16px;
+    font-weight: 700;
+    color: #015738;
+    border-right: 2px solid #cbd5e1;
+    padding-right: 16px;
+    line-height: 1.4;
+}
+.header-center {
+    text-align: center;
+    flex: 1;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+.header-center h1 {
+    font-size: 38px;
+    font-weight: 900;
+    color: #015738;
+    letter-spacing: -0.5px;
+    margin-bottom: 2px;
+}
+.header-center .sub-gold {
+    font-size: 22px;
+    font-weight: 800;
+    color: #b8860b;
+    margin-bottom: 4px;
+}
+.header-center p {
+    font-size: 15.5px;
+    font-weight: 600;
+    color: #475569;
+    line-height: 1.4;
+    max-width: 1250px;
+    margin: 0 auto;
+}
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.header-left img.v2030 {
+    height: 75px;
+}
+.header-left .vision-text {
+    font-size: 15.5px;
+    font-weight: 700;
+    color: #015738;
+    border-left: 2px solid #cbd5e1;
+    padding-left: 16px;
+    line-height: 1.3;
+}
+
+/* ================= 2. ARCHITECTURE HUB BAR ================= */
+.hub-bar {
+    height: 115px;
+    margin: 6px 50px 0 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 15;
+}
+.hub-bar .connecting-line-right,
+.hub-bar .connecting-line-left {
+    flex: 1;
+    height: 4px;
+    background: linear-gradient(to left, #b8860b, #015738);
+    position: relative;
+    border-radius: 4px;
+}
+.hub-bar .connecting-line-left {
+    background: linear-gradient(to right, #b8860b, #015738);
+}
+.hub-bar .wire-label {
+    position: absolute;
+    top: -24px;
+    font-size: 14px;
+    font-weight: 800;
+    color: #015738;
+    background: #ffffff;
+    padding: 2px 14px;
+    border-radius: 12px;
+    border: 1.5px solid #cbd5e1;
+    white-space: nowrap;
+}
+.hub-bar .connecting-line-right .wire-label {
+    right: 25%;
+}
+.hub-bar .connecting-line-left .wire-label {
+    left: 25%;
+}
+.hub-center-container {
+    width: 380px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    background: #ffffff;
+    border: 2.5px solid #b8860b;
+    border-radius: 60px;
+    padding: 6px 24px;
+    box-shadow: 0 8px 25px rgba(184, 134, 11, 0.18);
+    margin: 0 16px;
+}
+.hub-center-container img.hub-icon {
+    width: 82px;
+    height: 82px;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 8px rgba(0, 87, 56, 0.3));
+}
+.hub-center-text {
+    text-align: right;
+}
+.hub-center-text .hub-title {
+    font-size: 18px;
+    font-weight: 900;
+    color: #015738;
+}
+.hub-center-text .hub-sub {
+    font-size: 13.5px;
+    font-weight: 800;
+    color: #b8860b;
+    margin: 2px 0 4px 0;
+}
+.hub-center-text .hub-nafath {
+    display: inline-block;
+    background: #f0fdf4;
+    border: 1px solid #16a34a;
+    color: #15803d;
+    font-size: 12px;
+    font-weight: 800;
+    border-radius: 10px;
+    padding: 2px 10px;
+}
+
+/* ================= 3. THREE SWIMLANES ================= */
+.main-lanes {
+    height: 770px;
+    padding: 0 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 26px;
+    position: relative;
+    z-index: 10;
+}
+
+/* Card */
+.lane-card {
+    background: #ffffff;
+    border-radius: 22px;
+    border: 2px solid #e2e8f0;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 16px 18px;
+    position: relative;
+}
+
+/* Header */
+.lane-header {
+    background: linear-gradient(135deg, #015738 0%, #004028 100%);
+    border-radius: 16px;
+    padding: 10px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #ffffff;
+    margin-bottom: 12px;
+    box-shadow: 0 4px 12px rgba(1, 87, 56, 0.15);
+}
+.lane-header .title-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.lane-header .icon-circle {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1.5px solid rgba(255, 255, 255, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+.lane-header h2 {
+    font-size: 20px;
+    font-weight: 800;
+}
+.lane-header .subtitle {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #a7f3d0;
+}
+
+/* Body */
+.lane-body {
+    display: flex;
+    gap: 14px;
+    flex: 1;
+}
+.lane-photo-container {
+    width: 195px;
+    border-radius: 14px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+    border: 1.5px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+}
+.lane-photo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.lane-photo-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(1, 87, 56, 0.95), rgba(1, 87, 56, 0.5) 70%, transparent);
+    color: #ffffff;
+    padding: 10px 8px;
+    font-size: 12.5px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.3;
+}
+
+/* Steps Stack */
+.steps-stack {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 5px;
+}
+.step-item {
+    background: #f8fafc;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 11px;
+    padding: 6px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.step-item:hover {
+    border-color: #015738;
+    background: #f0fdf4;
+}
+.step-item .step-text {
+    font-size: 14.5px;
+    font-weight: 700;
+    color: #1e293b;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+.step-item .step-num {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #015738;
+    color: #ffffff;
+    font-size: 12.5px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.step-item .step-icon {
+    font-size: 15px;
+    color: #015738;
+}
+
+/* Outcome Bar */
+.outcome-bar {
+    margin-top: 10px;
+    background: #f8fafc;
+    border: 2px solid #b8860b;
+    border-radius: 14px;
+    padding: 8px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.outcome-title {
+    font-size: 13.5px;
+    font-weight: 800;
+    color: #b8860b;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.outcome-chips {
+    display: flex;
+    gap: 6px;
+    justify-content: space-between;
+}
+.outcome-chip {
+    flex: 1;
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 5px 6px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #015738;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* ================= 4. SHARED SERVICES DOCK ================= */
+.services-dock {
+    height: 75px;
+    background: #ffffff;
+    margin: 8px 50px 0 50px;
+    border-radius: 18px;
+    border: 2px solid #e2e8f0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    gap: 16px;
+    position: relative;
+    z-index: 15;
+}
+.dock-label {
+    background: #015738;
+    color: #ffffff;
+    padding: 8px 18px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 800;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.dock-capsules {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    gap: 12px;
+}
+.dock-capsule {
+    flex: 1;
+    background: #f8fafc;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 10px;
+    padding: 8px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #1e293b;
+}
+.dock-capsule .cap-icon {
+    font-size: 16px;
+    color: #015738;
+}
+
+/* ================= 5. FOOTER BANNER ================= */
+.footer-banner {
+    height: 155px;
+    position: relative;
+    background: url('static/images/clean_bottom_banner.png') center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 12px 50px;
+    color: #ffffff;
+    border-top: 3px solid #b8860b;
+}
+.footer-top {
+    text-align: center;
+    margin-top: 4px;
+}
+.footer-top h3 {
+    font-size: 24px;
+    font-weight: 900;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.8);
+    margin-bottom: 2px;
+}
+.footer-top p {
+    font-size: 15px;
+    font-weight: 700;
+    color: #a7f3d0;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.8);
+}
+.footer-pillars {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    background: rgba(1, 40, 25, 0.7);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 6px 30px;
+    max-width: 850px;
+    margin: 0 auto;
+}
+.pillar-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    font-weight: 800;
+    color: #ffffff;
+}
+.pillar-item span.icon {
+    font-size: 20px;
+}
+</style>
+</head>
+<body>
+
+    <!-- 1. HEADER -->
+    <header class="header">
+        <!-- MEWA & NAAMA LOGOS (Right side in RTL) -->
+        <div class="header-right">
+            <img class="mewa" src="static/images/mewa_logo_hd.png" alt="وزارة البيئة والمياه والزراعة">
+            <img class="naama" src="static/images/naama_logo_hd.png" alt="منصة نما">
+            <div class="tagline">
+                وزارة البيئة والمياه والزراعة<br>
+                <span style="color:#2e7d32; font-weight:600;">نماء .. لمستقبل مستدام</span>
+            </div>
+        </div>
+
+        <!-- CENTER TITLE & NARRATIVE -->
+        <div class="header-center">
+            <h1>المنصة الوطنية لأسواق النفع العام</h1>
+            <div class="sub-gold">واجهة ذكية موحدة لخدمة جميع المستفيدين</div>
+            <p>منصة رقمية وطنية موحدة لإدارة وتنظيم وتشغيل أسواق النفع العام، تربط المنتجين والمزارع ومراكز الخدمة والمستهلكين والجهات الإشرافية ضمن منظومة رقمية متكاملة للحوكمة والتشغيل والرقابة.</p>
+        </div>
+
+        <!-- VISION 2030 (Left side in RTL) -->
+        <div class="header-left">
+            <div class="vision-text">
+                مستقبل مستدام<br>
+                لبيئة مزدهرة
+            </div>
+            <img class="v2030" src="static/images/asset_v2030_logo.png" alt="رؤية السعودية 2030">
+        </div>
+    </header>
+
+    <!-- 2. ARCHITECTURE HUB BAR -->
+    <div class="hub-bar">
+        <div class="connecting-line-right">
+            <span class="wire-label">🌾 رحلة تمكين المنتجين والمزارع</span>
+        </div>
+        <div class="hub-center-container">
+            <img class="hub-icon" src="static/images/clean_center_hub.png" alt="المنصة الوطنية">
+            <div class="hub-center-text">
+                <div class="hub-title">المنصة الوطنية الموحدة</div>
+                <div class="hub-sub">ربط • تمكين • استدامة</div>
+                <div class="hub-nafath">🛡️ تسجيل الدخول عبر نفاذ</div>
+            </div>
+        </div>
+        <div class="connecting-line-left">
+            <span class="wire-label">📊 رحلة الحوكمة والرقابة الميدانية</span>
+        </div>
+    </div>
+
+    <!-- 3. MAIN 3 PARALLEL SWIMLANES -->
+    <main class="main-lanes">
+
+        <!-- ================= LANE 1: SELLER / FARMER / SERVICE CENTER (Right) ================= -->
+        <section class="lane-card">
+            <div class="lane-header">
+                <div class="title-box">
+                    <div class="icon-circle">🌾</div>
+                    <div>
+                        <h2>البائع / المزرعة / مركز الخدمة</h2>
+                        <div class="subtitle">من المنتج إلى السوق .. بخطوات أسهل</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lane-body">
+                <div class="lane-photo-container">
+                    <img src="static/images/clean_farm_photo.png" alt="المزارع والمنتج">
+                    <div class="lane-photo-overlay">ندعم منتجاتك لنصل بها إلى كافة الأسواق</div>
+                </div>
+
+                <div class="steps-stack">
+                    <div class="step-item">
+                        <div class="step-text"><span class="step-num">1</span> التسجيل والاعتماد</div>
+                        <span class="step-icon">📋</span>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-text"><span class="step-num">2</span> إضافة المنتجات</div>
+                        <span class="step-icon">📦</span>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-text"><span class="step-num">3</span> إدارة المخزون</div>
+                        <span class="step-icon">🏢</span>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-text"><span class="step-num">4</span> استقبال الطلبات</div>
+                        <span class="step-icon">🔔</span>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-text"><span class="step-num">5</span> تجهيز الطلبات</div>
+                        <span class="step-icon">⚙️</span>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-text"><span class="step-num">6</span> التسليم والشحن</div>
+                        <span class="step-icon">🚚</span>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-text"><span class="step-num">7</span> استلام المستحقات</div>
+                        <span class="step-icon">💳</span>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-text"><span class="step-num">8</span> التقارير والإحصائيات</div>
+                        <span class="step-icon">📊</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="outcome-bar">
+                <div class="outcome-title">🎯 القيمة المحققة للبائع والمزرعة:</div>
+                <div class="outcome-chips">
+                    <div class="outcome-chip">📈 زيادة المبيعات</div>
+                    <div class="outcome-chip">📦 تحسين إدارة المخزون</div>
+                    <div class="outcome-chip">⚡ تسريع دورة التوريد</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= LANE 2: CONSUMER (Center) ================= -->
+        <section class="lane-card">
+            <div class="lane-header" style="background: linear-gradient(135deg, #026b45 0%, #014e32 100%);">
+                <div class="title-box">
+                    <div class="icon-circle">🛒</div>
+                    <div>
+                        <h2>المستهلك</h2>
+                        <div class="subtitle">منتجات وطنية موثوقة .. بين يديك</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lane-body">
+                <div class="lane-photo-container">
+                    <img src="static/images/clean_cart_photo.png" alt="تسوق المستهلك">
+                    <div class="lane-photo-overlay">منتجات وطنية طازجة بجودة عالية وأسعار عادلة</div>
+                </div>
+
+                <div class="steps-stack">
+                    <div class="step-item">
+                        <div class="step-text"><span class="step-num">1</span> استعراض الأسواق</div>
+                        <span class="step-icon">🏪</span>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-text"><span class="step-num">2</span> البحث عن المنتجات</div>
+                        <span class="step-icon">🔍</span>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-text"><span class="step-num">3</span> إضافة للسلة</div>
+                        <span class="step-icon">🛍️</span>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-text"><span class="step-num">4</span> الدفع الإلكتروني</div>
+                        <span class="step-icon">💳</span>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-text"><span class="step-num">5</span> متابعة الطلب</div>
+                        <span class="step-icon">📍</span>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-text"><span class="step-num">6</span> استلام المنتج</div>
+                        <span class="step-icon">📦</span>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-text"><span class="step-num">7</span> التقييم والملاحظات</div>
+                        <span class="step-icon">⭐</span>
+                    </div>
+                    <div class="step-item" style="background:#f0fdf4; border-color:#86efac;">
+                        <div class="step-text" style="color:#015738;"><span class="step-num" style="background:#16a34a;">✓</span> ضمان جودة وسلامة الغذاء</div>
+                        <span class="step-icon">🛡️</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="outcome-bar" style="border-color:#015738;">
+                <div class="outcome-title" style="color:#015738;">🎯 القيمة المحققة للمستهلك:</div>
+                <div class="outcome-chips">
+                    <div class="outcome-chip">🛡️ شراء موثوق</div>
+                    <div class="outcome-chip">✨ تجربة سهلة</div>
+                    <div class="outcome-chip">🚀 وصول أسرع للمنتجات</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= LANE 3: SYSTEM ADMINISTRATOR (Left) ================= -->
+        <section class="lane-card">
+            <div class="lane-header" style="background: linear-gradient(135deg, #004d2c 0%, #01331d 100%);">
+                <div class="title-box">
+                    <div class="icon-circle">📊</div>
+                    <div>
+                        <h2>مدير النظام والرقابة</h2>
+                        <div class="subtitle">إدارة شاملة .. وحوكمة أسواق أكثر كفاءة</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lane-body">
+                <div class="lane-photo-container">
+                    <img src="static/images/clean_admin_photo.png" alt="غرفة العمليات المركزية">
+                    <div class="lane-photo-overlay">رؤية مركزية شاملة لإدارة وحوكمة المنظومة</div>
+                </div>
+
+                <div class="steps-stack">
+                    <div class="step-item">
+                        <div class="step-text"><span class="step-num">1</span> استقبال الطلبات</div>
+                        <span class="step-icon">📥</span>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-text"><span class="step-num">2</span> مراجعة البيانات</div>
+                        <span class="step-icon">🔍</span>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-text"><span class="step-num">3</span> اعتماد الأنشطة</div>
+                        <span class="step-icon">✅</span>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-text"><span class="step-num">4</span> إدارة المستخدمين</div>
+                        <span class="step-icon">👥</span>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-text"><span class="step-num">5</span> متابعة العمليات</div>
+                        <span class="step-icon">⚙️</span>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-text"><span class="step-num">6</span> معالجة النزاعات</div>
+                        <span class="step-icon">⚖️</span>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-text"><span class="step-num">7</span> الرقابة والحوكمة</div>
+                        <span class="step-icon">🛡️</span>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-text"><span class="step-num">8</span> المؤشرات والتقارير</div>
+                        <span class="step-icon">📈</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="outcome-bar">
+                <div class="outcome-title">🎯 القيمة المحققة للمنظومة والوزارة:</div>
+                <div class="outcome-chips">
+                    <div class="outcome-chip">📋 امتثال أعلى</div>
+                    <div class="outcome-chip">👁️ رقابة أفضل</div>
+                    <div class="outcome-chip">🏛️ حوكمة فعالة</div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 4. BOTTOM SHARED SERVICES LAYER -->
+    <div class="services-dock">
+        <div class="dock-label">
+            <span>⚙️</span>
+            <span>الخدمات المشتركة</span>
+        </div>
+        <div class="dock-capsules">
+            <div class="dock-capsule"><span class="cap-icon">🛡️</span> نفاذ الوطني</div>
+            <div class="dock-capsule"><span class="cap-icon">🔑</span> إدارة الصلاحيات</div>
+            <div class="dock-capsule"><span class="cap-icon">🔔</span> منظومة الإشعارات</div>
+            <div class="dock-capsule"><span class="cap-icon">💳</span> المدفوعات الإلكترونية</div>
+            <div class="dock-capsule"><span class="cap-icon">📍</span> التتبع واللوجستيات</div>
+            <div class="dock-capsule"><span class="cap-icon">📊</span> التقارير والتحليلات</div>
+        </div>
+    </div>
+
+    <!-- 5. FOOTER BANNER -->
+    <footer class="footer-banner">
+        <div class="footer-top">
+            <h3>منصة واحدة • ثلاث رحلات مترابطة • قيمة مستدامة للقطاع الزراعي</h3>
+            <p>معاً لأسواق نفع عام أكثر كفاءة وازدهاراً واستدامة ضمن رؤية السعودية 2030</p>
+        </div>
+        <div class="footer-pillars">
+            <div class="pillar-item"><span class="icon">🌱</span> أمن غذائي مستدام</div>
+            <div class="pillar-item"><span class="icon">🏪</span> أسواق أكثر كفاءة</div>
+            <div class="pillar-item"><span class="icon">📈</span> اقتصاد مزدهر</div>
+        </div>
+    </footer>
+
+</body>
+</html>
+"""
+
+html_path = os.path.abspath("infographic_naama_master_v2.html")
+with open(html_path, "w", encoding="utf-8") as f:
+    f.write(html_content)
+
+print("Generated infographic_naama_master_v2.html")
+
+chrome_path = r"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
+out_img = os.path.abspath(r"static\images\executive_infographic_perfect_naama.png")
+
+cmd = [
+    chrome_path,
+    "--headless",
+    "--disable-gpu",
+    "--window-size=2560,1440",
+    f"--screenshot={out_img}",
+    "--virtual-time-budget=5000",
+    f"file:///{html_path.replace(os.sep, '/')}"
+]
+
+print("Rendering high-res infographic with Chrome headless...")
+res = subprocess.run(cmd, capture_output=True)
+print("Chrome exit code:", res.returncode)
+
+if os.path.exists(out_img):
+    im = Image.open(out_img)
+    print("SUCCESS! Output image size:", im.size)
+    # Save as high-res JPG and PNG
+    jpg_path = r"static\images\executive_infographic_perfect_naama.jpg"
+    im.convert("RGB").save(jpg_path, quality=96)
+    print("Saved", jpg_path)
