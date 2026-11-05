@@ -1,0 +1,200 @@
+import os
+import subprocess
+from PIL import Image
+
+html_content = """<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Tajawal:wght@500;700;800;900&display=swap" rel="stylesheet">
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    width: 1536px;
+    height: 1024px;
+    overflow: hidden;
+    position: relative;
+    background: #ffffff;
+    font-family: 'Tajawal', 'Cairo', 'Segoe UI', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+.bg-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1536px;
+    height: 1024px;
+    z-index: 1;
+}
+
+/* ================= 1. PATCH FOR MAIN DESCRIPTION ================= */
+.desc-patch {
+    position: absolute;
+    top: 64px;
+    left: 170px;
+    width: 1196px;
+    height: 86px;
+    z-index: 10;
+    background: linear-gradient(to bottom, #f7f9fa 0%, #edf2f6 100%);
+    box-shadow: 0 0 14px 14px #f4f7f9;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 10px;
+}
+.desc-patch .line-gold {
+    font-size: 16.5px;
+    font-weight: 800;
+    color: #a27411;
+    margin-bottom: 3px;
+    letter-spacing: -0.2px;
+}
+.desc-patch .line-navy {
+    font-size: 14px;
+    font-weight: 700;
+    color: #0f2c42;
+    line-height: 1.45;
+    max-width: 1140px;
+}
+
+/* ================= 2. PATCH FOR SECTION SUBHEADER ================= */
+.subhead-patch {
+    position: absolute;
+    top: 182px;
+    left: 370px;
+    width: 796px;
+    height: 28px;
+    z-index: 10;
+    background: #edf3f7;
+    box-shadow: 0 0 10px 10px #edf3f7;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.subhead-patch p {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #102f4a;
+    letter-spacing: -0.1px;
+}
+
+/* ================= 3. PATCH FOR SELLER OUTCOME ================= */
+/* Wider patch to fully cover: left: 42px, width: 125px */
+.seller-outcome-patch {
+    position: absolute;
+    top: 676px;
+    left: 42px;
+    width: 125px;
+    height: 60px;
+    z-index: 10;
+    background: #eef6f3;
+    box-shadow: 0 0 4px 4px #eef6f3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.seller-outcome-patch span {
+    font-size: 12.5px;
+    font-weight: 800;
+    color: #015738;
+    line-height: 1.35;
+}
+
+/* ================= 4. PATCH FOR ADMIN OUTCOME ================= */
+.admin-outcome-patch {
+    position: absolute;
+    top: 680px;
+    left: 1355px;
+    width: 100px;
+    height: 52px;
+    z-index: 10;
+    background: #faf6eb;
+    box-shadow: 0 0 4px 4px #faf6eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.admin-outcome-patch span {
+    font-size: 13.5px;
+    font-weight: 800;
+    color: #015738;
+}
+
+</style>
+</head>
+<body>
+
+    <!-- Base Official Slide -->
+    <img src="static/images/cover_image.png" class="bg-slide" alt="المنصة الوطنية لأسواق النفع العام">
+
+    <!-- 1. Corrected Description -->
+    <div class="desc-patch">
+        <div class="line-gold">منصة رقمية وطنية موحدة لإدارة وتنظيم وتشغيل أسواق النفع العام،</div>
+        <div class="line-navy">تربط المنتجين والمزارع ومراكز الخدمة والمستهلكين والجهات الإشرافية ضمن منظومة رقمية متكاملة للحوكمة والتشغيل والرقابة، بما يعزز الشفافية ويرفع كفاءة الأسواق ويسهم في دعم الأمن الغذائي واستدامة القطاع الزراعي.</div>
+    </div>
+
+    <!-- 2. Corrected Subheader -->
+    <div class="subhead-patch">
+        <p>من التسجيل وحتى إتمام العمليات التشغيلية والخدمية لكل فئة من المستفيدين</p>
+    </div>
+
+    <!-- 3. Corrected Seller Outcome -->
+    <div class="seller-outcome-patch">
+        <span>تسريع دورة</span>
+        <span>التوريد</span>
+    </div>
+
+    <!-- 4. Corrected Admin Outcome -->
+    <div class="admin-outcome-patch">
+        <span>امتثال أعلى</span>
+    </div>
+
+</body>
+</html>
+"""
+
+html_path = os.path.abspath("patch_cover_slide_perfect.html")
+with open(html_path, "w", encoding="utf-8") as f:
+    f.write(html_content)
+
+chrome_path = r"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
+out_img = os.path.abspath(r"static\images\cover_image.png") # Update cover_image.png directly!
+
+cmd = [
+    chrome_path,
+    "--headless",
+    "--disable-gpu",
+    "--window-size=1536,1024",
+    f"--screenshot={out_img}",
+    "--virtual-time-budget=4000",
+    f"file:///{html_path.replace(os.sep, '/')}"
+]
+
+print("Updating cover_image.png with perfect corrections...")
+res = subprocess.run(cmd, capture_output=True)
+print("Chrome exit code:", res.returncode)
+
+if os.path.exists(out_img):
+    im = Image.open(out_img)
+    print("SUCCESS! Output image size:", im.size)
+    # Also save as JPEG
+    im.convert("RGB").save(r"static\images\cover_image.jpg", quality=98)
+    # Also save 4K version
+    im_4k = im.resize((3840, 2560), Image.Resampling.LANCZOS)
+    im_4k.convert("RGB").save(r"static\images\executive_infographic_naama_official_4k.jpg", quality=98)
+    im_4k.save(r"static\images\executive_infographic_naama_official_4k.png")
+    print("Updated all files: cover_image.png, cover_image.jpg, and 4K version!")

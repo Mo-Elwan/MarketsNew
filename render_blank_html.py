@@ -1,0 +1,475 @@
+import os
+import subprocess
+from PIL import Image
+
+html_content = """<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>قالب المنصة الوطنية لأسواق النفع العام - مفرغ</title>
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+}
+body {
+    width: 1536px;
+    height: 1024px;
+    overflow: hidden;
+    background: #f8fafc;
+    font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+    color: #1e293b;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* ================= 1. HEADER (LOGOS ONLY) ================= */
+.header {
+    background: #ffffff;
+    height: 140px;
+    padding: 16px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #e2e8f0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    position: relative;
+    z-index: 20;
+}
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.header-right img.mewa {
+    height: 65px;
+}
+.header-right img.naama {
+    height: 60px;
+}
+.header-center {
+    flex: 1;
+    height: 100%;
+    /* Clean empty space for user title / presentation title */
+}
+.header-left {
+    display: flex;
+    align-items: center;
+}
+.header-left img.v2030 {
+    height: 65px;
+}
+
+/* ================= 2. MAIN 3 CARDS ================= */
+.main-lanes {
+    height: 630px;
+    padding: 0 45px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+    position: relative;
+    z-index: 10;
+}
+
+.lane-card {
+    background: #ffffff;
+    border-radius: 20px;
+    border: 2px solid #e2e8f0;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 14px 16px;
+    position: relative;
+}
+
+/* Card Headers (Clean with Icons only) */
+.lane-header {
+    border-radius: 14px;
+    height: 48px;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+.header-green {
+    background: linear-gradient(135deg, #015738 0%, #004028 100%);
+    box-shadow: 0 4px 12px rgba(1, 87, 56, 0.15);
+}
+.header-teal {
+    background: linear-gradient(135deg, #026b45 0%, #014e32 100%);
+    box-shadow: 0 4px 12px rgba(2, 107, 69, 0.15);
+}
+.header-gold {
+    background: linear-gradient(135deg, #a27411 0%, #7c5707 100%);
+    box-shadow: 0 4px 12px rgba(162, 116, 17, 0.15);
+}
+
+.icon-badge {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.18);
+    border: 1.5px solid rgba(255, 255, 255, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 19px;
+}
+
+/* Card Body */
+.lane-body {
+    display: flex;
+    gap: 12px;
+    flex: 1;
+}
+
+.lane-photo-container {
+    width: 145px;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+    border: 1.5px solid #e2e8f0;
+}
+.lane-photo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Steps Stack (Empty with Numbers and Icons) */
+.steps-stack {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 4px;
+}
+
+.step-item {
+    border-radius: 10px;
+    padding: 6px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 34px;
+    border: 1.5px solid #e2e8f0;
+}
+.step-item-green {
+    background: #f4fbf7;
+    border-color: #d1fae5;
+}
+.step-item-teal {
+    background: #f0f8fd;
+    border-color: #e0f2fe;
+}
+.step-item-gold {
+    background: #fcf9f0;
+    border-color: #fef3c7;
+}
+
+.step-num {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 800;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.num-green { background: #015738; }
+.num-teal { background: #026b45; }
+.num-gold { background: #a27411; }
+
+.step-line {
+    flex: 1;
+    margin: 0 10px;
+    height: 1.5px;
+    background: repeating-linear-gradient(to left, #cbd5e1, #cbd5e1 4px, transparent 4px, transparent 8px);
+}
+.step-icon {
+    font-size: 15px;
+    color: #475569;
+}
+
+/* Outcome Bar */
+.outcome-bar {
+    margin-top: 8px;
+    border-radius: 12px;
+    padding: 6px 10px;
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    border: 1.5px solid #e2e8f0;
+    background: #f8fafc;
+}
+.outcome-chip {
+    flex: 1;
+    height: 48px;
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+.outcome-chip .chip-icon {
+    font-size: 18px;
+}
+.outcome-chip .chip-line {
+    width: 60%;
+    height: 2px;
+    background: #e2e8f0;
+    margin-top: 4px;
+    border-radius: 2px;
+}
+
+/* ================= 3. SHARED SERVICES DOCK ================= */
+.services-dock {
+    height: 68px;
+    background: #ffffff;
+    margin: 0 45px;
+    border-radius: 16px;
+    border: 2px solid #e2e8f0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    gap: 14px;
+    position: relative;
+    z-index: 15;
+}
+.dock-capsules {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    gap: 12px;
+}
+.dock-capsule {
+    flex: 1;
+    height: 44px;
+    background: #f8fafc;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+}
+.dock-capsule .cap-icon {
+    font-size: 18px;
+}
+.dock-capsule .cap-line {
+    width: 50%;
+    height: 2px;
+    background: #cbd5e1;
+    border-radius: 2px;
+}
+
+/* ================= 4. FOOTER BANNER ================= */
+.footer-banner {
+    height: 120px;
+    position: relative;
+    background: url('static/images/clean_bottom_banner.png') center/cover no-repeat;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 12px;
+    border-top: 2.5px solid #b8860b;
+}
+.footer-pillars {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    background: rgba(1, 40, 25, 0.75);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 6px 28px;
+}
+.pillar-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.pillar-item span.icon {
+    font-size: 20px;
+}
+.pillar-item span.line {
+    width: 80px;
+    height: 2.5px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 2px;
+}
+
+</style>
+</head>
+<body>
+
+    <!-- 1. HEADER (Official Logos Only) -->
+    <header class="header">
+        <div class="header-right">
+            <img class="mewa" src="static/images/mewa_logo_hd.png" alt="وزارة البيئة والمياه والزراعة">
+            <img class="naama" src="static/images/naama_logo_hd.png" alt="منصة نما">
+        </div>
+        <div class="header-center"></div>
+        <div class="header-left">
+            <img class="v2030" src="static/images/asset_v2030_logo.png" alt="رؤية السعودية 2030">
+        </div>
+    </header>
+
+    <!-- 2. THREE SWIMLANES -->
+    <main class="main-lanes">
+
+        <!-- Card 1: Seller -->
+        <section class="lane-card">
+            <div class="lane-header header-green">
+                <div class="icon-badge">🌾</div>
+            </div>
+            <div class="lane-body">
+                <div class="lane-photo-container">
+                    <img src="static/images/clean_farm_photo.png" alt="المزارع">
+                </div>
+                <div class="steps-stack">
+                    <div class="step-item step-item-green"><span class="step-num num-green">1</span><span class="step-line"></span><span class="step-icon">📋</span></div>
+                    <div class="step-item step-item-green"><span class="step-num num-green">2</span><span class="step-line"></span><span class="step-icon">📦</span></div>
+                    <div class="step-item step-item-green"><span class="step-num num-green">3</span><span class="step-line"></span><span class="step-icon">🏢</span></div>
+                    <div class="step-item step-item-green"><span class="step-num num-green">4</span><span class="step-line"></span><span class="step-icon">🔔</span></div>
+                    <div class="step-item step-item-green"><span class="step-num num-green">5</span><span class="step-line"></span><span class="step-icon">⚙️</span></div>
+                    <div class="step-item step-item-green"><span class="step-num num-green">6</span><span class="step-line"></span><span class="step-icon">🚚</span></div>
+                    <div class="step-item step-item-green"><span class="step-num num-green">7</span><span class="step-line"></span><span class="step-icon">💳</span></div>
+                    <div class="step-item step-item-green"><span class="step-num num-green">8</span><span class="step-line"></span><span class="step-icon">📊</span></div>
+                </div>
+            </div>
+            <div class="outcome-bar">
+                <div class="outcome-chip"><span class="chip-icon">📈</span><span class="chip-line"></span></div>
+                <div class="outcome-chip"><span class="chip-icon">📦</span><span class="chip-line"></span></div>
+                <div class="outcome-chip"><span class="chip-icon">⚡</span><span class="chip-line"></span></div>
+            </div>
+        </section>
+
+        <!-- Card 2: Consumer -->
+        <section class="lane-card">
+            <div class="lane-header header-teal">
+                <div class="icon-badge">🛒</div>
+            </div>
+            <div class="lane-body">
+                <div class="lane-photo-container">
+                    <img src="static/images/clean_phone_consumer.png" alt="المستهلك">
+                </div>
+                <div class="steps-stack">
+                    <div class="step-item step-item-teal"><span class="step-num num-teal">1</span><span class="step-line"></span><span class="step-icon">🏪</span></div>
+                    <div class="step-item step-item-teal"><span class="step-num num-teal">2</span><span class="step-line"></span><span class="step-icon">🔍</span></div>
+                    <div class="step-item step-item-teal"><span class="step-num num-teal">3</span><span class="step-line"></span><span class="step-icon">🛍️</span></div>
+                    <div class="step-item step-item-teal"><span class="step-num num-teal">4</span><span class="step-line"></span><span class="step-icon">💳</span></div>
+                    <div class="step-item step-item-teal"><span class="step-num num-teal">5</span><span class="step-line"></span><span class="step-icon">📍</span></div>
+                    <div class="step-item step-item-teal"><span class="step-num num-teal">6</span><span class="step-line"></span><span class="step-icon">📦</span></div>
+                    <div class="step-item step-item-teal"><span class="step-num num-teal">7</span><span class="step-line"></span><span class="step-icon">⭐</span></div>
+                    <div class="step-item step-item-teal" style="background:#f0fdf4; border-color:#86efac;"><span class="step-num" style="background:#16a34a;">✓</span><span class="step-line"></span><span class="step-icon">🛡️</span></div>
+                </div>
+            </div>
+            <div class="outcome-bar">
+                <div class="outcome-chip"><span class="chip-icon">🛡️</span><span class="chip-line"></span></div>
+                <div class="outcome-chip"><span class="chip-icon">✨</span><span class="chip-line"></span></div>
+                <div class="outcome-chip"><span class="chip-icon">🚀</span><span class="chip-line"></span></div>
+            </div>
+        </section>
+
+        <!-- Card 3: Admin -->
+        <section class="lane-card">
+            <div class="lane-header header-gold">
+                <div class="icon-badge">📊</div>
+            </div>
+            <div class="lane-body">
+                <div class="lane-photo-container">
+                    <img src="static/images/clean_admin_photo.png" alt="مدير النظام">
+                </div>
+                <div class="steps-stack">
+                    <div class="step-item step-item-gold"><span class="step-num num-gold">1</span><span class="step-line"></span><span class="step-icon">📥</span></div>
+                    <div class="step-item step-item-gold"><span class="step-num num-gold">2</span><span class="step-line"></span><span class="step-icon">🔍</span></div>
+                    <div class="step-item step-item-gold"><span class="step-num num-gold">3</span><span class="step-line"></span><span class="step-icon">✅</span></div>
+                    <div class="step-item step-item-gold"><span class="step-num num-gold">4</span><span class="step-line"></span><span class="step-icon">👥</span></div>
+                    <div class="step-item step-item-gold"><span class="step-num num-gold">5</span><span class="step-line"></span><span class="step-icon">⚙️</span></div>
+                    <div class="step-item step-item-gold"><span class="step-num num-gold">6</span><span class="step-line"></span><span class="step-icon">⚖️</span></div>
+                    <div class="step-item step-item-gold"><span class="step-num num-gold">7</span><span class="step-line"></span><span class="step-icon">🛡️</span></div>
+                    <div class="step-item step-item-gold"><span class="step-num num-gold">8</span><span class="step-line"></span><span class="step-icon">📈</span></div>
+                </div>
+            </div>
+            <div class="outcome-bar">
+                <div class="outcome-chip"><span class="chip-icon">📋</span><span class="chip-line"></span></div>
+                <div class="outcome-chip"><span class="chip-icon">👁️</span><span class="chip-line"></span></div>
+                <div class="outcome-chip"><span class="chip-icon">🏛️</span><span class="chip-line"></span></div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 3. SERVICES DOCK -->
+    <div class="services-dock">
+        <div class="dock-capsules">
+            <div class="dock-capsule"><span class="cap-icon">🛡️</span><span class="cap-line"></span></div>
+            <div class="dock-capsule"><span class="cap-icon">🔑</span><span class="cap-line"></span></div>
+            <div class="dock-capsule"><span class="cap-icon">🔔</span><span class="cap-line"></span></div>
+            <div class="dock-capsule"><span class="cap-icon">💳</span><span class="cap-line"></span></div>
+            <div class="dock-capsule"><span class="cap-icon">📍</span><span class="cap-line"></span></div>
+            <div class="dock-capsule"><span class="cap-icon">📊</span><span class="cap-line"></span></div>
+        </div>
+    </div>
+
+    <!-- 4. FOOTER BANNER -->
+    <footer class="footer-banner">
+        <div class="footer-pillars">
+            <div class="pillar-item"><span class="icon">🌱</span><span class="line"></span></div>
+            <div class="pillar-item"><span class="icon">👥</span><span class="line"></span></div>
+            <div class="pillar-item"><span class="icon">📈</span><span class="line"></span></div>
+        </div>
+    </footer>
+
+</body>
+</html>
+"""
+
+html_path = os.path.abspath("executive_blank_template.html")
+with open(html_path, "w", encoding="utf-8") as f:
+    f.write(html_content)
+
+print("Saved executive_blank_template.html")
+
+chrome_path = r"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
+out_img = os.path.abspath("executive_blank_template.png")
+
+cmd = [
+    chrome_path,
+    "--headless",
+    "--disable-gpu",
+    "--window-size=1536,1024",
+    f"--screenshot={out_img}",
+    "--virtual-time-budget=4000",
+    f"file:///{html_path.replace(os.sep, '/')}"
+]
+
+print("Rendering high-res executive blank template...")
+res = subprocess.run(cmd, capture_output=True)
+print("Chrome exit code:", res.returncode)
+
+if os.path.exists(out_img):
+    im = Image.open(out_img)
+    print("SUCCESS! Output image size:", im.size)
+    # Save 4K version (3840 x 2560)
+    im_4k = im.resize((3840, 2560), Image.Resampling.LANCZOS)
+    im_4k.save("executive_blank_template_4k.png")
+    im_4k.convert("RGB").save("executive_blank_template_4k.jpg", quality=98)
+    # Save jpg
+    im.convert("RGB").save("static/images/blank_template_clean.jpg", quality=98)
+    print("Saved all blank template formats!")
