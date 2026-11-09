@@ -157,7 +157,7 @@
                 </div>
                 <h2 class="text-xl sm:text-2xl font-black">مختبر الجودة والتحليل القياسي لأسواق النفع العام</h2>
                 <p class="text-xs sm:text-sm text-emerald-100 leading-relaxed font-normal">
-                    لا تكتمل الشفافية بدون فحص معتمد. يتم سحب عينات عشوائية من كل دفعة فور وصولها لبوابة السوق وقياس الرطوبة، النقاوة، ونسبة العيوب، لإصدار شهادة جودة رقمية تحدد رتبة المحصول وتُعلن في المزاد قبل بدء المزايدة مع السعر الاسترشادي.
+                    لا تكتمل الشفافية بدون فحص معتمد. يتم سحب عينات عشوائية من كل دفعة فور وصولها لبوابة السوق وقياس الرطوبة، النقاوة، ونسبة العيوب، لإصدار شهادة فحص وجودة رقمية تحدد درجة جودة المحصول وتُعلن في المزاد قبل بدء المزايدة مع السعر الاسترشادي.
                 </p>
             </div>
             <div class="bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/20 text-center flex-shrink-0">
@@ -231,11 +231,11 @@
 
                     <div class="grid grid-cols-2 gap-3">
                         <div>
-                            <label class="block font-bold text-slate-700 mb-1">رتبة الجودة الممنوحة</label>
+                            <label class="block font-bold text-slate-700 mb-1">درجة الجودة الممنوحة</label>
                             <select id="a_grade" required onchange="updateRefPrice(this.value)" class="w-full px-3 py-2 border border-slate-200 rounded-xl focus:ring-2 focus:ring-mewa-600 focus:outline-none font-black text-mewa-900 bg-mewa-50/50">
-                                <option value="نخب أول ممتاز (Grade A)">نخب أول ممتاز (Grade A)</option>
-                                <option value="نخب ثاني (Grade B)">نخب ثاني (Grade B)</option>
-                                <option value="نخب ثالث (Grade C)">نخب ثالث (Grade C)</option>
+                                <option value="الدرجة الممتازة (فاخر)">الدرجة الممتازة (فاخر)</option>
+                                <option value="الدرجة الأولى">الدرجة الأولى</option>
+                                <option value="الدرجة الثانية">الدرجة الثانية</option>
                                 <option value="مرفوض (غير مطابق)">مرفوض (غير مطابق)</option>
                             </select>
                         </div>
@@ -251,7 +251,7 @@
                     </div>
 
                     <button type="submit" class="w-full py-3 bg-mewa-700 hover:bg-mewa-800 text-white font-black rounded-xl shadow-md transition flex items-center justify-center gap-2">
-                        <i data-lucide="award" class="w-4 h-4 text-naamaGold-300"></i> إصدار الشهادة واعتماد الرتبة
+                        <i data-lucide="award" class="w-4 h-4 text-naamaGold-300"></i> إصدار شهادة الفحص واعتماد درجة الجودة
                     </button>
                 </form>
             </div>
@@ -360,15 +360,15 @@
                 document.getElementById('a_defect').value = 0.8;
                 document.getElementById('a_brix').value = 3.2;
                 document.getElementById('a_ref_price').value = 16.00;
-                document.getElementById('a_notes').value = "خيار بيوت محمية نخب أول، طازج قطاف الفجر، لا توجد انحناءات مفرطة.";
+                document.getElementById('a_notes').value = "خيار بيوت محمية درجة أولى، طازج قطاف الفجر، لا توجد انحناءات مفرطة.";
             }
         }
 
         function updateRefPrice(grade) {
             let base = parseFloat(document.getElementById('a_ref_price').value);
-            if (grade.includes('A')) base = Math.max(base, base);
-            else if (grade.includes('B')) base = base * 0.85;
-            else if (grade.includes('C')) base = base * 0.70;
+            if (grade.includes('ممتاز') || grade.includes('فاخر') || grade.includes('A')) base = Math.max(base, base);
+            else if (grade.includes('أولى') || grade.includes('أول') || grade.includes('B')) base = base * 0.85;
+            else if (grade.includes('ثانية') || grade.includes('ثاني') || grade.includes('C')) base = base * 0.70;
             document.getElementById('a_ref_price').value = base.toFixed(2);
         }
 
@@ -475,7 +475,7 @@
 
             if (window.FutureStaticStore) {
                 const cert = window.FutureStaticStore.addAssaying(payload);
-                alert(`تم بنجاح اعتماد الفحص وإصدار شهادة الرتبة (${cert.certificate_no}) للدفعة ${payload.lot_id}`);
+                alert(`تم بنجاح اعتماد الفحص وإصدار شهادة الفحص والجودة (${cert.certificate_no}) للدفعة ${payload.lot_id}`);
                 loadAssayingLots();
             }
         }

@@ -5,7 +5,7 @@
  */
 
 (function() {
-    const STORAGE_KEY = 'SA_FUTURE_MARKETS_STORE_V2';
+    const STORAGE_KEY = 'SA_FUTURE_MARKETS_STORE_V3';
 
     const DEFAULT_SEED_DATA = {
         lots: [
@@ -34,7 +34,7 @@
                     purity_pct: 99.4,
                     defect_pct: 1.1,
                     sugar_brix: 5.6,
-                    quality_grade: "نخب أول (Grade A)",
+                    quality_grade: "الدرجة الممتازة (فاخر)",
                     reference_price: 18.50,
                     inspection_notes: "مطابق لاشتراطات سعودي جاب، صلابة ممتازة، لا توجد لسعات شمس، جاهز للتبريد المباشر.",
                     tested_at: "2026-11-04 07:15"
@@ -92,7 +92,7 @@
                     purity_pct: 98.8,
                     defect_pct: 1.8,
                     sugar_brix: 0.0,
-                    quality_grade: "نخب ثاني (Grade B)",
+                    quality_grade: "الدرجة الأولى",
                     reference_price: 2.40,
                     inspection_notes: "درنات مائدة صلبة خالية من العفن، أقطار متجانسة بين 70-85 ملم.",
                     tested_at: "2026-11-04 08:00"
@@ -102,8 +102,8 @@
                     start_price: 2.40,
                     reserve_price: 2.20,
                     current_bid: 2.75,
-                    highest_bidder_name: "مؤسسة النخبة للتوريدات الغذائية",
-                    highest_bidder_org: "النخبة للخدمات التموينية",
+                    highest_bidder_name: "مؤسسة الرواد للتوريدات الغذائية",
+                    highest_bidder_org: "الرواد للخدمات التموينية",
                     highest_bidder_city: "بريدة",
                     bid_count: 12,
                     auction_status: "active",
@@ -150,7 +150,7 @@
                     purity_pct: 99.1,
                     defect_pct: 0.9,
                     sugar_brix: 0.0,
-                    quality_grade: "نخب أول (Grade A)",
+                    quality_grade: "الدرجة الممتازة (فاخر)",
                     reference_price: 3.20,
                     inspection_notes: "بصل أحمر متماسك مجفف طبيعياً، جفاف مثالي، خالٍ من التبرعم، جاهز للشحن بين المدن.",
                     tested_at: "2026-11-04 05:40"
@@ -194,7 +194,7 @@
                     purity_pct: 99.7,
                     defect_pct: 0.4,
                     sugar_brix: 68.0,
-                    quality_grade: "نخب أول ملكي (Grade A+)",
+                    quality_grade: "الدرجة الممتازة (فاخر)",
                     reference_price: 185.00,
                     inspection_notes: "خلاص فاخر مكنوز بحبة ملكية جامبو، لون أشقر متجانس ونسبة سكر ممتازة.",
                     tested_at: "2026-11-04 08:10"
@@ -221,7 +221,7 @@
                 farm_name: "مزارع تيماء الخضراء",
                 farm_location: "تيماء - منطقة تبوك",
                 saudi_gap_cert: "GAP-SA-2026-3321",
-                commodity: "خيار بيوت محمية نخب أول",
+                commodity: "خيار بيوت محمية درجة أولى",
                 category: "خضار وفواكه",
                 spoilage_tier: "المرحلة 1: سريع التلف",
                 quantity: 2500,
@@ -280,7 +280,7 @@
                 lot_id: "SA-2026-0102",
                 commodity: "بطاطس مائدة صنف سبونتا",
                 quantity: 12000,
-                buyer_name: "مؤسسة النخبة للتوريدات الغذائية",
+                buyer_name: "مؤسسة الرواد للتوريدات الغذائية",
                 seller_name: "مؤسسة حائل للتنمية الزراعية",
                 total_amount: 33000.0,
                 platform_fee: 1650.0,
@@ -317,7 +317,7 @@
         ],
         referencePrices: [
             { commodity: "طماطم محمية قطاف اليوم", region: "منطقة الرياض", market_name: "سوق العزيزية المركزي", grade_a_price: 18.50, grade_b_price: 15.00, grade_c_price: 11.50 },
-            { commodity: "خيار بيوت محمية نخب أول", region: "منطقة الرياض", market_name: "سوق العزيزية المركزي", grade_a_price: 16.00, grade_b_price: 13.00, grade_c_price: 9.50 },
+            { commodity: "خيار بيوت محمية درجة أولى", region: "منطقة الرياض", market_name: "سوق العزيزية المركزي", grade_a_price: 16.00, grade_b_price: 13.00, grade_c_price: 9.50 },
             { commodity: "بطاطس مائدة صنف سبونتا", region: "منطقة القصيم", market_name: "سوق بريدة المركزي", grade_a_price: 2.80, grade_b_price: 2.40, grade_c_price: 1.80 },
             { commodity: "بصل أحمر قصيمي مجفف", region: "منطقة القصيم", market_name: "سوق عنيزة المركزي", grade_a_price: 3.50, grade_b_price: 3.10, grade_c_price: 2.20 },
             { commodity: "تمر خلاص الأحساء الفاخر", region: "المنطقة الشرقية", market_name: "سوق الأحساء المركزي", grade_a_price: 185.00, grade_b_price: 145.00, grade_c_price: 110.00 },
@@ -342,7 +342,7 @@
                 invoice_no: "INV-SA-2026-9011",
                 created_at: "2026-11-04 09:30",
                 image_url: "static/images/products/tomatoes.jpg",
-                quality_grade: "نخب أول (Grade A)",
+                quality_grade: "الدرجة الممتازة (فاخر)",
                 saudi_gap: "معتمد (Saudi G.A.P.)",
                 target_market: "سوق العزيزية المركزي - الرياض",
                 buyer_name: "شركة التميمي للأسواق",
@@ -377,7 +377,7 @@
                 paid_at: "2026-11-04 08:30",
                 created_at: "2026-11-04 08:15",
                 image_url: "static/images/products/potatoes.jpg",
-                quality_grade: "نخب ثاني (Grade B)",
+                quality_grade: "الدرجة الأولى",
                 saudi_gap: "معتمد (Saudi G.A.P.)",
                 target_market: "سوق بريدة المركزي - القصيم",
                 buyer_name: "شركة التميمي للأسواق",
@@ -416,7 +416,7 @@
                 paid_at: "2026-11-04 07:15",
                 created_at: "2026-11-04 07:00",
                 image_url: "static/images/products/zucchini.jpg",
-                quality_grade: "نخب أول (Grade A)",
+                quality_grade: "الدرجة الممتازة (فاخر)",
                 saudi_gap: "معتمد (Saudi G.A.P.)",
                 target_market: "سوق عنيزة المركزي",
                 buyer_name: "شركة التميمي للأسواق",
@@ -458,7 +458,7 @@
                 paid_at: "2026-11-03 16:00",
                 created_at: "2026-11-03 15:30",
                 image_url: "static/images/products/watermelon.jpg",
-                quality_grade: "نخب أول (Grade A)",
+                quality_grade: "الدرجة الممتازة (فاخر)",
                 saudi_gap: "معتمد",
                 target_market: "سوق العزيزية المركزي - الرياض",
                 buyer_name: "شركة التميمي للأسواق",
@@ -497,7 +497,7 @@
                 completed_at: "2026-11-03 18:30",
                 created_at: "2026-11-03 14:00",
                 image_url: "static/images/products/dates_sukari.jpg",
-                quality_grade: "نخب ممتاز (Grade Premium)",
+                quality_grade: "الدرجة الممتازة (فاخر)",
                 saudi_gap: "معتمد (Saudi G.A.P.)",
                 target_market: "سوق الأحساء المركزي",
                 buyer_name: "شركة التميمي للأسواق",
