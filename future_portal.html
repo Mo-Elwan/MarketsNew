@@ -171,7 +171,7 @@
                 <button onclick="switchRole('buyer')" id="role-tab-buyer" class="role-tab-btn shrink-0 px-3.5 sm:px-5 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-black transition flex items-center justify-center gap-1.5 sm:gap-2 whitespace-nowrap text-slate-700 hover:text-mewa-800 hover:bg-slate-100/70 border border-transparent">
                     <i data-lucide="shopping-cart" class="w-4 h-4 text-emerald-600"></i>
                     <span>المشتري والتاجر والتموين</span>
-                    <span class="role-count bg-slate-100 text-slate-700 text-[10px] sm:text-[11px] px-1.5 sm:px-2 py-0.5 rounded-full font-black">4 وظائف</span>
+                    <span class="role-count bg-slate-100 text-slate-700 text-[10px] sm:text-[11px] px-1.5 sm:px-2 py-0.5 rounded-full font-black">وظيفتان</span>
                 </button>
 
                 <!-- تاب 3: إدارة السوق والرقابة والوزارة -->
@@ -230,12 +230,12 @@
                         </div>
                         <h4 class="text-base font-black text-slate-900">2. شهادة الفحص وتصنيف الرتبة</h4>
                         <p class="text-xs text-slate-600 leading-relaxed font-medium">
-                            استلام تقرير الفحص المخبري الفوري من مختبر السوق، بنسب النقاوة والرطوبة والعيوب، ورتبة المحصول (نخب أ، ب، ج) والسعر المرجعي المعتمد.
+                            شاشة مخصصة للعرض فقط لاستعراض تقارير الفحص المخبري الفوري من مختبر السوق، بنسب النقاوة والرطوبة والعيوب، ورتبة المحصول (نخب أ، ب، ج)، مع خيارات بحث وتصفية متعددة وطباعة الشهادة.
                         </p>
                     </div>
                     <div class="pt-5 border-t border-slate-100 mt-4 space-y-2">
-                        <a href="future_assaying.html" class="w-full bg-mewa-700 hover:bg-mewa-800 text-white font-bold py-2.5 px-4 rounded-xl shadow-sm hover:shadow transition flex items-center justify-center gap-2 text-xs">
-                            <span>استعراض شهادات الجودة</span>
+                        <a href="future_farmer_certificates.html" class="w-full bg-mewa-700 hover:bg-mewa-800 text-white font-bold py-2.5 px-4 rounded-xl shadow-sm hover:shadow transition flex items-center justify-center gap-2 text-xs">
+                            <span>استعراض والبحث في شهادات الجودة</span>
                             <i data-lucide="arrow-left" class="w-4 h-4 text-emerald-200"></i>
                         </a>
                     </div>
@@ -252,12 +252,12 @@
                         </div>
                         <h4 class="text-base font-black text-slate-900">3. المزاد والصرف البنكي الفوري</h4>
                         <p class="text-xs text-slate-600 leading-relaxed font-medium">
-                            متابعة المزايدات الحية من تجار المملكة، والتحويل البنكي المباشر لصافي القيمة من حساب الضمان (Escrow) دون تأخير.
+                            متابعة قائمة المزايدين المعتمدين مرتبة بالأعلى سعراً، واختيار وترسية الصفقة مباشرة دون مزايدة، مع الصرف البنكي الفوري من حساب الضمان (Escrow).
                         </p>
                     </div>
                     <div class="pt-5 border-t border-slate-100 mt-4 space-y-2">
-                        <a href="future_auction.html" class="w-full bg-mewa-700 hover:bg-mewa-800 text-white font-bold py-2.5 px-4 rounded-xl shadow-sm hover:shadow transition flex items-center justify-center gap-2 text-xs">
-                            <span>متابعة المزاد والمستحقات</span>
+                        <a href="future_auction.html?role=farmer" class="w-full bg-mewa-700 hover:bg-mewa-800 text-white font-bold py-2.5 px-4 rounded-xl shadow-sm hover:shadow transition flex items-center justify-center gap-2 text-xs">
+                            <span>استعراض عروض المزايدين والترسية</span>
                             <i data-lucide="arrow-left" class="w-4 h-4 text-emerald-200"></i>
                         </a>
                     </div>
@@ -269,85 +269,52 @@
                 <div data-role="buyer" class="role-card hidden bg-white p-6 rounded-2xl border border-slate-200 hover:border-mewa-600 hover:shadow-lg transition-all duration-300 flex flex-col justify-between border-t-4 border-t-mewa-600 naama-card">
                     <div class="space-y-3.5">
                         <div class="flex items-center justify-between">
-                            <span class="text-[10.5px] font-bold text-mewa-700 bg-mewa-50 px-2.5 py-1 rounded-lg inline-block border border-mewa-100">تداول الجملة الموحد</span>
+                            <span class="text-[10.5px] font-bold text-mewa-700 bg-mewa-50 px-2.5 py-1 rounded-lg inline-block border border-mewa-100">المسار 1: تداول الجملة الموحد</span>
                             <div class="w-11 h-11 rounded-xl bg-mewa-50 text-mewa-600 flex items-center justify-center border border-mewa-100">
                                 <i data-lucide="gavel" class="w-5 h-5"></i>
                             </div>
                         </div>
                         <h4 class="text-base font-black text-slate-900">1. المزاد الوطني الموحد (Live Auction)</h4>
                         <p class="text-xs text-slate-600 leading-relaxed font-medium">
-                            المزايدة والشراء عن بُعد من أي منطقة بالمملكة لكافة السلع المعروضة في أسواق العزيزية وبريدة وجدة والأحساء.
+                            المزايدة والشراء الإلكتروني عن بُعد لكافة السلع المعروضة في أسواق النفع العام بالمملكة، والاطلاع على شهادات الفحص المخبري المعتمدة قبل تقديم العرض.
                         </p>
                     </div>
                     <div class="pt-5 border-t border-slate-100 mt-4 space-y-2">
-                        <a href="future_auction.html" class="w-full bg-mewa-700 hover:bg-mewa-800 text-white font-bold py-2.5 px-4 rounded-xl shadow-sm hover:shadow transition flex items-center justify-center gap-2 text-xs">
+                        <a href="future_auction.html?role=buyer" class="w-full bg-mewa-700 hover:bg-mewa-800 text-white font-bold py-2.5 px-4 rounded-xl shadow-sm hover:shadow transition flex items-center justify-center gap-2 text-xs">
                             <span>دخول قاعة المزاد الحي</span>
                             <i data-lucide="arrow-left" class="w-4 h-4 text-emerald-200"></i>
                         </a>
                     </div>
                 </div>
 
-                <!-- وظيفة مشتري 2: حماية الأموال عبر حساب الضمان -->
+                <!-- وظيفة مشتري 2: مزايداتي وفواتيري وتتبع الطلبات والاعتراض -->
                 <div data-role="buyer" class="role-card hidden bg-white p-6 rounded-2xl border border-slate-200 hover:border-naamaGold-500 hover:shadow-lg transition-all duration-300 flex flex-col justify-between border-t-4 border-t-naamaGold-500 naama-card">
                     <div class="space-y-3.5">
                         <div class="flex items-center justify-between">
-                            <span class="text-[10.5px] font-bold text-amber-800 bg-amber-50 px-2.5 py-1 rounded-lg inline-block border border-amber-100">الأمان المالي</span>
+                            <span class="text-[10.5px] font-bold text-amber-800 bg-amber-50 px-2.5 py-1 rounded-lg inline-block border border-amber-100">المسار 2: الترسيات والفواتير والتحكيم</span>
                             <div class="w-11 h-11 rounded-xl bg-amber-50 text-naamaGold-600 flex items-center justify-center border border-amber-100">
-                                <i data-lucide="lock" class="w-5 h-5"></i>
+                                <i data-lucide="receipt" class="w-5 h-5"></i>
                             </div>
                         </div>
-                        <h4 class="text-base font-black text-slate-900">2. حساب الضمان المالي (Escrow)</h4>
+                        <h4 class="text-base font-black text-slate-900">2. مزايداتي وفواتيري وتتبع الطلبات</h4>
                         <p class="text-xs text-slate-600 leading-relaxed font-medium">
-                            حجز مبلغ الصفقة في حساب بنكي وسيط محمي، لا يُفرج عنه للمزارع إلا بعد فحص الشحنة ومطابقتها للمواصفات عند الاستلام.
+                            استعراض المزايدات التنافسية، وسداد فواتير الترسية لحساب الضمان البنكي (Escrow)، وتتبع سلاسل التبريد اللحظية (IoT)، وتأكيد الاستلام أو رفع اعتراض فوري للجنة فض النزاعات.
                         </p>
-                    </div>
-                    <div class="pt-5 border-t border-slate-100 mt-4 space-y-2">
-                        <a href="future_oversight.html" class="w-full bg-mewa-700 hover:bg-mewa-800 text-white font-bold py-2.5 px-4 rounded-xl shadow-sm hover:shadow transition flex items-center justify-center gap-2 text-xs">
-                            <span>سجل أوامر الضمان المالي</span>
-                            <i data-lucide="arrow-left" class="w-4 h-4 text-emerald-200"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- وظيفة مشتري 3: تتبع سلاسل التبريد وحساسات IoT -->
-                <div data-role="buyer" class="role-card hidden bg-white p-6 rounded-2xl border border-slate-200 hover:border-mewa-600 hover:shadow-lg transition-all duration-300 flex flex-col justify-between border-t-4 border-t-mewa-600 naama-card">
-                    <div class="space-y-3.5">
-                        <div class="flex items-center justify-between">
-                            <span class="text-[10.5px] font-bold text-mewa-700 bg-mewa-50 px-2.5 py-1 rounded-lg inline-block border border-mewa-100">اللوجستيات وضمان الطزاجة</span>
-                            <div class="w-11 h-11 rounded-xl bg-mewa-50 text-mewa-600 flex items-center justify-center border border-mewa-100">
-                                <i data-lucide="truck" class="w-5 h-5"></i>
-                            </div>
+                        <div class="flex items-center gap-2 flex-wrap text-[11px] font-bold text-slate-600 pt-1">
+                            <span class="bg-slate-100 px-2 py-0.5 rounded border border-slate-200 flex items-center gap-1">
+                                <i data-lucide="credit-card" class="w-3.5 h-3.5 text-amber-600"></i> سداد الفواتير
+                            </span>
+                            <span class="bg-slate-100 px-2 py-0.5 rounded border border-slate-200 flex items-center gap-1">
+                                <i data-lucide="truck" class="w-3.5 h-3.5 text-emerald-600"></i> تتبع الشاحنة
+                            </span>
+                            <span class="bg-slate-100 px-2 py-0.5 rounded border border-slate-200 flex items-center gap-1">
+                                <i data-lucide="alert-triangle" class="w-3.5 h-3.5 text-red-600"></i> رفع الاعتراض
+                            </span>
                         </div>
-                        <h4 class="text-base font-black text-slate-900">3. تتبع سلاسل التبريد (IoT)</h4>
-                        <p class="text-xs text-slate-600 leading-relaxed font-medium">
-                            متابعة لحظية لقراءات حرارة ورطوبة الشاحنة الناقلة، والتحقق من الالتزام بنافذة التبريد الملزمة (4 إلى 6 ساعات).
-                        </p>
                     </div>
                     <div class="pt-5 border-t border-slate-100 mt-4 space-y-2">
-                        <a href="future_coldchain.html" class="w-full bg-mewa-700 hover:bg-mewa-800 text-white font-bold py-2.5 px-4 rounded-xl shadow-sm hover:shadow transition flex items-center justify-center gap-2 text-xs">
-                            <span>تتبع الشاحنات والحساسات</span>
-                            <i data-lucide="arrow-left" class="w-4 h-4 text-emerald-200"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- وظيفة مشتري 4: مطابقة الاستلام أو الاعتراض الفوري -->
-                <div data-role="buyer" class="role-card hidden bg-white p-6 rounded-2xl border border-slate-200 hover:border-naamaGold-500 hover:shadow-lg transition-all duration-300 flex flex-col justify-between border-t-4 border-t-naamaGold-500 naama-card">
-                    <div class="space-y-3.5">
-                        <div class="flex items-center justify-between">
-                            <span class="text-[10.5px] font-bold text-amber-800 bg-amber-50 px-2.5 py-1 rounded-lg inline-block border border-amber-100">الحماية والتحكيم</span>
-                            <div class="w-11 h-11 rounded-xl bg-amber-50 text-naamaGold-600 flex items-center justify-center border border-amber-100">
-                                <i data-lucide="clipboard-check" class="w-5 h-5"></i>
-                            </div>
-                        </div>
-                        <h4 class="text-base font-black text-slate-900">4. تأكيد الاستلام أو الاعتراض الفوري</h4>
-                        <p class="text-xs text-slate-600 leading-relaxed font-medium">
-                            تأكيد مطابقة الشحنة بمسح رمز الاستلام، أو رفع اعتراض فوري للجنة فض النزاعات للبت فيه خلال أقل من ساعتين.
-                        </p>
-                    </div>
-                    <div class="pt-5 border-t border-slate-100 mt-4 space-y-2">
-                        <a href="future_oversight.html" class="w-full bg-mewa-700 hover:bg-mewa-800 text-white font-bold py-2.5 px-4 rounded-xl shadow-sm hover:shadow transition flex items-center justify-center gap-2 text-xs">
-                            <span>لجنة فض النزاعات السريعة</span>
+                        <a href="future_buyer_orders.html" class="w-full bg-mewa-700 hover:bg-mewa-800 text-white font-bold py-2.5 px-4 rounded-xl shadow-sm hover:shadow transition flex items-center justify-center gap-2 text-xs">
+                            <span>استعراض مزايداتي وفواتيري</span>
                             <i data-lucide="arrow-left" class="w-4 h-4 text-emerald-200"></i>
                         </a>
                     </div>

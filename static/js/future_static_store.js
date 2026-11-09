@@ -25,7 +25,7 @@
                 scheduled_arrival: "2026-11-04 06:30",
                 status: "auction_active",
                 created_at: "2026-11-04 05:00",
-                image_url: "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=600",
+                image_url: "static/images/products/tomatoes.jpg",
                 assaying: {
                     certificate_no: "CER-2026-9811",
                     inspector_name: "م. فهد القحطاني",
@@ -83,7 +83,7 @@
                 scheduled_arrival: "2026-11-04 07:45",
                 status: "auction_active",
                 created_at: "2026-11-04 04:30",
-                image_url: "https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=600",
+                image_url: "static/images/products/potatoes.jpg",
                 assaying: {
                     certificate_no: "CER-2026-9812",
                     inspector_name: "م. تركي الشمري",
@@ -185,7 +185,7 @@
                 scheduled_arrival: "2026-11-04 08:00",
                 status: "auction_active",
                 created_at: "2026-11-04 06:00",
-                image_url: "https://images.unsplash.com/photo-1596483739943-431f41b4b1a4?w=600",
+                image_url: "static/images/products/dates_sukari.jpg",
                 assaying: {
                     certificate_no: "CER-2026-9814",
                     inspector_name: "م. إبراهيم الدوسري",
@@ -230,7 +230,7 @@
                 scheduled_arrival: "2026-11-04 10:00",
                 status: "registered",
                 created_at: "2026-11-04 06:45",
-                image_url: "https://images.unsplash.com/photo-1604977042946-1eecc30f269e?w=600"
+                image_url: "static/images/products/cucumbers.jpg"
             }
         ],
         disputes: [
@@ -322,6 +322,198 @@
             { commodity: "بصل أحمر قصيمي مجفف", region: "منطقة القصيم", market_name: "سوق عنيزة المركزي", grade_a_price: 3.50, grade_b_price: 3.10, grade_c_price: 2.20 },
             { commodity: "تمر خلاص الأحساء الفاخر", region: "المنطقة الشرقية", market_name: "سوق الأحساء المركزي", grade_a_price: 185.00, grade_b_price: 145.00, grade_c_price: 110.00 },
             { commodity: "حبحب وادي الدواسر أحمر", region: "منطقة الرياض", market_name: "سوق وادي الدواسر", grade_a_price: 3.20, grade_b_price: 2.50, grade_c_price: 1.90 }
+        ],
+        buyerOrders: [
+            {
+                order_id: "ORD-2026-701",
+                lot_id: "LOT-SA-2026-0101",
+                auction_id: "AUC-2026-4401",
+                commodity: "طماطم محمية قطاف اليوم",
+                farmer_name: "مزارع الوادي بالخرج",
+                farm_location: "الخرج - منطقة الرياض",
+                quantity: 1500,
+                unit: "صندوق (6 كجم)",
+                unit_price: 19.50,
+                total_product: 29250.0,
+                fee: 1462.5,
+                vat: 219.38,
+                total_invoice: 30931.88,
+                status: "awaiting_payment",
+                invoice_no: "INV-SA-2026-9011",
+                created_at: "2026-11-04 09:30",
+                image_url: "static/images/products/tomatoes.jpg",
+                quality_grade: "نخب أول (Grade A)",
+                saudi_gap: "معتمد (Saudi G.A.P.)",
+                target_market: "سوق العزيزية المركزي - الرياض",
+                buyer_name: "شركة التميمي للأسواق",
+                tracking: {
+                    step: 1,
+                    step_title: "تمت الترسية وبانتظار سداد الفاتورة",
+                    current_temp: null,
+                    truck_plate: null,
+                    driver_name: null,
+                    driver_phone: null,
+                    eta: "بانتظار السداد لبدء التحميل والتبريد"
+                }
+            },
+            {
+                order_id: "ORD-2026-702",
+                lot_id: "LOT-SA-2026-0102",
+                auction_id: "AUC-2026-4402",
+                commodity: "بطاطس مائدة صنف سبونتا",
+                farmer_name: "مؤسسة حائل للتنمية الزراعية",
+                farm_location: "بقعاء - منطقة حائل",
+                quantity: 12000,
+                unit: "كيس شبكي (15 كجم)",
+                unit_price: 2.75,
+                total_product: 33000.0,
+                fee: 1650.0,
+                vat: 247.50,
+                total_invoice: 34897.50,
+                status: "in_transit",
+                escrow_no: "ESC-2026-8802",
+                invoice_no: "INV-SA-2026-9012",
+                payment_method: "مدى (Mada) •••• 4012",
+                paid_at: "2026-11-04 08:30",
+                created_at: "2026-11-04 08:15",
+                image_url: "static/images/products/potatoes.jpg",
+                quality_grade: "نخب ثاني (Grade B)",
+                saudi_gap: "معتمد (Saudi G.A.P.)",
+                target_market: "سوق بريدة المركزي - القصيم",
+                buyer_name: "شركة التميمي للأسواق",
+                tracking: {
+                    step: 4,
+                    step_title: "في الطريق إلى سوق بريدة المركزي",
+                    current_temp: 14.2,
+                    target_temp: "12°C - 15°C",
+                    humidity: 76,
+                    temp_status: "normal",
+                    truck_plate: "ح ل ق 9876",
+                    driver_name: "خالد المطيري",
+                    driver_phone: "0556677889",
+                    current_location: "طريق حائل - القصيم السريع (كم 140)",
+                    eta: "خلال 45 دقيقة (09:45 ص)"
+                }
+            },
+            {
+                order_id: "ORD-2026-703",
+                lot_id: "LOT-SA-2026-0103",
+                auction_id: "AUC-2026-4403",
+                commodity: "بصل أحمر قصيمي مجفف",
+                farmer_name: "جمعية عنيزة الزراعية التعاونية",
+                farm_location: "عنيزة - منطقة القصيم",
+                quantity: 8000,
+                unit: "كيس شبكي (10 كجم)",
+                unit_price: 3.20,
+                total_product: 25600.0,
+                fee: 1280.0,
+                vat: 192.00,
+                total_invoice: 27072.00,
+                status: "arrived",
+                escrow_no: "ESC-2026-8803",
+                invoice_no: "INV-SA-2026-9013",
+                payment_method: "سداد (SADAD - الحساب التجاري)",
+                paid_at: "2026-11-04 07:15",
+                created_at: "2026-11-04 07:00",
+                image_url: "static/images/products/zucchini.jpg",
+                quality_grade: "نخب أول (Grade A)",
+                saudi_gap: "معتمد (Saudi G.A.P.)",
+                target_market: "سوق عنيزة المركزي",
+                buyer_name: "شركة التميمي للأسواق",
+                tracking: {
+                    step: 5,
+                    step_title: "وصلت رصيف التفريغ بالسوق وبانتظار الاستلام أو الاعتراض",
+                    current_temp: 19.5,
+                    target_temp: "18°C - 22°C",
+                    humidity: 62,
+                    temp_status: "normal",
+                    truck_plate: "ص ع ط 5511",
+                    driver_name: "سلمان الحربي",
+                    driver_phone: "0501144778",
+                    current_location: "رصيف تفريغ رقم 4 - سوق عنيزة",
+                    eta: "تم الوصول بنجاح"
+                }
+            },
+            {
+                order_id: "ORD-2026-704",
+                lot_id: "LOT-SA-2026-0099",
+                auction_id: "AUC-2026-4399",
+                commodity: "حبحب وادي الدواسر أحمر",
+                farmer_name: "مزارع الدواسر الكبرى",
+                farm_location: "وادي الدواسر - منطقة الرياض",
+                quantity: 450,
+                unit: "حبة كبيرة (10-14 كجم)",
+                unit_price: 18.00,
+                total_product: 8100.0,
+                fee: 405.0,
+                vat: 60.75,
+                total_invoice: 8565.75,
+                status: "disputed",
+                dispute_id: "DIS-2026-101",
+                dispute_reason: "كسر سلسلة التبريد وظهور تلف بنسبة 8% في اللب",
+                dispute_status: "under_review",
+                escrow_no: "ESC-2026-8799",
+                invoice_no: "INV-SA-2026-9009",
+                payment_method: "مدى (Mada)",
+                paid_at: "2026-11-03 16:00",
+                created_at: "2026-11-03 15:30",
+                image_url: "static/images/products/watermelon.jpg",
+                quality_grade: "نخب أول (Grade A)",
+                saudi_gap: "معتمد",
+                target_market: "سوق العزيزية المركزي - الرياض",
+                buyer_name: "شركة التميمي للأسواق",
+                tracking: {
+                    step: 5,
+                    step_title: "تم استلام الشحنة وتجميد الضمان لوجود اعتراض قيد التحكيم",
+                    current_temp: 16.4,
+                    target_temp: "10°C - 12°C",
+                    temp_status: "warning",
+                    truck_plate: "د و ر 4423",
+                    driver_name: "عوض القحطاني",
+                    driver_phone: "0553311224",
+                    current_location: "بوابة فحص العزيزية",
+                    eta: "تم استلام الشحنة وتثبيت حالة الاعتراض"
+                }
+            },
+            {
+                order_id: "ORD-2026-705",
+                lot_id: "LOT-SA-2026-0097",
+                auction_id: "AUC-2026-4397",
+                commodity: "تمر خلاص الأحساء الفاخر",
+                farmer_name: "مزارع النخيل الذهبي",
+                farm_location: "الهفوف - الأحساء",
+                quantity: 1200,
+                unit: "كرتون فاخر (8 كجم)",
+                unit_price: 156.87,
+                total_product: 188250.0,
+                fee: 9412.5,
+                vat: 1411.88,
+                total_invoice: 199074.38,
+                status: "completed",
+                escrow_no: "ESC-2026-8800",
+                invoice_no: "INV-SA-2026-9005",
+                payment_method: "تحويل سريع (سداد بنكي)",
+                paid_at: "2026-11-03 14:15",
+                completed_at: "2026-11-03 18:30",
+                created_at: "2026-11-03 14:00",
+                image_url: "static/images/products/dates_sukari.jpg",
+                quality_grade: "نخب ممتاز (Grade Premium)",
+                saudi_gap: "معتمد (Saudi G.A.P.)",
+                target_market: "سوق الأحساء المركزي",
+                buyer_name: "شركة التميمي للأسواق",
+                tracking: {
+                    step: 5,
+                    step_title: "مكتمل: تم تأكيد الاستلام بنجاح والإفراج عن مستحقات المزارع",
+                    current_temp: 18.0,
+                    target_temp: "18°C - 20°C",
+                    temp_status: "normal",
+                    truck_plate: "ب س م 7788",
+                    driver_name: "محمد الدوسري",
+                    driver_phone: "0544332211",
+                    current_location: "مستودعات المشتري المركزية",
+                    eta: "تم التسليم بنجاح"
+                }
+            }
         ]
     };
 
@@ -336,8 +528,13 @@
                 if (stored) {
                     this.data = JSON.parse(stored);
                     // التحقق من اكتمال الجداول
-                    if (!this.data.lots || this.data.lots.length === 0) {
-                        this.data = JSON.parse(JSON.stringify(DEFAULT_SEED_DATA));
+                    if (!this.data.lots || this.data.lots.length === 0 || !this.data.buyerOrders || this.data.buyerOrders.length === 0) {
+                        if (!this.data.buyerOrders || this.data.buyerOrders.length === 0) {
+                            this.data.buyerOrders = JSON.parse(JSON.stringify(DEFAULT_SEED_DATA.buyerOrders));
+                        }
+                        if (!this.data.lots || this.data.lots.length === 0) {
+                            this.data.lots = JSON.parse(JSON.stringify(DEFAULT_SEED_DATA.lots));
+                        }
                         this.save();
                     }
                 } else {
@@ -410,27 +607,47 @@
         getAuctions() {
             return this.data.lots
                 .filter(l => l.auction)
-                .map(l => ({
-                    auction_id: l.auction.auction_id,
-                    lot_id: l.lot_id,
-                    start_price: l.auction.start_price,
-                    reserve_price: l.auction.reserve_price,
-                    current_bid: l.auction.current_bid,
-                    highest_bidder_name: l.auction.highest_bidder_name,
-                    highest_bidder_city: l.auction.highest_bidder_city,
-                    bid_count: l.auction.bid_count,
-                    auction_status: l.auction.auction_status,
-                    time_remaining: l.auction.time_remaining || '12 دقيقة',
-                    lot: {
-                        commodity: l.commodity,
-                        farmer_name: l.farmer_name,
-                        farm_location: l.farm_location,
-                        quantity: l.quantity,
-                        unit: l.unit,
-                        image_url: l.image_url
-                    },
-                    assaying: l.assaying
-                }));
+                .map(l => {
+                    // توليد أو جلب قائمة المزايدات مرتبة تنازلياً حسب السعر
+                    let bids = l.auction.bids;
+                    if (!bids || bids.length === 0) {
+                        const topPrice = l.auction.current_bid;
+                        bids = [
+                            { bidder_name: l.auction.highest_bidder_name || "شركة التميمي للأسواق", bidder_org: l.auction.highest_bidder_org || "أسواق التميمي", bidder_city: l.auction.highest_bidder_city || "الرياض", bid_amount: topPrice, created_at: "قبل دقيقتين" },
+                            { bidder_name: "مؤسسة عبد الله العثيم", bidder_org: "أسواق العثيم المركزية", bidder_city: "القصيم", bid_amount: Math.max(l.auction.start_price, Number((topPrice - 0.50).toFixed(2))), created_at: "قبل 6 دقائق" },
+                            { bidder_name: "شركة لولو السعودية", bidder_org: "لولو هايبر ماركت", bidder_city: "جدة", bid_amount: Math.max(l.auction.start_price, Number((topPrice - 1.00).toFixed(2))), created_at: "قبل 11 دقيقة" },
+                            { bidder_name: "مؤسسة ثمار الشرق التموينية", bidder_org: "ثمار الشرق للتجارة", bidder_city: "الدمام", bid_amount: Math.max(l.auction.start_price, Number((topPrice - 1.50).toFixed(2))), created_at: "قبل 18 دقيقة" }
+                        ];
+                        l.auction.bids = bids;
+                    }
+
+                    // فرز المزايدات دائماً من الأعلى للأدنى
+                    bids.sort((a, b) => b.bid_amount - a.bid_amount);
+
+                    return {
+                        auction_id: l.auction.auction_id,
+                        lot_id: l.lot_id,
+                        start_price: l.auction.start_price,
+                        reserve_price: l.auction.reserve_price,
+                        current_bid: l.auction.current_bid,
+                        highest_bidder_name: l.auction.highest_bidder_name,
+                        highest_bidder_city: l.auction.highest_bidder_city,
+                        highest_bidder_org: l.auction.highest_bidder_org,
+                        bid_count: l.auction.bid_count || bids.length,
+                        auction_status: l.auction.auction_status,
+                        time_remaining: l.auction.time_remaining || '12 دقيقة',
+                        bids: bids,
+                        lot: {
+                            commodity: l.commodity,
+                            farmer_name: l.farmer_name,
+                            farm_location: l.farm_location,
+                            quantity: l.quantity,
+                            unit: l.unit,
+                            image_url: l.image_url
+                        },
+                        assaying: l.assaying
+                    };
+                });
         }
 
         placeBid(auctionId, bid) {
@@ -439,6 +656,16 @@
             if (bid.bid_amount <= lot.auction.current_bid) {
                 throw new Error('قيمة المزايدة يجب أن تكون أعلى من السعر الحالي');
             }
+
+            if (!lot.auction.bids) lot.auction.bids = [];
+            lot.auction.bids.unshift({
+                bidder_name: bid.bidder_name,
+                bidder_org: bid.bidder_org,
+                bidder_city: bid.bidder_city,
+                bid_amount: bid.bid_amount,
+                created_at: "الآن"
+            });
+            lot.auction.bids.sort((a, b) => b.bid_amount - a.bid_amount);
 
             lot.auction.current_bid = bid.bid_amount;
             lot.auction.highest_bidder_name = bid.bidder_name;
@@ -449,14 +676,17 @@
             return lot.auction;
         }
 
-        closeAndEscrow(auctionId) {
+        closeAndEscrow(auctionId, selectedBid) {
             const lot = this.data.lots.find(l => l.auction && l.auction.auction_id === auctionId);
             if (!lot) throw new Error('المزاد غير موجود');
             
             lot.auction.auction_status = 'closed';
             lot.status = 'in_transit';
 
-            const total = lot.auction.current_bid * lot.quantity;
+            const winningAmount = selectedBid ? selectedBid.bid_amount : lot.auction.current_bid;
+            const winningBuyer = selectedBid ? `${selectedBid.bidder_name} (${selectedBid.bidder_org || selectedBid.bidder_city})` : lot.auction.highest_bidder_name;
+
+            const total = winningAmount * lot.quantity;
             const fee = total * 0.05;
             const net = total - fee;
             const escrowNo = `ESC-2026-${Math.floor(8800 + Math.random() * 900)}`;
@@ -466,7 +696,7 @@
                 lot_id: lot.lot_id,
                 commodity: lot.commodity,
                 quantity: lot.quantity,
-                buyer_name: lot.auction.highest_bidder_name,
+                buyer_name: winningBuyer,
                 seller_name: lot.farmer_name,
                 total_amount: total,
                 platform_fee: fee,
@@ -528,6 +758,123 @@
             if (lot) lot.status = 'accepted';
             this.save();
             return e;
+        }
+
+        // --- عمليات مزايداتي وفواتيري وتتبع طلبات المشتري (Buyer Orders & Invoices) ---
+        getBuyerOrders() {
+            if (!this.data.buyerOrders || this.data.buyerOrders.length === 0) {
+                this.data.buyerOrders = JSON.parse(JSON.stringify(DEFAULT_SEED_DATA.buyerOrders));
+                this.save();
+            }
+            return this.data.buyerOrders;
+        }
+
+        payOrderInvoice(orderId, paymentMethod) {
+            const order = this.data.buyerOrders.find(o => o.order_id === orderId);
+            if (!order) throw new Error('الطلب غير موجود');
+
+            order.status = 'in_transit';
+            order.paid_at = new Date().toISOString().slice(0, 16).replace('T', ' ');
+            order.payment_method = paymentMethod || 'مدى (Mada)';
+
+            if (!order.escrow_no) {
+                order.escrow_no = `ESC-2026-${Math.floor(8800 + Math.random() * 900)}`;
+            }
+
+            order.tracking = {
+                step: 3,
+                step_title: "تم السداد وإيداع الضمان بنجاح - جاري تجهيز الشاحنة والتبريد",
+                current_temp: 11.5,
+                target_temp: "10°C - 14°C",
+                humidity: 78,
+                temp_status: "normal",
+                truck_plate: order.tracking && order.tracking.truck_plate ? order.tracking.truck_plate : "أ ب د 4411",
+                driver_name: order.tracking && order.tracking.driver_name ? order.tracking.driver_name : "عبد الله الشهري",
+                driver_phone: "0554411223",
+                current_location: "محطة تحميل المزرعة",
+                eta: "خلال ساعتين و 30 دقيقة"
+            };
+
+            // إضافة أو تحديث سجل الضمان
+            let escrowRec = this.data.escrow.find(e => e.escrow_no === order.escrow_no);
+            if (!escrowRec) {
+                escrowRec = {
+                    escrow_no: order.escrow_no,
+                    lot_id: order.lot_id,
+                    commodity: order.commodity,
+                    quantity: order.quantity,
+                    buyer_name: order.buyer_name,
+                    seller_name: order.farmer_name,
+                    total_amount: order.total_product,
+                    platform_fee: order.fee,
+                    seller_net: order.total_product - order.fee,
+                    escrow_status: "held_in_escrow",
+                    created_at: order.paid_at
+                };
+                this.data.escrow.unshift(escrowRec);
+            } else {
+                escrowRec.escrow_status = "held_in_escrow";
+            }
+
+            this.save();
+            return order;
+        }
+
+        confirmOrderDelivery(orderId) {
+            const order = this.data.buyerOrders.find(o => o.order_id === orderId);
+            if (!order) throw new Error('الطلب غير موجود');
+
+            order.status = 'completed';
+            order.completed_at = new Date().toISOString().slice(0, 16).replace('T', ' ');
+            if (order.tracking) {
+                order.tracking.step = 5;
+                order.tracking.step_title = "مكتمل: تم تأكيد الاستلام بنجاح وصرف مستحقات المزارع";
+            }
+
+            if (order.escrow_no) {
+                try {
+                    this.releaseEscrow(order.escrow_no);
+                } catch (e) {
+                    console.log('Escrow release note:', e);
+                }
+            }
+
+            this.save();
+            return order;
+        }
+
+        disputeOrder(orderId, disputeData) {
+            const order = this.data.buyerOrders.find(o => o.order_id === orderId);
+            if (!order) throw new Error('الطلب غير موجود');
+
+            const nextDispId = `DIS-2026-${100 + this.data.disputes.length + 1}`;
+            order.status = 'disputed';
+            order.dispute_id = nextDispId;
+            order.dispute_reason = disputeData.reason;
+            order.dispute_status = 'under_review';
+
+            if (order.tracking) {
+                order.tracking.step_title = "تم الاستلام وتجميد الضمان لوجود اعتراض قيد التحكيم السريع";
+                order.tracking.temp_status = "warning";
+            }
+
+            const newDispute = {
+                dispute_id: nextDispId,
+                lot_id: order.lot_id,
+                claimant_name: order.buyer_name,
+                defendant_name: order.farmer_name,
+                dispute_type: disputeData.reason,
+                dispute_status: "under_review",
+                claim_amount: disputeData.claim_amount || order.total_product * 0.2,
+                details: disputeData.details || "اعتراض مقدم من المشتري عند الاستلام",
+                evidence_attachment: disputeData.evidence || "محضر معاينة استلام برمز البوابة",
+                committee_decision: null,
+                created_at: "الآن - قيد المراجعة الفورية"
+            };
+
+            this.data.disputes.unshift(newDispute);
+            this.save();
+            return { order, dispute: newDispute };
         }
 
         // --- الأسعار المرجعية والإحصائيات ---

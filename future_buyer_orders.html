@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مزايداتي وفواتيري وتتبع الطلبات | المنصة الوطنية لأسواق النفع العام</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        mewa: {
+                            50: '#f0f9f4',
+                            100: '#dbf0e4',
+                            600: '#006837',
+                            700: '#00542c',
+                            800: '#034424',
+                            900: '#02381e',
+                        },
+                        naamaGold: {
+                            100: '#fcf8ec',
+                            300: '#edd88b',
+                            400: '#e3b84c',
+                            500: '#c59b27',
+                            600: '#a7801a',
+                        }
+                    },
+                    fontFamily: {
+                        tajawal: ['Tajawal', 'Cairo', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="static/js/future_static_store.js"></script>
+    <style>
+        body { font-family: 'Tajawal', sans-serif; background-color: #f7f9fa; }
+        .gold-line { background: linear-gradient(90deg, #c59b27 0%, #e3b84c 50%, #c59b27 100%); }
+        .naama-card {
+            background: #ffffff;
+            border: 1px solid #e9ecef;
+            box-shadow: 0 4px 20px -2px rgba(0, 104, 55, 0.05);
+            transition: all 0.25s ease-in-out;
+        }
+        .naama-card:hover {
+            box-shadow: 0 12px 25px -4px rgba(0, 104, 55, 0.1);
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        @media print {
+            .no-print { display: none !important; }
+        }
+    </style>
+</head>
+<body class="text-slate-800 min-h-screen flex flex-col antialiased">
+
+    <!-- الشريط الذهبي العلوي الرسمي -->
+    <div class="h-1.5 gold-line w-full"></div>
+
+    <!-- شريط الخدمات المشتركة الموحد -->
+    <div class="bg-white border-b border-slate-200/80 text-xs py-2 text-slate-500 no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center gap-4 overflow-x-auto whitespace-nowrap no-scrollbar">
+            <div class="flex items-center gap-2 flex-shrink-0">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 inline-block animate-pulse"></span>
+                <span class="font-bold text-slate-700">المملكة العربية السعودية | منظومة أسواق النفع العام الوطنية — الوضع المستقبلي</span>
+            </div>
+            <div class="flex items-center gap-2.5 sm:gap-3 flex-shrink-0">
+                <span class="text-white bg-gradient-to-r from-mewa-700 to-mewa-800 px-3 py-1 rounded-lg font-black flex items-center gap-1.5 shadow-sm text-[11px] sm:text-xs border border-mewa-900">
+                    <i data-lucide="sparkles" class="w-3.5 h-3.5 text-naamaGold-400"></i> الوضع المستقبلي (النموذج الحديث)
+                </span>
+                <span class="text-slate-300">|</span>
+                <a href="future_portal.html" class="text-mewa-700 hover:underline font-bold flex items-center gap-1 transition text-[11px] sm:text-xs">
+                    <i data-lucide="layout-grid" class="w-3.5 h-3.5"></i> لوحة البوابات
+                </a>
+                <span class="text-slate-300">|</span>
+                <a href="future_infographic.html" class="text-mewa-700 hover:underline font-bold flex items-center gap-1 transition text-[11px] sm:text-xs">
+                    <i data-lucide="presentation" class="w-3.5 h-3.5 text-mewa-600"></i> الإنفوجرافيك 4K
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ترويسة الصفحة الرسمية الموحدة -->
+    <header class="bg-white border-b border-slate-200 shadow-sm sticky top-0 z-40 no-print">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 flex items-center justify-between h-16 sm:h-24 gap-2 sm:gap-4">
+            <div class="flex items-center gap-3">
+                <a href="future_portal.html" class="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-mewa-50 text-mewa-800 hover:bg-mewa-700 hover:text-white border border-mewa-200 flex items-center justify-center transition shadow-xs" title="العودة للوحة الرئيسية">
+                    <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                </a>
+                <a href="future_portal.html" class="flex items-center gap-2 sm:gap-4 min-w-0">
+                    <img src="static/images/mewa_logo.png" alt="وزارة البيئة والمياه والزراعة" class="h-10 sm:h-16 w-auto object-contain flex-shrink-0">
+                    <div class="border-r-2 border-slate-200 pr-2.5 sm:pr-4 flex flex-col justify-center min-w-0">
+                        <h1 class="text-sm sm:text-xl md:text-2xl font-black text-mewa-800 tracking-tight leading-tight truncate">مزايداتي وفواتيري وتتبع الطلبات</h1>
+                        <p class="hidden md:block text-[11px] sm:text-xs text-slate-500 font-medium leading-tight mt-0.5 truncate">سداد فواتير الترسية لحساب الضمان (Escrow)، تتبع سلاسل التبريد، ومطابقة الاستلام أو الاعتراض</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <img src="static/images/naama_logo.png" alt="منصة نماء" class="h-8 sm:h-12 w-auto object-contain">
+                <div class="h-8 w-px bg-slate-200 hidden sm:block"></div>
+                <div class="hidden sm:flex flex-col text-left">
+                    <span class="text-[10px] text-slate-400 font-bold">بوابة المشتري المعتمد</span>
+                    <span class="text-xs font-black text-emerald-800">شركة التميمي للأسواق</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- المحتوى الرئيسي للصفحة -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow w-full space-y-6">
+
+        <!-- تابات التنقل الموحدة بين المستفيدين الثلاثة -->
+        <div class="bg-white p-1.5 sm:p-2 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-2 overflow-x-auto no-scrollbar scroll-smooth no-print">
+            <a href="future_farmer_lots.html" class="shrink-0 px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black transition flex items-center justify-center gap-2 whitespace-nowrap text-slate-700 hover:text-mewa-800 hover:bg-slate-100/70 border border-transparent">
+                <i data-lucide="sprout" class="w-4 h-4 text-emerald-600"></i>
+                <span>المزارع والمنتج الزراعي</span>
+            </a>
+            <div class="shrink-0 px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black transition flex items-center justify-center gap-2 whitespace-nowrap bg-mewa-700 text-white shadow-sm border border-mewa-800">
+                <i data-lucide="shopping-cart" class="w-4 h-4 text-naamaGold-300"></i>
+                <span>المشتري والتاجر والتموين (نشط)</span>
+            </div>
+            <a href="future_oversight.html" class="shrink-0 px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black transition flex items-center justify-center gap-2 whitespace-nowrap text-slate-700 hover:text-mewa-800 hover:bg-slate-100/70 border border-transparent">
+                <i data-lucide="shield-check" class="w-4 h-4 text-naamaGold-600"></i>
+                <span>إدارة السوق والرقابة والوزارة</span>
+            </a>
+            <a href="future_portal.html" class="shrink-0 px-3 sm:px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition flex items-center justify-center gap-1.5 whitespace-nowrap text-slate-500 hover:text-slate-800 hover:bg-slate-100/70 border border-transparent mr-auto">
+                <i data-lucide="layout-grid" class="w-3.5 h-3.5"></i>
+                <span>لوحة المنظومة الشاملة</span>
+            </a>
+        </div>
+
+        <!-- أزرار التنقل الفرعية للمشتري -->
+        <div class="flex items-center gap-2 overflow-x-auto no-scrollbar text-xs font-bold no-print">
+            <a href="future_auction.html?role=buyer" class="px-3.5 py-2 rounded-xl bg-white text-slate-600 hover:text-mewa-700 border border-slate-200 transition flex items-center gap-1.5 shadow-xs">
+                <i data-lucide="gavel" class="w-4 h-4 text-slate-400"></i>
+                <span>1. قاعة المزاد الوطني الموحد (Live Auction)</span>
+            </a>
+            <div class="px-3.5 py-2 rounded-xl bg-emerald-50 text-emerald-900 border border-emerald-300 font-black flex items-center gap-1.5 shadow-xs">
+                <i data-lucide="receipt" class="w-4 h-4 text-emerald-700"></i>
+                <span>2. مزايداتي وفواتيري وتتبع الطلبات (النشطة)</span>
+                <span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
+            </div>
+        </div>
+
+        <!-- بنر ترحيبي بهوية نما وحماية المشتري بحساب الضمان -->
+        <div class="relative bg-gradient-to-r from-mewa-900 via-mewa-800 to-mewa-700 rounded-2xl p-6 text-white shadow-md border-b-4 border-naamaGold-500 flex flex-col md:flex-row items-center justify-between gap-6 no-print">
+            <div class="space-y-2 max-w-2xl">
+                <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-white/10 text-xs font-bold text-emerald-200">
+                    <i data-lucide="shield-check" class="w-3.5 h-3.5 text-naamaGold-400"></i> حماية رأس مال المشتري عبر حساب الضمان المالي المعتمد (Escrow)
+                </div>
+                <h2 class="text-xl sm:text-2xl font-black">إدارة صفقاتك الزراعية وفواتيرك الضريبية ومتابعة الشحن</h2>
+                <p class="text-xs sm:text-sm text-emerald-100 leading-relaxed font-normal">
+                    بمجرد قبول المزارع لعرضك وترسية المزاد، يمكنك هنا استعراض تفاصيل الفاتورة وسدادها لحساب الضمان البنكي الآمن. تتبع مسار الشاحنة ودرجة حرارة التبريد لحظياً، ثم أكّد الاستلام لإطلاق المبلغ للبائع أو ارفع اعتراضاً فورياً للجنة فض النزاعات.
+                </p>
+            </div>
+            <div class="flex gap-3 text-center shrink-0 flex-wrap">
+                <div class="bg-white/10 backdrop-blur-md px-4 py-3 rounded-xl border border-white/20">
+                    <span class="text-[11px] text-emerald-200 font-bold block">إجمالي صفقاتي</span>
+                    <span class="text-xl font-black text-amber-300" id="stat-total-orders">5 صفقات</span>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md px-4 py-3 rounded-xl border border-white/20">
+                    <span class="text-[11px] text-emerald-200 font-bold block">بانتظار السداد</span>
+                    <span class="text-xl font-black text-amber-400" id="stat-pending-pay">1 فاتورة</span>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md px-4 py-3 rounded-xl border border-white/20">
+                    <span class="text-[11px] text-emerald-200 font-bold block">في الطريق مبردة</span>
+                    <span class="text-xl font-black text-emerald-300" id="stat-in-transit">2 شحنة</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- صندوق الفلاتر والبحث المتعدد -->
+        <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm space-y-3 naama-card no-print">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
+                <div class="flex items-center gap-2 overflow-x-auto no-scrollbar text-xs font-bold" id="filter-pills-bar">
+                    <button onclick="setFilter('all')" id="pill-all" class="filter-pill active px-3.5 py-2 rounded-xl transition bg-mewa-700 text-white font-black shadow-xs">
+                        الكل (<span id="count-all">0</span>)
+                    </button>
+                    <button onclick="setFilter('awaiting_payment')" id="pill-awaiting_payment" class="filter-pill px-3.5 py-2 rounded-xl transition bg-slate-100 hover:bg-slate-200 text-slate-700">
+                        💳 بانتظار السداد (<span id="count-awaiting">0</span>)
+                    </button>
+                    <button onclick="setFilter('in_transit')" id="pill-in_transit" class="filter-pill px-3.5 py-2 rounded-xl transition bg-slate-100 hover:bg-slate-200 text-slate-700">
+                        🚚 قيد الشحن والتبريد (<span id="count-transit">0</span>)
+                    </button>
+                    <button onclick="setFilter('arrived')" id="pill-arrived" class="filter-pill px-3.5 py-2 rounded-xl transition bg-slate-100 hover:bg-slate-200 text-slate-700">
+                        📦 وصلت السوق (<span id="count-arrived">0</span>)
+                    </button>
+                    <button onclick="setFilter('completed')" id="pill-completed" class="filter-pill px-3.5 py-2 rounded-xl transition bg-slate-100 hover:bg-slate-200 text-slate-700">
+                        ✓ مكتملة ومستلمة (<span id="count-completed">0</span>)
+                    </button>
+                    <button onclick="setFilter('disputed')" id="pill-disputed" class="filter-pill px-3.5 py-2 rounded-xl transition bg-slate-100 hover:bg-slate-200 text-slate-700">
+                        ⚠️ معترض عليها (<span id="count-disputed">0</span>)
+                    </button>
+                </div>
+
+                <div class="relative w-full md:w-64">
+                    <input type="text" id="search-input" oninput="applyFilters()" placeholder="بحث برقم الطلب، المحصول، أو المزرعة..." class="w-full pl-3 pr-9 py-2 text-xs border border-slate-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:outline-none">
+                    <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute right-3 top-2.5"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- شبكة كروت المزايدات والطلبات والفواتير -->
+        <div class="space-y-4" id="orders-container">
+            <div class="text-center py-12 text-slate-400">جاري تحميل سجل المزايدات والفواتير...</div>
+        </div>
+
+    </main>
+
+    <!-- نافذة منبثقة لسداد الفاتورة وإيداع حساب الضمان (Payment Modal) -->
+    <div id="payment-modal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-3 sm:p-4">
+        <div class="bg-white rounded-3xl max-w-xl w-full p-6 space-y-5 shadow-2xl border border-slate-100 naama-card border-t-4 border-t-naamaGold-500 max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center border-b border-slate-100 pb-3">
+                <div class="flex items-center gap-2">
+                    <div class="w-9 h-9 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center font-bold border border-amber-200">
+                        <i data-lucide="credit-card" class="w-4 h-4 text-naamaGold-600"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-black text-slate-900">سداد الفاتورة الضريبية وإيداع الضمان (Escrow)</h3>
+                        <p class="text-[11px] text-slate-500">حجز المبلغ في الحساب الوسيط المحمي لحين تأكيد الاستلام</p>
+                    </div>
+                </div>
+                <button onclick="closePaymentModal()" class="text-slate-400 hover:text-slate-700 p-1">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+
+            <!-- ملخص الفاتورة الضريبية الرسمية -->
+            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 space-y-3 text-xs">
+                <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+                    <div>
+                        <span class="text-[10px] text-slate-400 font-bold block">رقم الفاتورة الضريبية:</span>
+                        <span class="font-mono font-black text-slate-800 text-sm" id="pm-invoice-no">INV-SA-2026-XXXX</span>
+                    </div>
+                    <div class="text-left">
+                        <span class="text-[10px] text-slate-400 font-bold block">رقم المزاد المعتمد:</span>
+                        <span class="font-mono font-bold text-emerald-800" id="pm-auction-id">AUC-2026-XXXX</span>
+                    </div>
+                </div>
+
+                <div class="space-y-1.5 pt-1">
+                    <div class="flex justify-between">
+                        <span class="text-slate-600">المحصول الزراعي:</span>
+                        <strong class="text-slate-900 font-black" id="pm-commodity">--</strong>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-slate-600">المزرعة الموردة:</span>
+                        <span class="text-slate-800 font-bold" id="pm-farmer">--</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-slate-600">الكمية الإجمالية:</span>
+                        <span class="text-slate-800 font-black text-emerald-800" id="pm-qty">--</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-slate-600">سعر الوحدة التنافسي الفائز:</span>
+                        <span class="text-slate-800 font-bold" id="pm-unit-price">-- ر.س</span>
+                    </div>
+                </div>
+
+                <div class="border-t border-dashed border-slate-200 pt-2 space-y-1">
+                    <div class="flex justify-between text-slate-500">
+                        <span>قيمة المحصول الصافية:</span>
+                        <span id="pm-total-product">-- ر.س</span>
+                    </div>
+                    <div class="flex justify-between text-slate-500">
+                        <span>رسوم منصة أسواق النفع العام (5%):</span>
+                        <span id="pm-fee">-- ر.س</span>
+                    </div>
+                    <div class="flex justify-between text-slate-500">
+                        <span>ضريبة القيمة المضافة (15% على الرسوم):</span>
+                        <span id="pm-vat">-- ر.س</span>
+                    </div>
+                    <div class="flex justify-between text-base font-black text-slate-900 border-t border-slate-300 pt-2">
+                        <span>إجمالي المبلغ المطلوب إيداعه في الضمان:</span>
+                        <span class="text-emerald-800" id="pm-total-invoice">-- ر.س</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- اختيار طريقة الدفع المعتمدة -->
+            <div class="space-y-2">
+                <label class="block text-xs font-black text-slate-900">اختر وسيلة الدفع البنكي الإلكتروني:</label>
+                <div class="grid grid-cols-2 gap-2 text-xs">
+                    <label class="p-3 rounded-xl border border-emerald-500 bg-emerald-50/50 flex items-center gap-2 cursor-pointer font-bold text-emerald-950">
+                        <input type="radio" name="pay_method" value="مدى (Mada)" checked class="accent-emerald-700">
+                        <span>بطاقة مدى (Mada)</span>
+                    </label>
+                    <label class="p-3 rounded-xl border border-slate-200 hover:border-slate-300 flex items-center gap-2 cursor-pointer font-bold text-slate-700">
+                        <input type="radio" name="pay_method" value="سداد (SADAD)" class="accent-emerald-700">
+                        <span>خدمة سداد (SADAD)</span>
+                    </label>
+                    <label class="p-3 rounded-xl border border-slate-200 hover:border-slate-300 flex items-center gap-2 cursor-pointer font-bold text-slate-700">
+                        <input type="radio" name="pay_method" value="البطاقة الائتمانية" class="accent-emerald-700">
+                        <span>فيزا / ماستركارد</span>
+                    </label>
+                    <label class="p-3 rounded-xl border border-slate-200 hover:border-slate-300 flex items-center gap-2 cursor-pointer font-bold text-slate-700">
+                        <input type="radio" name="pay_method" value="ضمان بنكي معتمد" class="accent-emerald-700">
+                        <span>اعتماد بنكي مغطى</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="p-3 bg-amber-50 rounded-xl border border-amber-200 text-[11px] text-amber-900 leading-relaxed flex items-start gap-2">
+                <i data-lucide="shield-check" class="w-4 h-4 text-naamaGold-600 shrink-0 mt-0.5"></i>
+                <span>ضمان كامل: يُحجز المبلغ في الحساب الوسيط ولا يُصرف للبائع إلا بعد تأكيد فحص واستلام الشحنة مطابقة للمواصفات في رصيف السوق.</span>
+            </div>
+
+            <input type="hidden" id="pm-order-id">
+            <button onclick="executePayment()" class="w-full py-3 bg-mewa-700 hover:bg-mewa-800 text-white font-black rounded-xl shadow-md transition flex items-center justify-center gap-2 text-xs">
+                <i data-lucide="lock" class="w-4 h-4 text-naamaGold-400"></i>
+                <span>تأكيد السداد الآمن وإيداع الضمان</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- نافذة منبثقة لتقديم اعتراض فوري على طلب مستلم (Dispute Modal) -->
+    <div id="dispute-modal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-3 sm:p-4">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 space-y-4 shadow-2xl border border-slate-100 naama-card border-t-4 border-t-red-600">
+            <div class="flex justify-between items-center border-b border-slate-100 pb-3">
+                <div class="flex items-center gap-2">
+                    <div class="w-9 h-9 rounded-xl bg-red-50 text-red-700 flex items-center justify-center font-bold border border-red-200">
+                        <i data-lucide="alert-triangle" class="w-4 h-4 text-red-600"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-black text-slate-900">تقديم اعتراض رسمي وتجميد الضمان</h3>
+                        <p class="text-[11px] text-slate-500">إحالة فورية للجنة فض النزاعات السريعة للبت خلال أقل من ساعتين</p>
+                    </div>
+                </div>
+                <button onclick="closeDisputeModal()" class="text-slate-400 hover:text-slate-700">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+
+            <form onsubmit="submitDispute(event)" class="space-y-3.5 text-xs">
+                <input type="hidden" id="dm-order-id">
+
+                <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-slate-700 flex justify-between">
+                    <span>الطلب: <strong id="dm-lot-title" class="text-slate-900">--</strong></span>
+                    <span class="font-mono text-slate-500" id="dm-order-code">--</span>
+                </div>
+
+                <div>
+                    <label class="block font-bold text-slate-700 mb-1">سبب الاعتراض الرئيسي:</label>
+                    <select id="dm-reason" required class="w-full px-3 py-2 border border-slate-200 rounded-xl focus:ring-2 focus:ring-red-500 focus:outline-none font-bold">
+                        <option value="عدم مطابقة رتبة الفحص المخبري المعتمدة">عدم مطابقة رتبة الفحص المخبري المعتمدة</option>
+                        <option value="ارتفاع نسبة التلف عن تقرير الفحص المخبري">ارتفاع نسبة التلف عن تقرير المختبر (أكثر من 2%)</option>
+                        <option value="كسر سلسلة التبريد وارتفاع درجات الحرارة أثناء النقل">كسر سلسلة التبريد وتجاوز نافذة النقل المحددة</option>
+                        <option value="نقص في الوزن الصافي أو عدد الصناديق المستلمة">نقص في الوزن الصافي أو عدد الصناديق</option>
+                        <option value="اختلاف الصنف الزراعي عن المسجل بالدفعة">اختلاف الصنف الزراعي عن المسجل بالدفعة</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block font-bold text-slate-700 mb-1">تفاصيل وملاحظات محضر المعاينة:</label>
+                    <textarea id="dm-details" required rows="3" placeholder="اكتب وصفاً دقيقاً للمشكلة المشاهدة عند الاستلام في رصيف السوق..." class="w-full px-3 py-2 border border-slate-200 rounded-xl focus:ring-2 focus:ring-red-500 focus:outline-none"></textarea>
+                </div>
+
+                <div>
+                    <label class="block font-bold text-slate-700 mb-1">مرفق الإثبات الميداني (اختياري):</label>
+                    <input type="text" id="dm-evidence" value="محضر فحص رصيف التفريغ وصور العينة التالفة" class="w-full px-3 py-2 border border-slate-200 rounded-xl focus:ring-2 focus:ring-red-500 focus:outline-none">
+                </div>
+
+                <div class="p-3 bg-red-50 rounded-xl border border-red-200 text-[11px] text-red-900 leading-normal">
+                    * بمجرد إرسال هذا النموذج، يتم تلقائياً **تجميد صرف مبلغ الضمان المالي** بالكامل، وتكليف المفتش الميداني بالسوق بإجراء فحص تحكيمي فوري خلال 120 دقيقة.
+                </div>
+
+                <button type="submit" class="w-full py-2.5 bg-red-600 hover:bg-red-700 text-white font-black rounded-xl shadow-md transition flex items-center justify-center gap-1.5">
+                    <i data-lucide="send" class="w-4 h-4"></i>
+                    <span>إرسال الاعتراض وتجميد الضمان فوراً</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- نافذة منبثقة لمعاينة صورة المحصول عالية الدقة -->
+    <div id="image-modal" class="fixed inset-0 bg-slate-950/85 backdrop-blur-md z-50 hidden flex items-center justify-center p-3 sm:p-4">
+        <div class="bg-white rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl border border-slate-200 naama-card flex flex-col text-right">
+            <div class="relative bg-slate-900 h-80 sm:h-96 flex items-center justify-center overflow-hidden">
+                <img id="im_img" src="" alt="صورة المحصول" class="w-full h-full object-cover">
+                <button onclick="closeImageModal()" class="absolute top-4 left-4 bg-black/60 hover:bg-black/90 text-white p-2 rounded-full transition z-10" title="إغلاق">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+                <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/95 via-black/60 to-transparent p-5 text-white">
+                    <div class="flex items-center gap-2 mb-1">
+                        <span id="im_lot_id" class="text-xs text-amber-300 font-mono font-bold bg-white/10 px-2 py-0.5 rounded border border-white/20">---</span>
+                        <span class="text-[11px] text-emerald-300 font-bold">عينة محصول موثقة ومعتمدة</span>
+                    </div>
+                    <h3 id="im_title" class="text-xl font-black leading-tight">---</h3>
+                </div>
+            </div>
+            <div class="p-4 bg-slate-50 flex items-center justify-between text-xs border-t border-slate-200">
+                <div class="text-slate-600 font-medium">
+                    <span>صورة العينة التنافسية المعتمدة للمزاد الوطني الموحد</span>
+                </div>
+                <button onclick="closeImageModal()" class="px-5 py-2 bg-mewa-700 hover:bg-mewa-800 text-white font-bold rounded-xl transition">
+                    إغلاق المعاينة
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- تذييل الصفحة الرسمي -->
+    <footer class="bg-white border-t border-slate-200 mt-12 py-6 text-xs text-slate-500 no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-2">
+                <img src="static/images/naama_logo.png" alt="نماء" class="h-6 w-auto">
+                <span class="font-bold text-slate-700">منظومة أسواق النفع العام — بوابة المشتري والتاجر</span>
+                <span>•</span>
+                <span>وزارة البيئة والمياه والزراعة</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="future_portal.html" class="hover:text-emerald-700 transition">لوحة البوابات</a>
+                <a href="future_auction.html?role=buyer" class="hover:text-emerald-700 transition font-bold text-emerald-700">قاعة المزاد الوطني</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let allOrders = [];
+        let currentFilter = 'all';
+
+        function resolveProductImage(commodity, fallbackUrl) {
+            if (!commodity) return fallbackUrl || 'static/images/products/tomatoes.jpg';
+            const c = commodity.toLowerCase();
+            if (c.includes('طماطم')) return 'static/images/products/tomatoes.jpg';
+            if (c.includes('خيار')) return 'static/images/products/cucumbers.jpg';
+            if (c.includes('بطاطس')) return 'static/images/products/potatoes.jpg';
+            if (c.includes('تمر') || c.includes('خلاص') || c.includes('سكري')) return 'static/images/products/dates_sukari.jpg';
+            if (c.includes('بصل')) return 'static/images/products/zucchini.jpg';
+            if (c.includes('حبحب') || c.includes('بطيخ')) return 'static/images/products/watermelon.jpg';
+            if (c.includes('رمان')) return 'static/images/products/pomegranates.jpg';
+            if (c.includes('برتقال') || c.includes('حمضيات')) return 'static/images/products/oranges.jpg';
+            if (c.includes('كوسا') || c.includes('كوسة')) return 'static/images/products/zucchini.jpg';
+            if (c.includes('مانجو')) return 'static/images/products/mango.jpg';
+            return fallbackUrl || 'static/images/products/tomatoes.jpg';
+        }
+
+        function openImageModal(imgSrc, title, lotId) {
+            const modal = document.getElementById('image-modal');
+            if (!modal) return;
+            document.getElementById('im_img').src = imgSrc;
+            document.getElementById('im_title').innerText = title || 'عينة المحصول';
+            document.getElementById('im_lot_id').innerText = lotId || 'LOT-SA-2026';
+            modal.classList.remove('hidden');
+            if (typeof lucide !== 'undefined' && lucide.createIcons) lucide.createIcons();
+        }
+
+        function closeImageModal() {
+            const modal = document.getElementById('image-modal');
+            if (modal) modal.classList.add('hidden');
+        }
+
+        function loadBuyerOrders() {
+            if (window.FutureStaticStore) {
+                allOrders = window.FutureStaticStore.getBuyerOrders();
+                updateStats();
+                applyFilters();
+            }
+        }
+
+        function updateStats() {
+            const total = allOrders.length;
+            const awaiting = allOrders.filter(o => o.status === 'awaiting_payment').length;
+            const transit = allOrders.filter(o => o.status === 'in_transit' || o.status === 'arrived').length;
+            const completed = allOrders.filter(o => o.status === 'completed').length;
+            const disputed = allOrders.filter(o => o.status === 'disputed').length;
+
+            document.getElementById('stat-total-orders').innerText = total + ' صفقات';
+            document.getElementById('stat-pending-pay').innerText = awaiting + ' فاتورة';
+            document.getElementById('stat-in-transit').innerText = transit + ' شحنة';
+
+            document.getElementById('count-all').innerText = total;
+            document.getElementById('count-awaiting').innerText = awaiting;
+            document.getElementById('count-transit').innerText = allOrders.filter(o => o.status === 'in_transit').length;
+            document.getElementById('count-arrived').innerText = allOrders.filter(o => o.status === 'arrived').length;
+            document.getElementById('count-completed').innerText = completed;
+            document.getElementById('count-disputed').innerText = disputed;
+        }
+
+        function setFilter(filter) {
+            currentFilter = filter;
+            document.querySelectorAll('.filter-pill').forEach(btn => {
+                btn.className = 'filter-pill px-3.5 py-2 rounded-xl transition bg-slate-100 hover:bg-slate-200 text-slate-700';
+            });
+            const activeBtn = document.getElementById('pill-' + filter);
+            if (activeBtn) {
+                activeBtn.className = 'filter-pill active px-3.5 py-2 rounded-xl transition bg-mewa-700 text-white font-black shadow-xs';
+            }
+            applyFilters();
+        }
+
+        function applyFilters() {
+            const query = (document.getElementById('search-input').value || '').trim().toLowerCase();
+            let filtered = allOrders.slice();
+
+            if (currentFilter !== 'all') {
+                filtered = filtered.filter(o => o.status === currentFilter);
+            }
+
+            if (query) {
+                filtered = filtered.filter(o => 
+                    (o.order_id && o.order_id.toLowerCase().includes(query)) ||
+                    (o.lot_id && o.lot_id.toLowerCase().includes(query)) ||
+                    (o.commodity && o.commodity.toLowerCase().includes(query)) ||
+                    (o.farmer_name && o.farmer_name.toLowerCase().includes(query)) ||
+                    (o.invoice_no && o.invoice_no.toLowerCase().includes(query))
+                );
+            }
+
+            renderOrders(filtered);
+        }
+
+        function renderOrders(orders) {
+            const container = document.getElementById('orders-container');
+            if (!container) return;
+
+            if (orders.length === 0) {
+                container.innerHTML = `
+                    <div class="bg-white rounded-2xl p-12 text-center border border-slate-200 naama-card space-y-3">
+                        <i data-lucide="package-search" class="w-12 h-12 text-slate-300 mx-auto"></i>
+                        <h4 class="text-base font-black text-slate-700">لا توجد مزايدات أو طلبات مطابقة لهذا الفلتر</h4>
+                        <p class="text-xs text-slate-400">يمكنك استعراض كافة الصفقات أو الدخول لقاعة المزاد لتقديم عروض جديدة.</p>
+                        <a href="future_auction.html?role=buyer" class="inline-flex items-center gap-1.5 px-4 py-2 bg-mewa-700 text-white text-xs font-black rounded-xl">
+                            <i data-lucide="gavel" class="w-4 h-4"></i> دخول قاعة المزاد الحي
+                        </a>
+                    </div>
+                `;
+                if (typeof lucide !== 'undefined' && lucide.createIcons) lucide.createIcons();
+                return;
+            }
+
+            container.innerHTML = orders.map(ord => {
+                const img = resolveProductImage(ord.commodity, ord.image_url);
+                const tr = ord.tracking || {};
+                
+                // تحديد بادج الحالة اللوني والنصي
+                let statusBadge = '';
+                let actionButtons = '';
+                let step = tr.step || 1;
+
+                if (ord.status === 'awaiting_payment') {
+                    statusBadge = `<span class="bg-amber-100 text-amber-900 border border-amber-300 px-3 py-1 rounded-xl text-xs font-black flex items-center gap-1.5 shadow-2xs"><i data-lucide="clock" class="w-3.5 h-3.5 text-amber-700"></i> بانتظار سداد الفاتورة للضمان</span>`;
+                    actionButtons = `
+                        <button onclick="openPaymentModal('${ord.order_id}')" class="px-4 py-2.5 bg-mewa-700 hover:bg-mewa-800 text-white text-xs font-black rounded-xl shadow-sm transition flex items-center gap-1.5">
+                            <i data-lucide="credit-card" class="w-4 h-4 text-naamaGold-300"></i>
+                            <span>سداد الفاتورة وإيداع الضمان</span>
+                        </button>
+                    `;
+                } else if (ord.status === 'in_transit') {
+                    statusBadge = `<span class="bg-emerald-100 text-emerald-900 border border-emerald-300 px-3 py-1 rounded-xl text-xs font-black flex items-center gap-1.5 shadow-2xs"><i data-lucide="truck" class="w-3.5 h-3.5 text-emerald-700"></i> تم السداد • في الطريق ومبردة</span>`;
+                    actionButtons = `
+                        <a href="future_coldchain.html" class="px-3.5 py-2 bg-emerald-50 text-emerald-800 hover:bg-emerald-100 border border-emerald-200 text-xs font-bold rounded-xl transition flex items-center gap-1.5">
+                            <i data-lucide="thermometer-snowflake" class="w-4 h-4 text-emerald-700"></i>
+                            <span>تتبع سلاسل التبريد IoT</span>
+                        </a>
+                    `;
+                } else if (ord.status === 'arrived') {
+                    statusBadge = `<span class="bg-blue-100 text-blue-900 border border-blue-300 px-3 py-1 rounded-xl text-xs font-black flex items-center gap-1.5 shadow-2xs"><i data-lucide="package-check" class="w-3.5 h-3.5 text-blue-700"></i> وصلت رصيف السوق • جاهزة للفحص والاستلام</span>`;
+                    actionButtons = `
+                        <button onclick="confirmDelivery('${ord.order_id}')" class="px-3.5 py-2.5 bg-mewa-700 hover:bg-mewa-800 text-white text-xs font-black rounded-xl shadow-sm transition flex items-center gap-1.5">
+                            <i data-lucide="check-check" class="w-4 h-4 text-emerald-300"></i>
+                            <span>تأكيد الاستلام ومطابقة الجودة</span>
+                        </button>
+                        <button onclick="openDisputeModal('${ord.order_id}', '${ord.commodity}', '${ord.lot_id}')" class="px-3.5 py-2.5 bg-red-50 hover:bg-red-100 text-red-800 border border-red-300 text-xs font-black rounded-xl transition flex items-center gap-1.5">
+                            <i data-lucide="alert-triangle" class="w-4 h-4 text-red-600"></i>
+                            <span>تقديم اعتراض رسمي</span>
+                        </button>
+                    `;
+                } else if (ord.status === 'disputed') {
+                    statusBadge = `<span class="bg-red-100 text-red-900 border border-red-300 px-3 py-1 rounded-xl text-xs font-black flex items-center gap-1.5 shadow-2xs"><i data-lucide="shield-alert" class="w-3.5 h-3.5 text-red-700"></i> معترض عليه • تم تجميد الضمان قيد التحكيم</span>`;
+                    actionButtons = `
+                        <a href="future_oversight.html" class="px-3.5 py-2 bg-red-50 text-red-800 hover:bg-red-100 border border-red-300 text-xs font-black rounded-xl transition flex items-center gap-1.5">
+                            <i data-lucide="scale" class="w-4 h-4 text-red-700"></i>
+                            <span>متابعة قرار لجنة التحكيم (${ord.dispute_id || 'DIS-2026'})</span>
+                        </a>
+                    `;
+                } else if (ord.status === 'completed') {
+                    statusBadge = `<span class="bg-slate-100 text-slate-800 border border-slate-300 px-3 py-1 rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-2xs"><i data-lucide="check" class="w-3.5 h-3.5 text-emerald-700"></i> تم الاستلام بنجاح • تم الصرف للمزارع</span>`;
+                    actionButtons = `
+                        <span class="text-xs text-slate-500 font-bold bg-slate-50 px-3 py-2 rounded-xl border border-slate-200 flex items-center gap-1">
+                            <i data-lucide="shield-check" class="w-4 h-4 text-emerald-600"></i>
+                            <span>الصفقة مكتملة وموثقة برقم الضمان</span>
+                        </span>
+                    `;
+                }
+
+                return `
+                <div class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm hover:border-mewa-600 transition duration-300 naama-card border-t-4 border-t-naamaGold-500 flex flex-col">
+                    
+                    <!-- ترويسة الكرت -->
+                    <div class="p-4 sm:p-5 bg-gradient-to-r from-slate-50 via-white to-emerald-50/30 border-b border-slate-200 flex flex-wrap items-center justify-between gap-3">
+                        <div class="flex items-center gap-3">
+                            <span class="w-10 h-10 rounded-2xl bg-gradient-to-br from-mewa-700 to-mewa-800 text-white flex items-center justify-center font-black shadow-xs shrink-0">
+                                <i data-lucide="receipt" class="w-5 h-5 text-naamaGold-300"></i>
+                            </span>
+                            <div>
+                                <div class="flex items-center gap-2 flex-wrap">
+                                    <h4 class="text-sm sm:text-base font-black text-slate-900">${ord.order_id}</h4>
+                                    <span class="text-slate-300">•</span>
+                                    <span class="text-xs font-mono font-bold text-amber-800 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">${ord.invoice_no || 'فاتورة معتمدة'}</span>
+                                    <span class="text-slate-300">•</span>
+                                    <span class="text-xs font-mono text-slate-500">${ord.auction_id}</span>
+                                </div>
+                                <span class="text-[11px] text-slate-500 font-medium">تاريخ الترسية: ${ord.created_at || 'اليوم'}</span>
+                            </div>
+                        </div>
+                        <div>
+                            ${statusBadge}
+                        </div>
+                    </div>
+
+                    <!-- جسم الكرت: الصورة، المواصفات، والكمية المعروضة -->
+                    <div class="p-4 sm:p-6 grid grid-cols-1 md:grid-cols-12 gap-5 items-center">
+                        
+                        <!-- عمود 1: صورة المنتج والكمية المعروضة البارزة (4 أعمدة) -->
+                        <div class="md:col-span-4 relative h-52 sm:h-56 rounded-2xl overflow-hidden group shadow-inner bg-slate-900">
+                            <img src="${img}" alt="${ord.commodity}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.onerror=null;this.src='static/images/products/tomatoes.jpg'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent pointer-events-none"></div>
+
+                            <!-- بادج الكمية المعروضة والمباعة البارز جداً -->
+                            <div class="absolute top-3 left-3 z-10">
+                                <div class="bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 px-3 py-1.5 rounded-xl shadow-lg border border-amber-200 flex items-center gap-1.5 backdrop-blur-md">
+                                    <i data-lucide="package" class="w-4 h-4 text-slate-950"></i>
+                                    <div class="text-right leading-none">
+                                        <span class="text-[9px] font-black block text-slate-900/80">الكمية المشتراة</span>
+                                        <span class="text-sm sm:text-base font-black text-slate-950">${Number(ord.quantity).toLocaleString()}</span>
+                                        <span class="text-[10px] font-bold text-slate-900">${ord.unit}</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- بادج الرتبة وسعودي جاب -->
+                            <div class="absolute top-3 right-3 z-10 flex flex-col gap-1">
+                                <span class="px-2 py-0.5 rounded-lg text-[10.5px] font-black bg-mewa-700 text-white shadow-xs border border-mewa-600">
+                                    ${ord.quality_grade || 'درجة أولى'}
+                                </span>
+                                <span class="px-2 py-0.5 rounded-lg text-[10px] font-bold bg-emerald-600 text-white shadow-xs">
+                                    سعودي جاب
+                                </span>
+                            </div>
+
+                            <!-- زر المعاينة المكبرة -->
+                            <button onclick="openImageModal('${img}', '${ord.commodity}', '${ord.lot_id}')" class="absolute bottom-3 left-3 z-10 bg-black/50 hover:bg-black/75 text-white backdrop-blur-md px-2.5 py-1 rounded-xl text-[10.5px] font-bold flex items-center gap-1 transition">
+                                <i data-lucide="maximize-2" class="w-3.5 h-3.5 text-naamaGold-400"></i>
+                                <span>معاينة مكبرة</span>
+                            </button>
+
+                            <div class="absolute bottom-3 right-3 text-white z-10">
+                                <span class="text-[10px] text-amber-300 font-mono block">${ord.lot_id}</span>
+                                <h5 class="text-sm font-black leading-tight truncate drop-shadow">${ord.commodity}</h5>
+                            </div>
+                        </div>
+
+                        <!-- عمود 2: تفاصيل الصفقة والفاتورة ومحطة الشحن (5 أعمدة) -->
+                        <div class="md:col-span-5 space-y-3">
+                            <div>
+                                <h3 class="text-base font-black text-slate-900 leading-tight">${ord.commodity}</h3>
+                                <p class="text-xs text-slate-500 font-medium mt-0.5">
+                                    المورد: <strong class="text-slate-800">${ord.farmer_name}</strong> • ${ord.farm_location}
+                                </p>
+                            </div>
+
+                            <!-- بطاقة الكمية البارزة وسوق الوصول -->
+                            <div class="bg-emerald-50/70 p-3 rounded-2xl border border-emerald-200/80 flex items-center justify-between">
+                                <div class="flex items-center gap-2.5">
+                                    <div class="w-8 h-8 rounded-lg bg-emerald-700 text-white flex items-center justify-center font-bold shrink-0">
+                                        <i data-lucide="boxes" class="w-4 h-4 text-naamaGold-300"></i>
+                                    </div>
+                                    <div>
+                                        <span class="text-[10px] text-slate-500 font-bold block">إجمالي الكمية:</span>
+                                        <div class="text-base font-black text-emerald-950 flex items-baseline gap-1">
+                                            <span>${Number(ord.quantity).toLocaleString()}</span>
+                                            <span class="text-xs font-bold text-emerald-700">${ord.unit}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-left bg-white px-2.5 py-1 rounded-xl border border-slate-200">
+                                    <span class="text-[9.5px] text-slate-400 font-bold block">الوجهة المستهدفة:</span>
+                                    <span class="text-xs font-black text-slate-800">${ord.target_market ? ord.target_market.split('-')[0].trim() : 'سوق العزيزية'}</span>
+                                </div>
+                            </div>
+
+                            <!-- ملخص الحساب المالي للفاتورة -->
+                            <div class="bg-slate-50 p-3 rounded-xl border border-slate-200/80 grid grid-cols-3 gap-2 text-center text-xs">
+                                <div>
+                                    <span class="text-[10.5px] text-slate-400 block font-medium">سعر الوحدة:</span>
+                                    <strong class="text-slate-800 text-sm">${Number(ord.unit_price).toFixed(2)} ر.س</strong>
+                                </div>
+                                <div>
+                                    <span class="text-[10.5px] text-slate-400 block font-medium">رسوم المنصة (5%):</span>
+                                    <strong class="text-slate-700 text-sm">${Number(ord.fee).toLocaleString()} ر.س</strong>
+                                </div>
+                                <div>
+                                    <span class="text-[10.5px] text-slate-400 block font-medium">إجمالي الفاتورة:</span>
+                                    <strong class="text-emerald-800 text-sm font-black">${Number(ord.total_invoice).toLocaleString()} ر.س</strong>
+                                </div>
+                            </div>
+
+                            ${ord.escrow_no ? `
+                            <div class="flex items-center gap-2 text-xs text-slate-500">
+                                <span class="font-bold">رقم حساب الضمان المحمي (Escrow):</span>
+                                <span class="font-mono font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">${ord.escrow_no}</span>
+                            </div>
+                            ` : ''}
+                        </div>
+
+                        <!-- عمود 3: تتبع حالة الطلب وسلاسل التبريد والأزرار (3 أعمدة) -->
+                        <div class="md:col-span-3 space-y-3 bg-slate-50/70 p-3.5 rounded-2xl border border-slate-200 flex flex-col justify-between h-full">
+                            
+                            <!-- مسار مراحل الطلب (Tracking Stepper) -->
+                            <div class="space-y-1.5">
+                                <div class="flex items-center justify-between text-xs font-bold text-slate-700">
+                                    <span>مرحلة الطلب:</span>
+                                    <span class="text-emerald-800">${step} من 5</span>
+                                </div>
+                                <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
+                                    <div class="bg-gradient-to-r from-emerald-600 to-amber-500 h-full rounded-full transition-all duration-500" style="width: ${(step / 5) * 100}%"></div>
+                                </div>
+                                <span class="text-[11px] text-slate-600 block leading-tight font-medium">
+                                    ${tr.step_title || 'قيد المعالجة'}
+                                </span>
+                            </div>
+
+                            <!-- بيانات التبريد المباشرة إن كانت في الطريق -->
+                            ${tr.current_temp !== null && tr.current_temp !== undefined ? `
+                            <div class="p-2.5 rounded-xl border ${tr.temp_status === 'warning' ? 'bg-red-50 border-red-200 text-red-900' : 'bg-emerald-50/80 border-emerald-200 text-emerald-950'} space-y-1 text-xs">
+                                <div class="flex items-center justify-between">
+                                    <span class="font-bold flex items-center gap-1">
+                                        <i data-lucide="thermometer-snowflake" class="w-3.5 h-3.5"></i> حرارة الشاحنة:
+                                    </span>
+                                    <strong class="font-black">${tr.current_temp}°C</strong>
+                                </div>
+                                <div class="text-[10px] opacity-80 flex justify-between">
+                                    <span>شاحنة: ${tr.truck_plate || 'مخصصة'}</span>
+                                    <span>سائق: ${tr.driver_name || 'معتمد'}</span>
+                                </div>
+                            </div>
+                            ` : ''}
+
+                            <!-- أزرار الإجراء الخاصة بكل حالة -->
+                            <div class="pt-2 border-t border-slate-200 space-y-2">
+                                ${actionButtons}
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                `;
+            }).join('');
+
+            if (typeof lucide !== 'undefined' && lucide.createIcons) lucide.createIcons();
+        }
+
+        // دالة فتح نافذة السداد
+        function openPaymentModal(orderId) {
+            const ord = allOrders.find(o => o.order_id === orderId);
+            if (!ord) return;
+
+            document.getElementById('pm-order-id').value = ord.order_id;
+            document.getElementById('pm-invoice-no').innerText = ord.invoice_no || ('INV-SA-2026-' + Math.floor(1000 + Math.random()*9000));
+            document.getElementById('pm-auction-id').innerText = ord.auction_id || 'AUC-2026';
+            document.getElementById('pm-commodity').innerText = ord.commodity;
+            document.getElementById('pm-farmer').innerText = ord.farmer_name + ' (' + ord.farm_location + ')';
+            document.getElementById('pm-qty').innerText = Number(ord.quantity).toLocaleString() + ' ' + ord.unit;
+            document.getElementById('pm-unit-price').innerText = Number(ord.unit_price).toFixed(2) + ' ر.س';
+            document.getElementById('pm-total-product').innerText = Number(ord.total_product).toLocaleString() + ' ر.س';
+            document.getElementById('pm-fee').innerText = Number(ord.fee).toLocaleString() + ' ر.س';
+            document.getElementById('pm-vat').innerText = Number(ord.vat || (ord.fee * 0.15)).toLocaleString() + ' ر.س';
+            document.getElementById('pm-total-invoice').innerText = Number(ord.total_invoice).toLocaleString() + ' ر.س';
+
+            document.getElementById('payment-modal').classList.remove('hidden');
+        }
+
+        function closePaymentModal() {
+            document.getElementById('payment-modal').classList.add('hidden');
+        }
+
+        function executePayment() {
+            const orderId = document.getElementById('pm-order-id').value;
+            const methodInput = document.querySelector('input[name="pay_method"]:checked');
+            const method = methodInput ? methodInput.value : 'مدى (Mada)';
+
+            if (window.FutureStaticStore) {
+                try {
+                    const updated = window.FutureStaticStore.payOrderInvoice(orderId, method);
+                    alert(`تهانينا! تم بنجاح سداد فاتورة الصفقة (${updated.order_id}) بقيمة ${Number(updated.total_invoice).toLocaleString()} ر.س عبر [${method}].\n\nتم حجز المبلغ في حساب الضمان البنكي المعتمد برقم مرجعي: ${updated.escrow_no}، وتكليف شاحنة التبريد بالانطلاق مباشرة.`);
+                    closePaymentModal();
+                    loadBuyerOrders();
+                } catch (e) {
+                    alert('تنبيه: ' + e.message);
+                }
+            }
+        }
+
+        function confirmDelivery(orderId) {
+            const ord = allOrders.find(o => o.order_id === orderId);
+            if (!ord) return;
+
+            const confirmMsg = `تأكيد استلام الشحنة ومطابقة الجودة:\n\n` +
+                               `• المحصول: ${ord.commodity}\n` +
+                               `• الكمية: ${Number(ord.quantity).toLocaleString()} ${ord.unit}\n` +
+                               `• رقم الضمان: ${ord.escrow_no || 'ESC-2026'}\n\n` +
+                               `بالتأكيد، تُقر بمطابقة الشحنة لفحص الجودة ورتبة المزاد، وسيتم فوراً الإفراج عن المبلغ المحجوز في حساب الضمان وصرفه للمزارع (${ord.farmer_name}). هل تؤكد الاستلام؟`;
+
+            if (!confirm(confirmMsg)) return;
+
+            if (window.FutureStaticStore) {
+                try {
+                    window.FutureStaticStore.confirmOrderDelivery(orderId);
+                    alert(`تم تأكيد الاستلام بنجاح! شكراً لتعاملك عبر منصة أسواق النفع العام. تم تحويل مستحقات المزارع بنكياً عبر حساب الضمان.`);
+                    loadBuyerOrders();
+                } catch (e) {
+                    alert('تنبيه: ' + e.message);
+                }
+            }
+        }
+
+        function openDisputeModal(orderId, commodity, lotId) {
+            document.getElementById('dm-order-id').value = orderId;
+            document.getElementById('dm-lot-title').innerText = commodity;
+            document.getElementById('dm-order-code').innerText = lotId + ' • ' + orderId;
+            document.getElementById('dm-details').value = '';
+            document.getElementById('dispute-modal').classList.remove('hidden');
+        }
+
+        function closeDisputeModal() {
+            document.getElementById('dispute-modal').classList.add('hidden');
+        }
+
+        function submitDispute(e) {
+            e.preventDefault();
+            const orderId = document.getElementById('dm-order-id').value;
+            const reason = document.getElementById('dm-reason').value;
+            const details = document.getElementById('dm-details').value;
+            const evidence = document.getElementById('dm-evidence').value;
+
+            if (window.FutureStaticStore) {
+                try {
+                    const res = window.FutureStaticStore.disputeOrder(orderId, {
+                        reason: reason,
+                        details: details,
+                        evidence: evidence
+                    });
+
+                    alert(`تم بنجاح رفع الاعتراض الرسمي برقم: [${res.dispute.dispute_id}].\n\nتم تجميد مبلغ الضمان المالي فوراً، وأُحيل المحضر للجنة فض النزاعات السريعة بالوزارة للبت فيه خلال أقل من ساعتين.`);
+                    closeDisputeModal();
+                    loadBuyerOrders();
+                } catch (err) {
+                    alert('تنبيه: ' + err.message);
+                }
+            }
+        }
+
+        // تحميل أولي للبيانات
+        loadBuyerOrders();
+    </script>
+</body>
+</html>

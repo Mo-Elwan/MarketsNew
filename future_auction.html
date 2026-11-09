@@ -114,15 +114,15 @@
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow w-full space-y-6">
 
         <!-- تابات التنقل الموحدة بين المستفيدين الثلاثة -->
-        <div class="bg-white p-1.5 sm:p-2 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-2 overflow-x-auto no-scrollbar scroll-smooth">
-            <a href="future_farmer_lots.html" class="shrink-0 px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black transition flex items-center justify-center gap-2 whitespace-nowrap text-slate-700 hover:text-mewa-800 hover:bg-slate-100/70 border border-transparent">
-                <i data-lucide="sprout" class="w-4 h-4 text-emerald-600"></i>
+        <div class="bg-white p-1.5 sm:p-2 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-2 overflow-x-auto no-scrollbar scroll-smooth no-print">
+            <button onclick="setAuctionRole('farmer')" id="tab-farmer-btn" class="shrink-0 px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black transition flex items-center justify-center gap-2 whitespace-nowrap bg-mewa-700 text-white shadow-sm border border-mewa-800">
+                <i data-lucide="sprout" class="w-4 h-4 text-naamaGold-300"></i>
                 <span>المزارع والمنتج الزراعي</span>
-            </a>
-            <a href="future_auction.html" class="shrink-0 px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black transition flex items-center justify-center gap-2 whitespace-nowrap bg-mewa-700 text-white shadow-sm border border-mewa-800">
-                <i data-lucide="shopping-cart" class="w-4 h-4 text-naamaGold-300"></i>
-                <span>المشتري والتاجر والتموين (نشط)</span>
-            </a>
+            </button>
+            <button onclick="setAuctionRole('buyer')" id="tab-buyer-btn" class="shrink-0 px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black transition flex items-center justify-center gap-2 whitespace-nowrap text-slate-700 hover:text-mewa-800 hover:bg-slate-100/70 border border-transparent">
+                <i data-lucide="shopping-cart" class="w-4 h-4 text-emerald-600"></i>
+                <span>المشتري والتاجر والتموين</span>
+            </button>
             <a href="future_oversight.html" class="shrink-0 px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black transition flex items-center justify-center gap-2 whitespace-nowrap text-slate-700 hover:text-mewa-800 hover:bg-slate-100/70 border border-transparent">
                 <i data-lucide="shield-check" class="w-4 h-4 text-naamaGold-600"></i>
                 <span>إدارة السوق والرقابة والوزارة</span>
@@ -131,6 +131,60 @@
                 <i data-lucide="layout-grid" class="w-3.5 h-3.5"></i>
                 <span>لوحة المنظومة الشاملة</span>
             </a>
+        </div>
+
+        <!-- أزرار التنقل الفرعية للمزارع (تظهر عند منظور المزارع) -->
+        <div id="farmer-sub-nav" class="flex items-center gap-2 overflow-x-auto no-scrollbar text-xs font-bold no-print">
+            <a href="future_farmer_lots.html" class="px-3.5 py-2 rounded-xl bg-white text-slate-600 hover:text-mewa-700 border border-slate-200 transition flex items-center gap-1.5 shadow-xs">
+                <i data-lucide="package-plus" class="w-4 h-4 text-slate-400"></i>
+                <span>1. تسجيل الدفعة وحجز البوابة الذكية</span>
+            </a>
+            <a href="future_farmer_certificates.html" class="px-3.5 py-2 rounded-xl bg-white text-slate-600 hover:text-mewa-700 border border-slate-200 transition flex items-center gap-1.5 shadow-xs">
+                <i data-lucide="microscope" class="w-4 h-4 text-slate-400"></i>
+                <span>2. شهادات الفحص وتصنيف الرتبة</span>
+            </a>
+            <div class="px-3.5 py-2 rounded-xl bg-emerald-50 text-emerald-900 border border-emerald-300 font-black flex items-center gap-1.5 shadow-xs">
+                <i data-lucide="badge-dollar-sign" class="w-4 h-4 text-amber-500"></i>
+                <span>3. جلسات المزاد المباشرة والترسية (نشطة للمزارع)</span>
+                <span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
+            </div>
+        </div>
+
+        <!-- أزرار التنقل الفرعية للمشتري (تظهر عند منظور المشتري) -->
+        <div id="buyer-sub-nav" class="hidden flex items-center gap-2 overflow-x-auto no-scrollbar text-xs font-bold no-print">
+            <div class="px-3.5 py-2 rounded-xl bg-emerald-50 text-emerald-900 border border-emerald-300 font-black flex items-center gap-1.5 shadow-xs">
+                <i data-lucide="gavel" class="w-4 h-4 text-emerald-700"></i>
+                <span>1. قاعة المزاد الوطني الموحد (النشطة)</span>
+                <span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
+            </div>
+            <a href="future_buyer_orders.html" class="px-3.5 py-2 rounded-xl bg-white text-slate-600 hover:text-mewa-700 border border-slate-200 transition flex items-center gap-1.5 shadow-xs">
+                <i data-lucide="receipt" class="w-4 h-4 text-amber-500"></i>
+                <span>2. مزايداتي وفواتيري وتتبع الطلبات</span>
+            </a>
+        </div>
+
+        <!-- شريط محوّل منظور المستفيد (المزارع مقابل المشتري) -->
+        <div class="bg-white p-3 rounded-2xl border border-slate-200 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-3 naama-card no-print">
+            <div class="flex items-center gap-2.5 flex-wrap">
+                <span class="text-xs font-black text-slate-700 flex items-center gap-1.5">
+                    <i data-lucide="user-cog" class="w-4 h-4 text-mewa-700"></i>
+                    <span>منظور المستخدم الحالي:</span>
+                </span>
+                <div class="inline-flex p-1 bg-slate-100 rounded-xl gap-1 border border-slate-200">
+                    <button onclick="setAuctionRole('farmer')" id="role-btn-farmer" class="px-3.5 sm:px-4 py-2 rounded-lg text-xs font-black transition flex items-center gap-1.5 bg-mewa-700 text-white shadow-xs">
+                        <i data-lucide="sprout" class="w-3.5 h-3.5 text-naamaGold-300"></i>
+                        <span>المزارع (صاحب المحصول / بائع)</span>
+                    </button>
+                    <button onclick="setAuctionRole('buyer')" id="role-btn-buyer" class="px-3.5 sm:px-4 py-2 rounded-lg text-xs font-bold transition flex items-center gap-1.5 text-slate-700 hover:text-mewa-800">
+                        <i data-lucide="shopping-cart" class="w-3.5 h-3.5 text-slate-500"></i>
+                        <span>المشتري والتاجر (مقدم المزايدة)</span>
+                    </button>
+                </div>
+            </div>
+            <div id="role-hint-badge" class="text-xs font-bold px-3 py-1.5 rounded-xl border flex items-center gap-1.5 bg-emerald-50 text-emerald-900 border-emerald-200">
+                <i data-lucide="info" class="w-3.5 h-3.5 text-emerald-700"></i>
+                <span id="role-hint-text">منظور المزارع: لا يظهر زر تقديم مزايدة، بل تظهر قائمة المزايدين مرتبة بالأسعار لاختيار العرض والترسية.</span>
+            </div>
         </div>
 
         <!-- بطاقة حماية حساب الضمان بهوية نما -->
@@ -250,6 +304,33 @@
         </div>
     </div>
 
+    <!-- نافذة منبثقة لمعاينة صورة المحصول بجودة عالية -->
+    <div id="image-modal" class="fixed inset-0 bg-slate-950/85 backdrop-blur-md z-50 hidden flex items-center justify-center p-3 sm:p-4">
+        <div class="bg-white rounded-3xl max-w-2xl w-full overflow-hidden shadow-2xl border border-slate-200 naama-card flex flex-col text-right">
+            <div class="relative bg-slate-900 h-80 sm:h-96 flex items-center justify-center overflow-hidden">
+                <img id="im_img" src="" alt="صورة المحصول" class="w-full h-full object-cover">
+                <button onclick="closeImageModal()" class="absolute top-4 left-4 bg-black/60 hover:bg-black/90 text-white p-2 rounded-full transition z-10" title="إغلاق">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+                <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/95 via-black/60 to-transparent p-5 text-white">
+                    <div class="flex items-center gap-2 mb-1">
+                        <span id="im_lot_id" class="text-xs text-amber-300 font-mono font-bold bg-white/10 px-2 py-0.5 rounded border border-white/20">---</span>
+                        <span class="text-[11px] text-emerald-300 font-bold">صورة حقيقية موثقة بالبوابة</span>
+                    </div>
+                    <h3 id="im_title" class="text-xl font-black leading-tight">---</h3>
+                </div>
+            </div>
+            <div class="p-4 bg-slate-50 flex items-center justify-between text-xs border-t border-slate-200">
+                <div class="text-slate-600 font-medium">
+                    <span>تم توثيق هذه العينة واعتمادها من مختبر جودة سوق النفع العام</span>
+                </div>
+                <button onclick="closeImageModal()" class="px-5 py-2 bg-mewa-700 hover:bg-mewa-800 text-white font-bold rounded-xl transition">
+                    إغلاق المعاينة
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- الفوتر الرسمي -->
     <footer class="bg-white border-t border-slate-200 mt-12 py-6 text-xs text-slate-500 no-print">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
@@ -269,7 +350,47 @@
     <script>
         if (typeof lucide !== 'undefined' && lucide.createIcons) lucide.createIcons();
 
+        // قراءة المنظور من رابط الصفحة إن وجد، والافتراضي هو منظور المزارع
+        const urlParams = new URLSearchParams(window.location.search);
+        let currentRole = urlParams.get('role') || 'farmer';
+
         let activeAuctions = [];
+
+        function setAuctionRole(role) {
+            currentRole = role;
+            const farmerBtn = document.getElementById('role-btn-farmer');
+            const buyerBtn = document.getElementById('role-btn-buyer');
+            const tabFarmerBtn = document.getElementById('tab-farmer-btn');
+            const tabBuyerBtn = document.getElementById('tab-buyer-btn');
+            const farmerSubNav = document.getElementById('farmer-sub-nav');
+            const buyerSubNav = document.getElementById('buyer-sub-nav');
+            const hintText = document.getElementById('role-hint-text');
+
+            if (role === 'farmer') {
+                if (farmerBtn) farmerBtn.className = 'px-3.5 sm:px-4 py-2 rounded-lg text-xs font-black transition flex items-center gap-1.5 bg-mewa-700 text-white shadow-xs';
+                if (buyerBtn) buyerBtn.className = 'px-3.5 sm:px-4 py-2 rounded-lg text-xs font-bold transition flex items-center gap-1.5 text-slate-700 hover:text-mewa-800';
+                
+                if (tabFarmerBtn) tabFarmerBtn.className = 'shrink-0 px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black transition flex items-center justify-center gap-2 whitespace-nowrap bg-mewa-700 text-white shadow-sm border border-mewa-800';
+                if (tabBuyerBtn) tabBuyerBtn.className = 'shrink-0 px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black transition flex items-center justify-center gap-2 whitespace-nowrap text-slate-700 hover:text-mewa-800 hover:bg-slate-100/70 border border-transparent';
+                if (farmerSubNav) farmerSubNav.classList.remove('hidden');
+                if (buyerSubNav) buyerSubNav.classList.add('hidden');
+
+                if (hintText) hintText.innerText = 'منظور المزارع: لا يظهر زر تقديم مزايدة، بل تظهر قائمة المزايدين مرتبة بالأسعار لاختيار العرض الأنسب والترسية عليه.';
+            } else {
+                if (buyerBtn) buyerBtn.className = 'px-3.5 sm:px-4 py-2 rounded-lg text-xs font-black transition flex items-center gap-1.5 bg-mewa-700 text-white shadow-xs';
+                if (farmerBtn) farmerBtn.className = 'px-3.5 sm:px-4 py-2 rounded-lg text-xs font-bold transition flex items-center gap-1.5 text-slate-700 hover:text-mewa-800';
+
+                if (tabBuyerBtn) tabBuyerBtn.className = 'shrink-0 px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black transition flex items-center justify-center gap-2 whitespace-nowrap bg-mewa-700 text-white shadow-sm border border-mewa-800';
+                if (tabFarmerBtn) tabFarmerBtn.className = 'shrink-0 px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black transition flex items-center justify-center gap-2 whitespace-nowrap text-slate-700 hover:text-mewa-800 hover:bg-slate-100/70 border border-transparent';
+                if (farmerSubNav) farmerSubNav.classList.add('hidden');
+                if (buyerSubNav) buyerSubNav.classList.remove('hidden');
+
+                if (hintText) hintText.innerText = 'منظور المشتري والتاجر: يظهر زر تقديم مزايدة للمنافسة، ولا تظهر خيارات الترسية المخصصة للمزارع.';
+            }
+
+            renderAuctions(activeAuctions);
+            if (typeof lucide !== 'undefined' && lucide.createIcons) lucide.createIcons();
+        }
 
         function loadAuctions() {
             if (window.location.protocol === 'file:' && window.FutureStaticStore) {
@@ -292,8 +413,44 @@
                 });
         }
 
+        function resolveProductImage(commodity, fallbackUrl) {
+            if (!commodity) return fallbackUrl || 'static/images/products/tomatoes.jpg';
+            const c = commodity.toLowerCase();
+            if (c.includes('طماطم')) return 'static/images/products/tomatoes.jpg';
+            if (c.includes('خيار')) return 'static/images/products/cucumbers.jpg';
+            if (c.includes('بطاطس')) return 'static/images/products/potatoes.jpg';
+            if (c.includes('تمر') || c.includes('خلاص') || c.includes('سكري')) return 'static/images/products/dates_sukari.jpg';
+            if (c.includes('بصل')) return 'static/images/products/zucchini.jpg';
+            if (c.includes('حبحب') || c.includes('بطيخ')) return 'static/images/products/watermelon.jpg';
+            if (c.includes('رمان')) return 'static/images/products/pomegranates.jpg';
+            if (c.includes('برتقال') || c.includes('حمضيات')) return 'static/images/products/oranges.jpg';
+            if (c.includes('كوسا') || c.includes('كوسة')) return 'static/images/products/zucchini.jpg';
+            if (c.includes('مانجو')) return 'static/images/products/mango.jpg';
+            return fallbackUrl || 'static/images/products/tomatoes.jpg';
+        }
+
+        function openImageModal(imgSrc, title, lotId) {
+            const modal = document.getElementById('image-modal');
+            if (!modal) return;
+            const imgEl = document.getElementById('im_img');
+            const titleEl = document.getElementById('im_title');
+            const lotIdEl = document.getElementById('im_lot_id');
+            if (imgEl) imgEl.src = imgSrc;
+            if (titleEl) titleEl.innerText = title || 'عينة المحصول المعتمدة';
+            if (lotIdEl) lotIdEl.innerText = lotId || 'LOT-SA-2026';
+            modal.classList.remove('hidden');
+            if (typeof lucide !== 'undefined' && lucide.createIcons) lucide.createIcons();
+        }
+
+        function closeImageModal() {
+            const modal = document.getElementById('image-modal');
+            if (modal) modal.classList.add('hidden');
+        }
+
         function renderAuctions(auctions) {
             const container = document.getElementById('auctions-container');
+            if (!container) return;
+
             if (auctions.length === 0) {
                 container.innerHTML = '<div class="text-center py-10 text-slate-400 col-span-full">لا توجد مزادات نشطة حالياً</div>';
                 return;
@@ -303,70 +460,261 @@
                 const lot = auc.lot || {};
                 const assay = auc.assaying || {};
                 const isClosed = auc.auction_status === 'closed';
+                const productImg = resolveProductImage(lot.commodity, lot.image_url);
 
-                return `
-                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm flex flex-col justify-between hover:border-mewa-600 transition naama-card border-t-4 border-t-naamaGold-500">
-                    
-                    <!-- رأس الكرت وصورة المحصول والبادجات -->
-                    <div class="h-44 bg-gradient-to-br from-mewa-800 to-slate-900 relative overflow-hidden flex items-center justify-center">
-                        <img src="${lot.image_url || ''}" class="w-full h-full object-cover absolute inset-0" onerror="this.style.display='none'">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
-                        
-                        <div class="absolute top-3 right-3 flex items-center gap-1.5 z-10">
-                            <span class="px-2.5 py-1 rounded-lg text-[11px] font-black bg-mewa-700 text-white shadow-md border border-mewa-600">
-                                ${assay.quality_grade || 'درجة أولى'}
+                // قائمة المزايدين مرتبة تنازلياً حسب السعر
+                const bids = (auc.bids || []).slice();
+                bids.sort((a, b) => b.bid_amount - a.bid_amount);
+
+                let actionsHtml = '';
+
+                if (currentRole === 'farmer') {
+                    // ==================== منظور المزارع: قائمة المزايدين مرتبة بالأسعار + زر الترسية (دون زر تقديم مزايدة) ====================
+                    actionsHtml = `
+                    <div class="space-y-3 pt-3 border-t border-slate-100">
+                        <div class="flex items-center justify-between text-xs">
+                            <span class="font-black text-slate-900 flex items-center gap-1.5">
+                                <i data-lucide="list-ordered" class="w-4 h-4 text-naamaGold-600"></i>
+                                <span>قائمة المزايدين مرتبة بالأعلى سعراً:</span>
                             </span>
-                            <span class="px-2.5 py-1 rounded-lg text-[11px] font-black bg-emerald-600 text-white shadow-md">
-                                سعودي جاب
+                            <span class="text-[10.5px] font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
+                                ${bids.length} عروض شراء
                             </span>
                         </div>
 
-                        <div class="absolute bottom-3 right-3 left-3 text-white z-10">
-                            <span class="text-[10px] text-amber-300 font-mono block">${auc.lot_id} • ${auc.auction_id}</span>
-                            <h4 class="text-base font-black leading-tight">${lot.commodity || 'محصول زراعي'}</h4>
-                            <span class="text-[11px] text-slate-200">${lot.farm_location || 'المملكة'} • ${lot.quantity ? Number(lot.quantity).toLocaleString() : 0} ${lot.unit || ''}</span>
+                        ${bids.length > 0 ? `
+                        <div class="divide-y divide-slate-100 bg-slate-50/90 rounded-xl border border-slate-200 overflow-hidden text-xs max-h-56 overflow-y-auto">
+                            ${bids.map((b, idx) => {
+                                const isHighest = idx === 0;
+                                const totalDeal = b.bid_amount * (lot.quantity || 1);
+                                return `
+                                <div class="p-2.5 flex items-center justify-between gap-2 transition ${isHighest ? 'bg-amber-50/70 border-r-4 border-r-naamaGold-500' : 'hover:bg-slate-100/70'}">
+                                    <div class="flex items-center gap-2 min-w-0">
+                                        <span class="w-6 h-6 rounded-md flex items-center justify-center text-[10px] font-black shrink-0 ${isHighest ? 'bg-naamaGold-500 text-mewa-950 shadow-xs' : 'bg-slate-200 text-slate-700'}">
+                                            ${isHighest ? '🥇' : '#' + (idx + 1)}
+                                        </span>
+                                        <div class="min-w-0">
+                                            <div class="flex items-center gap-1.5 flex-wrap">
+                                                <span class="font-black text-slate-900 text-xs truncate">${b.bidder_org || b.bidder_name}</span>
+                                                ${isHighest ? '<span class="text-[9px] font-black px-1.5 py-0.2 rounded bg-amber-200 text-amber-900">أعلى عرض</span>' : ''}
+                                            </div>
+                                            <span class="text-[10px] text-slate-500 block truncate">
+                                                المشتري: ${b.bidder_name} • ${b.bidder_city} • <span class="text-slate-400 font-mono">${b.created_at || 'معتمد'}</span>
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex items-center gap-2.5 shrink-0">
+                                        <div class="text-left">
+                                            <div class="text-xs sm:text-sm font-black text-emerald-800">${b.bid_amount.toFixed(2)} ر.س</div>
+                                            <div class="text-[9.5px] text-slate-400 font-bold">${Number(totalDeal).toLocaleString()} ر.س</div>
+                                        </div>
+
+                                        ${!isClosed ? `
+                                        <button onclick="awardSpecificBid('${auc.auction_id}', '${b.bidder_name}', '${b.bidder_org || b.bidder_name}', ${b.bid_amount}, ${lot.quantity || 1}, '${lot.commodity || 'المحصول'}')" class="px-2.5 py-1.5 rounded-lg text-[11px] font-black transition flex items-center gap-1 shadow-xs ${isHighest ? 'bg-mewa-700 hover:bg-mewa-800 text-white' : 'bg-white hover:bg-mewa-700 hover:text-white text-mewa-800 border border-mewa-300'}" title="قبول هذا العرض وترسية الصفقة عليه">
+                                            <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                                            <span>ترسية</span>
+                                        </button>
+                                        ` : `
+                                        <span class="text-[10px] font-bold text-slate-400 bg-slate-100 px-2 py-0.5 rounded">مغلق</span>
+                                        `}
+                                    </div>
+                                </div>
+                                `;
+                            }).join('')}
+                        </div>
+                        ` : `
+                        <div class="text-center py-4 text-xs text-slate-400 bg-slate-50 rounded-xl border border-dashed border-slate-200">
+                            في انتظار تقديم أول مزايدة من المشترين
+                        </div>
+                        `}
+
+                        ${isClosed ? `
+                        <div class="py-2 px-3 bg-emerald-50 text-emerald-800 text-xs font-bold text-center rounded-xl border border-emerald-200 flex items-center justify-center gap-1.5">
+                            <i data-lucide="shield-check" class="w-4 h-4 text-emerald-700"></i>
+                            <span>تمت الترسية على صاحب العرض الفائز وتفعيل حساب الضمان المالي</span>
+                        </div>
+                        ` : ''}
+                    </div>
+                    `;
+                } else {
+                    // ==================== منظور المشتري: يظهر له زر تقديم مزايدة إلكترونية فقط ====================
+                    actionsHtml = `
+                    <div class="pt-3 border-t border-slate-100">
+                        ${!isClosed ? `
+                        <button onclick="openBidModal('${auc.auction_id}', '${auc.lot_id}', '${lot.commodity}', ${auc.current_bid}, '${lot.quantity} ${lot.unit}', '${assay.quality_grade || 'معتمد'}')" class="w-full py-2.5 bg-mewa-700 hover:bg-mewa-800 text-white text-xs font-black rounded-xl shadow-sm transition flex items-center justify-center gap-1.5">
+                            <i data-lucide="gavel" class="w-4 h-4 text-naamaGold-400"></i> تقديم مزايدة إلكترونية
+                        </button>
+                        ` : `
+                        <div class="py-2.5 bg-emerald-50 text-emerald-800 text-xs font-bold text-center rounded-xl border border-emerald-200">
+                            تم إغلاق المزاد وترسية الصفقة
+                        </div>
+                        `}
+                    </div>
+                    `;
+                }
+
+                return `
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm flex flex-col justify-between hover:border-mewa-600 hover:shadow-lg transition-all duration-300 naama-card border-t-4 border-t-naamaGold-500">
+                    
+                    <!-- رأس الكرت وصورة المحصول الفائقة الجمالية والبادجات المعلقة -->
+                    <div class="relative h-56 sm:h-60 bg-slate-900 overflow-hidden group">
+                        <!-- صورة المحصول بجودة عالية مع تأثير hover ناعم -->
+                        <img src="${productImg}" alt="${lot.commodity || 'المحصول'}" class="w-full h-full object-cover object-center transform group-hover:scale-108 transition-transform duration-700 ease-out" onerror="this.onerror=null;this.src='static/images/products/tomatoes.jpg'">
+                        
+                        <!-- طبقة التدرج اللوني الجمالية الداكنة للقراءة بوضوح -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/30 to-black/35 pointer-events-none"></div>
+
+                        <!-- بادج الكمية المعروضة البارز والملفت (Hero Quantity Badge) أعلى اليسار -->
+                        <div class="absolute top-3 left-3 z-20">
+                            <div class="bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 text-slate-950 px-3 py-1.5 rounded-xl shadow-lg border border-amber-200/90 flex items-center gap-2 backdrop-blur-md">
+                                <div class="w-7 h-7 rounded-lg bg-amber-950/15 flex items-center justify-center shrink-0">
+                                    <i data-lucide="package" class="w-4 h-4 text-slate-950"></i>
+                                </div>
+                                <div class="text-right leading-tight">
+                                    <span class="text-[9px] font-black block text-slate-900/80">الكمية المعروضة</span>
+                                    <div class="flex items-baseline gap-1">
+                                        <span class="text-base sm:text-lg font-black text-slate-950 tracking-tight">${Number(lot.quantity || 0).toLocaleString()}</span>
+                                        <span class="text-[10px] font-bold text-slate-900">${lot.unit || 'صندوق'}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- بادجات الجودة والاعتماد أعلى اليمين -->
+                        <div class="absolute top-3 right-3 flex items-center gap-1.5 z-20 flex-wrap">
+                            <span class="px-2.5 py-1 rounded-lg text-[11px] font-black bg-mewa-700 text-white shadow-md border border-mewa-600 flex items-center gap-1">
+                                <i data-lucide="award" class="w-3.5 h-3.5 text-naamaGold-400"></i>
+                                <span>${assay.quality_grade || 'درجة أولى'}</span>
+                            </span>
+                            <span class="px-2.5 py-1 rounded-lg text-[11px] font-black bg-emerald-600 text-white shadow-md flex items-center gap-1 border border-emerald-500">
+                                <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+                                <span>سعودي جاب</span>
+                            </span>
+                        </div>
+
+                        <!-- زر المعاينة المكبرة للصورة على الكرت -->
+                        <button onclick="openImageModal('${productImg}', '${lot.commodity || 'محصول زراعي'}', '${auc.lot_id}')" class="absolute bottom-3 left-3 z-20 bg-black/40 hover:bg-black/70 text-white backdrop-blur-md px-2.5 py-1.5 rounded-xl transition border border-white/20 flex items-center gap-1.5 text-[11px] font-bold shadow-md cursor-pointer" title="معاينة صورة المحصول بجودة عالية">
+                            <i data-lucide="maximize-2" class="w-3.5 h-3.5 text-naamaGold-400"></i>
+                            <span class="hidden sm:inline">معاينة مكبرة</span>
+                        </button>
+
+                        <!-- معلومات المحصول السفلية على الصورة -->
+                        <div class="absolute bottom-3 right-3 left-24 text-white z-10 space-y-0.5">
+                            <div class="flex items-center gap-2">
+                                <span class="text-[10px] text-amber-300 font-mono font-bold bg-black/40 px-2 py-0.5 rounded border border-white/10">${auc.lot_id}</span>
+                                <span class="text-[10px] text-slate-300 font-mono">${auc.auction_id}</span>
+                            </div>
+                            <h4 class="text-base sm:text-lg font-black leading-tight truncate drop-shadow">${lot.commodity || 'محصول زراعي'}</h4>
+                            <div class="flex items-center gap-1 text-[11px] text-slate-200">
+                                <i data-lucide="map-pin" class="w-3.5 h-3.5 text-amber-400 shrink-0"></i>
+                                <span class="truncate">${lot.farm_location || 'المملكة'}</span>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- تفاصيل السعر والمزايدات -->
+                    <!-- جسم الكرت: تفاصيل الكمية، الأسعار، وعروض الشراء المخصصة -->
                     <div class="p-5 space-y-4">
+
+                        <!-- بطاقة بارزة خاصة بالكمية الإجمالية وسوق الوصول -->
+                        <div class="bg-gradient-to-r from-emerald-50 via-teal-50/50 to-amber-50/60 p-3.5 rounded-2xl border border-emerald-200/80 flex items-center justify-between shadow-2xs">
+                            <div class="flex items-center gap-3">
+                                <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-mewa-700 to-mewa-800 text-white flex items-center justify-center shadow-md border border-mewa-600 shrink-0">
+                                    <i data-lucide="boxes" class="w-5 h-5 text-naamaGold-300"></i>
+                                </div>
+                                <div>
+                                    <span class="text-[10.5px] font-bold text-slate-500 block">إجمالي الكمية المعروضة للبيع:</span>
+                                    <div class="text-xl font-black text-emerald-950 flex items-baseline gap-1.5">
+                                        <span>${Number(lot.quantity || 0).toLocaleString()}</span>
+                                        <span class="text-xs font-bold text-emerald-700">${lot.unit || 'صندوق'}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-left bg-white/95 px-3 py-1.5 rounded-xl border border-slate-200 shadow-2xs">
+                                <span class="text-[9.5px] text-slate-400 font-bold block">سوق الوصول:</span>
+                                <span class="text-xs font-black text-slate-800">${lot.target_market ? lot.target_market.split('-')[0].trim() : 'سوق العزيزية'}</span>
+                            </div>
+                        </div>
+
+                        <!-- شبكة الأسعار والمزايدات -->
                         <div class="grid grid-cols-2 gap-3 bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs">
                             <div>
-                                <span class="text-slate-400 block">السعر المرجعي:</span>
-                                <span class="font-bold text-slate-700">${assay.reference_price || auc.start_price} ر.س</span>
+                                <span class="text-slate-400 block font-medium">السعر المرجعي للمختبر:</span>
+                                <span class="font-bold text-slate-700 text-sm">${assay.reference_price || auc.start_price} ر.س</span>
                             </div>
                             <div>
-                                <span class="text-slate-400 block">عدد المزايدات:</span>
-                                <span class="font-bold text-emerald-800">${auc.bid_count} مزايدة</span>
+                                <span class="text-slate-400 block font-medium">إجمالي عروض الشراء:</span>
+                                <span class="font-bold text-emerald-800 text-sm">${auc.bid_count} مزايدة معتمدة</span>
                             </div>
                         </div>
 
-                        <div class="p-3.5 bg-mewa-50/70 rounded-xl border border-mewa-200 text-center">
-                            <span class="text-xs text-mewa-900 font-bold block mb-0.5">السعر الحالي الأعلى للوحدة:</span>
+                        <!-- بوكس أعلى عرض حالي للوحدة وإجمالي قيمة الصفقة التقديرية -->
+                        <div class="p-3.5 bg-mewa-50/70 rounded-xl border border-mewa-200 text-center space-y-1">
+                            <span class="text-xs text-mewa-900 font-bold block">أعلى عرض شراء حالي للوحدة:</span>
                             <div class="text-2xl font-black text-emerald-800">${auc.current_bid.toFixed(2)} ر.س</div>
-                            <span class="text-[11px] text-slate-600 font-medium block mt-0.5">المزايد: ${auc.highest_bidder_name} (${auc.highest_bidder_city})</span>
+                            <div class="flex items-center justify-center gap-2 text-[11px] text-slate-600 font-medium">
+                                <span>إجمالي الصفقة: <strong class="text-slate-900 font-black">${Number(auc.current_bid * (lot.quantity || 1)).toLocaleString()} ر.س</strong></span>
+                                <span>•</span>
+                                <span>المتصدر: <strong class="text-slate-900">${auc.highest_bidder_name} (${auc.highest_bidder_city})</strong></span>
+                            </div>
                         </div>
 
-                        ${!isClosed ? `
-                        <div class="flex gap-2">
-                            <button onclick="openBidModal('${auc.auction_id}', '${auc.lot_id}', '${lot.commodity}', ${auc.current_bid}, '${lot.quantity} ${lot.unit}', '${assay.quality_grade || 'معتمد'}')" class="flex-1 py-2.5 bg-mewa-700 hover:bg-mewa-800 text-white text-xs font-black rounded-xl shadow-sm transition flex items-center justify-center gap-1.5">
-                                <i data-lucide="gavel" class="w-4 h-4"></i> تقديم مزايدة
-                            </button>
-                            <button onclick="closeAndEscrow('${auc.auction_id}')" class="px-3.5 py-2.5 bg-naamaGold-500 hover:bg-naamaGold-600 text-mewa-950 text-xs font-black rounded-xl transition" title="ترسية وتفعيل حساب الضمان">
-                                <i data-lucide="check-check" class="w-4 h-4"></i> ترسية
-                            </button>
-                        </div>
-                        ` : `
-                        <div class="py-2.5 bg-emerald-50 text-emerald-800 text-xs font-bold text-center rounded-xl border border-emerald-200">
-                            تمت الترسية وتفعيل حساب الضمان ونقل الشحنة
-                        </div>
-                        `}
+                        <!-- منطقة الإجراءات المخصصة للمستفيد (المزارع vs المشتري) -->
+                        ${actionsHtml}
                     </div>
 
                 </div>
                 `;
             }).join('');
+
             if (typeof lucide !== 'undefined' && lucide.createIcons) lucide.createIcons();
+        }
+
+        // دالة ترسية المزاد على مزايد محدد يختاره المزارع من القائمة
+        async function awardSpecificBid(aucId, bidderName, bidderOrg, bidAmount, quantity, commodity) {
+            const total = bidAmount * quantity;
+            const net = total * 0.95;
+            const orgDisplay = bidderOrg ? `${bidderOrg} (${bidderName})` : bidderName;
+
+            const confirmMsg = `تأكيد اختيار العرض وترسية الصفقة:\n\n` +
+                               `• الدفعة الزراعية: ${commodity}\n` +
+                               `• المشتري الفائز: ${orgDisplay}\n` +
+                               `• سعر الوحدة المعتمد: ${bidAmount.toFixed(2)} ر.س\n` +
+                               `• إجمالي قيمة الصفقة: ${Number(total).toLocaleString()} ر.س\n` +
+                               `• صافي مستحقك كمزارع (بعد رسوم المنصة 5%): ${Number(net).toLocaleString()} ر.س\n\n` +
+                               `هل توافق على ترسية المزاد على هذا المزايد وتفعيل الصرف البنكي عبر حساب الضمان (Escrow)؟`;
+
+            if (!confirm(confirmMsg)) return;
+
+            const selectedBid = {
+                bidder_name: bidderName,
+                bidder_org: bidderOrg,
+                bid_amount: bidAmount
+            };
+
+            try {
+                if (window.location.protocol !== 'file:') {
+                    const res = await fetch(`/api/future/auctions/${aucId}/close-and-escrow`, {
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify(selectedBid)
+                    });
+                    if (res.ok) {
+                        const data = await res.json();
+                        alert(data.message || 'تمت الترسية بنجاح!');
+                        loadAuctions();
+                        return;
+                    }
+                }
+            } catch (err) {
+                console.log('Using static store fallback for close and escrow');
+            }
+
+            if (window.FutureStaticStore) {
+                const res = window.FutureStaticStore.closeAndEscrow(aucId, selectedBid);
+                alert(`تهانينا! تم بنجاح قبول العرض وترسية المزاد (${aucId}) على [${orgDisplay}].\n\nتم إصدار أمر الضمان المالي الرقمي (${res.escrow.escrow_no}) بقيمة صافية محجوزة لصالحك قدرها ${Number(res.escrow.seller_net).toLocaleString()} ر.س.`);
+                loadAuctions();
+            }
         }
 
         function openBidModal(aucId, lotId, comm, currBid, qty, cert) {
@@ -436,28 +784,11 @@
         }
 
         async function closeAndEscrow(aucId) {
-            if (!confirm('هل تريد إغلاق المزاد وترسية الصفقة على صاحب أعلى مزايدة وتفعيل حساب الضمان المالي الرقمي؟')) return;
-            try {
-                if (window.location.protocol !== 'file:') {
-                    const res = await fetch(`/api/future/auctions/${aucId}/close-and-escrow`, { method: 'POST' });
-                    if (res.ok) {
-                        const data = await res.json();
-                        alert(data.message);
-                        loadAuctions();
-                        return;
-                    }
-                }
-            } catch (err) {
-                console.log('Using static store fallback for close and escrow');
-            }
-
-            if (window.FutureStaticStore) {
-                const res = window.FutureStaticStore.closeAndEscrow(aucId);
-                alert(`تم بنجاح ترسية المزاد (${aucId}) وتفعيل حساب الضمان المالي الرقمي (${res.escrow.escrow_no}) بقيمة صافية للمزارع قدرها ${Number(res.escrow.seller_net).toLocaleString()} ر.س.`);
-                loadAuctions();
-            }
+            awardSpecificBid(aucId, '', '', 0, 0, '');
         }
 
+        // تطبيق المنظور المبدئي وتحميل البيانات
+        setAuctionRole(currentRole);
         loadAuctions();
     </script>
 </body>

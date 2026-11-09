@@ -133,6 +133,22 @@
             </a>
         </div>
 
+        <!-- أزرار التنقل الفرعية للمزارع -->
+        <div class="flex items-center gap-2 overflow-x-auto no-scrollbar text-xs font-bold no-print">
+            <div class="px-3.5 py-2 rounded-xl bg-emerald-50 text-emerald-900 border border-emerald-300 font-black flex items-center gap-1.5 shadow-xs">
+                <i data-lucide="package-plus" class="w-4 h-4 text-emerald-700"></i>
+                <span>1. تسجيل الدفعة وحجز البوابة الذكية (النشطة)</span>
+            </div>
+            <a href="future_farmer_certificates.html" class="px-3.5 py-2 rounded-xl bg-white text-slate-600 hover:text-mewa-700 border border-slate-200 transition flex items-center gap-1.5 shadow-xs">
+                <i data-lucide="microscope" class="w-4 h-4 text-slate-400"></i>
+                <span>2. شهادات الفحص وتصنيف الرتبة (عرض فقط)</span>
+            </a>
+            <a href="future_auction.html?role=farmer" class="px-3.5 py-2 rounded-xl bg-white text-slate-600 hover:text-mewa-700 border border-slate-200 transition flex items-center gap-1.5 shadow-xs">
+                <i data-lucide="badge-dollar-sign" class="w-4 h-4 text-amber-500"></i>
+                <span>3. متابعة المزاد الحي والمستحقات</span>
+            </a>
+        </div>
+
         <!-- بنر ترحيبي وإحصائي بهوية نما -->
         <div class="relative bg-gradient-to-r from-mewa-900 via-mewa-800 to-mewa-700 rounded-2xl p-6 text-white shadow-md border-b-4 border-naamaGold-500 flex flex-col md:flex-row items-center justify-between gap-6">
             <div class="space-y-2 max-w-2xl">
@@ -441,8 +457,14 @@
                             <span class="text-slate-500">• نقاوة: ${lot.assaying.purity_pct}%</span>
                             <span class="text-slate-500">• عيوب: ${lot.assaying.defect_pct}%</span>
                         </div>
-                        <div class="font-black text-emerald-800">
-                            السعر المرجعي: ${lot.assaying.reference_price} ر.س / ${lot.unit}
+                        <div class="flex items-center gap-3">
+                            <div class="font-black text-emerald-800">
+                                السعر المرجعي: ${lot.assaying.reference_price} ر.س / ${lot.unit}
+                            </div>
+                            <a href="future_farmer_certificates.html?lot_id=${lot.lot_id}" class="px-2.5 py-1 bg-white hover:bg-mewa-700 hover:text-white text-mewa-800 border border-mewa-200 rounded-lg font-bold transition flex items-center gap-1 text-[11px] shadow-2xs">
+                                <i data-lucide="eye" class="w-3.5 h-3.5"></i>
+                                <span>عرض الشهادة</span>
+                            </a>
                         </div>
                     </div>
                     ` : `
@@ -457,7 +479,7 @@
                             <span class="font-bold text-amber-900">المزاد اللحظي (${lot.auction.auction_id}):</span>
                             <span class="text-slate-600 mr-2">أعلى مزايدة: <strong class="text-emerald-700">${lot.auction.current_bid} ر.س</strong> (${lot.auction.highest_bidder_name})</span>
                         </div>
-                        <a href="future_auction.html" class="px-3 py-1 bg-mewa-700 text-white rounded-lg font-bold hover:bg-mewa-800 transition">
+                        <a href="future_auction.html?role=farmer" class="px-3 py-1 bg-mewa-700 text-white rounded-lg font-bold hover:bg-mewa-800 transition">
                             متابعة المزاد
                         </a>
                     </div>
