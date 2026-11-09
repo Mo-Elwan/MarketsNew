@@ -159,20 +159,17 @@
 
                 <div class="flex flex-row lg:flex-col items-center sm:items-end gap-3 flex-shrink-0">
                     <div class="flex items-center gap-1.5 sm:gap-2 flex-wrap sm:flex-nowrap">
-                        <button onclick="switchView('journey')" id="view-btn-journey" class="px-3.5 sm:px-4 py-2 rounded-xl text-xs font-black transition flex items-center gap-1.5 shadow-sm bg-mewa-700 text-white border border-mewa-800">
-                            <i data-lucide="git-commit" class="w-4 h-4 text-naamaGold-300"></i> رحلات المستفيدين (1-8)
+                        <button onclick="switchView('all')" id="view-btn-all" class="px-3.5 sm:px-4 py-2 rounded-xl text-xs font-black transition flex items-center gap-1.5 shadow-sm bg-mewa-700 text-white border border-mewa-800">
+                            <i data-lucide="layers" class="w-4 h-4 text-naamaGold-300"></i> عرض الكل (الإنفوجرافيك الشامل)
+                        </button>
+                        <button onclick="switchView('journey')" id="view-btn-journey" class="px-3.5 sm:px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 bg-slate-100 text-slate-700 hover:bg-slate-200 border border-transparent">
+                            <i data-lucide="git-commit" class="w-4 h-4 text-emerald-600"></i> رحلات المستفيدين (1-8)
                         </button>
                         <button onclick="switchView('comparison')" id="view-btn-comparison" class="px-3.5 sm:px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 bg-slate-100 text-slate-700 hover:bg-slate-200 border border-transparent">
                             <i data-lucide="git-compare" class="w-4 h-4 text-emerald-600"></i> الوضع الحالي مقابل المستقبلي
                         </button>
-                        <button onclick="switchView('strategic')" id="view-btn-strategic" class="px-3.5 sm:px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 bg-slate-100 text-slate-700 hover:bg-slate-200 border border-transparent">
-                            <i data-lucide="layout-template" class="w-4 h-4"></i> الواجهة الذكية والقيمة
-                        </button>
-                        <button onclick="switchView('all')" id="view-btn-all" class="px-3 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 bg-slate-100 text-slate-700 hover:bg-slate-200 border border-transparent">
-                            <i data-lucide="layers" class="w-3.5 h-3.5"></i> عرض الكل
-                        </button>
                     </div>
-                    <span class="text-[11px] text-slate-400 font-semibold">تحليل ومقارنة التحول المؤسسي الشامل لأسواق النفع العام</span>
+                    <span class="text-[11px] text-slate-400 font-semibold">العرض الشامل للرحلات التشغيلية ومقارنة التحول المؤسسي</span>
                 </div>
             </div>
 
@@ -588,114 +585,8 @@
 
         </div>
 
-        <!-- ==================== العرض 2: الواجهة الذكية الموحدة والقيمة المتحققة ==================== -->
-        <div id="view-strategic-section" class="space-y-6 hidden">
-
-            <!-- عنوان القسم الاستراتيجي -->
-            <div class="text-center max-w-2xl mx-auto space-y-1">
-                <h3 class="text-lg sm:text-xl font-black text-slate-900">البنية المؤسسية والتصميم الذكي: منصة واحدة .. تجارب متعددة حسب الدور</h3>
-                <p class="text-xs text-slate-500">حل إشكالية ازدحام الواجهات وتشتت المستفيدين عبر الواجهة الذكية الموحدة ومبدل الأدوار</p>
-            </div>
-
-            <!-- تدفق القيمة المضافة: التحدي الحالي -> الحل المقترح -> القيمة المتحققة -->
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
-                
-                <!-- 1. التحدي الحالي -->
-                <div class="bg-rose-50/50 rounded-3xl p-6 border border-rose-200 shadow-sm space-y-4">
-                    <div class="flex items-center gap-2 text-rose-800 font-black text-base border-b border-rose-200/80 pb-3">
-                        <div class="w-8 h-8 rounded-lg bg-rose-100 text-rose-700 flex items-center justify-center">
-                            <i data-lucide="alert-triangle" class="w-4 h-4"></i>
-                        </div>
-                        <span>التحدي الحالي (الوضع السابق)</span>
-                    </div>
-                    <p class="text-xs text-slate-600">إظهار جميع الخدمات لكافة المستخدمين دون تخصيص يؤدي إلى عوائق تشغيلية:</p>
-                    
-                    <div class="grid grid-cols-2 gap-3 text-center text-xs">
-                        <div class="p-3 bg-white rounded-xl border border-rose-100 shadow-2xs space-y-1">
-                            <i data-lucide="layout" class="w-5 h-5 text-rose-600 mx-auto"></i>
-                            <div class="font-bold text-slate-800">ازدحام الواجهة</div>
-                        </div>
-                        <div class="p-3 bg-white rounded-xl border border-rose-100 shadow-2xs space-y-1">
-                            <i data-lucide="shuffle" class="w-5 h-5 text-rose-600 mx-auto"></i>
-                            <div class="font-bold text-slate-800">تشتت المستخدم</div>
-                        </div>
-                        <div class="p-3 bg-white rounded-xl border border-rose-100 shadow-2xs space-y-1">
-                            <i data-lucide="clock" class="w-5 h-5 text-rose-600 mx-auto"></i>
-                            <div class="font-bold text-slate-800">زيادة زمن الوصول</div>
-                        </div>
-                        <div class="p-3 bg-white rounded-xl border border-rose-100 shadow-2xs space-y-1">
-                            <i data-lucide="user-x" class="w-5 h-5 text-rose-600 mx-auto"></i>
-                            <div class="font-bold text-slate-800">تجربة غير مخصصة</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 2. الحل المقترح: واجهة ذكية موحدة -->
-                <div class="bg-mewa-50/50 rounded-3xl p-6 border border-mewa-200 shadow-sm space-y-4">
-                    <div class="flex items-center gap-2 text-mewa-900 font-black text-base border-b border-mewa-200/80 pb-3">
-                        <div class="w-8 h-8 rounded-lg bg-mewa-100 text-mewa-700 flex items-center justify-center">
-                            <i data-lucide="lightbulb" class="w-4 h-4 text-naamaGold-600"></i>
-                        </div>
-                        <span>الحل المقترح (الواجهة الذكية)</span>
-                    </div>
-                    <p class="text-xs text-slate-600">واجهة ذكية موحدة تعرض الخدمات المناسبة لكل مستفيد تلقائياً:</p>
-                    
-                    <div class="space-y-2 text-xs">
-                        <div class="p-2.5 bg-white rounded-xl border border-mewa-100 flex items-center gap-2">
-                            <i data-lucide="check" class="w-4 h-4 text-mewa-600 flex-shrink-0"></i>
-                            <span class="font-bold text-slate-800">التعرف الذكي على دور المستخدم وصلاحياته</span>
-                        </div>
-                        <div class="p-2.5 bg-white rounded-xl border border-mewa-100 flex items-center gap-2">
-                            <i data-lucide="check" class="w-4 h-4 text-mewa-600 flex-shrink-0"></i>
-                            <span class="font-bold text-slate-800">تخصيص الصفحة وإظهار الخدمات ذات العلاقة فقط</span>
-                        </div>
-                        <div class="p-2.5 bg-white rounded-xl border border-mewa-100 flex items-center gap-2">
-                            <i data-lucide="check" class="w-4 h-4 text-mewa-600 flex-shrink-0"></i>
-                            <span class="font-bold text-slate-800">دعم تعدد الأدوار عبر مبدل الأدوار (Role Switcher)</span>
-                        </div>
-                        <div class="p-2.5 bg-white rounded-xl border border-mewa-100 flex items-center gap-2">
-                            <i data-lucide="check" class="w-4 h-4 text-mewa-600 flex-shrink-0"></i>
-                            <span class="font-bold text-slate-800">حوكمة موحدة وتجربة رقمية سريعة ومبسطة</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 3. القيمة المتحققة -->
-                <div class="bg-amber-50/50 rounded-3xl p-6 border border-amber-200 shadow-sm space-y-4">
-                    <div class="flex items-center gap-2 text-amber-950 font-black text-base border-b border-amber-200/80 pb-3">
-                        <div class="w-8 h-8 rounded-lg bg-amber-100 text-naamaGold-700 flex items-center justify-center">
-                            <i data-lucide="trending-up" class="w-4 h-4"></i>
-                        </div>
-                        <span>القيمة المتحققة للقطاع والوطن</span>
-                    </div>
-                    <p class="text-xs text-slate-600">نحو أسواق نفع عام أكثر كفاءة وموثوقية واستدامة:</p>
-                    
-                    <div class="space-y-2 text-xs">
-                        <div class="p-2.5 bg-white rounded-xl border border-amber-100 flex items-center gap-2">
-                            <i data-lucide="zap" class="w-4 h-4 text-amber-600 flex-shrink-0"></i>
-                            <span class="font-bold text-slate-800">تجربة مستخدم أسرع وأبسط بنسبة 70%</span>
-                        </div>
-                        <div class="p-2.5 bg-white rounded-xl border border-amber-100 flex items-center gap-2">
-                            <i data-lucide="shield-check" class="w-4 h-4 text-amber-600 flex-shrink-0"></i>
-                            <span class="font-bold text-slate-800">رفع مستوى الحوكمة والصلاحيات ومنع التستر</span>
-                        </div>
-                        <div class="p-2.5 bg-white rounded-xl border border-amber-100 flex items-center gap-2">
-                            <i data-lucide="layers" class="w-4 h-4 text-amber-600 flex-shrink-0"></i>
-                            <span class="font-bold text-slate-800">زيادة تبني الخدمات الرقمية بنسبة 85%</span>
-                        </div>
-                        <div class="p-2.5 bg-white rounded-xl border border-amber-100 flex items-center gap-2">
-                            <i data-lucide="leaf" class="w-4 h-4 text-amber-600 flex-shrink-0"></i>
-                            <span class="font-bold text-slate-800">خفض الهدر الزراعي لأقل من 5% ودعم الأمن الغذائي</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-
-        <!-- ==================== العرض 2: مقارنة التحول المؤسسي: الوضع الحالي مقابل الوضع المستقبلي ==================== -->
-        <div id="view-comparison-section" class="space-y-8 hidden">
+<!-- ==================== العرض 2: مقارنة التحول المؤسسي: الوضع الحالي مقابل الوضع المستقبلي ==================== -->
+        <div id="view-comparison-section" class="space-y-8">
 
             <!-- عنوان القسم الاستراتيجي والترويسة -->
             <div class="relative bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm border-t-4 border-t-emerald-600 space-y-4 naama-card">
@@ -1354,8 +1245,8 @@
                             <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
                         </button>
                         <span class="text-slate-300">|</span>
-                        <button onclick="switchView('strategic')" class="text-mewa-700 hover:underline font-bold flex items-center gap-1">
-                            <span>عرض الواجهة الذكية والقيمة</span>
+                        <button onclick="switchView('all')" class="text-mewa-700 hover:underline font-bold flex items-center gap-1">
+                            <span>عرض الإنفوجرافيك الشامل (الكل)</span>
                             <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
                         </button>
                     </div>
@@ -1456,57 +1347,63 @@
         function switchView(view) {
             const journeySec = document.getElementById('view-journey-section');
             const comparisonSec = document.getElementById('view-comparison-section');
-            const strategicSec = document.getElementById('view-strategic-section');
             const rolePillsContainer = document.getElementById('role-pills-container');
             
+            const btnAll = document.getElementById('view-btn-all');
             const btnJourney = document.getElementById('view-btn-journey');
             const btnComparison = document.getElementById('view-btn-comparison');
-            const btnStrategic = document.getElementById('view-btn-strategic');
-            const btnAll = document.getElementById('view-btn-all');
 
-            const allBtns = [btnJourney, btnComparison, btnStrategic, btnAll];
+            const allBtns = [btnAll, btnJourney, btnComparison];
             allBtns.forEach(btn => {
                 if (btn) {
-                    btn.classList.remove('bg-mewa-700', 'text-white', 'border-mewa-800', 'font-black');
+                    btn.classList.remove('bg-mewa-700', 'text-white', 'border-mewa-800', 'font-black', 'shadow-sm');
                     btn.classList.add('bg-slate-100', 'text-slate-700', 'border-transparent', 'font-bold');
+                    const icon = btn.querySelector('svg, i');
+                    if (icon) {
+                        icon.classList.remove('text-naamaGold-300');
+                        icon.classList.add('text-emerald-600');
+                    }
                 }
             });
 
             if (view === 'journey') {
                 if (journeySec) journeySec.classList.remove('hidden');
                 if (comparisonSec) comparisonSec.classList.add('hidden');
-                if (strategicSec) strategicSec.classList.add('hidden');
                 if (rolePillsContainer) rolePillsContainer.classList.remove('hidden');
                 if (btnJourney) {
-                    btnJourney.classList.add('bg-mewa-700', 'text-white', 'border-mewa-800', 'font-black');
+                    btnJourney.classList.add('bg-mewa-700', 'text-white', 'border-mewa-800', 'font-black', 'shadow-sm');
                     btnJourney.classList.remove('bg-slate-100', 'text-slate-700', 'border-transparent');
+                    const icon = btnJourney.querySelector('svg, i');
+                    if (icon) {
+                        icon.classList.remove('text-emerald-600');
+                        icon.classList.add('text-naamaGold-300');
+                    }
                 }
             } else if (view === 'comparison') {
                 if (journeySec) journeySec.classList.add('hidden');
                 if (comparisonSec) comparisonSec.classList.remove('hidden');
-                if (strategicSec) strategicSec.classList.add('hidden');
                 if (rolePillsContainer) rolePillsContainer.classList.add('hidden');
                 if (btnComparison) {
-                    btnComparison.classList.add('bg-mewa-700', 'text-white', 'border-mewa-800', 'font-black');
+                    btnComparison.classList.add('bg-mewa-700', 'text-white', 'border-mewa-800', 'font-black', 'shadow-sm');
                     btnComparison.classList.remove('bg-slate-100', 'text-slate-700', 'border-transparent');
+                    const icon = btnComparison.querySelector('svg, i');
+                    if (icon) {
+                        icon.classList.remove('text-emerald-600');
+                        icon.classList.add('text-naamaGold-300');
+                    }
                 }
-            } else if (view === 'strategic') {
-                if (journeySec) journeySec.classList.add('hidden');
-                if (comparisonSec) comparisonSec.classList.add('hidden');
-                if (strategicSec) strategicSec.classList.remove('hidden');
-                if (rolePillsContainer) rolePillsContainer.classList.add('hidden');
-                if (btnStrategic) {
-                    btnStrategic.classList.add('bg-mewa-700', 'text-white', 'border-mewa-800', 'font-black');
-                    btnStrategic.classList.remove('bg-slate-100', 'text-slate-700', 'border-transparent');
-                }
-            } else if (view === 'all') {
+            } else { // 'all' (الافتراضي: عرض الكل)
                 if (journeySec) journeySec.classList.remove('hidden');
                 if (comparisonSec) comparisonSec.classList.remove('hidden');
-                if (strategicSec) strategicSec.classList.remove('hidden');
                 if (rolePillsContainer) rolePillsContainer.classList.remove('hidden');
                 if (btnAll) {
-                    btnAll.classList.add('bg-mewa-700', 'text-white', 'border-mewa-800', 'font-black');
+                    btnAll.classList.add('bg-mewa-700', 'text-white', 'border-mewa-800', 'font-black', 'shadow-sm');
                     btnAll.classList.remove('bg-slate-100', 'text-slate-700', 'border-transparent');
+                    const icon = btnAll.querySelector('svg, i');
+                    if (icon) {
+                        icon.classList.remove('text-emerald-600');
+                        icon.classList.add('text-naamaGold-300');
+                    }
                 }
             }
             initIcons();
@@ -1516,8 +1413,10 @@
             initIcons();
             const urlParams = new URLSearchParams(window.location.search);
             const viewParam = urlParams.get('view') || window.location.hash.replace('#', '');
-            if (['journey', 'comparison', 'strategic', 'all'].includes(viewParam)) {
+            if (['journey', 'comparison'].includes(viewParam)) {
                 switchView(viewParam);
+            } else {
+                switchView('all'); // الافتراضي: عرض الكل
             }
         });
         initIcons();
