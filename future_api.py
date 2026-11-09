@@ -215,6 +215,8 @@ def get_future_auctions():
         ad["lot"] = dict(lot) if lot else None
         assay = conn.execute("SELECT * FROM future_assaying WHERE lot_id = ?", (ad["lot_id"],)).fetchone()
         ad["assaying"] = dict(assay) if assay else None
+        bids = conn.execute("SELECT * FROM future_bids WHERE auction_id = ? ORDER BY bid_amount DESC", (ad["auction_id"],)).fetchall()
+        ad["bids"] = [dict(b) for b in bids]
         res.append(ad)
     conn.close()
     return res

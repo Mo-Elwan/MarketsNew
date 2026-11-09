@@ -25,7 +25,7 @@
                 scheduled_arrival: "2026-11-04 06:30",
                 status: "auction_active",
                 created_at: "2026-11-04 05:00",
-                image_url: "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=600",
+                image_url: "static/images/products/tomatoes.jpg",
                 assaying: {
                     certificate_no: "CER-2026-9811",
                     inspector_name: "م. فهد القحطاني",
@@ -83,7 +83,7 @@
                 scheduled_arrival: "2026-11-04 07:45",
                 status: "auction_active",
                 created_at: "2026-11-04 04:30",
-                image_url: "https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=600",
+                image_url: "static/images/products/potatoes.jpg",
                 assaying: {
                     certificate_no: "CER-2026-9812",
                     inspector_name: "م. تركي الشمري",
@@ -185,7 +185,7 @@
                 scheduled_arrival: "2026-11-04 08:00",
                 status: "auction_active",
                 created_at: "2026-11-04 06:00",
-                image_url: "https://images.unsplash.com/photo-1596483739943-431f41b4b1a4?w=600",
+                image_url: "static/images/products/dates_sukari.jpg",
                 assaying: {
                     certificate_no: "CER-2026-9814",
                     inspector_name: "م. إبراهيم الدوسري",
@@ -230,7 +230,7 @@
                 scheduled_arrival: "2026-11-04 10:00",
                 status: "registered",
                 created_at: "2026-11-04 06:45",
-                image_url: "https://images.unsplash.com/photo-1604977042946-1eecc30f269e?w=600"
+                image_url: "static/images/products/cucumbers.jpg"
             }
         ],
         disputes: [
@@ -410,27 +410,47 @@
         getAuctions() {
             return this.data.lots
                 .filter(l => l.auction)
-                .map(l => ({
-                    auction_id: l.auction.auction_id,
-                    lot_id: l.lot_id,
-                    start_price: l.auction.start_price,
-                    reserve_price: l.auction.reserve_price,
-                    current_bid: l.auction.current_bid,
-                    highest_bidder_name: l.auction.highest_bidder_name,
-                    highest_bidder_city: l.auction.highest_bidder_city,
-                    bid_count: l.auction.bid_count,
-                    auction_status: l.auction.auction_status,
-                    time_remaining: l.auction.time_remaining || '12 دقيقة',
-                    lot: {
-                        commodity: l.commodity,
-                        farmer_name: l.farmer_name,
-                        farm_location: l.farm_location,
-                        quantity: l.quantity,
-                        unit: l.unit,
-                        image_url: l.image_url
-                    },
-                    assaying: l.assaying
-                }));
+                .map(l => {
+                    // توليد أو جلب قائمة المزايدات مرتبة تنازلياً حسب السعر
+                    let bids = l.auction.bids;
+                    if (!bids || bids.length === 0) {
+                        const topPrice = l.auction.current_bid;
+                        bids = [
+                            { bidder_name: l.auction.highest_bidder_name || "شركة التميمي للأسواق", bidder_org: l.auction.highest_bidder_org || "أسواق التميمي", bidder_city: l.auction.highest_bidder_city || "الرياض", bid_amount: topPrice, created_at: "قبل دقيقتين" },
+                            { bidder_name: "مؤسسة عبد الله العثيم", bidder_org: "أسواق العثيم المركزية", bidder_city: "القصيم", bid_amount: Math.max(l.auction.start_price, Number((topPrice - 0.50).toFixed(2))), created_at: "قبل 6 دقائق" },
+                            { bidder_name: "شركة لولو السعودية", bidder_org: "لولو هايبر ماركت", bidder_city: "جدة", bid_amount: Math.max(l.auction.start_price, Number((topPrice - 1.00).toFixed(2))), created_at: "قبل 11 دقيقة" },
+                            { bidder_name: "مؤسسة ثمار الشرق التموينية", bidder_org: "ثمار الشرق للتجارة", bidder_city: "الدمام", bid_amount: Math.max(l.auction.start_price, Number((topPrice - 1.50).toFixed(2))), created_at: "قبل 18 دقيقة" }
+                        ];
+                        l.auction.bids = bids;
+                    }
+
+                    // فرز المزايدات دائماً من الأعلى للأدنى
+                    bids.sort((a, b) => b.bid_amount - a.bid_amount);
+
+                    return {
+                        auction_id: l.auction.auction_id,
+                        lot_id: l.lot_id,
+                        start_price: l.auction.start_price,
+                        reserve_price: l.auction.reserve_price,
+                        current_bid: l.auction.current_bid,
+                        highest_bidder_name: l.auction.highest_bidder_name,
+                        highest_bidder_city: l.auction.highest_bidder_city,
+                        highest_bidder_org: l.auction.highest_bidder_org,
+                        bid_count: l.auction.bid_count || bids.length,
+                        auction_status: l.auction.auction_status,
+                        time_remaining: l.auction.time_remaining || '12 دقيقة',
+                        bids: bids,
+                        lot: {
+                            commodity: l.commodity,
+                            farmer_name: l.farmer_name,
+                            farm_location: l.farm_location,
+                            quantity: l.quantity,
+                            unit: l.unit,
+                            image_url: l.image_url
+                        },
+                        assaying: l.assaying
+                    };
+                });
         }
 
         placeBid(auctionId, bid) {
@@ -439,6 +459,16 @@
             if (bid.bid_amount <= lot.auction.current_bid) {
                 throw new Error('قيمة المزايدة يجب أن تكون أعلى من السعر الحالي');
             }
+
+            if (!lot.auction.bids) lot.auction.bids = [];
+            lot.auction.bids.unshift({
+                bidder_name: bid.bidder_name,
+                bidder_org: bid.bidder_org,
+                bidder_city: bid.bidder_city,
+                bid_amount: bid.bid_amount,
+                created_at: "الآن"
+            });
+            lot.auction.bids.sort((a, b) => b.bid_amount - a.bid_amount);
 
             lot.auction.current_bid = bid.bid_amount;
             lot.auction.highest_bidder_name = bid.bidder_name;
@@ -449,14 +479,17 @@
             return lot.auction;
         }
 
-        closeAndEscrow(auctionId) {
+        closeAndEscrow(auctionId, selectedBid) {
             const lot = this.data.lots.find(l => l.auction && l.auction.auction_id === auctionId);
             if (!lot) throw new Error('المزاد غير موجود');
             
             lot.auction.auction_status = 'closed';
             lot.status = 'in_transit';
 
-            const total = lot.auction.current_bid * lot.quantity;
+            const winningAmount = selectedBid ? selectedBid.bid_amount : lot.auction.current_bid;
+            const winningBuyer = selectedBid ? `${selectedBid.bidder_name} (${selectedBid.bidder_org || selectedBid.bidder_city})` : lot.auction.highest_bidder_name;
+
+            const total = winningAmount * lot.quantity;
             const fee = total * 0.05;
             const net = total - fee;
             const escrowNo = `ESC-2026-${Math.floor(8800 + Math.random() * 900)}`;
@@ -466,7 +499,7 @@
                 lot_id: lot.lot_id,
                 commodity: lot.commodity,
                 quantity: lot.quantity,
-                buyer_name: lot.auction.highest_bidder_name,
+                buyer_name: winningBuyer,
                 seller_name: lot.farmer_name,
                 total_amount: total,
                 platform_fee: fee,
