@@ -164,7 +164,7 @@
                 <button onclick="switchRole('farmer')" id="role-tab-farmer" class="role-tab-btn active shrink-0 px-3.5 sm:px-5 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-black transition flex items-center justify-center gap-1.5 sm:gap-2 whitespace-nowrap bg-mewa-700 text-white shadow-sm border border-mewa-800">
                     <i data-lucide="sprout" class="w-4 h-4 text-naamaGold-300"></i>
                     <span>المزارع والمنتج الزراعي</span>
-                    <span class="role-count bg-white/25 text-white text-[10px] sm:text-[11px] px-1.5 sm:px-2 py-0.5 rounded-full font-black">4 وظائف</span>
+                    <span class="role-count bg-white/25 text-white text-[10px] sm:text-[11px] px-1.5 sm:px-2 py-0.5 rounded-full font-black">3 وظائف</span>
                 </button>
 
                 <!-- تاب 2: المشتري والتاجر والتموين -->
@@ -189,66 +189,48 @@
             </div>
 
             <!-- شبكة كروت الوظائف الأساسية للمستفيدين (مصممة وفق هوية نما naama-card) -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5" id="roles-cards-grid">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5" id="roles-cards-grid">
 
                 <!-- ==================== 1. وظائف المزارع والمنتج الزراعي ==================== -->
                 
-                <!-- وظيفة مزارع 1: تسجيل الدفعة وإصدار Lot ID -->
+                <!-- وظيفة مزارع 1: تسجيل الدفعة وإصدار Lot ID مع خيار توثيق سعودي جاب المدمج -->
                 <div data-role="farmer" class="role-card bg-white p-6 rounded-2xl border border-slate-200 hover:border-mewa-600 hover:shadow-lg transition-all duration-300 flex flex-col justify-between border-t-4 border-t-mewa-600 naama-card">
                     <div class="space-y-3.5">
                         <div class="flex items-center justify-between">
-                            <span class="text-[10.5px] font-bold text-mewa-700 bg-mewa-50 px-2.5 py-1 rounded-lg inline-block border border-mewa-100">المسار 1: التوثيق الأولي</span>
+                            <span class="text-[10.5px] font-bold text-mewa-700 bg-mewa-50 px-2.5 py-1 rounded-lg inline-block border border-mewa-100">المسار 1: التوثيق والاعتماد الزراعي</span>
                             <div class="w-11 h-11 rounded-xl bg-mewa-50 text-mewa-600 flex items-center justify-center border border-mewa-100">
                                 <i data-lucide="package-plus" class="w-5 h-5"></i>
                             </div>
                         </div>
                         <h4 class="text-base font-black text-slate-900">1. تسجيل الدفعة وإصدار Lot ID</h4>
                         <p class="text-xs text-slate-600 leading-relaxed font-medium">
-                            إصدار كود الهوية الرقمي الموحد (LOT-SA-2026-XXXX) قبل التحرك من المزرعة، وتوليد تصريح العبور الذكي المزود برمز QR.
+                            إصدار كود الهوية الرقمي الموحد (LOT-SA-2026-XXXX) وتوليد تصريح العبور الذكي برمز QR، مع إمكانية تفعيل خيار "حاصل على شهادة سعودي جاب" لتسريع الفحص المخبري والحصول على السعر الاسترشادي الأعلى.
                         </p>
-                    </div>
-                    <div class="pt-5 border-t border-slate-100 mt-4 space-y-2">
-                        <a href="future_farmer_lots.html" class="w-full bg-mewa-700 hover:bg-mewa-800 text-white font-bold py-2.5 px-4 rounded-xl shadow-sm hover:shadow transition flex items-center justify-center gap-2 text-xs">
-                            <span>تسجيل دفعة جديدة</span>
-                            <i data-lucide="arrow-left" class="w-4 h-4 text-emerald-200"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- وظيفة مزارع 2: توثيق شهادة سعودي جاب -->
-                <div data-role="farmer" class="role-card bg-white p-6 rounded-2xl border border-slate-200 hover:border-naamaGold-500 hover:shadow-lg transition-all duration-300 flex flex-col justify-between border-t-4 border-t-naamaGold-500 naama-card">
-                    <div class="space-y-3.5">
-                        <div class="flex items-center justify-between">
-                            <span class="text-[10.5px] font-bold text-amber-800 bg-amber-50 px-2.5 py-1 rounded-lg inline-block border border-amber-100">المسار 2: الاعتماد الزراعي</span>
-                            <div class="w-11 h-11 rounded-xl bg-amber-50 text-naamaGold-600 flex items-center justify-center border border-amber-100">
-                                <i data-lucide="award" class="w-5 h-5"></i>
-                            </div>
+                        <div class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-amber-50 text-amber-800 border border-amber-200 text-[11px] font-bold">
+                            <i data-lucide="award" class="w-3.5 h-3.5 text-naamaGold-600"></i>
+                            <span>خيار مدمج: حاصل على شهادة سعودي جاب (اختياري)</span>
                         </div>
-                        <h4 class="text-base font-black text-slate-900">2. توثيق شهادة سعودي جاب</h4>
-                        <p class="text-xs text-slate-600 leading-relaxed font-medium">
-                            ربط رقم اعتماد Saudi G.A.P. والمركز الوطني للوقاية لضمان قبول المحصول في المختبر وتسعيره بالسعر الاسترشادي الأعلى.
-                        </p>
                     </div>
                     <div class="pt-5 border-t border-slate-100 mt-4 space-y-2">
                         <a href="future_farmer_lots.html" class="w-full bg-mewa-700 hover:bg-mewa-800 text-white font-bold py-2.5 px-4 rounded-xl shadow-sm hover:shadow transition flex items-center justify-center gap-2 text-xs">
-                            <span>إدارة شهادات المزرعة</span>
+                            <span>تسجيل دفعة جديدة وإصدار Lot ID</span>
                             <i data-lucide="arrow-left" class="w-4 h-4 text-emerald-200"></i>
                         </a>
                     </div>
                 </div>
 
-                <!-- وظيفة مزارع 3: فحص الجودة والرتبة المخبرية -->
+                <!-- وظيفة مزارع 2: فحص الجودة والرتبة المخبرية -->
                 <div data-role="farmer" class="role-card bg-white p-6 rounded-2xl border border-slate-200 hover:border-mewa-600 hover:shadow-lg transition-all duration-300 flex flex-col justify-between border-t-4 border-t-mewa-600 naama-card">
                     <div class="space-y-3.5">
                         <div class="flex items-center justify-between">
-                            <span class="text-[10.5px] font-bold text-mewa-700 bg-mewa-50 px-2.5 py-1 rounded-lg inline-block border border-mewa-100">المسار 3: نتائج الفحص</span>
+                            <span class="text-[10.5px] font-bold text-mewa-700 bg-mewa-50 px-2.5 py-1 rounded-lg inline-block border border-mewa-100">المسار 2: نتائج الفحص والجودة</span>
                             <div class="w-11 h-11 rounded-xl bg-mewa-50 text-mewa-600 flex items-center justify-center border border-mewa-100">
                                 <i data-lucide="microscope" class="w-5 h-5"></i>
                             </div>
                         </div>
-                        <h4 class="text-base font-black text-slate-900">3. شهادة الفحص وتصنيف الرتبة</h4>
+                        <h4 class="text-base font-black text-slate-900">2. شهادة الفحص وتصنيف الرتبة</h4>
                         <p class="text-xs text-slate-600 leading-relaxed font-medium">
-                            استلام تقرير الفحص المخبري الفوري من مختبر السوق، بنسب النقاوة والرطوبة والعيوب، ورتبة المحصول (نخب أ، ب، ج).
+                            استلام تقرير الفحص المخبري الفوري من مختبر السوق، بنسب النقاوة والرطوبة والعيوب، ورتبة المحصول (نخب أ، ب، ج) والسعر المرجعي المعتمد.
                         </p>
                     </div>
                     <div class="pt-5 border-t border-slate-100 mt-4 space-y-2">
@@ -259,16 +241,16 @@
                     </div>
                 </div>
 
-                <!-- وظيفة مزارع 4: المزاد والصرف البنكي المباشر -->
+                <!-- وظيفة مزارع 3: المزاد والصرف البنكي المباشر -->
                 <div data-role="farmer" class="role-card bg-white p-6 rounded-2xl border border-slate-200 hover:border-naamaGold-500 hover:shadow-lg transition-all duration-300 flex flex-col justify-between border-t-4 border-t-naamaGold-500 naama-card">
                     <div class="space-y-3.5">
                         <div class="flex items-center justify-between">
-                            <span class="text-[10.5px] font-bold text-amber-800 bg-amber-50 px-2.5 py-1 rounded-lg inline-block border border-amber-100">المسار 4: المبيعات والسيولة</span>
+                            <span class="text-[10.5px] font-bold text-amber-800 bg-amber-50 px-2.5 py-1 rounded-lg inline-block border border-amber-100">المسار 3: المبيعات والسيولة النقدية</span>
                             <div class="w-11 h-11 rounded-xl bg-amber-50 text-naamaGold-600 flex items-center justify-center border border-amber-100">
                                 <i data-lucide="badge-dollar-sign" class="w-5 h-5"></i>
                             </div>
                         </div>
-                        <h4 class="text-base font-black text-slate-900">4. المزاد والصرف البنكي الفوري</h4>
+                        <h4 class="text-base font-black text-slate-900">3. المزاد والصرف البنكي الفوري</h4>
                         <p class="text-xs text-slate-600 leading-relaxed font-medium">
                             متابعة المزايدات الحية من تجار المملكة، والتحويل البنكي المباشر لصافي القيمة من حساب الضمان (Escrow) دون تأخير.
                         </p>
@@ -604,6 +586,15 @@
                     card.classList.add('hidden');
                 }
             });
+
+            const grid = document.getElementById('roles-cards-grid');
+            if (grid) {
+                if (role === 'farmer') {
+                    grid.className = 'grid grid-cols-1 md:grid-cols-3 gap-5';
+                } else {
+                    grid.className = 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5';
+                }
+            }
 
             if (typeof lucide !== 'undefined' && lucide.createIcons) lucide.createIcons();
         }

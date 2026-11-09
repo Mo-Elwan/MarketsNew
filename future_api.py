@@ -16,7 +16,7 @@ class CreateLotRequest(BaseModel):
     farmer_phone: str
     farm_name: str
     farm_location: str
-    saudi_gap_cert: str
+    saudi_gap_cert: Optional[str] = "غير حاصل على شهادة"
     commodity: str
     category: str
     spoilage_tier: str
