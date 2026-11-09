@@ -158,43 +158,44 @@
         <div class="space-y-6">
             
             <!-- شريط التابات المتجاوب الموحد بهوية نما -->
-            <div class="bg-white p-1.5 sm:p-2.5 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar scroll-smooth" id="beneficiary-tabs-bar">
+            <div class="bg-white p-1.5 sm:p-2 rounded-2xl border border-slate-200 shadow-sm flex items-center gap-2 overflow-x-auto no-scrollbar scroll-smooth" id="beneficiary-tabs-bar">
                 
                 <!-- تاب 1: المزارع والمنتج الزراعي -->
-                <button onclick="switchRole('farmer')" id="role-tab-farmer" class="role-tab-btn active shrink-0 px-3.5 sm:px-5 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-black transition flex items-center justify-center gap-1.5 sm:gap-2 whitespace-nowrap bg-mewa-700 text-white shadow-sm border border-mewa-800">
+                <button onclick="switchRole('farmer')" id="role-tab-farmer" class="role-tab-btn active shrink-0 px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-black transition-all flex items-center justify-center gap-2 whitespace-nowrap bg-mewa-700 text-white shadow-sm border border-mewa-800">
                     <i data-lucide="sprout" class="w-4 h-4 text-naamaGold-300"></i>
                     <span>المزارع والمنتج الزراعي</span>
-                    <span class="role-count bg-white/25 text-white text-[10px] sm:text-[11px] px-1.5 sm:px-2 py-0.5 rounded-full font-black">3 وظائف</span>
+                    <span class="role-count bg-white/20 text-white text-[10px] sm:text-[11px] px-2 py-0.5 rounded-full font-black border border-white/20">5 وظائف</span>
                 </button>
 
                 <!-- تاب 2: المشتري والتاجر والتموين -->
-                <button onclick="switchRole('buyer')" id="role-tab-buyer" class="role-tab-btn shrink-0 px-3.5 sm:px-5 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-black transition flex items-center justify-center gap-1.5 sm:gap-2 whitespace-nowrap text-slate-700 hover:text-mewa-800 hover:bg-slate-100/70 border border-transparent">
-                    <i data-lucide="shopping-cart" class="w-4 h-4 text-emerald-600"></i>
+                <button onclick="switchRole('buyer')" id="role-tab-buyer" class="role-tab-btn shrink-0 px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-2 whitespace-nowrap text-slate-700 hover:text-mewa-800 hover:bg-slate-100/70 border border-transparent">
+                    <i data-lucide="shopping-cart" class="w-4 h-4 text-amber-600"></i>
                     <span>المشتري والتاجر والتموين</span>
-                    <span class="role-count bg-slate-100 text-slate-700 text-[10px] sm:text-[11px] px-1.5 sm:px-2 py-0.5 rounded-full font-black">وظيفتان</span>
+                    <span class="role-count bg-slate-100 text-slate-700 text-[10px] sm:text-[11px] px-2 py-0.5 rounded-full font-bold border border-slate-200">وظيفتان</span>
                 </button>
 
                 <!-- تاب 3: إدارة السوق والرقابة والوزارة -->
-                <button onclick="switchRole('oversight')" id="role-tab-oversight" class="role-tab-btn shrink-0 px-3.5 sm:px-5 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-black transition flex items-center justify-center gap-1.5 sm:gap-2 whitespace-nowrap text-slate-700 hover:text-mewa-800 hover:bg-slate-100/70 border border-transparent">
+                <button onclick="switchRole('oversight')" id="role-tab-oversight" class="role-tab-btn shrink-0 px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-2 whitespace-nowrap text-slate-700 hover:text-mewa-800 hover:bg-slate-100/70 border border-transparent">
                     <i data-lucide="shield-check" class="w-4 h-4 text-naamaGold-600"></i>
                     <span>إدارة السوق والرقابة والوزارة</span>
-                    <span class="role-count bg-slate-100 text-slate-700 text-[10px] sm:text-[11px] px-1.5 sm:px-2 py-0.5 rounded-full font-black">4 وظائف</span>
+                    <span class="role-count bg-slate-100 text-slate-700 text-[10px] sm:text-[11px] px-2 py-0.5 rounded-full font-bold border border-slate-200">4 وظائف</span>
                 </button>
 
                 <!-- تاب 4: عرض المنظومة الكاملة -->
-                <button onclick="switchRole('all')" id="role-tab-all" class="role-tab-btn shrink-0 px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-bold transition flex items-center justify-center gap-1.5 whitespace-nowrap text-slate-500 hover:text-slate-800 hover:bg-slate-100/70 border border-transparent">
-                    <i data-lucide="layout-grid" class="w-3.5 h-3.5"></i>
+                <button onclick="switchRole('all')" id="role-tab-all" class="role-tab-btn shrink-0 px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-2 whitespace-nowrap text-slate-500 hover:text-slate-800 hover:bg-slate-100/70 border border-transparent mr-auto">
+                    <i data-lucide="layout-grid" class="w-4 h-4 text-slate-500"></i>
                     <span>عرض الكل</span>
+                    <span class="role-count bg-slate-100 text-slate-600 text-[10px] sm:text-[11px] px-2 py-0.5 rounded-full font-bold border border-slate-200">11 وظيفة</span>
                 </button>
             </div>
 
             <!-- شبكة كروت الوظائف الأساسية للمستفيدين (مصممة وفق هوية نما naama-card) -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-5" id="roles-cards-grid">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5" id="roles-cards-grid">
 
                 <!-- ==================== 1. وظائف المزارع والمنتج الزراعي ==================== -->
                 
                 <!-- وظيفة مزارع 1: تسجيل الدفعة وإصدار كود التتبع الموحد مع خيار توثيق سعودي جاب المدمج -->
-                <div data-role="farmer" class="role-card bg-white p-6 rounded-2xl border border-slate-200 hover:border-mewa-600 hover:shadow-lg transition-all duration-300 flex flex-col justify-between border-t-4 border-t-mewa-600 naama-card">
+                <div data-role="farmer" class="role-card bg-white p-6 rounded-2xl border border-slate-200 h-full hover:border-mewa-600 hover:shadow-lg transition-all duration-300 flex flex-col justify-between border-t-4 border-t-mewa-600 naama-card">
                     <div class="space-y-3.5">
                         <div class="flex items-center justify-between">
                             <span class="text-[10.5px] font-bold text-mewa-700 bg-mewa-50 px-2.5 py-1 rounded-lg inline-block border border-mewa-100">المسار 1: التوثيق والاعتماد الزراعي</span>
@@ -220,7 +221,7 @@
                 </div>
 
                 <!-- وظيفة مزارع 2: فحص الجودة والرتبة المخبرية -->
-                <div data-role="farmer" class="role-card bg-white p-6 rounded-2xl border border-slate-200 hover:border-mewa-600 hover:shadow-lg transition-all duration-300 flex flex-col justify-between border-t-4 border-t-mewa-600 naama-card">
+                <div data-role="farmer" class="role-card bg-white p-6 rounded-2xl border border-slate-200 h-full hover:border-mewa-600 hover:shadow-lg transition-all duration-300 flex flex-col justify-between border-t-4 border-t-mewa-600 naama-card">
                     <div class="space-y-3.5">
                         <div class="flex items-center justify-between">
                             <span class="text-[10.5px] font-bold text-mewa-700 bg-mewa-50 px-2.5 py-1 rounded-lg inline-block border border-mewa-100">المسار 2: نتائج الفحص والجودة</span>
@@ -242,7 +243,7 @@
                 </div>
 
                 <!-- وظيفة مزارع 3: عروض المزايدين والترسية -->
-                <div data-role="farmer" class="role-card bg-white p-6 rounded-2xl border border-slate-200 hover:border-naamaGold-500 hover:shadow-lg transition-all duration-300 flex flex-col justify-between border-t-4 border-t-naamaGold-500 naama-card">
+                <div data-role="farmer" class="role-card bg-white p-6 rounded-2xl border border-slate-200 h-full hover:border-naamaGold-500 hover:shadow-lg transition-all duration-300 flex flex-col justify-between border-t-4 border-t-naamaGold-500 naama-card">
                     <div class="space-y-3.5">
                         <div class="flex items-center justify-between">
                             <span class="text-[10.5px] font-bold text-amber-800 bg-amber-50 px-2.5 py-1 rounded-lg inline-block border border-amber-100">المسار 3: المبيعات والترسية</span>
@@ -264,7 +265,7 @@
                 </div>
 
                 <!-- وظيفة مزارع 4: تجهيز وتعبئة الشحنات -->
-                <div data-role="farmer" class="role-card bg-white p-6 rounded-2xl border border-slate-200 hover:border-emerald-600 hover:shadow-lg transition-all duration-300 flex flex-col justify-between border-t-4 border-t-emerald-600 naama-card">
+                <div data-role="farmer" class="role-card bg-white p-6 rounded-2xl border border-slate-200 h-full hover:border-emerald-600 hover:shadow-lg transition-all duration-300 flex flex-col justify-between border-t-4 border-t-emerald-600 naama-card">
                     <div class="space-y-3.5">
                         <div class="flex items-center justify-between">
                             <span class="text-[10.5px] font-bold text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-lg inline-block border border-emerald-100">المسار 4: الإعداد اللوجستي والباركود</span>
@@ -286,7 +287,7 @@
                 </div>
 
                 <!-- وظيفة مزارع 5: التقارير والإحصائيات -->
-                <div data-role="farmer" class="role-card bg-white p-6 rounded-2xl border border-slate-200 hover:border-mewa-600 hover:shadow-lg transition-all duration-300 flex flex-col justify-between border-t-4 border-t-mewa-600 naama-card">
+                <div data-role="farmer" class="role-card bg-white p-6 rounded-2xl border border-slate-200 h-full hover:border-mewa-600 hover:shadow-lg transition-all duration-300 flex flex-col justify-between border-t-4 border-t-mewa-600 naama-card">
                     <div class="space-y-3.5">
                         <div class="flex items-center justify-between">
                             <span class="text-[10.5px] font-bold text-mewa-700 bg-mewa-50 px-2.5 py-1 rounded-lg inline-block border border-mewa-100">المسار 5: التحليلات والأداء المالي</span>
@@ -310,7 +311,7 @@
                 <!-- ==================== 2. وظائف المشتري والتاجر والتموين ==================== -->
                 
                 <!-- وظيفة مشتري 1: المزاد الوطني الرقمي الموحد -->
-                <div data-role="buyer" class="role-card hidden bg-white p-6 rounded-2xl border border-slate-200 hover:border-mewa-600 hover:shadow-lg transition-all duration-300 flex flex-col justify-between border-t-4 border-t-mewa-600 naama-card">
+                <div data-role="buyer" class="role-card hidden bg-white p-6 rounded-2xl border border-slate-200 hover:border-mewa-600 hover:shadow-lg transition-all duration-300 flex flex-col justify-between border-t-4 border-t-mewa-600 naama-card h-full">
                     <div class="space-y-3.5">
                         <div class="flex items-center justify-between">
                             <span class="text-[10.5px] font-bold text-mewa-700 bg-mewa-50 px-2.5 py-1 rounded-lg inline-block border border-mewa-100">المسار 1: تداول الجملة الموحد</span>
@@ -322,8 +323,19 @@
                         <p class="text-xs text-slate-600 leading-relaxed font-medium">
                             المزايدة والشراء الإلكتروني عن بُعد لكافة السلع المعروضة في أسواق النفع العام بالمملكة، والاطلاع على شهادات الفحص المخبري المعتمدة قبل تقديم العرض.
                         </p>
+                        <div class="flex items-center gap-2 flex-wrap text-[11px] font-bold text-slate-600 pt-1">
+                            <span class="bg-slate-100 px-2 py-0.5 rounded border border-slate-200 flex items-center gap-1">
+                                <i data-lucide="radio" class="w-3.5 h-3.5 text-emerald-600"></i> مزاد حي لحظي
+                            </span>
+                            <span class="bg-slate-100 px-2 py-0.5 rounded border border-slate-200 flex items-center gap-1">
+                                <i data-lucide="file-check" class="w-3.5 h-3.5 text-amber-600"></i> فحص وجودة معتمدة
+                            </span>
+                            <span class="bg-slate-100 px-2 py-0.5 rounded border border-slate-200 flex items-center gap-1">
+                                <i data-lucide="globe" class="w-3.5 h-3.5 text-blue-600"></i> شراء من كافة المناطق
+                            </span>
+                        </div>
                     </div>
-                    <div class="pt-5 border-t border-slate-100 mt-4 space-y-2">
+                    <div class="pt-5 border-t border-slate-100 mt-auto space-y-2">
                         <a href="future_auction.html?role=buyer" class="w-full bg-mewa-700 hover:bg-mewa-800 text-white font-bold py-2.5 px-4 rounded-xl shadow-sm hover:shadow transition flex items-center justify-center gap-2 text-xs">
                             <span>دخول قاعة المزاد الحي</span>
                             <i data-lucide="arrow-left" class="w-4 h-4 text-emerald-200"></i>
@@ -332,7 +344,7 @@
                 </div>
 
                 <!-- وظيفة مشتري 2: مزايداتي وفواتيري وتتبع الطلبات والاعتراض -->
-                <div data-role="buyer" class="role-card hidden bg-white p-6 rounded-2xl border border-slate-200 hover:border-naamaGold-500 hover:shadow-lg transition-all duration-300 flex flex-col justify-between border-t-4 border-t-naamaGold-500 naama-card">
+                <div data-role="buyer" class="role-card hidden bg-white p-6 rounded-2xl border border-slate-200 hover:border-naamaGold-500 hover:shadow-lg transition-all duration-300 flex flex-col justify-between border-t-4 border-t-naamaGold-500 naama-card h-full">
                     <div class="space-y-3.5">
                         <div class="flex items-center justify-between">
                             <span class="text-[10.5px] font-bold text-amber-800 bg-amber-50 px-2.5 py-1 rounded-lg inline-block border border-amber-100">المسار 2: الترسيات والفواتير والتحكيم</span>
@@ -346,17 +358,17 @@
                         </p>
                         <div class="flex items-center gap-2 flex-wrap text-[11px] font-bold text-slate-600 pt-1">
                             <span class="bg-slate-100 px-2 py-0.5 rounded border border-slate-200 flex items-center gap-1">
-                                <i data-lucide="credit-card" class="w-3.5 h-3.5 text-amber-600"></i> سداد الفواتير
+                                <i data-lucide="credit-card" class="w-3.5 h-3.5 text-amber-600"></i> سداد الفواتير (Escrow)
                             </span>
                             <span class="bg-slate-100 px-2 py-0.5 rounded border border-slate-200 flex items-center gap-1">
-                                <i data-lucide="truck" class="w-3.5 h-3.5 text-emerald-600"></i> تتبع الشاحنة
+                                <i data-lucide="truck" class="w-3.5 h-3.5 text-emerald-600"></i> تتبع الشاحنة (IoT)
                             </span>
                             <span class="bg-slate-100 px-2 py-0.5 rounded border border-slate-200 flex items-center gap-1">
-                                <i data-lucide="alert-triangle" class="w-3.5 h-3.5 text-red-600"></i> رفع الاعتراض
+                                <i data-lucide="alert-triangle" class="w-3.5 h-3.5 text-red-600"></i> رفع الاعتراض الفوري
                             </span>
                         </div>
                     </div>
-                    <div class="pt-5 border-t border-slate-100 mt-4 space-y-2">
+                    <div class="pt-5 border-t border-slate-100 mt-auto space-y-2">
                         <a href="future_buyer_orders.html" class="w-full bg-mewa-700 hover:bg-mewa-800 text-white font-bold py-2.5 px-4 rounded-xl shadow-sm hover:shadow transition flex items-center justify-center gap-2 text-xs">
                             <span>استعراض مزايداتي وفواتيري</span>
                             <i data-lucide="arrow-left" class="w-4 h-4 text-emerald-200"></i>
@@ -367,7 +379,7 @@
                 <!-- ==================== 3. وظائف إدارة السوق والرقابة والوزارة ==================== -->
                 
                 <!-- وظيفة رقابة 1: إدارة المختبرات واعتماد الرتب -->
-                <div data-role="oversight" class="role-card hidden bg-white p-6 rounded-2xl border border-slate-200 hover:border-mewa-600 hover:shadow-lg transition-all duration-300 flex flex-col justify-between border-t-4 border-t-mewa-600 naama-card">
+                <div data-role="oversight" class="role-card hidden bg-white p-6 rounded-2xl border border-slate-200 h-full hover:border-mewa-600 hover:shadow-lg transition-all duration-300 flex flex-col justify-between border-t-4 border-t-mewa-600 naama-card">
                     <div class="space-y-3.5">
                         <div class="flex items-center justify-between">
                             <span class="text-[10.5px] font-bold text-mewa-700 bg-mewa-50 px-2.5 py-1 rounded-lg inline-block border border-mewa-100">حوكمة الجودة</span>
@@ -389,7 +401,7 @@
                 </div>
 
                 <!-- وظيفة رقابة 2: نشرة الأسعار المرجعية اليومية -->
-                <div data-role="oversight" class="role-card hidden bg-white p-6 rounded-2xl border border-slate-200 hover:border-naamaGold-500 hover:shadow-lg transition-all duration-300 flex flex-col justify-between border-t-4 border-t-naamaGold-500 naama-card">
+                <div data-role="oversight" class="role-card hidden bg-white p-6 rounded-2xl border border-slate-200 h-full hover:border-naamaGold-500 hover:shadow-lg transition-all duration-300 flex flex-col justify-between border-t-4 border-t-naamaGold-500 naama-card">
                     <div class="space-y-3.5">
                         <div class="flex items-center justify-between">
                             <span class="text-[10.5px] font-bold text-amber-800 bg-amber-50 px-2.5 py-1 rounded-lg inline-block border border-amber-100">التسعير العادل والشفافية</span>
@@ -411,7 +423,7 @@
                 </div>
 
                 <!-- وظيفة رقابة 3: لجنة فض النزاعات السريعة (< ساعتين) -->
-                <div data-role="oversight" class="role-card hidden bg-white p-6 rounded-2xl border border-slate-200 hover:border-mewa-600 hover:shadow-lg transition-all duration-300 flex flex-col justify-between border-t-4 border-t-mewa-600 naama-card">
+                <div data-role="oversight" class="role-card hidden bg-white p-6 rounded-2xl border border-slate-200 h-full hover:border-mewa-600 hover:shadow-lg transition-all duration-300 flex flex-col justify-between border-t-4 border-t-mewa-600 naama-card">
                     <div class="space-y-3.5">
                         <div class="flex items-center justify-between">
                             <span class="text-[10.5px] font-bold text-mewa-700 bg-mewa-50 px-2.5 py-1 rounded-lg inline-block border border-mewa-100">التحكيم الفوري السريع</span>
@@ -433,7 +445,7 @@
                 </div>
 
                 <!-- وظيفة رقابة 4: حوكمة حساب الضمان ورسوم الاستدامة -->
-                <div data-role="oversight" class="role-card hidden bg-white p-6 rounded-2xl border border-slate-200 hover:border-naamaGold-500 hover:shadow-lg transition-all duration-300 flex flex-col justify-between border-t-4 border-t-naamaGold-500 naama-card">
+                <div data-role="oversight" class="role-card hidden bg-white p-6 rounded-2xl border border-slate-200 h-full hover:border-naamaGold-500 hover:shadow-lg transition-all duration-300 flex flex-col justify-between border-t-4 border-t-naamaGold-500 naama-card">
                     <div class="space-y-3.5">
                         <div class="flex items-center justify-between">
                             <span class="text-[10.5px] font-bold text-amber-800 bg-amber-50 px-2.5 py-1 rounded-lg inline-block border border-amber-100">الاستدامة المالية والأمن الغذائي</span>
@@ -580,20 +592,44 @@
     <script>
         if (typeof lucide !== 'undefined' && lucide.createIcons) lucide.createIcons();
 
-        // التبديل بين تابات المستفيدين الثلاثة
+        // التبديل بين تابات المستفيدين الثلاثة مع توحيد تنسيق الأزرار والشبكة التجاوبية
         function switchRole(role) {
-            const tabs = ['farmer', 'buyer', 'oversight', 'all'];
-            tabs.forEach(t => {
-                const btn = document.getElementById('role-tab-' + t);
+            const tabsConfig = [
+                { id: 'farmer', iconDefault: 'text-emerald-600' },
+                { id: 'buyer', iconDefault: 'text-amber-600' },
+                { id: 'oversight', iconDefault: 'text-naamaGold-600' },
+                { id: 'all', iconDefault: 'text-slate-500' }
+            ];
+
+            tabsConfig.forEach(t => {
+                const btn = document.getElementById('role-tab-' + t.id);
                 if (btn) {
-                    if (t === role) {
-                        btn.className = 'role-tab-btn active shrink-0 px-3.5 sm:px-5 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-black transition flex items-center justify-center gap-1.5 sm:gap-2 whitespace-nowrap bg-mewa-700 text-white shadow-sm border border-mewa-800';
+                    const icon = btn.querySelector('svg, i');
+                    const badge = btn.querySelector('.role-count');
+                    
+                    if (t.id === role) {
+                        btn.className = 'role-tab-btn active shrink-0 px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-black transition-all flex items-center justify-center gap-2 whitespace-nowrap bg-mewa-700 text-white shadow-sm border border-mewa-800';
+                        if (icon) {
+                            icon.classList.remove('text-emerald-600', 'text-amber-600', 'text-naamaGold-600', 'text-slate-500');
+                            icon.classList.add('text-naamaGold-300');
+                        }
+                        if (badge) {
+                            badge.className = 'role-count bg-white/20 text-white text-[10px] sm:text-[11px] px-2 py-0.5 rounded-full font-black border border-white/20';
+                        }
                     } else {
-                        btn.className = 'role-tab-btn shrink-0 px-3.5 sm:px-5 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-black transition flex items-center justify-center gap-1.5 sm:gap-2 whitespace-nowrap text-slate-700 hover:text-mewa-800 hover:bg-slate-100/70 border border-transparent';
+                        btn.className = 'role-tab-btn shrink-0 px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-2 whitespace-nowrap text-slate-700 hover:text-mewa-800 hover:bg-slate-100/70 border border-transparent';
+                        if (icon) {
+                            icon.classList.remove('text-naamaGold-300');
+                            icon.classList.add(t.iconDefault);
+                        }
+                        if (badge) {
+                            badge.className = 'role-count bg-slate-100 text-slate-700 text-[10px] sm:text-[11px] px-2 py-0.5 rounded-full font-bold border border-slate-200';
+                        }
                     }
                 }
             });
 
+            // إظهار وإخفاء الكروت حسب الدور
             const cards = document.querySelectorAll('.role-card');
             cards.forEach(card => {
                 const cardRole = card.getAttribute('data-role');
@@ -604,9 +640,22 @@
                 }
             });
 
+            // ضبط الشبكة التجاوبية بدقة لكل فئة لمنع انكسار التصميم
             const grid = document.getElementById('roles-cards-grid');
             if (grid) {
-                grid.className = 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5';
+                if (role === 'buyer') {
+                    // للمشتري (وظيفتان): بطاقتان متوازنتان بعرض فسيح وجميل في المنتصف
+                    grid.className = 'grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto';
+                } else if (role === 'oversight') {
+                    // للرقابة (4 وظائف): 4 أعمدة متساوية
+                    grid.className = 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5';
+                } else if (role === 'farmer') {
+                    // للمزارع (5 وظائف): 5 أعمدة للشاشات الكبيرة و 3 للمتوسطة
+                    grid.className = 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5';
+                } else {
+                    // عرض الكل (11 وظيفة): 3 إلى 4 أعمدة
+                    grid.className = 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5';
+                }
             }
 
             if (typeof lucide !== 'undefined' && lucide.createIcons) lucide.createIcons();
