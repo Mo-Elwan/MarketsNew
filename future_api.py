@@ -134,7 +134,7 @@ def create_future_lot(data: CreateLotRequest):
 
     # توليد كود دفعة جديد
     count = cursor.execute("SELECT COUNT(*) as c FROM future_lots").fetchone()["c"] + 1
-    lot_id = f"LOT-SA-2026-{count:04d}"
+    lot_id = f"SA-2026-{count:04d}"
 
     cursor.execute("""
     INSERT INTO future_lots (
@@ -484,7 +484,7 @@ def get_future_analytics():
 BUYER_SEED_ORDERS = [
     {
         "order_id": "ORD-2026-701",
-        "lot_id": "LOT-SA-2026-0101",
+        "lot_id": "SA-2026-0101",
         "auction_id": "AUC-2026-4401",
         "commodity": "طماطم محمية قطاف اليوم",
         "farmer_name": "مزارع الوادي بالخرج",
@@ -516,7 +516,7 @@ BUYER_SEED_ORDERS = [
     },
     {
         "order_id": "ORD-2026-702",
-        "lot_id": "LOT-SA-2026-0102",
+        "lot_id": "SA-2026-0102",
         "auction_id": "AUC-2026-4402",
         "commodity": "بطاطس مائدة صنف سبونتا",
         "farmer_name": "مؤسسة حائل للتنمية الزراعية",
@@ -555,7 +555,7 @@ BUYER_SEED_ORDERS = [
     },
     {
         "order_id": "ORD-2026-703",
-        "lot_id": "LOT-SA-2026-0103",
+        "lot_id": "SA-2026-0103",
         "auction_id": "AUC-2026-4403",
         "commodity": "بصل أحمر قصيمي مجفف",
         "farmer_name": "جمعية عنيزة الزراعية التعاونية",

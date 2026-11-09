@@ -597,7 +597,7 @@
                     </div>
                     <h4 class="text-base font-black text-slate-800">لا توجد شهادات مطابقة لخيارات البحث المحددة</h4>
                     <p class="text-xs text-slate-500 max-w-md mx-auto leading-relaxed">
-                        جرب تفريغ الفلاتر أو استخدام كلمات بحث مختلفة مثل رقم الدفعة (مثال: LOT-SA-2026-0101) أو اختيار جميع الرتب.
+                        جرب تفريغ الفلاتر أو استخدام كلمات بحث مختلفة مثل كود الشحنة (مثال: SA-2026-0101) أو اختيار جميع الرتب.
                     </p>
                     <button onclick="resetFilters()" class="px-4 py-2 bg-mewa-700 text-white font-bold rounded-xl text-xs hover:bg-mewa-800 transition">
                         إعادة تعيين الفلاتر
@@ -788,7 +788,7 @@
             // توليد رمز QR للتحقق
             const canvas = document.getElementById('m-qr-canvas');
             if (typeof QRCode !== 'undefined' && QRCode.toCanvas) {
-                QRCode.toCanvas(canvas, `https://mewa.gov.sa/verify-cert/${a.certificate_no}?lot=${lot.lot_id}`, { width: 64, margin: 1 }, function(err) {
+                QRCode.toCanvas(canvas, `https://mewa.gov.sa/verify-cert/${a.certificate_no}?id=${lot.lot_id}`, { width: 64, margin: 1 }, function(err) {
                     if (err) console.error(err);
                 });
             }

@@ -5,12 +5,12 @@
  */
 
 (function() {
-    const STORAGE_KEY = 'SA_FUTURE_MARKETS_STORE_V1';
+    const STORAGE_KEY = 'SA_FUTURE_MARKETS_STORE_V2';
 
     const DEFAULT_SEED_DATA = {
         lots: [
             {
-                lot_id: "LOT-SA-2026-0101",
+                lot_id: "SA-2026-0101",
                 farmer_name: "مزارع الوادي الوطنية",
                 farmer_phone: "0501234567",
                 farm_name: "مزارع الوادي بالخرج",
@@ -68,7 +68,7 @@
                 }
             },
             {
-                lot_id: "LOT-SA-2026-0102",
+                lot_id: "SA-2026-0102",
                 farmer_name: "مؤسسة حائل للتنمية الزراعية",
                 farmer_phone: "0554433221",
                 farm_name: "مزارع بقعاء النموذجية",
@@ -126,7 +126,7 @@
                 }
             },
             {
-                lot_id: "LOT-SA-2026-0103",
+                lot_id: "SA-2026-0103",
                 farmer_name: "جمعية عنيزة الزراعية التعاونية",
                 farmer_phone: "0543322119",
                 farm_name: "مزارع الجمعية التعاونية",
@@ -170,7 +170,7 @@
                 }
             },
             {
-                lot_id: "LOT-SA-2026-0104",
+                lot_id: "SA-2026-0104",
                 farmer_name: "مزارع النخيل الذهبي",
                 farmer_phone: "0508877665",
                 farm_name: "نخيل الهفوف المباركة",
@@ -215,7 +215,7 @@
                 }
             },
             {
-                lot_id: "LOT-SA-2026-0105",
+                lot_id: "SA-2026-0105",
                 farmer_name: "مزارع أسترا الزراعية",
                 farmer_phone: "0532211445",
                 farm_name: "مزارع تيماء الخضراء",
@@ -236,7 +236,7 @@
         disputes: [
             {
                 dispute_id: "DIS-2026-101",
-                lot_id: "LOT-SA-2026-0099",
+                lot_id: "SA-2026-0099",
                 claimant_name: "أسواق عبد الله العثيم",
                 defendant_name: "مزارع القصيم للخضار",
                 dispute_type: "خرق سلسلة التبريد وتلف 8%",
@@ -249,7 +249,7 @@
             },
             {
                 dispute_id: "DIS-2026-102",
-                lot_id: "LOT-SA-2026-0098",
+                lot_id: "SA-2026-0098",
                 claimant_name: "شركة لولو هايبرماركت السعودية",
                 defendant_name: "مزارع تبوك الزراعية",
                 dispute_type: "عدم مطابقة رتبة الفحص",
@@ -264,7 +264,7 @@
         escrow: [
             {
                 escrow_no: "ESC-2026-8801",
-                lot_id: "LOT-SA-2026-0101",
+                lot_id: "SA-2026-0101",
                 commodity: "طماطم محمية قطاف اليوم",
                 quantity: 1500,
                 buyer_name: "شركة التميمي للأسواق",
@@ -277,7 +277,7 @@
             },
             {
                 escrow_no: "ESC-2026-8802",
-                lot_id: "LOT-SA-2026-0102",
+                lot_id: "SA-2026-0102",
                 commodity: "بطاطس مائدة صنف سبونتا",
                 quantity: 12000,
                 buyer_name: "مؤسسة النخبة للتوريدات الغذائية",
@@ -290,7 +290,7 @@
             },
             {
                 escrow_no: "ESC-2026-8803",
-                lot_id: "LOT-SA-2026-0103",
+                lot_id: "SA-2026-0103",
                 commodity: "بصل أحمر قصيمي مجفف",
                 quantity: 8000,
                 buyer_name: "شركة أسواق بن داود",
@@ -303,7 +303,7 @@
             },
             {
                 escrow_no: "ESC-2026-8800",
-                lot_id: "LOT-SA-2026-0097",
+                lot_id: "SA-2026-0097",
                 commodity: "تمر خلاص الأحساء الفاخر",
                 quantity: 1200,
                 buyer_name: "تموين كارفور السعودية",
@@ -326,7 +326,7 @@
         buyerOrders: [
             {
                 order_id: "ORD-2026-701",
-                lot_id: "LOT-SA-2026-0101",
+                lot_id: "SA-2026-0101",
                 auction_id: "AUC-2026-4401",
                 commodity: "طماطم محمية قطاف اليوم",
                 farmer_name: "مزارع الوادي بالخرج",
@@ -358,7 +358,7 @@
             },
             {
                 order_id: "ORD-2026-702",
-                lot_id: "LOT-SA-2026-0102",
+                lot_id: "SA-2026-0102",
                 auction_id: "AUC-2026-4402",
                 commodity: "بطاطس مائدة صنف سبونتا",
                 farmer_name: "مؤسسة حائل للتنمية الزراعية",
@@ -397,7 +397,7 @@
             },
             {
                 order_id: "ORD-2026-703",
-                lot_id: "LOT-SA-2026-0103",
+                lot_id: "SA-2026-0103",
                 auction_id: "AUC-2026-4403",
                 commodity: "بصل أحمر قصيمي مجفف",
                 farmer_name: "جمعية عنيزة الزراعية التعاونية",
@@ -436,7 +436,7 @@
             },
             {
                 order_id: "ORD-2026-704",
-                lot_id: "LOT-SA-2026-0099",
+                lot_id: "SA-2026-0099",
                 auction_id: "AUC-2026-4399",
                 commodity: "حبحب وادي الدواسر أحمر",
                 farmer_name: "مزارع الدواسر الكبرى",
@@ -477,7 +477,7 @@
             },
             {
                 order_id: "ORD-2026-705",
-                lot_id: "LOT-SA-2026-0097",
+                lot_id: "SA-2026-0097",
                 auction_id: "AUC-2026-4397",
                 commodity: "تمر خلاص الأحساء الفاخر",
                 farmer_name: "مزارع النخيل الذهبي",
@@ -567,7 +567,7 @@
 
         addLot(lot) {
             const nextIndex = this.data.lots.length + 101;
-            const lotId = `LOT-SA-2026-${String(nextIndex).padStart(4, '0')}`;
+            const lotId = `SA-2026-${String(nextIndex).padStart(4, '0')}`;
             const newLot = Object.assign({
                 lot_id: lotId,
                 status: 'registered',

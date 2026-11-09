@@ -96,7 +96,7 @@
                     <img src="static/images/mewa_logo.png" alt="وزارة البيئة والمياه والزراعة" class="h-10 sm:h-16 w-auto object-contain flex-shrink-0">
                     <div class="border-r-2 border-slate-200 pr-2.5 sm:pr-4 flex flex-col justify-center min-w-0">
                         <h1 class="text-sm sm:text-xl md:text-2xl font-black text-mewa-800 tracking-tight leading-tight truncate">بوابة المزارع والمنتج الزراعي</h1>
-                        <p class="hidden md:block text-[11px] sm:text-xs text-slate-500 font-medium leading-tight mt-0.5 truncate">إدارة الدفعات، كود الهوية الرقمي (Lot ID)، وتصريح البوابة الذكية</p>
+                        <p class="hidden md:block text-[11px] sm:text-xs text-slate-500 font-medium leading-tight mt-0.5 truncate">إدارة الدفعات، كود التتبع الرقمي الموحد، وتصريح البوابة الذكية</p>
                     </div>
                 </a>
             </div>
@@ -157,7 +157,7 @@
                 </div>
                 <h2 class="text-xl sm:text-2xl font-black">تسجيل الشحنة الزراعية وحجز مسار الدخول الذكي</h2>
                 <p class="text-xs sm:text-sm text-emerald-100 leading-relaxed font-normal">
-                    من خلال إصدار الهوية الرقمية للدفعة (Lot ID) قبل انطلاق الشاحنة من المزرعة، يتم تخصيص مسار سريع في بوابة سوق النفع العام، وإشعار مختبر الجودة لتجهيز فحص المطابقة، وضمان دخول الدفعة مباشرة في المزاد الوطني الموحد دون الحاجة لوسطاء مجهولين.
+                    من خلال إصدار كود التتبع الرقمي الموحد للشحنة قبل انطلاق الشاحنة من المزرعة، يتم تخصيص مسار سريع في بوابة سوق النفع العام، وإشعار مختبر الجودة لتجهيز فحص المطابقة، وضمان دخول الدفعة مباشرة في المزاد الوطني الموحد دون الحاجة لوسطاء مجهولين.
                 </p>
             </div>
             <div class="flex gap-4 text-center flex-shrink-0">
@@ -182,7 +182,7 @@
                     </div>
                     <div>
                         <h3 class="text-base font-black text-slate-900">تسجيل دفعة محصول جديدة</h3>
-                        <p class="text-[11px] text-slate-500">إصدار رمز التعقب الذكي Lot Digital ID</p>
+                        <p class="text-[11px] text-slate-500">إصدار رمز التعقب الرقمي الموحد للشحنة</p>
                     </div>
                 </div>
 
@@ -316,7 +316,7 @@
             </div>
 
             <div class="space-y-1">
-                <h3 class="text-lg font-black text-slate-900" id="qr-lot-id">LOT-SA-2026-0001</h3>
+                <h3 class="text-lg font-black text-slate-900" id="qr-lot-id">SA-2026-0001</h3>
                 <p class="text-xs text-slate-500" id="qr-commodity">طماطم محمية قطاف اليوم</p>
             </div>
 
@@ -549,7 +549,7 @@
 
             if (window.FutureStaticStore) {
                 const newLot = window.FutureStaticStore.addLot(payload);
-                alert(`تم بنجاح إصدار الهوية الرقمية للدفعة (${newLot.lot_id}) وحجز موعد البوابة`);
+                alert(`تم بنجاح تسجيل الشحنة الزراعية وإصدار كود التتبع الموحد (${newLot.lot_id}) وحجز موعد البوابة`);
                 loadLots();
                 showQrModal(newLot.lot_id, payload.commodity);
             }
@@ -560,7 +560,7 @@
             document.getElementById('qr-commodity').innerText = commodity;
             const canvas = document.getElementById('qr-canvas');
             if (typeof QRCode !== 'undefined' && QRCode.toCanvas) {
-                QRCode.toCanvas(canvas, `https://mewa.gov.sa/lot-pass/${lotId}`, { width: 180 }, function (error) {
+                QRCode.toCanvas(canvas, `https://mewa.gov.sa/pass/${lotId}`, { width: 180 }, function (error) {
                     if (error) console.error(error);
                 });
             } else {
