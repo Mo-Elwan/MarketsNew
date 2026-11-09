@@ -5,7 +5,7 @@
  */
 
 (function() {
-    const STORAGE_KEY = 'SA_FUTURE_MARKETS_STORE_V3';
+    const STORAGE_KEY = 'SA_FUTURE_MARKETS_STORE_V4';
 
     const DEFAULT_SEED_DATA = {
         lots: [
@@ -65,6 +65,25 @@
                     current_location: "بوابة فحص سوق العزيزية",
                     destination_market: "سوق العزيزية المركزي - الرياض",
                     eta: "تم الوصول وتفريغ العينة"
+                },
+                packaging: {
+                    package_type: "صناديق بلاستيكية مهواة لسلاسل التبريد",
+                    package_capacity: "6 كجم صافي",
+                    total_packages: 1500,
+                    pallets_count: 13,
+                    status: "ready_for_dispatch",
+                    saso_standard: "SASO-FD-2026-AgriPack",
+                    precooling_done: true,
+                    precooling_temp: 8.5,
+                    pulp_temp: 9.0,
+                    packing_line: "خط فرز وتعبئة أوتوماتيكي رقم 2",
+                    packed_at: "2026-11-04 07:45",
+                    label_barcode: "6281000202601",
+                    label_batch: "BATCH-2026-04A",
+                    truck_plate: "أ ب د 1234",
+                    driver_name: "سعد الشمري",
+                    driver_phone: "0559988771",
+                    iot_sensor_id: "IOT-COLD-991"
                 }
             },
             {
@@ -123,6 +142,25 @@
                     current_location: "طريق حائل - بريدة السريع",
                     destination_market: "سوق الخضار المركزي - بريدة",
                     eta: "خلال 45 دقيقة"
+                },
+                packaging: {
+                    package_type: "أكياس شبكية ساسو مهواة",
+                    package_capacity: "15 كجم صافي",
+                    total_packages: 12000,
+                    pallets_count: 20,
+                    status: "dispatched",
+                    saso_standard: "SASO-FD-2026-RootPack",
+                    precooling_done: true,
+                    precooling_temp: 14.0,
+                    pulp_temp: 14.2,
+                    packing_line: "خط تعبئة المحاصيل الجذرية",
+                    packed_at: "2026-11-04 06:30",
+                    label_barcode: "6281000202602",
+                    label_batch: "BATCH-2026-04B",
+                    truck_plate: "ح ل ق 9876",
+                    driver_name: "محمد العتيبي",
+                    driver_phone: "0561122334",
+                    iot_sensor_id: "IOT-COLD-882"
                 }
             },
             {
@@ -167,6 +205,25 @@
                     current_location: "طريق المدينة - مكة السريع",
                     destination_market: "سوق الخضار المركزي بالصفا - جدة",
                     eta: "خلال ساعة و 20 دقيقة"
+                },
+                packaging: {
+                    package_type: "أكياس شبكية مهواة",
+                    package_capacity: "10 كجم صافي",
+                    total_packages: 8000,
+                    pallets_count: 16,
+                    status: "dispatched",
+                    saso_standard: "SASO-FD-2026-RootPack",
+                    precooling_done: true,
+                    precooling_temp: 12.0,
+                    pulp_temp: 12.5,
+                    packing_line: "محطة الفرز التعاونية",
+                    packed_at: "2026-11-04 05:00",
+                    label_barcode: "6281000202603",
+                    label_batch: "BATCH-2026-04C",
+                    truck_plate: "ع ن ز 5544",
+                    driver_name: "فايز الحربي",
+                    driver_phone: "0509988112",
+                    iot_sensor_id: "IOT-COLD-773"
                 }
             },
             {
@@ -212,6 +269,25 @@
                     time_remaining: "05 دقائق و 10 ثواني",
                     starts_at: "2026-11-04 08:30",
                     ends_at: "2026-11-04 09:30"
+                },
+                packaging: {
+                    package_type: "كراتين مكنوزة مموجة فاخرة معقمة",
+                    package_capacity: "8 كجم صافي",
+                    total_packages: 3000,
+                    pallets_count: 10,
+                    status: "in_progress",
+                    saso_standard: "SASO-FD-2026-DatesPack",
+                    precooling_done: false,
+                    precooling_temp: 18.0,
+                    pulp_temp: 18.5,
+                    packing_line: "خط تعبئة وتغليف التمور بالأحساء",
+                    packed_at: "2026-11-04 08:30",
+                    label_barcode: "6281000202604",
+                    label_batch: "BATCH-2026-04D",
+                    truck_plate: "ب س م 7788",
+                    driver_name: "محمد الدوسري",
+                    driver_phone: "0544332211",
+                    iot_sensor_id: "IOT-COLD-664"
                 }
             },
             {
@@ -230,7 +306,26 @@
                 scheduled_arrival: "2026-11-04 10:00",
                 status: "registered",
                 created_at: "2026-11-04 06:45",
-                image_url: "static/images/products/cucumbers.jpg"
+                image_url: "static/images/products/cucumbers.jpg",
+                packaging: {
+                    package_type: "صناديق كرتونية مضلعة مهواة",
+                    package_capacity: "6 كجم صافي",
+                    total_packages: 2500,
+                    pallets_count: 14,
+                    status: "pending",
+                    saso_standard: "SASO-FD-2026-AgriPack",
+                    precooling_done: false,
+                    precooling_temp: null,
+                    pulp_temp: null,
+                    packing_line: "محطة فرز تيماء",
+                    packed_at: "بانتظار بدء التعبئة",
+                    label_barcode: "6281000202605",
+                    label_batch: "BATCH-2026-04E",
+                    truck_plate: "ق د ر 3312",
+                    driver_name: "عبد الله العنزي",
+                    driver_phone: "0561122334",
+                    iot_sensor_id: "IOT-COLD-555"
+                }
             }
         ],
         disputes: [
@@ -896,6 +991,80 @@
                 escrow_total: escrowTotal,
                 average_dispute_resolution_minutes: 42
             };
+        }
+
+        // --- عمليات تجهيز وتعبئة الشحنات (Packaging & Dispatch) ---
+        getPackagingLots() {
+            return this.data.lots.map(lot => {
+                if (!lot.packaging) {
+                    lot.packaging = {
+                        package_type: "صناديق معيارية مهواة",
+                        package_capacity: lot.unit || "صندوق",
+                        total_packages: lot.quantity || 100,
+                        pallets_count: Math.ceil((lot.quantity || 100) / 100),
+                        status: "pending",
+                        saso_standard: "SASO-FD-2026-AgriPack",
+                        precooling_done: false,
+                        precooling_temp: null,
+                        pulp_temp: null,
+                        packing_line: "خط التعبئة المعتمد",
+                        packed_at: "بانتظار بدء التعبئة",
+                        label_barcode: `6281000${lot.lot_id.replace(/\D/g, '')}`,
+                        label_batch: `BATCH-${lot.lot_id}`,
+                        truck_plate: (lot.coldchain && lot.coldchain.truck_plate) || "---",
+                        driver_name: (lot.coldchain && lot.coldchain.driver_name) || "---",
+                        driver_phone: (lot.coldchain && lot.coldchain.driver_phone) || "---",
+                        iot_sensor_id: "IOT-COLD-" + lot.lot_id.slice(-3)
+                    };
+                }
+                return lot;
+            });
+        }
+
+        updatePackagingStatus(lotId, newStatus, details = {}) {
+            const lot = this.data.lots.find(l => l.lot_id === lotId);
+            if (!lot) throw new Error('الدفعة غير موجودة');
+            if (!lot.packaging) {
+                this.getPackagingLots();
+            }
+            lot.packaging.status = newStatus;
+            Object.assign(lot.packaging, details);
+            if (newStatus === 'ready_for_dispatch') {
+                lot.packaging.precooling_done = true;
+                if (!lot.packaging.packed_at || lot.packaging.packed_at.includes('انتظار')) {
+                    lot.packaging.packed_at = new Date().toISOString().slice(0, 16).replace('T', ' ');
+                }
+            } else if (newStatus === 'dispatched') {
+                lot.packaging.precooling_done = true;
+                lot.status = 'in_transit';
+            }
+            this.save();
+            return lot;
+        }
+
+        addPackagingRun(runData) {
+            const lot = this.data.lots.find(l => l.lot_id === runData.lot_id);
+            if (!lot) throw new Error('الدفعة غير موجودة');
+            if (!lot.packaging) lot.packaging = {};
+            Object.assign(lot.packaging, {
+                package_type: runData.package_type,
+                package_capacity: runData.package_capacity,
+                total_packages: runData.total_packages,
+                pallets_count: runData.pallets_count,
+                status: runData.status || "ready_for_dispatch",
+                saso_standard: runData.saso_standard || "SASO-FD-2026-AgriPack",
+                precooling_done: runData.precooling_done !== false,
+                precooling_temp: parseFloat(runData.precooling_temp) || 8.0,
+                pulp_temp: parseFloat(runData.pulp_temp) || 8.5,
+                packing_line: runData.packing_line || "خط التعبئة الرئيسي",
+                packed_at: new Date().toISOString().slice(0, 16).replace('T', ' '),
+                truck_plate: runData.truck_plate || "أ ب د 1234",
+                driver_name: runData.driver_name || "سائق معتمد",
+                driver_phone: runData.driver_phone || "0500000000",
+                iot_sensor_id: runData.iot_sensor_id || ("IOT-" + Math.floor(100 + Math.random() * 900))
+            });
+            this.save();
+            return lot;
         }
     }
 

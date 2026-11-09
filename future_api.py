@@ -68,6 +68,19 @@ class UpdateColdChainRequest(BaseModel):
     current_location: str
     eta: str
 
+class UpdatePackagingRequest(BaseModel):
+    lot_id: str
+    package_type: str
+    package_capacity: str
+    total_packages: int
+    pallets_count: int
+    precooling_temp: float
+    pulp_temp: float
+    truck_plate: str
+    driver_name: str
+    driver_phone: str
+    status: str
+
 
 # === واجهات الـ API للوضع المستقبلي ===
 
@@ -379,6 +392,14 @@ def update_future_coldchain(data: UpdateColdChainRequest):
     conn.commit()
     conn.close()
     return {"status": "success", "message": "تم تحديث قراءات حساسات التبريد بنجاح"}
+
+@future_router.post("/api/future/packaging")
+def update_future_packaging(data: UpdatePackagingRequest):
+    return {
+        "status": "success",
+        "message": f"تم بنجاح توثيق تشغيلة التعبئة للدفعة {data.lot_id} واعتماد الجاهزية للتحميل والتفويج",
+        "packaging": data.dict()
+    }
 
 @future_router.get("/api/future/disputes")
 def get_future_disputes():
