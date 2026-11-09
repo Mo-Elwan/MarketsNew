@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المؤشرات الوطنية والتقارير التنفيذية | إدارة السوق والرقابة — منصة نماء</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        mewa: {
+                            50: '#f0f9f4',
+                            100: '#dbf0e4',
+                            600: '#006837',
+                            700: '#00542c',
+                            800: '#034424',
+                            900: '#02381e',
+                            950: '#012413',
+                        },
+                        naamaGold: {
+                            100: '#fcf8ec',
+                            300: '#edd88b',
+                            400: '#e3b84c',
+                            500: '#c59b27',
+                            600: '#a7801a',
+                        }
+                    },
+                    fontFamily: {
+                        tajawal: ['Tajawal', 'Cairo', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="static/js/qrcode.min.js"></script>
+    <script src="static/js/future_static_store.js"></script>
+    <style>
+        body { font-family: 'Tajawal', sans-serif; background-color: #f7f9fa; }
+        .gold-line { background: linear-gradient(90deg, #c59b27 0%, #e3b84c 50%, #c59b27 100%); }
+        .naama-card {
+            background: #ffffff;
+            border: 1px solid #e9ecef;
+            box-shadow: 0 4px 20px -2px rgba(0, 104, 55, 0.05);
+            transition: all 0.25s ease-in-out;
+        }
+        .naama-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px -4px rgba(0, 104, 55, 0.1);
+            border-color: #c59b27;
+        }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        @media print {
+            .no-print { display: none !important; }
+            body { background: white !important; padding: 0 !important; margin: 0 !important; }
+            #report-modal { position: static !important; inset: auto !important; padding: 0 !important; background: transparent !important; }
+            #report-modal-content { box-shadow: none !important; border: 1px solid #ddd !important; max-width: 100% !important; width: 100% !important; }
+        }
+    </style>
+</head>
+<body class="text-slate-800 min-h-screen flex flex-col antialiased">
+
+    <!-- شريط علوي ذهبي رفيع بهوية نماء -->
+    <div class="h-1.5 gold-line w-full no-print"></div>
+
+    <!-- الهيدر الرسمي الموحد للمنصة بهوية نماء ووزارة البيئة والمياه والزراعة -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-xs no-print">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 flex items-center justify-between h-16 sm:h-24 gap-2 sm:gap-4">
+            <div class="flex items-center gap-3">
+                <a href="future_portal.html" class="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-mewa-50 text-mewa-800 hover:bg-mewa-700 hover:text-white border border-mewa-200 flex items-center justify-center transition shadow-xs" title="العودة للبوابة الرئيسية">
+                    <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                </a>
+                <a href="future_portal.html" class="flex items-center gap-2 sm:gap-4 min-w-0">
+                    <img src="static/images/mewa_logo.png" alt="وزارة البيئة والمياه والزراعة" class="h-10 sm:h-16 w-auto object-contain flex-shrink-0">
+                    <div class="border-r-2 border-slate-200 pr-2.5 sm:pr-4 flex flex-col justify-center min-w-0">
+                        <div class="flex items-center gap-2">
+                            <h1 class="text-sm sm:text-xl md:text-2xl font-black text-mewa-800 tracking-tight leading-tight truncate">المؤشرات الوطنية والتقارير التنفيذية</h1>
+                            <span class="hidden sm:inline-flex px-2 py-0.5 rounded-md text-[10px] font-black bg-amber-50 text-amber-900 border border-amber-200">
+                                إدارة السوق والرقابة
+                            </span>
+                        </div>
+                        <p class="hidden md:block text-[11px] sm:text-xs text-slate-500 font-medium leading-tight mt-0.5 truncate">
+                            لوحة القيادة الاستراتيجية الشاملة لرصد مؤشرات الأمن الغذائي، حجم التداولات، وجودة الأسواق المركزية
+                        </p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <img src="static/images/naama_logo.png" alt="منصة نماء" class="h-8 sm:h-12 w-auto object-contain">
+                <div class="h-8 w-px bg-slate-200 hidden sm:block"></div>
+                <div class="hidden sm:flex flex-col text-left">
+                    <span class="text-[11px] font-bold text-slate-400">حوكمة الأسواق المركزية</span>
+                    <span class="text-xs font-black text-emerald-800">رؤية السعودية 2030</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 flex-grow w-full space-y-6">
+
+        <!-- ==================== شريط التنقل الفرعي المتكامل لوظائف إدارة السوق والرقابة ==================== -->
+        <div class="bg-white p-2 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between gap-2 overflow-x-auto no-scrollbar scroll-smooth no-print">
+            <div class="flex items-center gap-1.5 sm:gap-2">
+                <a href="future_assaying.html" class="shrink-0 px-3.5 sm:px-4 py-2 rounded-xl text-xs font-bold text-slate-700 hover:text-mewa-800 hover:bg-slate-100 transition flex items-center gap-1.5">
+                    <i data-lucide="microscope" class="w-4 h-4 text-emerald-600"></i>
+                    <span>1. فحص الجودة والرتب</span>
+                </a>
+                <a href="future_oversight.html" class="shrink-0 px-3.5 sm:px-4 py-2 rounded-xl text-xs font-bold text-slate-700 hover:text-mewa-800 hover:bg-slate-100 transition flex items-center gap-1.5">
+                    <i data-lucide="trending-up" class="w-4 h-4 text-amber-600"></i>
+                    <span>2. نشرة الأسعار المرجعية</span>
+                </a>
+                <a href="future_oversight.html#disputes" class="shrink-0 px-3.5 sm:px-4 py-2 rounded-xl text-xs font-bold text-slate-700 hover:text-mewa-800 hover:bg-slate-100 transition flex items-center gap-1.5">
+                    <i data-lucide="scale" class="w-4 h-4 text-purple-600"></i>
+                    <span>3. فض النزاعات السريعة</span>
+                </a>
+                <a href="future_coldchain.html" class="shrink-0 px-3.5 sm:px-4 py-2 rounded-xl text-xs font-bold text-slate-700 hover:text-mewa-800 hover:bg-slate-100 transition flex items-center gap-1.5">
+                    <i data-lucide="truck" class="w-4 h-4 text-blue-600"></i>
+                    <span>4. سلاسل التبريد اللوجستية</span>
+                </a>
+                <a href="future_oversight_reports.html" class="shrink-0 px-3.5 sm:px-4 py-2 rounded-xl text-xs font-black bg-mewa-700 text-white shadow-sm border border-mewa-800 flex items-center gap-1.5">
+                    <i data-lucide="bar-chart-3" class="w-4 h-4 text-naamaGold-300"></i>
+                    <span>5. المؤشرات الوطنية والتقارير</span>
+                </a>
+            </div>
+
+            <div class="flex items-center gap-2 shrink-0">
+                <a href="future_portal.html" class="text-xs font-bold text-slate-500 hover:text-mewa-800 px-3 py-1.5 rounded-lg hover:bg-slate-50 flex items-center gap-1 transition">
+                    <i data-lucide="layout-grid" class="w-3.5 h-3.5"></i>
+                    <span class="hidden sm:inline">البوابة الرئيسية</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- ==================== البنر التنفيذي الاستراتيجي المعتمد ==================== -->
+        <div class="relative bg-gradient-to-r from-mewa-950 via-mewa-900 to-mewa-800 rounded-3xl p-6 sm:p-8 text-white shadow-xl border-b-4 border-naamaGold-500 space-y-4">
+            <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+                <div class="space-y-2 max-w-3xl">
+                    <div class="flex flex-wrap items-center gap-2">
+                        <span class="px-3 py-1 rounded-full text-xs font-black bg-emerald-500/20 text-emerald-200 border border-emerald-400/30 flex items-center gap-1.5">
+                            <i data-lucide="shield-check" class="w-3.5 h-3.5 text-naamaGold-300"></i> مرصد أسواق النفع العام السيادي
+                        </span>
+                        <span class="px-3 py-1 rounded-full text-xs font-black bg-amber-500/20 text-amber-200 border border-amber-400/30">
+                            مستهدفات الأمن الغذائي 2026
+                        </span>
+                        <span class="px-3 py-1 rounded-full text-xs font-bold bg-white/10 text-slate-200">
+                            تحديث لحظي: اليوم 11:00 ص
+                        </span>
+                    </div>
+                    <h2 class="text-xl sm:text-3xl font-black text-white leading-tight">
+                        لوحة المؤشرات الوطنية الشاملة والتقارير التنفيذية
+                    </h2>
+                    <p class="text-xs sm:text-sm text-emerald-100 leading-relaxed font-normal">
+                        منظومة ذكاء الأعمال المعتمدة لمتابعة تدفقات السلع الزراعية، واستقرار الأسعار الاسترشادية، ونسب مطابقة الجودة وسعودي جاب، وكفاءة حسابات الضمان المالي في كافة أسواق النفع العام المركزية بالمملكة.
+                    </p>
+                </div>
+
+                <!-- أزرار الإجراءات السريعة في البنر -->
+                <div class="flex flex-wrap lg:flex-col items-stretch sm:items-end gap-2.5 shrink-0 no-print">
+                    <button onclick="openOfficialReportModal()" class="px-4 py-2.5 bg-naamaGold-500 hover:bg-naamaGold-600 text-slate-950 font-black rounded-xl text-xs transition flex items-center justify-center gap-2 shadow-md">
+                        <i data-lucide="file-check" class="w-4 h-4"></i>
+                        <span>عرض وطباعة التقرير الرسمي</span>
+                    </button>
+                    <button onclick="downloadNationalReportsCSV()" class="px-4 py-2 bg-white/15 hover:bg-white/25 text-white font-bold rounded-xl text-xs transition flex items-center justify-center gap-2 border border-white/20">
+                        <i data-lucide="download" class="w-4 h-4 text-emerald-300"></i>
+                        <span>تصدير بيانات المؤشرات (Excel / CSV)</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== مؤشرات الأداء الوطنية السيادية (5 بطاقات كبرى) ==================== -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+            
+            <!-- KPI 1: إجمالي التداولات النقدية -->
+            <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm border-t-4 border-t-emerald-600 naama-card space-y-2">
+                <div class="flex items-center justify-between text-slate-500 text-xs font-bold">
+                    <span>إجمالي التداولات الوطنية</span>
+                    <div class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center">
+                        <i data-lucide="badge-dollar-sign" class="w-4 h-4"></i>
+                    </div>
+                </div>
+                <div class="text-2xl sm:text-3xl font-black text-slate-900" id="kpi-nat-gmv">48,250,000 ر.س</div>
+                <div class="flex items-center justify-between text-[11px] pt-1">
+                    <span class="text-emerald-700 font-black flex items-center gap-0.5">
+                        <i data-lucide="trending-up" class="w-3.5 h-3.5"></i> +18.4% نمو فصلي
+                    </span>
+                    <span class="text-slate-400 font-bold">عبر Escrow</span>
+                </div>
+            </div>
+
+            <!-- KPI 2: حجم الوفرة وتدفق السلع -->
+            <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm border-t-4 border-t-mewa-700 naama-card space-y-2">
+                <div class="flex items-center justify-between text-slate-500 text-xs font-bold">
+                    <span>حجم السلع الموردة</span>
+                    <div class="w-8 h-8 rounded-lg bg-mewa-50 text-mewa-700 flex items-center justify-center">
+                        <i data-lucide="boxes" class="w-4 h-4"></i>
+                    </div>
+                </div>
+                <div class="text-2xl sm:text-3xl font-black text-slate-900" id="kpi-nat-volume">34,850 طن</div>
+                <div class="flex items-center justify-between text-[11px] pt-1">
+                    <span class="text-emerald-700 font-black flex items-center gap-0.5">
+                        <i data-lucide="check" class="w-3.5 h-3.5"></i> وفرة سلعية مستقرة
+                    </span>
+                    <span class="text-slate-400 font-bold">13 منطقة</span>
+                </div>
+            </div>
+
+            <!-- KPI 3: نسبة خفض الفاقد الزراعي -->
+            <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm border-t-4 border-t-blue-600 naama-card space-y-2">
+                <div class="flex items-center justify-between text-slate-500 text-xs font-bold">
+                    <span>نسبة الفاقد والهدر الزراعي</span>
+                    <div class="w-8 h-8 rounded-lg bg-blue-50 text-blue-700 flex items-center justify-center">
+                        <i data-lucide="leaf" class="w-4 h-4"></i>
+                    </div>
+                </div>
+                <div class="text-2xl sm:text-3xl font-black text-emerald-700" id="kpi-nat-loss">4.1% فقط</div>
+                <div class="flex items-center justify-between text-[11px] pt-1">
+                    <span class="text-blue-800 font-black">
+                        ⬇ خفض الهدر 86%
+                    </span>
+                    <span class="text-slate-400 font-bold">وفر: 128.5 م.ر</span>
+                </div>
+            </div>
+
+            <!-- KPI 4: نسبة الامتثال وجودة سعودي جاب -->
+            <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm border-t-4 border-t-naamaGold-500 naama-card space-y-2">
+                <div class="flex items-center justify-between text-slate-500 text-xs font-bold">
+                    <span>مطابقة الجودة وسعودي جاب</span>
+                    <div class="w-8 h-8 rounded-lg bg-amber-50 text-naamaGold-600 flex items-center justify-center">
+                        <i data-lucide="award" class="w-4 h-4"></i>
+                    </div>
+                </div>
+                <div class="text-2xl sm:text-3xl font-black text-slate-900" id="kpi-nat-gap">88.4%</div>
+                <div class="flex items-center justify-between text-[11px] pt-1">
+                    <span class="text-amber-800 font-black">
+                        رتب ممتازة وفاخرة
+                    </span>
+                    <span class="text-slate-400 font-bold">+24.2% علاوة</span>
+                </div>
+            </div>
+
+            <!-- KPI 5: مؤشر استقرار الأسعار الوطنية -->
+            <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm border-t-4 border-t-purple-600 naama-card space-y-2">
+                <div class="flex items-center justify-between text-slate-500 text-xs font-bold">
+                    <span>مؤشر استقرار الأسعار</span>
+                    <div class="w-8 h-8 rounded-lg bg-purple-50 text-purple-700 flex items-center justify-center">
+                        <i data-lucide="scale" class="w-4 h-4"></i>
+                    </div>
+                </div>
+                <div class="text-2xl sm:text-3xl font-black text-slate-900" id="kpi-nat-stability">98.6%</div>
+                <div class="flex items-center justify-between text-[11px] pt-1">
+                    <span class="text-purple-800 font-black">
+                        التزام بالأسعار المرجعية
+                    </span>
+                    <span class="text-slate-400 font-bold">صفر احتكار</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ==================== فلاتر التحكم الاستراتيجية ==================== -->
+        <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 naama-card no-print">
+            
+            <!-- أزرار اختيار النطاق الزمني -->
+            <div class="flex items-center gap-1.5 flex-wrap">
+                <span class="text-xs font-bold text-slate-500 ml-1">النطاق الزمني:</span>
+                <button onclick="setTimeframe('today')" id="tf-today" class="tf-btn px-3 py-1.5 rounded-xl text-xs font-bold transition text-slate-600 hover:bg-slate-100">اليوم</button>
+                <button onclick="setTimeframe('week')" id="tf-week" class="tf-btn px-3 py-1.5 rounded-xl text-xs font-bold transition text-slate-600 hover:bg-slate-100">هذا الأسبوع</button>
+                <button onclick="setTimeframe('month')" id="tf-month" class="tf-btn px-3 py-1.5 rounded-xl text-xs font-bold transition text-slate-600 hover:bg-slate-100">هذا الشهر</button>
+                <button onclick="setTimeframe('quarter')" id="tf-quarter" class="tf-btn px-3 py-1.5 rounded-xl text-xs font-black transition bg-mewa-700 text-white shadow-xs">الربع الرابع 2026 (معتمد)</button>
+                <button onclick="setTimeframe('year')" id="tf-year" class="tf-btn px-3 py-1.5 rounded-xl text-xs font-bold transition text-slate-600 hover:bg-slate-100">التقرير السنوي</button>
+            </div>
+
+            <!-- قائمة المنطقة والتصنيف -->
+            <div class="flex items-center gap-3">
+                <div class="flex items-center gap-1.5 text-xs">
+                    <label class="text-slate-500 font-bold">المنطقة:</label>
+                    <select id="region-filter" onchange="applyFilters()" class="px-2.5 py-1.5 border border-slate-200 rounded-xl font-bold text-slate-800 bg-slate-50 focus:ring-2 focus:ring-mewa-600 text-xs">
+                        <option value="all">كافة مناطق المملكة (13 منطقة)</option>
+                        <option value="riyadh">منطقة الرياض</option>
+                        <option value="makkah">منطقة مكة المكرمة وجدة</option>
+                        <option value="eastern">المنطقة الشرقية</option>
+                        <option value="qassim">منطقة القصيم</option>
+                        <option value="hail">منطقة حائل</option>
+                        <option value="asir">منطقة عسير والجنوب</option>
+                    </select>
+                </div>
+
+                <div class="flex items-center gap-1.5 text-xs">
+                    <label class="text-slate-500 font-bold">القطاع:</label>
+                    <select id="cat-filter" onchange="applyFilters()" class="px-2.5 py-1.5 border border-slate-200 rounded-xl font-bold text-slate-800 bg-slate-50 focus:ring-2 focus:ring-mewa-600 text-xs">
+                        <option value="all">كافة المحاصيل</option>
+                        <option value="vegetables">خضار طازجة</option>
+                        <option value="fruits">فواكه وحمضيات</option>
+                        <option value="dates">تمور ونخيل</option>
+                        <option value="tubers">درنات وبطاطس</option>
+                    </select>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ==================== شبكة التحليلات: أداء الأسواق المركزية + حوكمة الأسعار ==================== -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+            
+            <!-- العمود الأيمن: التوزيع الجغرافي وحصص الأسواق المركزية (7 أعمدة) -->
+            <div class="lg:col-span-7 bg-white rounded-3xl p-6 border border-slate-200 shadow-sm space-y-5 naama-card border-t-4 border-t-mewa-700">
+                <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                    <div class="flex items-center gap-2.5">
+                        <div class="w-10 h-10 rounded-2xl bg-mewa-50 text-mewa-700 flex items-center justify-center font-black">
+                            <i data-lucide="map-pin" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-base font-black text-slate-900">مؤشرات أداء الأسواق المركزية وحصص المناطق</h3>
+                            <p class="text-xs text-slate-500">حجم التداول، كفاءة سلاسل التبريد، وسرعة فض النزاعات بكل سوق</p>
+                        </div>
+                    </div>
+                    <span class="text-[10px] font-black text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
+                        مقارنة تشغيلية
+                    </span>
+                </div>
+
+                <!-- قائمة الأسواق المركزية بأشرطة الإنجاز -->
+                <div class="space-y-4" id="central-markets-list">
+
+                    <!-- سوق الرياض المركزي -->
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2 hover:bg-slate-100/70 transition">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <span class="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-900 font-black text-xs flex items-center justify-center">1</span>
+                                <div>
+                                    <h4 class="font-black text-xs sm:text-sm text-slate-900">سوق الرياض المركزي (العزيزية)</h4>
+                                    <span class="text-[10.5px] text-slate-500 font-semibold">منطقة الرياض • المركز اللوجستي الأكبر بالمملكة</span>
+                                </div>
+                            </div>
+                            <div class="text-left">
+                                <div class="font-black text-xs sm:text-sm text-slate-900">18,576,000 ر.س</div>
+                                <span class="text-[10.5px] text-emerald-700 font-black">38.5% من إجمالي التداول</span>
+                            </div>
+                        </div>
+                        <div class="w-full bg-slate-200 h-2.5 rounded-full overflow-hidden">
+                            <div class="bg-emerald-600 h-2.5 rounded-full" style="width: 38.5%"></div>
+                        </div>
+                        <div class="grid grid-cols-3 gap-2 text-center text-[10.5px] font-bold text-slate-600 pt-1">
+                            <div class="bg-white p-1 rounded-md border border-slate-200">❄️ التبريد: <strong class="text-blue-800">99.4%</strong></div>
+                            <div class="bg-white p-1 rounded-md border border-slate-200">⚖️ فض النزاع: <strong class="text-purple-800">38 دقيقة</strong></div>
+                            <div class="bg-white p-1 rounded-md border border-slate-200">🏅 الجودة: <strong class="text-emerald-800">89.2% فاخر</strong></div>
+                        </div>
+                    </div>
+
+                    <!-- سوق جدة المركزي -->
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2 hover:bg-slate-100/70 transition">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <span class="w-7 h-7 rounded-lg bg-amber-100 text-amber-900 font-black text-xs flex items-center justify-center">2</span>
+                                <div>
+                                    <h4 class="font-black text-xs sm:text-sm text-slate-900">سوق جدة المركزي (الصفا)</h4>
+                                    <span class="text-[10.5px] text-slate-500 font-semibold">منطقة مكة المكرمة • بوابة الساحل الغربي والحرمين</span>
+                                </div>
+                            </div>
+                            <div class="text-left">
+                                <div class="font-black text-xs sm:text-sm text-slate-900">11,676,500 ر.س</div>
+                                <span class="text-[10.5px] text-amber-800 font-black">24.2% من إجمالي التداول</span>
+                            </div>
+                        </div>
+                        <div class="w-full bg-slate-200 h-2.5 rounded-full overflow-hidden">
+                            <div class="bg-amber-500 h-2.5 rounded-full" style="width: 24.2%"></div>
+                        </div>
+                        <div class="grid grid-cols-3 gap-2 text-center text-[10.5px] font-bold text-slate-600 pt-1">
+                            <div class="bg-white p-1 rounded-md border border-slate-200">❄️ التبريد: <strong class="text-blue-800">98.1%</strong></div>
+                            <div class="bg-white p-1 rounded-md border border-slate-200">⚖️ فض النزاع: <strong class="text-purple-800">44 دقيقة</strong></div>
+                            <div class="bg-white p-1 rounded-md border border-slate-200">🏅 الجودة: <strong class="text-emerald-800">87.5% فاخر</strong></div>
+                        </div>
+                    </div>
+
+                    <!-- سوق الدمام المركزي -->
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2 hover:bg-slate-100/70 transition">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <span class="w-7 h-7 rounded-lg bg-blue-100 text-blue-900 font-black text-xs flex items-center justify-center">3</span>
+                                <div>
+                                    <h4 class="font-black text-xs sm:text-sm text-slate-900">سوق الدمام المركزي والخضار</h4>
+                                    <span class="text-[10.5px] text-slate-500 font-semibold">المنطقة الشرقية • شريان التموين الساحلي</span>
+                                </div>
+                            </div>
+                            <div class="text-left">
+                                <div class="font-black text-xs sm:text-sm text-slate-900">8,588,500 ر.س</div>
+                                <span class="text-[10.5px] text-blue-800 font-black">17.8% من إجمالي التداول</span>
+                            </div>
+                        </div>
+                        <div class="w-full bg-slate-200 h-2.5 rounded-full overflow-hidden">
+                            <div class="bg-blue-600 h-2.5 rounded-full" style="width: 17.8%"></div>
+                        </div>
+                        <div class="grid grid-cols-3 gap-2 text-center text-[10.5px] font-bold text-slate-600 pt-1">
+                            <div class="bg-white p-1 rounded-md border border-slate-200">❄️ التبريد: <strong class="text-blue-800">99.0%</strong></div>
+                            <div class="bg-white p-1 rounded-md border border-slate-200">⚖️ فض النزاع: <strong class="text-purple-800">36 دقيقة</strong></div>
+                            <div class="bg-white p-1 rounded-md border border-slate-200">🏅 الجودة: <strong class="text-emerald-800">88.0% فاخر</strong></div>
+                        </div>
+                    </div>
+
+                    <!-- سوق القصيم المركزي للتمور والخضار -->
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2 hover:bg-slate-100/70 transition">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <span class="w-7 h-7 rounded-lg bg-naamaGold-100 text-amber-900 font-black text-xs flex items-center justify-center">4</span>
+                                <div>
+                                    <h4 class="font-black text-xs sm:text-sm text-slate-900">سوق مدينة التمور والخضار (بريدة)</h4>
+                                    <span class="text-[10.5px] text-slate-500 font-semibold">منطقة القصيم • عاصمة إنتاج النخيل والزراعة المحمية</span>
+                                </div>
+                            </div>
+                            <div class="text-left">
+                                <div class="font-black text-xs sm:text-sm text-slate-900">5,934,750 ر.س</div>
+                                <span class="text-[10.5px] text-amber-800 font-black">12.3% من إجمالي التداول</span>
+                            </div>
+                        </div>
+                        <div class="w-full bg-slate-200 h-2.5 rounded-full overflow-hidden">
+                            <div class="bg-naamaGold-500 h-2.5 rounded-full" style="width: 12.3%"></div>
+                        </div>
+                        <div class="grid grid-cols-3 gap-2 text-center text-[10.5px] font-bold text-slate-600 pt-1">
+                            <div class="bg-white p-1 rounded-md border border-slate-200">❄️ التبريد: <strong class="text-blue-800">98.8%</strong></div>
+                            <div class="bg-white p-1 rounded-md border border-slate-200">⚖️ فض النزاع: <strong class="text-purple-800">41 دقيقة</strong></div>
+                            <div class="bg-white p-1 rounded-md border border-slate-200">🏅 الجودة: <strong class="text-emerald-800">92.4% فاخر</strong></div>
+                        </div>
+                    </div>
+
+                    <!-- حائل وعسير والمناطق الأخرى -->
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2 hover:bg-slate-100/70 transition">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <span class="w-7 h-7 rounded-lg bg-purple-100 text-purple-900 font-black text-xs flex items-center justify-center">5</span>
+                                <div>
+                                    <h4 class="font-black text-xs sm:text-sm text-slate-900">أسواق حائل، عسير، والحدود الشمالية</h4>
+                                    <span class="text-[10.5px] text-slate-500 font-semibold">مناطق الإنتاج النوعي (بطاطس، فواكه، ومحاصيل موسمية)</span>
+                                </div>
+                            </div>
+                            <div class="text-left">
+                                <div class="font-black text-xs sm:text-sm text-slate-900">3,474,250 ر.س</div>
+                                <span class="text-[10.5px] text-purple-800 font-black">7.2% من إجمالي التداول</span>
+                            </div>
+                        </div>
+                        <div class="w-full bg-slate-200 h-2.5 rounded-full overflow-hidden">
+                            <div class="bg-purple-600 h-2.5 rounded-full" style="width: 7.2%"></div>
+                        </div>
+                        <div class="grid grid-cols-3 gap-2 text-center text-[10.5px] font-bold text-slate-600 pt-1">
+                            <div class="bg-white p-1 rounded-md border border-slate-200">❄️ التبريد: <strong class="text-blue-800">97.6%</strong></div>
+                            <div class="bg-white p-1 rounded-md border border-slate-200">⚖️ فض النزاع: <strong class="text-purple-800">42 دقيقة</strong></div>
+                            <div class="bg-white p-1 rounded-md border border-slate-200">🏅 الجودة: <strong class="text-emerald-800">86.8% فاخر</strong></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- العمود الأيسر: حوكمة الأسعار والنزاعات وحساب الضمان (5 أعمدة) -->
+            <div class="lg:col-span-5 space-y-6">
+                
+                <!-- بطاقة حوكمة ومطابقة الأسعار المرجعية بالمزاد -->
+                <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm space-y-4 naama-card border-t-4 border-t-naamaGold-500">
+                    <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                        <div class="flex items-center gap-2">
+                            <div class="w-9 h-9 rounded-xl bg-amber-50 text-naamaGold-600 flex items-center justify-center font-black">
+                                <i data-lucide="scale" class="w-4 h-4"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-sm sm:text-base font-black text-slate-900">حوكمة الأسعار وعدالة التداول</h3>
+                                <p class="text-[11px] text-slate-500">مقارنة الأسعار الاسترشادية بمتوسط المزاد</p>
+                            </div>
+                        </div>
+                        <span class="text-[10px] font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">مطابقة 98.6%</span>
+                    </div>
+
+                    <div class="space-y-2.5 text-xs">
+                        <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 flex items-center justify-between">
+                            <div>
+                                <div class="font-bold text-slate-900">🍅 طماطم محمية (صندوق 6 كجم)</div>
+                                <span class="text-[10px] text-slate-500">المرجعي: 18.50 ر.س</span>
+                            </div>
+                            <div class="text-left font-mono">
+                                <strong class="text-emerald-800 font-black">19.20 ر.س</strong>
+                                <span class="text-[10px] text-emerald-600 block font-bold">+3.8% (عادل)</span>
+                            </div>
+                        </div>
+
+                        <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 flex items-center justify-between">
+                            <div>
+                                <div class="font-bold text-slate-900">🥔 بطاطس سبونتا (كيس شبكي 5 كجم)</div>
+                                <span class="text-[10px] text-slate-500">المرجعي: 2.40 ر.س/كجم</span>
+                            </div>
+                            <div class="text-left font-mono">
+                                <strong class="text-emerald-800 font-black">2.45 ر.س</strong>
+                                <span class="text-[10px] text-emerald-600 block font-bold">+2.1% (عادل)</span>
+                            </div>
+                        </div>
+
+                        <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 flex items-center justify-between">
+                            <div>
+                                <div class="font-bold text-slate-900">🌴 تمر خلاص فاخر (كرتون 8 كجم)</div>
+                                <span class="text-[10px] text-slate-500">المرجعي: 185.00 ر.س</span>
+                            </div>
+                            <div class="text-left font-mono">
+                                <strong class="text-emerald-800 font-black">192.00 ر.س</strong>
+                                <span class="text-[10px] text-emerald-600 block font-bold">+3.7% (عادل)</span>
+                            </div>
+                        </div>
+
+                        <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 flex items-center justify-between">
+                            <div>
+                                <div class="font-bold text-slate-900">🥒 خيار بيوت محمية (كرتون 4 كجم)</div>
+                                <span class="text-[10px] text-slate-500">المرجعي: 16.00 ر.س</span>
+                            </div>
+                            <div class="text-left font-mono">
+                                <strong class="text-emerald-800 font-black">16.50 ر.س</strong>
+                                <span class="text-[10px] text-emerald-600 block font-bold">+3.1% (عادل)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- بطاقة حوكمة حسابات الضمان ورسوم الاستدامة (Escrow) -->
+                <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm space-y-4 naama-card border-t-4 border-t-emerald-600">
+                    <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                        <div class="flex items-center gap-2">
+                            <div class="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center font-black">
+                                <i data-lucide="lock" class="w-4 h-4"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-sm sm:text-base font-black text-slate-900">حوكمة حساب الضمان (Escrow)</h3>
+                                <p class="text-[11px] text-slate-500">التدفقات المالية ورسوم الاستدامة التشغيلية</p>
+                            </div>
+                        </div>
+                        <span class="text-[10px] font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">آمن بنكياً</span>
+                    </div>
+
+                    <div class="space-y-3 text-xs">
+                        <div class="flex justify-between items-center pb-2 border-b border-slate-100">
+                            <span class="text-slate-600 font-medium">مجموع أموال الصفقات المسواة للمزارعين:</span>
+                            <strong class="font-mono text-emerald-800 font-black text-sm">45,837,500 ر.س</strong>
+                        </div>
+                        <div class="flex justify-between items-center pb-2 border-b border-slate-100">
+                            <span class="text-slate-600 font-medium">أموال الضمان المحجوزة قيد الإفراج:</span>
+                            <strong class="font-mono text-amber-800 font-bold">2,412,500 ر.س</strong>
+                        </div>
+                        <div class="flex justify-between items-center pb-2 border-b border-slate-100">
+                            <span class="text-slate-600 font-medium">رسوم الاستدامة المجمعة (5% فحص وتشغيل):</span>
+                            <strong class="font-mono text-mewa-900 font-black">2,412,500 ر.س</strong>
+                        </div>
+                        <div class="p-2.5 bg-emerald-50 rounded-xl text-[11px] font-bold text-emerald-900 flex items-center gap-2">
+                            <i data-lucide="check-circle" class="w-4 h-4 text-emerald-700 shrink-0"></i>
+                            <span>100% نسبة الأمان والسيولة الفورية، صفر تعثر أو شيكات بدون رصيد.</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- ==================== مكتبة التقارير التنفيذية الدورية المعتمدة ==================== -->
+        <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-5 naama-card border-t-4 border-t-mewa-800">
+            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-slate-100 pb-4">
+                <div>
+                    <h3 class="text-base sm:text-lg font-black text-slate-900 flex items-center gap-2">
+                        <i data-lucide="archive" class="w-5 h-5 text-mewa-700"></i>
+                        <span>أرشيف التقارير التنفيذية والدراسات الدورية المعتمدة</span>
+                    </h3>
+                    <p class="text-xs text-slate-500 font-medium">تقارير رسمية مدققة ومصدقة من وكالة الزراعة جاهزة للتصدير والطباعة الفورية</p>
+                </div>
+                <div class="flex items-center gap-2 self-start sm:self-auto shrink-0">
+                    <button onclick="downloadNationalReportsCSV()" class="px-3.5 py-2 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold rounded-xl text-xs transition flex items-center gap-1.5">
+                        <i data-lucide="sheet" class="w-3.5 h-3.5 text-emerald-700"></i>
+                        <span>تصدير السجل كـ Excel</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- جدول كشوفات التقارير الرسمية -->
+            <div class="overflow-x-auto">
+                <table class="w-full text-right text-xs">
+                    <thead class="bg-slate-100 text-slate-700 font-black border-b border-slate-200">
+                        <tr>
+                            <th class="py-3.5 px-4">رقم الوثيقة</th>
+                            <th class="py-3.5 px-4">عنوان التقرير التنفيذي</th>
+                            <th class="py-3.5 px-4">الفترة المغطاة</th>
+                            <th class="py-3.5 px-4">الحالة والاعتماد</th>
+                            <th class="py-3.5 px-4">حجم الملف</th>
+                            <th class="py-3.5 px-4 text-center">الإجراءات</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100 font-medium" id="reports-archive-body">
+                        
+                        <tr class="hover:bg-slate-50 transition">
+                            <td class="py-3.5 px-4 font-mono font-bold text-slate-800">REP-NAT-2026-Q4</td>
+                            <td class="py-3.5 px-4 font-black text-slate-900">
+                                <div>تقرير الوفرة والأمن الغذائي وتدفقات السلع الزراعية</div>
+                                <span class="text-[10px] text-slate-400">يشمل رصد 34.8 ألف طن، ومعدلات الفاقد، ومطابقة سعودي جاب</span>
+                            </td>
+                            <td class="py-3.5 px-4 font-bold text-slate-600">الربع الرابع 2026</td>
+                            <td class="py-3.5 px-4">
+                                <span class="px-2.5 py-1 bg-emerald-100 text-emerald-800 rounded-full font-black text-[10.5px] inline-flex items-center gap-1">
+                                    <i data-lucide="check-check" class="w-3 h-3"></i> معتمد رسمياً
+                                </span>
+                            </td>
+                            <td class="py-3.5 px-4 font-mono text-slate-500">2.4 MB</td>
+                            <td class="py-3.5 px-4 text-center">
+                                <div class="flex items-center justify-center gap-2">
+                                    <button onclick="openOfficialReportModal()" class="px-3 py-1.5 bg-mewa-700 hover:bg-mewa-800 text-white font-bold rounded-lg text-xs transition flex items-center gap-1 shadow-2xs">
+                                        <i data-lucide="eye" class="w-3.5 h-3.5 text-naamaGold-300"></i>
+                                        <span>معاينة وطباعة</span>
+                                    </button>
+                                    <button onclick="downloadSingleReport('REP-NAT-2026-Q4')" class="p-1.5 text-slate-500 hover:text-mewa-800 hover:bg-slate-100 rounded-lg transition" title="تحميل ملف PDF">
+                                        <i data-lucide="download" class="w-4 h-4"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr class="hover:bg-slate-50 transition">
+                            <td class="py-3.5 px-4 font-mono font-bold text-slate-800">REP-FIN-2026-M11</td>
+                            <td class="py-3.5 px-4 font-black text-slate-900">
+                                <div>تقرير التدفقات المالية وحساب الضمان ورسوم الاستدامة</div>
+                                <span class="text-[10px] text-slate-400">تسوية 48.25 مليون ر.س وصرف بنكي مباشر لحسابات المزارعين</span>
+                            </td>
+                            <td class="py-3.5 px-4 font-bold text-slate-600">نوفمبر 2026</td>
+                            <td class="py-3.5 px-4">
+                                <span class="px-2.5 py-1 bg-emerald-100 text-emerald-800 rounded-full font-black text-[10.5px] inline-flex items-center gap-1">
+                                    <i data-lucide="check-check" class="w-3 h-3"></i> معتمد ومطابق
+                                </span>
+                            </td>
+                            <td class="py-3.5 px-4 font-mono text-slate-500">1.8 MB</td>
+                            <td class="py-3.5 px-4 text-center">
+                                <div class="flex items-center justify-center gap-2">
+                                    <button onclick="openOfficialReportModal()" class="px-3 py-1.5 bg-mewa-700 hover:bg-mewa-800 text-white font-bold rounded-lg text-xs transition flex items-center gap-1 shadow-2xs">
+                                        <i data-lucide="eye" class="w-3.5 h-3.5 text-naamaGold-300"></i>
+                                        <span>معاينة وطباعة</span>
+                                    </button>
+                                    <button onclick="downloadSingleReport('REP-FIN-2026-M11')" class="p-1.5 text-slate-500 hover:text-mewa-800 hover:bg-slate-100 rounded-lg transition" title="تحميل ملف PDF">
+                                        <i data-lucide="download" class="w-4 h-4"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr class="hover:bg-slate-50 transition">
+                            <td class="py-3.5 px-4 font-mono font-bold text-slate-800">REP-COLD-2026-Q4</td>
+                            <td class="py-3.5 px-4 font-black text-slate-900">
+                                <div>التقرير اللوجستي وامتثال سلاسل التبريد الذكية (حساسات IoT)</div>
+                                <span class="text-[10px] text-slate-400">تتبع درجات الحرارة لـ 1,420 شاحنة مبردة ونوافذ التفريغ الإلزامية</span>
+                            </td>
+                            <td class="py-3.5 px-4 font-bold text-slate-600">الربع الرابع 2026</td>
+                            <td class="py-3.5 px-4">
+                                <span class="px-2.5 py-1 bg-emerald-100 text-emerald-800 rounded-full font-black text-[10.5px] inline-flex items-center gap-1">
+                                    <i data-lucide="check-check" class="w-3 h-3"></i> معتمد لوجستياً
+                                </span>
+                            </td>
+                            <td class="py-3.5 px-4 font-mono text-slate-500">3.1 MB</td>
+                            <td class="py-3.5 px-4 text-center">
+                                <div class="flex items-center justify-center gap-2">
+                                    <button onclick="openOfficialReportModal()" class="px-3 py-1.5 bg-mewa-700 hover:bg-mewa-800 text-white font-bold rounded-lg text-xs transition flex items-center gap-1 shadow-2xs">
+                                        <i data-lucide="eye" class="w-3.5 h-3.5 text-naamaGold-300"></i>
+                                        <span>معاينة وطباعة</span>
+                                    </button>
+                                    <button onclick="downloadSingleReport('REP-COLD-2026-Q4')" class="p-1.5 text-slate-500 hover:text-mewa-800 hover:bg-slate-100 rounded-lg transition" title="تحميل ملف PDF">
+                                        <i data-lucide="download" class="w-4 h-4"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr class="hover:bg-slate-50 transition">
+                            <td class="py-3.5 px-4 font-mono font-bold text-slate-800">REP-GOV-2026-W45</td>
+                            <td class="py-3.5 px-4 font-black text-slate-900">
+                                <div>تقرير الرقابة على تكتلات الوسطاء ومكافحة التستر التجاري</div>
+                                <span class="text-[10px] text-slate-400">رصد المزادات المشبوهة، وضمان تكافؤ الفرص لصغار المزارعين</span>
+                            </td>
+                            <td class="py-3.5 px-4 font-bold text-slate-600">الأسبوع 45 (نوفمبر)</td>
+                            <td class="py-3.5 px-4">
+                                <span class="px-2.5 py-1 bg-emerald-100 text-emerald-800 rounded-full font-black text-[10.5px] inline-flex items-center gap-1">
+                                    <i data-lucide="check-check" class="w-3 h-3"></i> سري ومصدق
+                                </span>
+                            </td>
+                            <td class="py-3.5 px-4 font-mono text-slate-500">1.2 MB</td>
+                            <td class="py-3.5 px-4 text-center">
+                                <div class="flex items-center justify-center gap-2">
+                                    <button onclick="openOfficialReportModal()" class="px-3 py-1.5 bg-mewa-700 hover:bg-mewa-800 text-white font-bold rounded-lg text-xs transition flex items-center gap-1 shadow-2xs">
+                                        <i data-lucide="eye" class="w-3.5 h-3.5 text-naamaGold-300"></i>
+                                        <span>معاينة وطباعة</span>
+                                    </button>
+                                    <button onclick="downloadSingleReport('REP-GOV-2026-W45')" class="p-1.5 text-slate-500 hover:text-mewa-800 hover:bg-slate-100 rounded-lg transition" title="تحميل ملف PDF">
+                                        <i data-lucide="download" class="w-4 h-4"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- ==================== مودال استعراض وطباعة التقرير التنفيذي الرسمي المعتمد ==================== -->
+    <div id="report-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4 z-50 hidden">
+        <div id="report-modal-content" class="bg-white rounded-3xl max-w-4xl w-full p-6 sm:p-8 space-y-6 max-h-[92vh] overflow-y-auto naama-card shadow-2xl border-2 border-emerald-600">
+            
+            <!-- ترويسة التقرير الرسمية للطباعة -->
+            <div class="flex items-center justify-between border-b-2 border-emerald-700 pb-4">
+                <div class="flex items-center gap-3">
+                    <img src="static/images/mewa_logo.png" alt="وزارة البيئة والمياه والزراعة" class="h-12 w-auto">
+                    <div class="border-r-2 border-slate-200 pr-3">
+                        <h4 class="font-black text-sm text-mewa-900">وزارة البيئة والمياه والزراعة</h4>
+                        <span class="text-[11px] text-slate-500 block font-bold">وكالة الوزارة للزراعة — الإدارة العامة لأسواق النفع العام</span>
+                        <strong class="text-xs text-emerald-800">التقرير التنفيذي الموحد لمؤشرات الأداء السيادية</strong>
+                    </div>
+                </div>
+
+                <div class="text-left font-mono text-xs space-y-0.5">
+                    <div class="font-black text-slate-800">رقم الوثيقة: <span class="text-emerald-800">REP-NAT-2026-Q4</span></div>
+                    <div class="text-slate-500">تاريخ الإصدار: 2026-11-09</div>
+                    <span class="inline-block px-2 py-0.5 bg-emerald-100 text-emerald-800 text-[10px] font-black rounded">سجل رسمي معتمد</span>
+                </div>
+            </div>
+
+            <!-- ملخص تنفيذي -->
+            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 space-y-2 text-xs leading-relaxed">
+                <h5 class="font-black text-slate-900 flex items-center gap-1.5">
+                    <i data-lucide="file-text" class="w-4 h-4 text-mewa-700"></i>
+                    <span>بيان الإنجاز الوطني الموحد (الملخص التنفيذي):</span>
+                </h5>
+                <p class="text-slate-700">
+                    حققت منظومة أسواق النفع العام الوطنية خلال الربع الرابع من عام 2026 قفزة نوعية في حوكمة تداول السلع الزراعية، حيث بلغت التداولات النقدية المسواة <strong>48,250,000 ر.س</strong> عبر حساب الضمان المالي (Escrow) بصرف فوري مباشر للمزارعين. ونجحت سلاسل التبريد الذكية (IoT) ونوافذ التفريغ الإلزامية في خفض الفاقد الزراعي إلى <strong>4.1%</strong> محققة وفورات وطنية بلغت 128.5 مليون ريال، مع التزام كامل بالأسعار المرجعية المعتمدة بنسبة <strong>98.6%</strong> وتصنيف مخبري بنسبة <strong>88.4%</strong> للمحاصيل ذات الرتب الممتازة وسعودي جاب.
+                </p>
+            </div>
+
+            <!-- جدول المؤشرات التراكمية في الوثيقة -->
+            <div class="border border-slate-200 rounded-2xl overflow-hidden">
+                <table class="w-full text-right text-xs">
+                    <thead class="bg-mewa-50 text-mewa-950 font-black">
+                        <tr>
+                            <th class="py-2.5 px-3">المؤشر السيادي</th>
+                            <th class="py-2.5 px-3">القيمة المتحققة</th>
+                            <th class="py-2.5 px-3">المستهدف الوطني</th>
+                            <th class="py-2.5 px-3">نسبة الامتثال</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100 font-medium">
+                        <tr>
+                            <td class="py-2.5 px-3 font-bold text-slate-900">إجمالي التداولات النقدية (Escrow)</td>
+                            <td class="py-2.5 px-3 font-mono font-black text-emerald-800">48,250,000 ر.س</td>
+                            <td class="py-2.5 px-3 font-mono text-slate-600">42,000,000 ر.س</td>
+                            <td class="py-2.5 px-3 text-emerald-700 font-bold">114.8% (فائق)</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2.5 px-3 font-bold text-slate-900">حجم تدفق السلع والوفرة السلعية</td>
+                            <td class="py-2.5 px-3 font-mono font-black text-slate-900">34,850 طن</td>
+                            <td class="py-2.5 px-3 font-mono text-slate-600">30,000 طن</td>
+                            <td class="py-2.5 px-3 text-emerald-700 font-bold">116.1% (فائق)</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2.5 px-3 font-bold text-slate-900">معدل الفاقد والهدر الزراعي</td>
+                            <td class="py-2.5 px-3 font-mono font-black text-emerald-800">&lt; 4.1%</td>
+                            <td class="py-2.5 px-3 font-mono text-slate-600">&lt; 6.0%</td>
+                            <td class="py-2.5 px-3 text-emerald-700 font-bold">100% (مطابق)</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2.5 px-3 font-bold text-slate-900">مطابقة الجودة وسعودي جاب</td>
+                            <td class="py-2.5 px-3 font-mono font-black text-slate-900">88.4%</td>
+                            <td class="py-2.5 px-3 font-mono text-slate-600">80.0%</td>
+                            <td class="py-2.5 px-3 text-emerald-700 font-bold">110.5% (فائق)</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2.5 px-3 font-bold text-slate-900">مؤشر استقرار الأسعار المرجعية</td>
+                            <td class="py-2.5 px-3 font-mono font-black text-purple-900">98.6%</td>
+                            <td class="py-2.5 px-3 font-mono text-slate-600">95.0%</td>
+                            <td class="py-2.5 px-3 text-emerald-700 font-bold">103.7% (مطابق)</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2.5 px-3 font-bold text-slate-900">متوسط زمن فض النزاعات السريعة</td>
+                            <td class="py-2.5 px-3 font-mono font-black text-slate-900">41.5 دقيقة</td>
+                            <td class="py-2.5 px-3 font-mono text-slate-600">&lt; 120 دقيقة</td>
+                            <td class="py-2.5 px-3 text-emerald-700 font-bold">100% (أقل من الـ SLA)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- ختم الاعتماد ورمز التحقق الرقمي -->
+            <div class="flex items-center justify-between pt-4 border-t border-slate-200">
+                <div class="flex items-center gap-3">
+                    <div id="report-qrcode" class="w-16 h-16 border border-slate-200 p-1 rounded-lg bg-white shrink-0"></div>
+                    <div class="text-[11px] text-slate-500 space-y-0.5">
+                        <strong class="text-slate-900 block font-bold">وثيقة رقمية معتمدة ومسجلة بالسجل السيادي</strong>
+                        <span>امسح الرمز للتحقق من صحة التقارير والمؤشرات عبر بوابة نماء الحكومية.</span>
+                    </div>
+                </div>
+
+                <div class="text-center font-bold text-xs space-y-1">
+                    <div class="text-slate-400 text-[10px]">خاتم الاعتماد الإلكتروني:</div>
+                    <div class="px-3 py-1 bg-emerald-50 text-emerald-800 rounded-lg border border-emerald-300 font-black text-[11px]">
+                        ✓ وكالة الزراعة — معتمد رسمياً
+                    </div>
+                </div>
+            </div>
+
+            <!-- أزرار المودال -->
+            <div class="flex items-center justify-end gap-3 pt-4 border-t border-slate-200 no-print">
+                <button onclick="closeOfficialReportModal()" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl text-xs transition">
+                    إغلاق النافذة
+                </button>
+                <button onclick="window.print()" class="px-5 py-2.5 bg-mewa-700 hover:bg-mewa-800 text-white font-black rounded-xl text-xs transition flex items-center gap-2 shadow-md">
+                    <i data-lucide="printer" class="w-4 h-4 text-naamaGold-300"></i>
+                    <span>طباعة التقرير الرسمي</span>
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- تذييل الصفحة الرسمي -->
+    <footer class="bg-white border-t border-slate-200 mt-12 py-6 text-center text-xs text-slate-500 no-print">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-2">
+                <img src="static/images/mewa_logo.png" alt="وزارة البيئة والمياه والزراعة" class="h-6 w-auto opacity-70">
+                <span>وزارة البيئة والمياه والزراعة — وكالة الزراعة • المملكة العربية السعودية</span>
+            </div>
+            <div class="flex items-center gap-3 font-semibold text-slate-600">
+                <a href="future_portal.html" class="hover:text-mewa-700">بوابة الوضع المستقبلي</a>
+                <span>•</span>
+                <a href="future_oversight.html" class="hover:text-mewa-700">غرفة الرقابة والأسعار</a>
+                <span>•</span>
+                <a href="future_infographic.html" class="hover:text-mewa-700">الإنفوجرافيك 4K</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function initIcons() {
+            if (typeof lucide !== 'undefined' && lucide.createIcons) lucide.createIcons();
+        }
+
+        let currentTimeframe = 'quarter';
+
+        function setTimeframe(tf) {
+            currentTimeframe = tf;
+            document.querySelectorAll('.tf-btn').forEach(btn => {
+                btn.className = 'tf-btn px-3 py-1.5 rounded-xl text-xs font-bold transition text-slate-600 hover:bg-slate-100';
+            });
+            const active = document.getElementById('tf-' + tf);
+            if (active) {
+                active.className = 'tf-btn px-3 py-1.5 rounded-xl text-xs font-black transition bg-mewa-700 text-white shadow-xs';
+            }
+            applyFilters();
+        }
+
+        function applyFilters() {
+            const reg = document.getElementById('region-filter').value;
+            const cat = document.getElementById('cat-filter').value;
+            
+            // تحديث الأرقام ديناميكياً لمحاكاة التصفية
+            let mult = 1.0;
+            if (currentTimeframe === 'today') mult = 0.02;
+            else if (currentTimeframe === 'week') mult = 0.10;
+            else if (currentTimeframe === 'month') mult = 0.35;
+            else if (currentTimeframe === 'year') mult = 4.2;
+
+            if (reg === 'riyadh') mult *= 0.385;
+            else if (reg === 'makkah') mult *= 0.242;
+            else if (reg === 'eastern') mult *= 0.178;
+            else if (reg === 'qassim') mult *= 0.123;
+            else if (reg === 'hail' || reg === 'asir') mult *= 0.072;
+
+            const baseGmv = 48250000 * mult;
+            const baseVol = 34850 * mult;
+
+            document.getElementById('kpi-nat-gmv').innerText = Math.round(baseGmv).toLocaleString() + ' ر.س';
+            document.getElementById('kpi-nat-volume').innerText = Math.round(baseVol).toLocaleString() + ' طن';
+        }
+
+        function openOfficialReportModal() {
+            const modal = document.getElementById('report-modal');
+            if (modal) modal.classList.remove('hidden');
+
+            const qrContainer = document.getElementById('report-qrcode');
+            if (qrContainer && qrContainer.innerHTML.trim() === '') {
+                new QRCode(qrContainer, {
+                    text: "https://naama.mewa.gov.sa/verify/REP-NAT-2026-Q4-OFFICIAL",
+                    width: 64,
+                    height: 64,
+                    colorDark: "#00542c",
+                    colorLight: "#ffffff",
+                    correctLevel: QRCode.CorrectLevel.M
+                });
+            }
+            initIcons();
+        }
+
+        function closeOfficialReportModal() {
+            const modal = document.getElementById('report-modal');
+            if (modal) modal.classList.add('hidden');
+        }
+
+        function downloadNationalReportsCSV() {
+            const rows = [
+                ["Document ID", "Title", "Period", "Status", "Volume_Tons", "Value_SAR", "ColdChain_Compliance", "Loss_Pct"],
+                ["REP-NAT-2026-Q4", "تقرير الوفرة والأمن الغذائي وتدفقات السلع", "الربع الرابع 2026", "معتمد", "34850", "48250000", "99.2%", "4.1%"],
+                ["REP-FIN-2026-M11", "تقرير التدفقات المالية وحساب الضمان Escrow", "نوفمبر 2026", "مطابق", "11200", "15420000", "99.4%", "3.9%"],
+                ["REP-COLD-2026-Q4", "تقرير سلاسل التبريد والتخفيف من الهدر", "الربع الرابع 2026", "معتمد", "34850", "48250000", "99.1%", "4.1%"],
+                ["REP-GOV-2026-W45", "تقرير الرقابة ومكافحة التستر والتكتلات", "الأسبوع 45", "سري ومصدق", "2800", "3900000", "98.8%", "4.0%"]
+            ];
+
+            let csvContent = "\uFEFF" + rows.map(e => e.join(",")).join("\n");
+            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.download = `National_Markets_Oversight_Reports_${new Date().toISOString().slice(0,10)}.csv`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function downloadSingleReport(repId) {
+            alert(`جاري تحميل ملف التقرير المعتمد (${repId}.pdf)...`);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initIcons();
+        });
+        initIcons();
+    </script>
+</body>
+</html>
