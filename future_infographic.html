@@ -158,20 +158,26 @@
                 </div>
 
                 <div class="flex flex-row lg:flex-col items-center sm:items-end gap-3 flex-shrink-0">
-                    <div class="flex items-center gap-2">
-                        <button onclick="switchView('journey')" id="view-btn-journey" class="px-4 py-2 rounded-xl text-xs font-black transition flex items-center gap-1.5 shadow-sm bg-mewa-700 text-white border border-mewa-800">
+                    <div class="flex items-center gap-1.5 sm:gap-2 flex-wrap sm:flex-nowrap">
+                        <button onclick="switchView('journey')" id="view-btn-journey" class="px-3.5 sm:px-4 py-2 rounded-xl text-xs font-black transition flex items-center gap-1.5 shadow-sm bg-mewa-700 text-white border border-mewa-800">
                             <i data-lucide="git-commit" class="w-4 h-4 text-naamaGold-300"></i> رحلات المستفيدين (1-8)
                         </button>
-                        <button onclick="switchView('strategic')" id="view-btn-strategic" class="px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 bg-slate-100 text-slate-700 hover:bg-slate-200 border border-transparent">
+                        <button onclick="switchView('comparison')" id="view-btn-comparison" class="px-3.5 sm:px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 bg-slate-100 text-slate-700 hover:bg-slate-200 border border-transparent">
+                            <i data-lucide="git-compare" class="w-4 h-4 text-emerald-600"></i> الوضع الحالي مقابل المستقبلي
+                        </button>
+                        <button onclick="switchView('strategic')" id="view-btn-strategic" class="px-3.5 sm:px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 bg-slate-100 text-slate-700 hover:bg-slate-200 border border-transparent">
                             <i data-lucide="layout-template" class="w-4 h-4"></i> الواجهة الذكية والقيمة
                         </button>
+                        <button onclick="switchView('all')" id="view-btn-all" class="px-3 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 bg-slate-100 text-slate-700 hover:bg-slate-200 border border-transparent">
+                            <i data-lucide="layers" class="w-3.5 h-3.5"></i> عرض الكل
+                        </button>
                     </div>
-                    <span class="text-[11px] text-slate-400 font-semibold">تخصيص تلقائي للخدمات حسب دور المستفيد</span>
+                    <span class="text-[11px] text-slate-400 font-semibold">تحليل ومقارنة التحول المؤسسي الشامل لأسواق النفع العام</span>
                 </div>
             </div>
 
             <!-- ==================== تابات التنقل التفاعلية بين المستفيدين الثلاثة ==================== -->
-            <div class="space-y-2">
+            <div id="role-pills-container" class="space-y-2">
                 <div class="text-xs font-bold text-slate-500">اختر فئة المستفيد لتسليط الضوء على رحلته التشغيلية ووظائفه:</div>
                 <div class="bg-slate-50 p-1.5 sm:p-2 rounded-2xl border border-slate-200 flex items-center gap-2 overflow-x-auto no-scrollbar scroll-smooth">
                     <button onclick="highlightRole('farmer')" id="role-pill-farmer" class="role-pill shrink-0 px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black transition flex items-center justify-center gap-2 whitespace-nowrap bg-mewa-700 text-white shadow-sm border border-mewa-800">
@@ -688,6 +694,676 @@
 
         </div>
 
+        <!-- ==================== العرض 2: مقارنة التحول المؤسسي: الوضع الحالي مقابل الوضع المستقبلي ==================== -->
+        <div id="view-comparison-section" class="space-y-8 hidden">
+
+            <!-- عنوان القسم الاستراتيجي والترويسة -->
+            <div class="relative bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm border-t-4 border-t-emerald-600 space-y-4 naama-card">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-4">
+                    <div class="space-y-1.5">
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <span class="px-3 py-1 rounded-full text-xs font-black bg-emerald-50 text-emerald-800 border border-emerald-200 flex items-center gap-1.5">
+                                <i data-lucide="git-compare" class="w-3.5 h-3.5 text-naamaGold-600"></i> وثيقة التحول الاستراتيجي
+                            </span>
+                            <span class="px-3 py-1 rounded-full text-xs font-black bg-slate-100 text-slate-700 border border-slate-200 flex items-center gap-1.5">
+                                <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-700"></i> معايير التميز التشغيلي 2026
+                            </span>
+                            <span class="px-3 py-1 rounded-full text-xs font-black bg-amber-50 text-amber-900 border border-amber-200 flex items-center gap-1.5">
+                                <i data-lucide="award" class="w-3.5 h-3.5 text-naamaGold-600"></i> معتمد من وكالة الزراعة
+                            </span>
+                        </div>
+                        <h3 class="text-xl sm:text-2xl font-black text-slate-900 leading-snug">
+                            مقارنة التحول المؤسسي: الوضع الحالي مقابل الوضع المستقبلي
+                        </h3>
+                        <p class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed max-w-4xl">
+                            تحليل مقارن يوضح الانتقال النوعي من التحديات والممارسات التقليدية المعزولة إلى المنظومة الرقمية الوطنية الموحدة لربط وإدارة وتشغيل أسواق النفع العام في كافة مناطق المملكة، دعماً للأمن الغذائي واستدامة القطاع الزراعي.
+                        </p>
+                    </div>
+
+                    <div class="flex items-center gap-2 self-start md:self-auto shrink-0">
+                        <button onclick="window.print()" class="px-3.5 py-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 rounded-xl text-xs font-black transition flex items-center gap-1.5 shadow-2xs">
+                            <i data-lucide="printer" class="w-3.5 h-3.5 text-emerald-700"></i>
+                            <span>طباعة وثيقة المقارنة</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- شريط مؤشرات الدلتا الكبرى (4 بطاقات أداء مقارنة رأسية) -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-2">
+                    
+                    <!-- KPI 1: الفاقد والهدر الغذائي -->
+                    <div class="p-4 rounded-2xl bg-gradient-to-b from-white to-slate-50 border border-slate-200 hover:border-emerald-500 transition space-y-2 shadow-2xs">
+                        <div class="flex items-center justify-between text-xs font-bold text-slate-500">
+                            <span>الهدر والفاقد الزراعي</span>
+                            <i data-lucide="leaf" class="w-4 h-4 text-emerald-600"></i>
+                        </div>
+                        <div class="flex items-baseline gap-2">
+                            <span class="text-2xl font-black text-emerald-700">&lt; 4.2%</span>
+                            <span class="text-xs text-rose-600 line-through font-bold">30% سابقاً</span>
+                        </div>
+                        <div class="text-[11px] font-black text-emerald-800 bg-emerald-100/80 px-2 py-0.5 rounded-md inline-block">
+                            ⬇ خفض الهدر بنسبة 86%
+                        </div>
+                        <p class="text-[10.5px] text-slate-500 leading-tight font-medium">بفضل نوافذ التبريد الإلزامية وتتبع الشاحنات بحساسات IoT اللحظية.</p>
+                    </div>
+
+                    <!-- KPI 2: سرعة الصرف المالي -->
+                    <div class="p-4 rounded-2xl bg-gradient-to-b from-white to-slate-50 border border-slate-200 hover:border-emerald-500 transition space-y-2 shadow-2xs">
+                        <div class="flex items-center justify-between text-xs font-bold text-slate-500">
+                            <span>تسوية مستحقات المزارع</span>
+                            <i data-lucide="zap" class="w-4 h-4 text-amber-600"></i>
+                        </div>
+                        <div class="flex items-baseline gap-2">
+                            <span class="text-2xl font-black text-emerald-700">فوري بنكي</span>
+                            <span class="text-xs text-rose-600 line-through font-bold">30-45 يوماً</span>
+                        </div>
+                        <div class="text-[11px] font-black text-emerald-800 bg-emerald-100/80 px-2 py-0.5 rounded-md inline-block">
+                            ⚡ تسوية لحظية عبر Escrow
+                        </div>
+                        <p class="text-[10.5px] text-slate-500 leading-tight font-medium">حجز المبالغ بحساب الضمان المالي والصرف الفوري المباشر عند الاستلام.</p>
+                    </div>
+
+                    <!-- KPI 3: نطاق السوق والوصول -->
+                    <div class="p-4 rounded-2xl bg-gradient-to-b from-white to-slate-50 border border-slate-200 hover:border-emerald-500 transition space-y-2 shadow-2xs">
+                        <div class="flex items-center justify-between text-xs font-bold text-slate-500">
+                            <span>نطاق الوصول للمشترين</span>
+                            <i data-lucide="globe" class="w-4 h-4 text-blue-600"></i>
+                        </div>
+                        <div class="flex items-baseline gap-2">
+                            <span class="text-2xl font-black text-emerald-700">سوق وطني موحد</span>
+                            <span class="text-xs text-rose-600 line-through font-bold">محلي محصور</span>
+                        </div>
+                        <div class="text-[11px] font-black text-blue-800 bg-blue-100/80 px-2 py-0.5 rounded-md inline-block">
+                            📈 توسع الطلب +300%
+                        </div>
+                        <p class="text-[10.5px] text-slate-500 leading-tight font-medium">ربط أسواق الجملة المركزية وإتاحة المزايدة والشراء عن بُعد لكافة مناطق المملكة.</p>
+                    </div>
+
+                    <!-- KPI 4: سرعة فض النزاعات -->
+                    <div class="p-4 rounded-2xl bg-gradient-to-b from-white to-slate-50 border border-slate-200 hover:border-emerald-500 transition space-y-2 shadow-2xs">
+                        <div class="flex items-center justify-between text-xs font-bold text-slate-500">
+                            <span>زمن البت في النزاعات</span>
+                            <i data-lucide="clock" class="w-4 h-4 text-purple-600"></i>
+                        </div>
+                        <div class="flex items-baseline gap-2">
+                            <span class="text-2xl font-black text-emerald-700">&lt; ساعتين</span>
+                            <span class="text-xs text-rose-600 line-through font-bold">أسابيع / تلف</span>
+                        </div>
+                        <div class="text-[11px] font-black text-purple-800 bg-purple-100/80 px-2 py-0.5 rounded-md inline-block">
+                            ⚖️ حسم قبل تلف المحصول
+                        </div>
+                        <p class="text-[10.5px] text-slate-500 leading-tight font-medium">لجنة تحكيم سريعة تستند لبيانات الفحص المخبري وسجلات التبريد الرقمية.</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- كروت المقارنة البصرية التفصيلية للمحاور الستة -->
+            <div class="space-y-6">
+                <div class="text-center max-w-2xl mx-auto space-y-1">
+                    <h4 class="text-lg sm:text-xl font-black text-slate-900">المحاور الستة للتحول الهيكلي في أسواق النفع العام</h4>
+                    <p class="text-xs text-slate-500">مقارنة ثنائية مفصلة بين التحديات القائمة سابقاً وحلول المنظومة الوطنية الموحدة</p>
+                </div>
+
+                <div class="grid grid-cols-1 gap-6">
+
+                    <!-- محور 1: نموذج السوق وقنوات التداول -->
+                    <div class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm naama-card">
+                        <div class="px-6 py-4 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <span class="w-8 h-8 rounded-xl bg-mewa-700 text-white font-black text-sm flex items-center justify-center">1</span>
+                                <div>
+                                    <h5 class="text-sm sm:text-base font-black text-slate-900">المحور الأول: نموذج السوق وقنوات التداول والتوريد</h5>
+                                    <p class="text-[11px] text-slate-500">طريقة التقاء العرض والطلب وتنفيذ صفقات الجملة الزراعية</p>
+                                </div>
+                            </div>
+                            <span class="text-[10px] font-bold text-slate-600 bg-white border border-slate-200 px-2.5 py-1 rounded-full">نموذج التداول</span>
+                        </div>
+
+                        <div class="p-6 grid grid-cols-1 lg:grid-cols-11 gap-4 items-center">
+                            
+                            <!-- الوضع الحالي -->
+                            <div class="lg:col-span-5 p-5 rounded-2xl bg-rose-50/60 border border-rose-200 space-y-3">
+                                <div class="flex items-center justify-between text-rose-800 border-b border-rose-200/80 pb-2">
+                                    <span class="font-black text-xs sm:text-sm flex items-center gap-1.5">
+                                        <i data-lucide="x-circle" class="w-4 h-4 text-rose-600"></i> الوضع الحالي (التحديات القائمة)
+                                    </span>
+                                    <span class="text-[10px] font-bold bg-rose-100 text-rose-800 px-2 py-0.5 rounded-full">معزول وتقليدي</span>
+                                </div>
+                                <ul class="text-xs text-slate-700 space-y-2 leading-relaxed">
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="alert-circle" class="w-3.5 h-3.5 text-rose-500 mt-0.5 shrink-0"></i>
+                                        <span><strong>أسواق جغرافية معزولة:</strong> تتطلب حضوراً مادياً إلزامياً للمزارع والمشتري داخل ساحة الحراج.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="alert-circle" class="w-3.5 h-3.5 text-rose-500 mt-0.5 shrink-0"></i>
+                                        <span><strong>حراج شفهي عشوائي:</strong> تكتلات وسطاء غير نظاميين تضغط على الأسعار وتهمش المزارع الصغير.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="alert-circle" class="w-3.5 h-3.5 text-rose-500 mt-0.5 shrink-0"></i>
+                                        <span><strong>غياب السجلات:</strong> تداول نقدي غير موثق بالكامل وافتقار لأي سجل رقمي مركزي لحجم التداول.</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- سهم التحول بالمنتصف -->
+                            <div class="lg:col-span-1 flex flex-col items-center justify-center text-center py-2 lg:py-0">
+                                <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300 flex items-center justify-center font-black shadow-xs">
+                                    <i data-lucide="arrow-left" class="w-5 h-5 hidden lg:block"></i>
+                                    <i data-lucide="arrow-down" class="w-5 h-5 lg:hidden"></i>
+                                </div>
+                                <span class="text-[10px] font-black text-emerald-800 mt-1">التحول</span>
+                            </div>
+
+                            <!-- الوضع المستقبلي -->
+                            <div class="lg:col-span-5 p-5 rounded-2xl bg-emerald-50/70 border border-emerald-200 space-y-3">
+                                <div class="flex items-center justify-between text-emerald-900 border-b border-emerald-200/80 pb-2">
+                                    <span class="font-black text-xs sm:text-sm flex items-center gap-1.5">
+                                        <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600"></i> الوضع المستقبلي (المنظومة الوطنية الموحدة)
+                                    </span>
+                                    <span class="text-[10px] font-black bg-emerald-200/70 text-emerald-900 px-2 py-0.5 rounded-full">وطني موحد ومؤتمت</span>
+                                </div>
+                                <ul class="text-xs text-slate-800 space-y-2 leading-relaxed">
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 mt-0.5 shrink-0"></i>
+                                        <span><strong>منظومة وطنية متكاملة:</strong> ربط أسواق النفع العام المركزية بمزاد رقمي موحد يتيح الشراء والتداول عن بُعد.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 mt-0.5 shrink-0"></i>
+                                        <span><strong>وصول مباشر وتكافؤ فرص:</strong> تمكين المزارع الصغير من الوصول لكبار المشترين وشركات الإعاشة والتجزئة.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 mt-0.5 shrink-0"></i>
+                                        <span><strong>حوكمة وشفافية كاملة:</strong> كسر الاحتكار، القضاء على التستر التجاري، وتوثيق كافة الصفقات لحظياً.</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+
+                        <div class="px-6 py-2.5 bg-slate-50/80 border-t border-slate-100 flex items-center gap-2 text-xs font-bold text-slate-700">
+                            <i data-lucide="sparkles" class="w-4 h-4 text-naamaGold-600 shrink-0"></i>
+                            <span>الأثر الاستراتيجي: توسيع قاعدة المشترين (+300%)، القضاء على الاحتكار، وحماية عوائد صغار المنتجين.</span>
+                        </div>
+                    </div>
+
+                    <!-- محور 2: معايير الجودة والفحص المخبري والتصنيف -->
+                    <div class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm naama-card">
+                        <div class="px-6 py-4 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <span class="w-8 h-8 rounded-xl bg-mewa-700 text-white font-black text-sm flex items-center justify-center">2</span>
+                                <div>
+                                    <h5 class="text-sm sm:text-base font-black text-slate-900">المحور الثاني: معايير الجودة والفحص المخبري وتصنيف الرتب</h5>
+                                    <p class="text-[11px] text-slate-500">آليات فحص المنتجات الزراعية وتوثيق درجات الجودة والسعر العادل</p>
+                                </div>
+                            </div>
+                            <span class="text-[10px] font-bold text-slate-600 bg-white border border-slate-200 px-2.5 py-1 rounded-full">حوكمة الجودة</span>
+                        </div>
+
+                        <div class="p-6 grid grid-cols-1 lg:grid-cols-11 gap-4 items-center">
+                            
+                            <!-- الوضع الحالي -->
+                            <div class="lg:col-span-5 p-5 rounded-2xl bg-rose-50/60 border border-rose-200 space-y-3">
+                                <div class="flex items-center justify-between text-rose-800 border-b border-rose-200/80 pb-2">
+                                    <span class="font-black text-xs sm:text-sm flex items-center gap-1.5">
+                                        <i data-lucide="x-circle" class="w-4 h-4 text-rose-600"></i> الوضع الحالي (التحديات القائمة)
+                                    </span>
+                                    <span class="text-[10px] font-bold bg-rose-100 text-rose-800 px-2 py-0.5 rounded-full">معاينة عشوائية</span>
+                                </div>
+                                <ul class="text-xs text-slate-700 space-y-2 leading-relaxed">
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="alert-circle" class="w-3.5 h-3.5 text-rose-500 mt-0.5 shrink-0"></i>
+                                        <span><strong>غياب معايير الفحص الموحدة:</strong> اختلاف تقدير الجودة من سوق لآخر دون مواصفات قياسية ملزمة.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="alert-circle" class="w-3.5 h-3.5 text-rose-500 mt-0.5 shrink-0"></i>
+                                        <span><strong>الاعتماد على الفراسة بالعين:</strong> معاينة ظاهرية بالعين واللمس تفتح المجال للغش وخلط الرتب الرديئة بالممتازة.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="alert-circle" class="w-3.5 h-3.5 text-rose-500 mt-0.5 shrink-0"></i>
+                                        <span><strong>إحباط المزارع الملتزم:</strong> عدم مكافأة المزارع الحاصل على شهادات زراعية بسبب البيع بسعر موحد وعشوائي.</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- سهم التحول بالمنتصف -->
+                            <div class="lg:col-span-1 flex flex-col items-center justify-center text-center py-2 lg:py-0">
+                                <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300 flex items-center justify-center font-black shadow-xs">
+                                    <i data-lucide="arrow-left" class="w-5 h-5 hidden lg:block"></i>
+                                    <i data-lucide="arrow-down" class="w-5 h-5 lg:hidden"></i>
+                                </div>
+                                <span class="text-[10px] font-black text-emerald-800 mt-1">التحول</span>
+                            </div>
+
+                            <!-- الوضع المستقبلي -->
+                            <div class="lg:col-span-5 p-5 rounded-2xl bg-emerald-50/70 border border-emerald-200 space-y-3">
+                                <div class="flex items-center justify-between text-emerald-900 border-b border-emerald-200/80 pb-2">
+                                    <span class="font-black text-xs sm:text-sm flex items-center gap-1.5">
+                                        <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600"></i> الوضع المستقبلي (المنظومة الوطنية الموحدة)
+                                    </span>
+                                    <span class="text-[10px] font-black bg-emerald-200/70 text-emerald-900 px-2 py-0.5 rounded-full">مختبر معتمد ورتب رسمية</span>
+                                </div>
+                                <ul class="text-xs text-slate-800 space-y-2 leading-relaxed">
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 mt-0.5 shrink-0"></i>
+                                        <span><strong>فحص مخبري فوري معتمد:</strong> قياس آلي لنسب الرطوبة، النقاوة، العيوب، وحلاوة البركس عند بوابة السوق.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 mt-0.5 shrink-0"></i>
+                                        <span><strong>تصنيف رسمي معتمد:</strong> تحديد رتبة المحصول (الدرجة الممتازة فاخر، الدرجة الأولى، الدرجة الثانية) وإصدار شهادة فحص وجودة رقمية فورية.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 mt-0.5 shrink-0"></i>
+                                        <span><strong>تكامل مع سعودي جاب (Saudi GAP):</strong> مسار أولوية سريع وعلاوة سعرية للمزارع الحاصل على شهادة الممارسات الزراعية الجيدة.</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+
+                        <div class="px-6 py-2.5 bg-slate-50/80 border-t border-slate-100 flex items-center gap-2 text-xs font-bold text-slate-700">
+                            <i data-lucide="sparkles" class="w-4 h-4 text-naamaGold-600 shrink-0"></i>
+                            <span>الأثر الاستراتيجي: تسعير عادل مبني على بيانات مخبرية موثقة، ومنح علاوة سعرية (+21.8%) للمحاصيل الوطنية المتميزة.</span>
+                        </div>
+                    </div>
+
+                    <!-- محور 3: اكتشاف الأسعار والشفافية والتنافسية -->
+                    <div class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm naama-card">
+                        <div class="px-6 py-4 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <span class="w-8 h-8 rounded-xl bg-mewa-700 text-white font-black text-sm flex items-center justify-center">3</span>
+                                <div>
+                                    <h5 class="text-sm sm:text-base font-black text-slate-900">المحور الثالث: اكتشاف الأسعار والشفافية والتنافسية</h5>
+                                    <p class="text-[11px] text-slate-500">عدالة تحديد السعر المرجعي ومنع التلاعب والمضاربات العشوائية</p>
+                                </div>
+                            </div>
+                            <span class="text-[10px] font-bold text-slate-600 bg-white border border-slate-200 px-2.5 py-1 rounded-full">عدالة التسعير</span>
+                        </div>
+
+                        <div class="p-6 grid grid-cols-1 lg:grid-cols-11 gap-4 items-center">
+                            
+                            <!-- الوضع الحالي -->
+                            <div class="lg:col-span-5 p-5 rounded-2xl bg-rose-50/60 border border-rose-200 space-y-3">
+                                <div class="flex items-center justify-between text-rose-800 border-b border-rose-200/80 pb-2">
+                                    <span class="font-black text-xs sm:text-sm flex items-center gap-1.5">
+                                        <i data-lucide="x-circle" class="w-4 h-4 text-rose-600"></i> الوضع الحالي (التحديات القائمة)
+                                    </span>
+                                    <span class="text-[10px] font-bold bg-rose-100 text-rose-800 px-2 py-0.5 rounded-full">تفاوت ومضاربات</span>
+                                </div>
+                                <ul class="text-xs text-slate-700 space-y-2 leading-relaxed">
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="alert-circle" class="w-3.5 h-3.5 text-rose-500 mt-0.5 shrink-0"></i>
+                                        <span><strong>تفاوت حاد في الأسعار:</strong> فروقات غير مبررة في أسعار نفس الصنف بين أسواق المدن المتقاربة.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="alert-circle" class="w-3.5 h-3.5 text-rose-500 mt-0.5 shrink-0"></i>
+                                        <span><strong>غياب المرجعية السعرية:</strong> لا توجد مؤشرات استرشادية واضحة تحمي المزارع من البيع بأقل من تكلفة الإنتاج.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="alert-circle" class="w-3.5 h-3.5 text-rose-500 mt-0.5 shrink-0"></i>
+                                        <span><strong>تحكم قلة من التجار:</strong> استغلال ضعف المعلومات لدى المزارع وفرض أسعار إجبارية وقت ذروة الإنتاج.</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- سهم التحول بالمنتصف -->
+                            <div class="lg:col-span-1 flex flex-col items-center justify-center text-center py-2 lg:py-0">
+                                <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300 flex items-center justify-center font-black shadow-xs">
+                                    <i data-lucide="arrow-left" class="w-5 h-5 hidden lg:block"></i>
+                                    <i data-lucide="arrow-down" class="w-5 h-5 lg:hidden"></i>
+                                </div>
+                                <span class="text-[10px] font-black text-emerald-800 mt-1">التحول</span>
+                            </div>
+
+                            <!-- الوضع المستقبلي -->
+                            <div class="lg:col-span-5 p-5 rounded-2xl bg-emerald-50/70 border border-emerald-200 space-y-3">
+                                <div class="flex items-center justify-between text-emerald-900 border-b border-emerald-200/80 pb-2">
+                                    <span class="font-black text-xs sm:text-sm flex items-center gap-1.5">
+                                        <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600"></i> الوضع المستقبلي (المنظومة الوطنية الموحدة)
+                                    </span>
+                                    <span class="text-[10px] font-black bg-emerald-200/70 text-emerald-900 px-2 py-0.5 rounded-full">نشرة يومية ومزاد علني</span>
+                                </div>
+                                <ul class="text-xs text-slate-800 space-y-2 leading-relaxed">
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 mt-0.5 shrink-0"></i>
+                                        <span><strong>نشرة أسعار مرجعية يومية:</strong> تصدرها الوزارة لكل محصول ورتبة مخبرية وفق العرض والطلب الواقعي.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 mt-0.5 shrink-0"></i>
+                                        <span><strong>مزاد إلكتروني شفاف:</strong> عروض أسعار موثقة لحظياً ومتاحة للجميع مع خاصية الترسية المباشرة للمزارع.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 mt-0.5 shrink-0"></i>
+                                        <span><strong>لوحات ذكاء أعمال (BI):</strong> مراقبة مستمرة للأسعار والتنبؤ باتجاهات السوق لمنع أي تلاعب أو احتكار.</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+
+                        <div class="px-6 py-2.5 bg-slate-50/80 border-t border-slate-100 flex items-center gap-2 text-xs font-bold text-slate-700">
+                            <i data-lucide="sparkles" class="w-4 h-4 text-naamaGold-600 shrink-0"></i>
+                            <span>الأثر الاستراتيجي: شفافية تامة، استقرار الأسعار للمستهلك، وضمان هامش ربح عادل ومستدام للمنتج المحلي.</span>
+                        </div>
+                    </div>
+
+                    <!-- محور 4: المدفوعات والتسوية المالية وضمان الحقوق -->
+                    <div class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm naama-card">
+                        <div class="px-6 py-4 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <span class="w-8 h-8 rounded-xl bg-mewa-700 text-white font-black text-sm flex items-center justify-center">4</span>
+                                <div>
+                                    <h5 class="text-sm sm:text-base font-black text-slate-900">المحور الرابع: المدفوعات والتسوية المالية وحساب الضمان البنكي</h5>
+                                    <p class="text-[11px] text-slate-500">حماية التدفقات المالية وضمان حقوق أطراف الصفقة دون تعثر</p>
+                                </div>
+                            </div>
+                            <span class="text-[10px] font-bold text-slate-600 bg-white border border-slate-200 px-2.5 py-1 rounded-full">الأمان المالي</span>
+                        </div>
+
+                        <div class="p-6 grid grid-cols-1 lg:grid-cols-11 gap-4 items-center">
+                            
+                            <!-- الوضع الحالي -->
+                            <div class="lg:col-span-5 p-5 rounded-2xl bg-rose-50/60 border border-rose-200 space-y-3">
+                                <div class="flex items-center justify-between text-rose-800 border-b border-rose-200/80 pb-2">
+                                    <span class="font-black text-xs sm:text-sm flex items-center gap-1.5">
+                                        <i data-lucide="x-circle" class="w-4 h-4 text-rose-600"></i> الوضع الحالي (التحديات القائمة)
+                                    </span>
+                                    <span class="text-[10px] font-bold bg-rose-100 text-rose-800 px-2 py-0.5 rounded-full">تعاملات نقدية وآجلة</span>
+                                </div>
+                                <ul class="text-xs text-slate-700 space-y-2 leading-relaxed">
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="alert-circle" class="w-3.5 h-3.5 text-rose-500 mt-0.5 shrink-0"></i>
+                                        <span><strong>تداول نقدي ورقي غير موثق:</strong> صعوبة إثبات المدفوعات ومخاطر فقدان الأموال والسرقة والتستر.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="alert-circle" class="w-3.5 h-3.5 text-rose-500 mt-0.5 shrink-0"></i>
+                                        <span><strong>مخاطر الشيكات المؤجلة:</strong> تعثر سداد التجار وتأخر تحصيل حقوق المزارعين لمدد تتراوح بين 30 و60 يوماً.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="alert-circle" class="w-3.5 h-3.5 text-rose-500 mt-0.5 shrink-0"></i>
+                                        <span><strong>أزمات سيولة متكررة:</strong> عجز المزارع عن شراء مستلزمات الإنتاج للدورة التالية نتيجة تأخر الدفع.</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- سهم التحول بالمنتصف -->
+                            <div class="lg:col-span-1 flex flex-col items-center justify-center text-center py-2 lg:py-0">
+                                <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300 flex items-center justify-center font-black shadow-xs">
+                                    <i data-lucide="arrow-left" class="w-5 h-5 hidden lg:block"></i>
+                                    <i data-lucide="arrow-down" class="w-5 h-5 lg:hidden"></i>
+                                </div>
+                                <span class="text-[10px] font-black text-emerald-800 mt-1">التحول</span>
+                            </div>
+
+                            <!-- الوضع المستقبلي -->
+                            <div class="lg:col-span-5 p-5 rounded-2xl bg-emerald-50/70 border border-emerald-200 space-y-3">
+                                <div class="flex items-center justify-between text-emerald-900 border-b border-emerald-200/80 pb-2">
+                                    <span class="font-black text-xs sm:text-sm flex items-center gap-1.5">
+                                        <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600"></i> الوضع المستقبلي (المنظومة الوطنية الموحدة)
+                                    </span>
+                                    <span class="text-[10px] font-black bg-emerald-200/70 text-emerald-900 px-2 py-0.5 rounded-full">حساب ضمان Escrow فوري</span>
+                                </div>
+                                <ul class="text-xs text-slate-800 space-y-2 leading-relaxed">
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 mt-0.5 shrink-0"></i>
+                                        <span><strong>حساب الضمان المالي الرقمي (Escrow):</strong> حجز قيمة الصفقة بنكياً قبل إتمام الترسية للتحقق من الملاءة المالية.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 mt-0.5 shrink-0"></i>
+                                        <span><strong>صرف بنكي فوري ومباشر:</strong> إيداع المستحقات في حساب المزارع فور مطابقة الاستلام بمسح الباركود.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 mt-0.5 shrink-0"></i>
+                                        <span><strong>صفر مخاطر تعثر مالي:</strong> حماية كاملة للمشتري من الغش، وللمزارع من تأخير أو ضياع أمواله.</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+
+                        <div class="px-6 py-2.5 bg-slate-50/80 border-t border-slate-100 flex items-center gap-2 text-xs font-bold text-slate-700">
+                            <i data-lucide="sparkles" class="w-4 h-4 text-naamaGold-600 shrink-0"></i>
+                            <span>الأثر الاستراتيجي: توفير سيولة نقدية فورية للمزارعين بنسبة 100%، والقضاء التام على الشيكات المرتجعة والديون المتعثرة.</span>
+                        </div>
+                    </div>
+
+                    <!-- محور 5: سلاسل الإمداد والتبريد والفاقد الزراعي -->
+                    <div class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm naama-card">
+                        <div class="px-6 py-4 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <span class="w-8 h-8 rounded-xl bg-mewa-700 text-white font-black text-sm flex items-center justify-center">5</span>
+                                <div>
+                                    <h5 class="text-sm sm:text-base font-black text-slate-900">المحور الخامس: سلاسل الإمداد والتبريد والفاقد والهدر الزراعي</h5>
+                                    <p class="text-[11px] text-slate-500">حماية جودة وطزاجة المحصول أثناء النقل والتحميل والتفريغ</p>
+                                </div>
+                            </div>
+                            <span class="text-[10px] font-bold text-slate-600 bg-white border border-slate-200 px-2.5 py-1 rounded-full">سلاسل الإمداد الخضراء</span>
+                        </div>
+
+                        <div class="p-6 grid grid-cols-1 lg:grid-cols-11 gap-4 items-center">
+                            
+                            <!-- الوضع الحالي -->
+                            <div class="lg:col-span-5 p-5 rounded-2xl bg-rose-50/60 border border-rose-200 space-y-3">
+                                <div class="flex items-center justify-between text-rose-800 border-b border-rose-200/80 pb-2">
+                                    <span class="font-black text-xs sm:text-sm flex items-center gap-1.5">
+                                        <i data-lucide="x-circle" class="w-4 h-4 text-rose-600"></i> الوضع الحالي (التحديات القائمة)
+                                    </span>
+                                    <span class="text-[10px] font-bold bg-rose-100 text-rose-800 px-2 py-0.5 rounded-full">هدر وتلف 30%</span>
+                                </div>
+                                <ul class="text-xs text-slate-700 space-y-2 leading-relaxed">
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="alert-circle" class="w-3.5 h-3.5 text-rose-500 mt-0.5 shrink-0"></i>
+                                        <span><strong>نقل بشاحنات غير مبردة:</strong> تعرض المنتجات الزراعية الحساسة لدرجات حرارة الصيف الشديدة أثناء النقل.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="alert-circle" class="w-3.5 h-3.5 text-rose-500 mt-0.5 shrink-0"></i>
+                                        <span><strong>تكدس البوابات وسوء التخزين:</strong> بقاء الشاحنات لساعات طويلة في ساحات الانتظار المكشوفة قبل التفريغ.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="alert-circle" class="w-3.5 h-3.5 text-rose-500 mt-0.5 shrink-0"></i>
+                                        <span><strong>خسائر فادحة بالهدر الغذائي:</strong> فقدان وتلف ما يصل إلى 30% من المحاصيل الوطنية قبل وصولها للمستهلك.</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- سهم التحول بالمنتصف -->
+                            <div class="lg:col-span-1 flex flex-col items-center justify-center text-center py-2 lg:py-0">
+                                <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300 flex items-center justify-center font-black shadow-xs">
+                                    <i data-lucide="arrow-left" class="w-5 h-5 hidden lg:block"></i>
+                                    <i data-lucide="arrow-down" class="w-5 h-5 lg:hidden"></i>
+                                </div>
+                                <span class="text-[10px] font-black text-emerald-800 mt-1">التحول</span>
+                            </div>
+
+                            <!-- الوضع المستقبلي -->
+                            <div class="lg:col-span-5 p-5 rounded-2xl bg-emerald-50/70 border border-emerald-200 space-y-3">
+                                <div class="flex items-center justify-between text-emerald-900 border-b border-emerald-200/80 pb-2">
+                                    <span class="font-black text-xs sm:text-sm flex items-center gap-1.5">
+                                        <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600"></i> الوضع المستقبلي (المنظومة الوطنية الموحدة)
+                                    </span>
+                                    <span class="text-[10px] font-black bg-emerald-200/70 text-emerald-900 px-2 py-0.5 rounded-full">سلاسل تبريد ذكية IoT</span>
+                                </div>
+                                <ul class="text-xs text-slate-800 space-y-2 leading-relaxed">
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 mt-0.5 shrink-0"></i>
+                                        <span><strong>شاحنات تبريد بحساسات IoT:</strong> مراقبة مستمرة لحظية لدرجات الحرارة والرطوبة ومسار الشاحنة عبر الأقمار الصناعية.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 mt-0.5 shrink-0"></i>
+                                        <span><strong>نافذة تفريغ ملزمة (4-6 ساعات):</strong> تصاريح دخول ذكية مسبقة لمنع التكدس وتفريغ الشحنات في بيئات مكيفة فوراً.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 mt-0.5 shrink-0"></i>
+                                        <span><strong>خفض الهدر لأقل من 4.2%:</strong> الحفاظ على القيمة الغذائية وطزاجة المنتج الوطني حتى يد المستهلك.</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+
+                        <div class="px-6 py-2.5 bg-slate-50/80 border-t border-slate-100 flex items-center gap-2 text-xs font-bold text-slate-700">
+                            <i data-lucide="sparkles" class="w-4 h-4 text-naamaGold-600 shrink-0"></i>
+                            <span>الأثر الاستراتيجي: خفض الهدر الغذائي بنسبة 86%، دعم مستهدفات الأمن الغذائي الوطني، وتوفير مليارات الريالات سنوياً.</span>
+                        </div>
+                    </div>
+
+                    <!-- محور 6: فض النزاعات والحوكمة وسرعة التحكيم -->
+                    <div class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm naama-card">
+                        <div class="px-6 py-4 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <span class="w-8 h-8 rounded-xl bg-mewa-700 text-white font-black text-sm flex items-center justify-center">6</span>
+                                <div>
+                                    <h5 class="text-sm sm:text-base font-black text-slate-900">المحور السادس: فض النزاعات التجارية والحوكمة وسرعة التحكيم</h5>
+                                    <p class="text-[11px] text-slate-500">حسم الاعتراضات والمطالبات التجارية الفورية لحماية المحاصيل من التلف</p>
+                                </div>
+                            </div>
+                            <span class="text-[10px] font-bold text-slate-600 bg-white border border-slate-200 px-2.5 py-1 rounded-full">التحكيم السريع</span>
+                        </div>
+
+                        <div class="p-6 grid grid-cols-1 lg:grid-cols-11 gap-4 items-center">
+                            
+                            <!-- الوضع الحالي -->
+                            <div class="lg:col-span-5 p-5 rounded-2xl bg-rose-50/60 border border-rose-200 space-y-3">
+                                <div class="flex items-center justify-between text-rose-800 border-b border-rose-200/80 pb-2">
+                                    <span class="font-black text-xs sm:text-sm flex items-center gap-1.5">
+                                        <i data-lucide="x-circle" class="w-4 h-4 text-rose-600"></i> الوضع الحالي (التحديات القائمة)
+                                    </span>
+                                    <span class="text-[10px] font-bold bg-rose-100 text-rose-800 px-2 py-0.5 rounded-full">نزاعات معقدة وتلف</span>
+                                </div>
+                                <ul class="text-xs text-slate-700 space-y-2 leading-relaxed">
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="alert-circle" class="w-3.5 h-3.5 text-rose-500 mt-0.5 shrink-0"></i>
+                                        <span><strong>خلافات شفهية غير موثقة:</strong> غياب أي سجل فني رقمي لحالة المحصول وقت تسليمه واستلامه.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="alert-circle" class="w-3.5 h-3.5 text-rose-500 mt-0.5 shrink-0"></i>
+                                        <span><strong>احتجاز الشحنة تحت الشمس:</strong> بقاء الشاحنة معطلة لأيام في ساحة السوق حتى تتلف البضاعة بالكامل.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="alert-circle" class="w-3.5 h-3.5 text-rose-500 mt-0.5 shrink-0"></i>
+                                        <span><strong>خسارة كاملة للطرفين:</strong> ضياع حقوق المزارع أو المشتري وتكبد تكاليف تقاضي ومطالبات طويلة الأمد.</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- سهم التحول بالمنتصف -->
+                            <div class="lg:col-span-1 flex flex-col items-center justify-center text-center py-2 lg:py-0">
+                                <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300 flex items-center justify-center font-black shadow-xs">
+                                    <i data-lucide="arrow-left" class="w-5 h-5 hidden lg:block"></i>
+                                    <i data-lucide="arrow-down" class="w-5 h-5 lg:hidden"></i>
+                                </div>
+                                <span class="text-[10px] font-black text-emerald-800 mt-1">التحول</span>
+                            </div>
+
+                            <!-- الوضع المستقبلي -->
+                            <div class="lg:col-span-5 p-5 rounded-2xl bg-emerald-50/70 border border-emerald-200 space-y-3">
+                                <div class="flex items-center justify-between text-emerald-900 border-b border-emerald-200/80 pb-2">
+                                    <span class="font-black text-xs sm:text-sm flex items-center gap-1.5">
+                                        <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600"></i> الوضع المستقبلي (المنظومة الوطنية الموحدة)
+                                    </span>
+                                    <span class="text-[10px] font-black bg-emerald-200/70 text-emerald-900 px-2 py-0.5 rounded-full">حسم رقمي &lt; ساعتين</span>
+                                </div>
+                                <ul class="text-xs text-slate-800 space-y-2 leading-relaxed">
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 mt-0.5 shrink-0"></i>
+                                        <span><strong>لجنة فض النزاعات السريعة:</strong> فريق تحكيم رسمي يبت في الاعتراض إلكترونياً خلال أقل من ساعتين.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 mt-0.5 shrink-0"></i>
+                                        <span><strong>قرارات مبنية على أدلة قطعية:</strong> مطابقة قراءات حساسات التبريد مع شهادة فحص المختبر المعتمدة.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600 mt-0.5 shrink-0"></i>
+                                        <span><strong>معالجة مالية فورية:</strong> توجيه فوري للمحصول (إعادة بيع/خصم) وإجراء التسوية عبر حساب الضمان مباشرة.</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+
+                        <div class="px-6 py-2.5 bg-slate-50/80 border-t border-slate-100 flex items-center gap-2 text-xs font-bold text-slate-700">
+                            <i data-lucide="sparkles" class="w-4 h-4 text-naamaGold-600 shrink-0"></i>
+                            <span>الأثر الاستراتيجي: حسم النزاعات قبل تلف المحصول بنسبة 98%، وتوفير بيئة استثمارية موثوقة وجاذبة للتجارة الزراعية.</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- جدول المقارنة المصفوفي المنهجي المعتمد (قابلة للطباعة الرسمية) -->
+            <div class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm naama-card space-y-4 p-6 sm:p-8">
+                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-slate-100 pb-4">
+                    <div>
+                        <h4 class="text-base sm:text-lg font-black text-slate-900">مصفوفة المقارنة المنهجية الشاملة للتحول</h4>
+                        <p class="text-xs text-slate-500 font-medium">ملخص مقارن للمستهدفات والأثر الاقتصادي وفق مستهدفات رؤية المملكة 2030</p>
+                    </div>
+                    <span class="text-[11px] font-black text-emerald-800 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+                        مؤشرات الأداء المقارنة (KPIs Delta)
+                    </span>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-right text-xs">
+                        <thead class="bg-slate-100 text-slate-700 font-black border-b border-slate-200">
+                            <tr>
+                                <th class="py-3 px-4 w-1/5">محور التحول</th>
+                                <th class="py-3 px-4 text-rose-800 bg-rose-50/70 w-2/5">الوضع الحالي (التحديات القائمة)</th>
+                                <th class="py-3 px-4 text-emerald-800 bg-emerald-50/70 w-2/5">الوضع المستقبلي (المنظومة الوطنية الموحدة)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 font-medium leading-relaxed">
+                            <tr class="hover:bg-slate-50/80">
+                                <td class="py-3 px-4 font-black text-slate-900">1. نموذج السوق والتداول</td>
+                                <td class="py-3 px-4 text-slate-600">أسواق جغرافية منفصلة، حضور مادي إلزامي، مزايدة شفهية عشوائية وتكتلات وسطاء.</td>
+                                <td class="py-3 px-4 font-bold text-emerald-900">ربط وطني لكافة أسواق الجملة، ومزاد إلكتروني موحد يتيح الشراء والتداول عن بُعد.</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/80">
+                                <td class="py-3 px-4 font-black text-slate-900">2. معايير الجودة والتصنيف</td>
+                                <td class="py-3 px-4 text-slate-600">غياب معايير فحص موحدة، صفقات قائمة على الفراسة بالعين واللمس، وخلط غير عادل للرتب.</td>
+                                <td class="py-3 px-4 font-bold text-emerald-900">مختبر فحص آلي سريع عند البوابة، شهادة جودة رقمية، وتصنيف معتمد للرتب وتوثيق سعودي جاب.</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/80">
+                                <td class="py-3 px-4 font-black text-slate-900">3. اكتشاف الأسعار والشفافية</td>
+                                <td class="py-3 px-4 text-slate-600">تفاوت حاد وغير مبرر في الأسعار بين المدن، مضاربات واحتكار وتحكم الوسطاء.</td>
+                                <td class="py-3 px-4 font-bold text-emerald-900">نشرة أسعار مرجعية يومية تصدرها الوزارة، مزايدة رقمية علنية، وسجل أسعار تاريخي مفتوح.</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/80">
+                                <td class="py-3 px-4 font-black text-slate-900">4. الدفع والتسوية المالية</td>
+                                <td class="py-3 px-4 text-slate-600">تداول نقدي ورقي غير موثق، شيكات آجلة، مخاطر تعثر مالي وتأخر استلام حقوق المزارع 30-45 يوماً.</td>
+                                <td class="py-3 px-4 font-bold text-emerald-900">حساب ضمان رقمي (Escrow) يحجز قيمة الصفقة بنكياً مسبقاً، وصرف بنكي فوري عند الاستلام.</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/80">
+                                <td class="py-3 px-4 font-black text-slate-900">5. سلاسل الإمداد والهدر</td>
+                                <td class="py-3 px-4 text-slate-600">نقل بشاحنات غير مبردة، وقوف لساعات في الشمس، ونسب تلف محصولي تتجاوز 30%.</td>
+                                <td class="py-3 px-4 font-bold text-emerald-900">شاحنات تبريد بحساسات IoT لحظية، نافذة تفريغ ملزمة (4-6 ساعات)، وخفض الهدر لأقل من 4.2%.</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/80">
+                                <td class="py-3 px-4 font-black text-slate-900">6. فض النزاعات التجارية</td>
+                                <td class="py-3 px-4 text-slate-600">نزاعات شفهية طويلة، احتجاز الشحنة في الشمس حتى تتلف بالكامل، وخسارة فادحة للطرفين.</td>
+                                <td class="py-3 px-4 font-bold text-emerald-900">لجنة فض نزاعات سريعة تبت إلكترونياً خلال أقل من ساعتين استناداً لبيانات الفحص والتبريد.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="pt-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3 text-xs">
+                    <span class="text-slate-500 font-bold">المصدر: دراسة التكييف الاستراتيجي لأسواق النفع العام — وزارة البيئة والمياه والزراعة</span>
+                    <div class="flex items-center gap-3">
+                        <button onclick="switchView('journey')" class="text-mewa-700 hover:underline font-bold flex items-center gap-1">
+                            <span>عرض رحلات المستفيدين</span>
+                            <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+                        </button>
+                        <span class="text-slate-300">|</span>
+                        <button onclick="switchView('strategic')" class="text-mewa-700 hover:underline font-bold flex items-center gap-1">
+                            <span>عرض الواجهة الذكية والقيمة</span>
+                            <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
         <!-- ==================== البنر الوطني الختامي الموحد ==================== -->
         <div class="bg-gradient-to-r from-mewa-950 via-mewa-900 to-mewa-800 text-white rounded-3xl p-6 sm:p-8 shadow-xl border-b-4 border-naamaGold-500 text-center space-y-4">
             <div class="max-w-3xl mx-auto space-y-2">
@@ -779,30 +1455,70 @@
 
         function switchView(view) {
             const journeySec = document.getElementById('view-journey-section');
+            const comparisonSec = document.getElementById('view-comparison-section');
             const strategicSec = document.getElementById('view-strategic-section');
+            const rolePillsContainer = document.getElementById('role-pills-container');
+            
             const btnJourney = document.getElementById('view-btn-journey');
+            const btnComparison = document.getElementById('view-btn-comparison');
             const btnStrategic = document.getElementById('view-btn-strategic');
+            const btnAll = document.getElementById('view-btn-all');
+
+            const allBtns = [btnJourney, btnComparison, btnStrategic, btnAll];
+            allBtns.forEach(btn => {
+                if (btn) {
+                    btn.classList.remove('bg-mewa-700', 'text-white', 'border-mewa-800', 'font-black');
+                    btn.classList.add('bg-slate-100', 'text-slate-700', 'border-transparent', 'font-bold');
+                }
+            });
 
             if (view === 'journey') {
-                journeySec.classList.remove('hidden');
-                strategicSec.classList.add('hidden');
-                btnJourney.classList.add('bg-mewa-700', 'text-white', 'border-mewa-800');
-                btnJourney.classList.remove('bg-slate-100', 'text-slate-700');
-                btnStrategic.classList.remove('bg-mewa-700', 'text-white', 'border-mewa-800');
-                btnStrategic.classList.add('bg-slate-100', 'text-slate-700');
-            } else {
-                journeySec.classList.add('hidden');
-                strategicSec.classList.remove('hidden');
-                btnStrategic.classList.add('bg-mewa-700', 'text-white', 'border-mewa-800');
-                btnStrategic.classList.remove('bg-slate-100', 'text-slate-700');
-                btnJourney.classList.remove('bg-mewa-700', 'text-white', 'border-mewa-800');
-                btnJourney.classList.add('bg-slate-100', 'text-slate-700');
+                if (journeySec) journeySec.classList.remove('hidden');
+                if (comparisonSec) comparisonSec.classList.add('hidden');
+                if (strategicSec) strategicSec.classList.add('hidden');
+                if (rolePillsContainer) rolePillsContainer.classList.remove('hidden');
+                if (btnJourney) {
+                    btnJourney.classList.add('bg-mewa-700', 'text-white', 'border-mewa-800', 'font-black');
+                    btnJourney.classList.remove('bg-slate-100', 'text-slate-700', 'border-transparent');
+                }
+            } else if (view === 'comparison') {
+                if (journeySec) journeySec.classList.add('hidden');
+                if (comparisonSec) comparisonSec.classList.remove('hidden');
+                if (strategicSec) strategicSec.classList.add('hidden');
+                if (rolePillsContainer) rolePillsContainer.classList.add('hidden');
+                if (btnComparison) {
+                    btnComparison.classList.add('bg-mewa-700', 'text-white', 'border-mewa-800', 'font-black');
+                    btnComparison.classList.remove('bg-slate-100', 'text-slate-700', 'border-transparent');
+                }
+            } else if (view === 'strategic') {
+                if (journeySec) journeySec.classList.add('hidden');
+                if (comparisonSec) comparisonSec.classList.add('hidden');
+                if (strategicSec) strategicSec.classList.remove('hidden');
+                if (rolePillsContainer) rolePillsContainer.classList.add('hidden');
+                if (btnStrategic) {
+                    btnStrategic.classList.add('bg-mewa-700', 'text-white', 'border-mewa-800', 'font-black');
+                    btnStrategic.classList.remove('bg-slate-100', 'text-slate-700', 'border-transparent');
+                }
+            } else if (view === 'all') {
+                if (journeySec) journeySec.classList.remove('hidden');
+                if (comparisonSec) comparisonSec.classList.remove('hidden');
+                if (strategicSec) strategicSec.classList.remove('hidden');
+                if (rolePillsContainer) rolePillsContainer.classList.remove('hidden');
+                if (btnAll) {
+                    btnAll.classList.add('bg-mewa-700', 'text-white', 'border-mewa-800', 'font-black');
+                    btnAll.classList.remove('bg-slate-100', 'text-slate-700', 'border-transparent');
+                }
             }
             initIcons();
         }
 
         document.addEventListener('DOMContentLoaded', () => {
             initIcons();
+            const urlParams = new URLSearchParams(window.location.search);
+            const viewParam = urlParams.get('view') || window.location.hash.replace('#', '');
+            if (['journey', 'comparison', 'strategic', 'all'].includes(viewParam)) {
+                switchView(viewParam);
+            }
         });
         initIcons();
     </script>
