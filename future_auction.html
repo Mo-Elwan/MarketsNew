@@ -150,6 +150,19 @@
             </div>
         </div>
 
+        <!-- أزرار التنقل الفرعية للمشتري (تظهر عند منظور المشتري) -->
+        <div id="buyer-sub-nav" class="hidden flex items-center gap-2 overflow-x-auto no-scrollbar text-xs font-bold no-print">
+            <div class="px-3.5 py-2 rounded-xl bg-emerald-50 text-emerald-900 border border-emerald-300 font-black flex items-center gap-1.5 shadow-xs">
+                <i data-lucide="gavel" class="w-4 h-4 text-emerald-700"></i>
+                <span>1. قاعة المزاد الوطني الموحد (النشطة)</span>
+                <span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
+            </div>
+            <a href="future_buyer_orders.html" class="px-3.5 py-2 rounded-xl bg-white text-slate-600 hover:text-mewa-700 border border-slate-200 transition flex items-center gap-1.5 shadow-xs">
+                <i data-lucide="receipt" class="w-4 h-4 text-amber-500"></i>
+                <span>2. مزايداتي وفواتيري وتتبع الطلبات</span>
+            </a>
+        </div>
+
         <!-- شريط محوّل منظور المستفيد (المزارع مقابل المشتري) -->
         <div class="bg-white p-3 rounded-2xl border border-slate-200 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-3 naama-card no-print">
             <div class="flex items-center gap-2.5 flex-wrap">
@@ -350,6 +363,7 @@
             const tabFarmerBtn = document.getElementById('tab-farmer-btn');
             const tabBuyerBtn = document.getElementById('tab-buyer-btn');
             const farmerSubNav = document.getElementById('farmer-sub-nav');
+            const buyerSubNav = document.getElementById('buyer-sub-nav');
             const hintText = document.getElementById('role-hint-text');
 
             if (role === 'farmer') {
@@ -359,6 +373,7 @@
                 if (tabFarmerBtn) tabFarmerBtn.className = 'shrink-0 px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black transition flex items-center justify-center gap-2 whitespace-nowrap bg-mewa-700 text-white shadow-sm border border-mewa-800';
                 if (tabBuyerBtn) tabBuyerBtn.className = 'shrink-0 px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black transition flex items-center justify-center gap-2 whitespace-nowrap text-slate-700 hover:text-mewa-800 hover:bg-slate-100/70 border border-transparent';
                 if (farmerSubNav) farmerSubNav.classList.remove('hidden');
+                if (buyerSubNav) buyerSubNav.classList.add('hidden');
 
                 if (hintText) hintText.innerText = 'منظور المزارع: لا يظهر زر تقديم مزايدة، بل تظهر قائمة المزايدين مرتبة بالأسعار لاختيار العرض الأنسب والترسية عليه.';
             } else {
@@ -368,6 +383,7 @@
                 if (tabBuyerBtn) tabBuyerBtn.className = 'shrink-0 px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black transition flex items-center justify-center gap-2 whitespace-nowrap bg-mewa-700 text-white shadow-sm border border-mewa-800';
                 if (tabFarmerBtn) tabFarmerBtn.className = 'shrink-0 px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-black transition flex items-center justify-center gap-2 whitespace-nowrap text-slate-700 hover:text-mewa-800 hover:bg-slate-100/70 border border-transparent';
                 if (farmerSubNav) farmerSubNav.classList.add('hidden');
+                if (buyerSubNav) buyerSubNav.classList.remove('hidden');
 
                 if (hintText) hintText.innerText = 'منظور المشتري والتاجر: يظهر زر تقديم مزايدة للمنافسة، ولا تظهر خيارات الترسية المخصصة للمزارع.';
             }

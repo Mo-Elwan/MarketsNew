@@ -443,6 +443,14 @@ def resolve_future_dispute(data: ResolveDisputeRequest):
     conn.close()
     return {"status": "success", "message": "تم اعتماد قرار لجنة فض النزاعات وتنفيذ التسوية المالية فوراً"}
 
+class DisputeBuyerOrderRequest(BaseModel):
+    reason: str
+    details: Optional[str] = ""
+    evidence: Optional[str] = ""
+
+class PayBuyerOrderRequest(BaseModel):
+    payment_method: Optional[str] = "مدى (Mada)"
+
 @future_router.get("/api/future/reference-prices")
 def get_future_reference_prices():
     conn = get_connection()
@@ -471,3 +479,153 @@ def get_future_analytics():
         "coldchain_compliance": 99.4,
         "average_dispute_resolution_minutes": 42
     }
+
+# قائمة طلبات المشتري الثابتة والمتوافقة
+BUYER_SEED_ORDERS = [
+    {
+        "order_id": "ORD-2026-701",
+        "lot_id": "LOT-SA-2026-0101",
+        "auction_id": "AUC-2026-4401",
+        "commodity": "طماطم محمية قطاف اليوم",
+        "farmer_name": "مزارع الوادي بالخرج",
+        "farm_location": "الخرج - منطقة الرياض",
+        "quantity": 1500,
+        "unit": "صندوق (6 كجم)",
+        "unit_price": 19.50,
+        "total_product": 29250.0,
+        "fee": 1462.5,
+        "vat": 219.38,
+        "total_invoice": 30931.88,
+        "status": "awaiting_payment",
+        "invoice_no": "INV-SA-2026-9011",
+        "created_at": "2026-11-04 09:30",
+        "image_url": "static/images/products/tomatoes.jpg",
+        "quality_grade": "نخب أول (Grade A)",
+        "saudi_gap": "معتمد (Saudi G.A.P.)",
+        "target_market": "سوق العزيزية المركزي - الرياض",
+        "buyer_name": "شركة التميمي للأسواق",
+        "tracking": {
+            "step": 1,
+            "step_title": "تمت الترسية وبانتظار سداد الفاتورة",
+            "current_temp": None,
+            "truck_plate": None,
+            "driver_name": None,
+            "driver_phone": None,
+            "eta": "بانتظار السداد لبدء التحميل والتبريد"
+        }
+    },
+    {
+        "order_id": "ORD-2026-702",
+        "lot_id": "LOT-SA-2026-0102",
+        "auction_id": "AUC-2026-4402",
+        "commodity": "بطاطس مائدة صنف سبونتا",
+        "farmer_name": "مؤسسة حائل للتنمية الزراعية",
+        "farm_location": "بقعاء - منطقة حائل",
+        "quantity": 12000,
+        "unit": "كيس شبكي (15 كجم)",
+        "unit_price": 2.75,
+        "total_product": 33000.0,
+        "fee": 1650.0,
+        "vat": 247.50,
+        "total_invoice": 34897.50,
+        "status": "in_transit",
+        "escrow_no": "ESC-2026-8802",
+        "invoice_no": "INV-SA-2026-9012",
+        "payment_method": "مدى (Mada) •••• 4012",
+        "paid_at": "2026-11-04 08:30",
+        "created_at": "2026-11-04 08:15",
+        "image_url": "static/images/products/potatoes.jpg",
+        "quality_grade": "نخب ثاني (Grade B)",
+        "saudi_gap": "معتمد (Saudi G.A.P.)",
+        "target_market": "سوق بريدة المركزي - القصيم",
+        "buyer_name": "شركة التميمي للأسواق",
+        "tracking": {
+            "step": 4,
+            "step_title": "في الطريق إلى سوق بريدة المركزي",
+            "current_temp": 14.2,
+            "target_temp": "12°C - 15°C",
+            "humidity": 76,
+            "temp_status": "normal",
+            "truck_plate": "ح ل ق 9876",
+            "driver_name": "خالد المطيري",
+            "driver_phone": "0556677889",
+            "current_location": "طريق حائل - القصيم السريع (كم 140)",
+            "eta": "خلال 45 دقيقة (09:45 ص)"
+        }
+    },
+    {
+        "order_id": "ORD-2026-703",
+        "lot_id": "LOT-SA-2026-0103",
+        "auction_id": "AUC-2026-4403",
+        "commodity": "بصل أحمر قصيمي مجفف",
+        "farmer_name": "جمعية عنيزة الزراعية التعاونية",
+        "farm_location": "عنيزة - منطقة القصيم",
+        "quantity": 8000,
+        "unit": "كيس شبكي (10 كجم)",
+        "unit_price": 3.20,
+        "total_product": 25600.0,
+        "fee": 1280.0,
+        "vat": 192.00,
+        "total_invoice": 27072.00,
+        "status": "arrived",
+        "escrow_no": "ESC-2026-8803",
+        "invoice_no": "INV-SA-2026-9013",
+        "payment_method": "سداد (SADAD - الحساب التجاري)",
+        "paid_at": "2026-11-04 07:15",
+        "created_at": "2026-11-04 07:00",
+        "image_url": "static/images/products/zucchini.jpg",
+        "quality_grade": "نخب أول (Grade A)",
+        "saudi_gap": "معتمد (Saudi G.A.P.)",
+        "target_market": "سوق عنيزة المركزي",
+        "buyer_name": "شركة التميمي للأسواق",
+        "tracking": {
+            "step": 5,
+            "step_title": "وصلت رصيف التفريغ بالسوق وبانتظار الاستلام أو الاعتراض",
+            "current_temp": 19.5,
+            "target_temp": "18°C - 22°C",
+            "humidity": 62,
+            "temp_status": "normal",
+            "truck_plate": "ص ع ط 5511",
+            "driver_name": "سلمان الحربي",
+            "driver_phone": "0501144778",
+            "current_location": "رصيف تفريغ رقم 4 - سوق عنيزة",
+            "eta": "تم الوصول بنجاح"
+        }
+    }
+]
+
+@future_router.get("/api/future/buyer/orders")
+def get_future_buyer_orders():
+    return BUYER_SEED_ORDERS
+
+@future_router.post("/api/future/buyer/orders/{order_id}/pay")
+def pay_future_buyer_order(order_id: str, data: PayBuyerOrderRequest):
+    order = next((o for o in BUYER_SEED_ORDERS if o["order_id"] == order_id), None)
+    if not order:
+        raise HTTPException(status_code=404, detail="الطلب غير موجود")
+    order["status"] = "in_transit"
+    order["payment_method"] = data.payment_method
+    order["paid_at"] = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
+    if not order.get("escrow_no"):
+        order["escrow_no"] = f"ESC-2026-{datetime.datetime.now().strftime('%S%M')}"
+    return {"status": "success", "message": "تم سداد الفاتورة وإيداع المبلغ في حساب الضمان", "order": order}
+
+@future_router.post("/api/future/buyer/orders/{order_id}/confirm")
+def confirm_future_buyer_order(order_id: str):
+    order = next((o for o in BUYER_SEED_ORDERS if o["order_id"] == order_id), None)
+    if not order:
+        raise HTTPException(status_code=404, detail="الطلب غير موجود")
+    order["status"] = "completed"
+    order["completed_at"] = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
+    return {"status": "success", "message": "تم تأكيد الاستلام بنجاح وصرف مستحقات المزارع", "order": order}
+
+@future_router.post("/api/future/buyer/orders/{order_id}/dispute")
+def dispute_future_buyer_order(order_id: str, data: DisputeBuyerOrderRequest):
+    order = next((o for o in BUYER_SEED_ORDERS if o["order_id"] == order_id), None)
+    if not order:
+        raise HTTPException(status_code=404, detail="الطلب غير موجود")
+    disp_id = f"DIS-2026-{datetime.datetime.now().strftime('%S%M')}"
+    order["status"] = "disputed"
+    order["dispute_id"] = disp_id
+    order["dispute_reason"] = data.reason
+    return {"status": "success", "message": f"تم تسجيل الاعتراض برقم {disp_id} وتجميد الضمان", "dispute_id": disp_id}
