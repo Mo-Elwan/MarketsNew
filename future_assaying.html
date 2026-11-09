@@ -183,11 +183,101 @@
                 </div>
 
                 <form id="assaying-form" onsubmit="submitAssaying(event)" class="space-y-4 text-xs">
-                    <div>
-                        <label class="block font-bold text-slate-700 mb-1">اختيار الدفعة الواصلة للبوابة</label>
-                        <select id="a_lot_id" required onchange="handleLotSelect(this.value)" class="w-full px-3 py-2.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-mewa-600 focus:outline-none font-bold text-slate-800 bg-slate-50/50">
-                            <option value="">-- جاري تحميل الدفعات --</option>
-                        </select>
+                    
+                    <!-- مسار اختيار الدفعة: مسح/إدخال الباركود أو الاختيار من القائمة -->
+                    <div class="space-y-3 p-3.5 bg-emerald-50/60 rounded-2xl border border-emerald-200">
+                        <div class="flex items-center justify-between">
+                            <label class="block font-black text-slate-800 text-xs flex items-center gap-1.5">
+                                <i data-lucide="scan-barcode" class="w-4 h-4 text-emerald-700"></i>
+                                <span>إدخال أو مسح باركود الدفعة الواصلة</span>
+                            </label>
+                            <span class="text-[10px] bg-emerald-100 text-emerald-800 font-black px-2 py-0.5 rounded-full flex items-center gap-1">
+                                <i data-lucide="zap" class="w-3 h-3 text-emerald-700"></i> قراءة فورية
+                            </span>
+                        </div>
+
+                        <!-- حقل مسح الباركود المباشر -->
+                        <div class="flex items-center gap-2">
+                            <div class="relative flex-1">
+                                <input type="text" id="barcode_input" oninput="handleBarcodeSearch(this.value)" placeholder="امسح الباركود بجهاز المسح أو أدخل رقم الباركود/الكود..." class="w-full px-3 py-2.5 pr-9 border border-slate-300 rounded-xl focus:ring-2 focus:ring-mewa-600 focus:outline-none text-xs bg-white font-mono font-bold text-slate-900 shadow-2xs">
+                                <div class="absolute inset-y-0 right-0 pr-2.5 flex items-center pointer-events-none text-slate-400">
+                                    <i data-lucide="barcode" class="w-4 h-4"></i>
+                                </div>
+                            </div>
+                            <button type="button" onclick="triggerBarcodeLookup()" class="px-3.5 py-2.5 bg-mewa-700 hover:bg-mewa-800 text-white rounded-xl text-xs font-bold transition flex items-center gap-1 shrink-0 shadow-xs">
+                                <i data-lucide="search" class="w-3.5 h-3.5 text-naamaGold-400"></i>
+                                <span>تحقق</span>
+                            </button>
+                        </div>
+
+                        <!-- أزرار تجربة سريعة لمسح الباركودات النموذجية الواصلة للبوابة -->
+                        <div class="flex items-center gap-1.5 flex-wrap pt-0.5">
+                            <span class="text-[10px] text-slate-400 font-bold">تجربة مسح باركود:</span>
+                            <button type="button" onclick="simulateBarcodeScan('6281000202602')" class="px-2 py-0.5 bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 rounded-md text-[10px] font-mono font-bold transition">
+                                🥔 بطاطس (6281000202602)
+                            </button>
+                            <button type="button" onclick="simulateBarcodeScan('6281000202601')" class="px-2 py-0.5 bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 rounded-md text-[10px] font-mono font-bold transition">
+                                🍅 طماطم (6281000202601)
+                            </button>
+                            <button type="button" onclick="simulateBarcodeScan('6281000202604')" class="px-2 py-0.5 bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 rounded-md text-[10px] font-mono font-bold transition">
+                                🌴 تمور (6281000202604)
+                            </button>
+                        </div>
+
+                        <!-- أو اختيار الدفعة من القائمة المنسدلة -->
+                        <div class="pt-2 border-t border-emerald-100">
+                            <label class="block font-bold text-slate-700 mb-1 text-[11px]">أو اختيار الدفعة الواصلة للبوابة من القائمة:</label>
+                            <select id="a_lot_id" required onchange="handleLotSelect(this.value)" class="w-full px-3 py-2 border border-slate-200 rounded-xl focus:ring-2 focus:ring-mewa-600 focus:outline-none font-bold text-slate-800 bg-white">
+                                <option value="">-- جاري تحميل الدفعات --</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- بطاقة إظهار البيانات الخاصة بالباركود المقروء -->
+                    <div id="scanned-lot-details" class="hidden p-4 rounded-2xl bg-white border-2 border-emerald-500 shadow-md space-y-3 text-xs">
+                        <div class="flex items-center justify-between border-b border-slate-100 pb-2.5">
+                            <div class="flex items-center gap-2">
+                                <span class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-xs shrink-0">
+                                    <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                                </span>
+                                <div>
+                                    <span class="text-[10px] text-slate-400 font-bold block">بيانات الشحنة المقروءة بالباركود:</span>
+                                    <strong class="font-mono text-mewa-900 font-black text-sm" id="scanned-lot-id">SA-2026-0102</strong>
+                                </div>
+                            </div>
+                            <span class="text-[10.5px] font-mono font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200" id="scanned-barcode-display">
+                                باركود: 6281000202602
+                            </span>
+                        </div>
+
+                        <div class="flex items-center gap-3">
+                            <img id="scanned-img" src="static/images/products/potatoes.jpg" alt="المحصول" class="w-14 h-14 rounded-xl object-cover border border-slate-200 shrink-0">
+                            <div class="min-w-0 flex-1">
+                                <h4 class="font-black text-slate-900 text-sm truncate" id="scanned-commodity">بطاطس مائدة صنف سبونتا</h4>
+                                <span class="text-[11px] text-slate-500 block truncate" id="scanned-farm">مؤسسة حائل للتنمية الزراعية • بقعاء</span>
+                                <div class="flex items-center gap-1.5 mt-1 flex-wrap">
+                                    <span class="text-[10px] font-black text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-100" id="scanned-gap-badge">
+                                        سعودي جاب معتمد
+                                    </span>
+                                    <span class="text-[10px] font-bold text-slate-600 bg-slate-100 px-2 py-0.5 rounded" id="scanned-qty">
+                                        12,000 كيس شبكي
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-2 bg-slate-50 p-2.5 rounded-xl border border-slate-200 text-[11px]">
+                            <div>
+                                <span class="text-slate-400 block text-[10px]">الشاحنة والناقل:</span>
+                                <strong class="text-slate-800 font-mono" id="scanned-truck">ح ل ق 9876</strong>
+                                <span class="text-slate-500 block text-[9.5px]" id="scanned-driver">خالد المطيري</span>
+                            </div>
+                            <div>
+                                <span class="text-slate-400 block text-[10px]">حرارة التبريد عند الوصول:</span>
+                                <strong class="text-blue-900 font-black" id="scanned-temp">14.2°C (مطابق)</strong>
+                                <span class="text-slate-500 block text-[9.5px]" id="scanned-eta">وصلت البوابة الآن</span>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="grid grid-cols-2 gap-3">
@@ -328,11 +418,103 @@
             if (!select) return;
             select.innerHTML = '<option value="">-- اختر الدفعة المراد فحصها --</option>' +
                 lots.map(l => `<option value="${l.lot_id}">[${l.lot_id}] ${l.commodity} - ${l.farmer_name} (${Number(l.quantity).toLocaleString()} ${l.unit})</option>`).join('');
+
+            // الفحص التلقائي لباراميتر الـ URL أو الدفعة النموذجية
+            const urlParams = new URLSearchParams(window.location.search);
+            const targetLotId = urlParams.get('lot_id') || 'SA-2026-0102';
+            const initialLot = lots.find(l => l.lot_id === targetLotId) || lots[0];
+            if (initialLot) {
+                select.value = initialLot.lot_id;
+                handleLotSelect(initialLot.lot_id);
+            }
         }
 
         function handleLotSelect(lotId) {
             const lot = allLots.find(l => l.lot_id === lotId);
-            if (!lot) return;
+            if (!lot) {
+                const card = document.getElementById('scanned-lot-details');
+                if (card) card.classList.add('hidden');
+                return;
+            }
+
+            // تحديث حقل الباركود برقم الباركود المعتمد
+            const bcode = (lot.packaging && lot.packaging.label_barcode) || `6281000${lot.lot_id.replace(/\D/g, '')}02`;
+            const bInput = document.getElementById('barcode_input');
+            if (bInput) bInput.value = bcode;
+
+            displayScannedLotDetails(lot);
+            fillInspectionDefaults(lot);
+        }
+
+        function handleBarcodeSearch(val) {
+            const query = (val || '').trim().toLowerCase();
+            if (!query) {
+                const card = document.getElementById('scanned-lot-details');
+                if (card) card.classList.add('hidden');
+                return;
+            }
+
+            const found = allLots.find(l => {
+                const lid = (l.lot_id || '').toLowerCase();
+                const bcode = (l.packaging && l.packaging.label_barcode) ? l.packaging.label_barcode.toLowerCase() : '';
+                const altBcode = `6281000${lid.replace(/\D/g, '')}01`;
+                const altBcode2 = `6281000${lid.replace(/\D/g, '')}02`;
+                const comm = (l.commodity || '').toLowerCase();
+                return lid === query || lid.includes(query) || bcode === query || bcode.includes(query) || altBcode.includes(query) || altBcode2.includes(query) || comm.includes(query);
+            });
+
+            if (found) {
+                document.getElementById('a_lot_id').value = found.lot_id;
+                displayScannedLotDetails(found);
+                fillInspectionDefaults(found);
+            }
+        }
+
+        function triggerBarcodeLookup() {
+            const val = document.getElementById('barcode_input').value;
+            handleBarcodeSearch(val);
+        }
+
+        function simulateBarcodeScan(barcode) {
+            const bInput = document.getElementById('barcode_input');
+            if (bInput) bInput.value = barcode;
+            handleBarcodeSearch(barcode);
+        }
+
+        function displayScannedLotDetails(lot) {
+            const card = document.getElementById('scanned-lot-details');
+            if (!card) return;
+
+            document.getElementById('scanned-lot-id').innerText = lot.lot_id;
+            const bcode = (lot.packaging && lot.packaging.label_barcode) || `6281000${lot.lot_id.replace(/\D/g, '')}02`;
+            document.getElementById('scanned-barcode-display').innerText = `باركود: ${bcode}`;
+            document.getElementById('scanned-commodity').innerText = lot.commodity;
+            document.getElementById('scanned-farm').innerText = `${lot.farmer_name} • ${lot.farm_location || lot.farm_name || 'المملكة'}`;
+            document.getElementById('scanned-qty').innerText = `${Number(lot.quantity).toLocaleString()} ${lot.unit}`;
+            
+            const isGap = lot.saudi_gap_cert && lot.saudi_gap_cert !== 'غير حاصل على شهادة' && lot.saudi_gap_cert.trim() !== '';
+            const gapBadge = document.getElementById('scanned-gap-badge');
+            if (gapBadge) {
+                gapBadge.innerText = isGap ? `سعودي جاب: ${lot.saudi_gap_cert}` : 'توريد زراعي قياسي';
+                gapBadge.className = isGap ? 'text-[10px] font-black text-amber-800 bg-amber-50 px-2 py-0.5 rounded border border-amber-200' : 'text-[10px] font-bold text-slate-600 bg-slate-100 px-2 py-0.5 rounded';
+            }
+
+            if (lot.image_url) {
+                document.getElementById('scanned-img').src = lot.image_url;
+            }
+
+            const cold = lot.coldchain || {};
+            const pkg = lot.packaging || {};
+            document.getElementById('scanned-truck').innerText = cold.truck_plate || pkg.truck_plate || 'ح ل ق 9876';
+            document.getElementById('scanned-driver').innerText = cold.driver_name || pkg.driver_name || 'خالد المطيري';
+            document.getElementById('scanned-temp').innerText = cold.current_temp ? `${cold.current_temp}°C (مطابق)` : (pkg.precooling_temp ? `${pkg.precooling_temp}°C (مطابق)` : '14.2°C (مطابق)');
+            document.getElementById('scanned-eta').innerText = cold.eta || 'وصلت البوابة الآن';
+
+            card.classList.remove('hidden');
+            initIcons();
+        }
+
+        function fillInspectionDefaults(lot) {
             if (lot.commodity.includes('طماطم')) {
                 document.getElementById('a_moisture').value = 89.2;
                 document.getElementById('a_purity').value = 99.4;
@@ -361,6 +543,13 @@
                 document.getElementById('a_brix').value = 3.2;
                 document.getElementById('a_ref_price').value = 16.00;
                 document.getElementById('a_notes').value = "خيار بيوت محمية درجة أولى، طازج قطاف الفجر، لا توجد انحناءات مفرطة.";
+            } else {
+                document.getElementById('a_moisture').value = 85.0;
+                document.getElementById('a_purity').value = 99.0;
+                document.getElementById('a_defect').value = 1.0;
+                document.getElementById('a_brix').value = 4.0;
+                document.getElementById('a_ref_price').value = 12.00;
+                document.getElementById('a_notes').value = "المحصول مطابق لاشتراطات الجودة المعتمدة.";
             }
         }
 
