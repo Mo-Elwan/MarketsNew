@@ -329,7 +329,7 @@
                     </div>
                     <div>
                         <h3 class="text-base font-black text-slate-900">تقديم اعتراض رسمي وتجميد الضمان</h3>
-                        <p class="text-[11px] text-slate-500">إحالة فورية للجنة فض النزاعات السريعة للبت خلال أقل من ساعتين</p>
+                        <p class="text-[11px] text-slate-500">إحالة فورية للجنة فض النزاعات السريعة للبت الفوري والسريع</p>
                     </div>
                 </div>
                 <button onclick="closeDisputeModal()" class="text-slate-400 hover:text-slate-700">
@@ -850,7 +850,7 @@
                         evidence: evidence
                     });
 
-                    alert(`تم بنجاح رفع الاعتراض الرسمي برقم: [${res.dispute.dispute_id}].\n\nتم تجميد مبلغ الضمان المالي فوراً، وأُحيل المحضر للجنة فض النزاعات السريعة بالوزارة للبت فيه خلال أقل من ساعتين.`);
+                    alert(`تم بنجاح رفع الاعتراض الرسمي برقم: [${res.dispute.dispute_id}].\n\nتم تجميد مبلغ الضمان المالي فوراً، وأُحيل المحضر للجنة فض النزاعات السريعة بالوزارة للبت فيه بحسم فوري سريع.`);
                     closeDisputeModal();
                     loadBuyerOrders();
                 } catch (err) {
