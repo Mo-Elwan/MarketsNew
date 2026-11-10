@@ -10,7 +10,7 @@ from database import init_db, get_connection
 
 init_db()
 
-app = FastAPI(title="منصة أسواق النفع العام الوطنية", version="1.0.0")
+app = FastAPI(title="المنصة الوطنية للتسويق", version="1.0.0")
 
 # دعم خدمة الملفات الثابتة (الصور والخطوط والشعارات)
 static_dir = os.path.join(os.path.dirname(__file__), "static")
