@@ -3,56 +3,399 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>المنصة الوطنية للتسويق</title>
+    <title>المنصة الوطنية للتسويق | بوابة الدخول الموحدة</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        mewa: {
+                            50: '#f0f9f4',
+                            100: '#dbf0e4',
+                            200: '#bfe4cf',
+                            600: '#006837',
+                            700: '#00542c',
+                            800: '#034424',
+                            900: '#02381e',
+                            950: '#012413'
+                        },
+                        naamaGold: {
+                            50: '#fdfbf4',
+                            100: '#fcf8ec',
+                            200: '#f7edd2',
+                            300: '#edd88b',
+                            400: '#e3b84c',
+                            500: '#c59b27',
+                            600: '#a7801a',
+                            700: '#876513'
+                        }
+                    },
+                    fontFamily: {
+                        tajawal: ['Tajawal', 'Cairo', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        body { font-family: 'Tajawal', sans-serif; background-color: #f8fafc; }
+        .gold-line { background: linear-gradient(90deg, #c59b27 0%, #e3b84c 50%, #c59b27 100%); }
+        .hero-pattern {
+            background-color: #012413;
+            background-image: radial-gradient(rgba(197, 155, 39, 0.12) 1px, transparent 1px), radial-gradient(rgba(0, 104, 55, 0.25) 1px, transparent 1px);
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px;
         }
-        body {
-            background-color: #ffffff;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow-x: hidden;
+        .portal-card {
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .container {
-            position: relative;
-            width: 100%;
-            max-width: 1280px;
-            margin: auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .portal-card:hover {
+            transform: translateY(-6px);
         }
-        .slide-img {
-            width: 100%;
-            height: auto;
-            display: block;
+        .pulse-gold {
+            box-shadow: 0 0 0 0 rgba(197, 155, 39, 0.5);
+            animation: pulse-gold-anim 2s infinite;
         }
-        /* الرابط عند الضغط على المنصة الوطنية للتسويق */
-        .hub-link {
-            position: absolute;
-            top: 15%;
-            left: 39%;
-            width: 22%;
-            height: 35%;
-            border-radius: 50%;
-            cursor: pointer;
-            z-index: 10;
+        @keyframes pulse-gold-anim {
+            0% { box-shadow: 0 0 0 0 rgba(197, 155, 39, 0.6); }
+            70% { box-shadow: 0 0 0 14px rgba(197, 155, 39, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(197, 155, 39, 0); }
         }
     </style>
 </head>
-<body>
+<body class="text-slate-800 min-h-screen flex flex-col antialiased bg-slate-50 selection:bg-mewa-700 selection:text-white">
 
-    <div class="container">
-        <!-- الصورة الأصلية كما هي تماماً بدون أي تعديل أو إضافات -->
-        <a href="portal.html" style="display: block; width: 100%; position: relative;">
-            <img src="static/images/cover_image.png" alt="المنصة الوطنية للتسويق" class="slide-img">
-        </a>
+    <!-- الشريط الذهبي العلوي السيادي -->
+    <div class="h-1.5 gold-line w-full"></div>
+
+    <!-- شريط معلومات الخدمة والجهات المشرفة -->
+    <div class="bg-white border-b border-slate-200/80 text-xs py-2 text-slate-500 no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center gap-4 flex-wrap">
+            <div class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 inline-block animate-pulse"></span>
+                <span class="font-bold text-slate-700">المملكة العربية السعودية • وزارة البيئة والمياه والزراعة • منظومة نما</span>
+            </div>
+            <div class="flex items-center gap-3 text-[11px] font-bold">
+                <span class="text-slate-400 hidden sm:inline">منصة مركزية معتمدة</span>
+                <span class="text-slate-300 hidden sm:inline">|</span>
+                <a href="future_infographic.html" class="text-mewa-700 hover:text-mewa-900 flex items-center gap-1 transition">
+                    <i data-lucide="presentation" class="w-3.5 h-3.5 text-naamaGold-600"></i>
+                    <span>عرض الإنفوجرافيك التنفيذي الشامل</span>
+                </a>
+            </div>
+        </div>
     </div>
 
+    <!-- ترويسة الصفحة الرسمية المعتمدة -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-18 sm:h-22 gap-4">
+            
+            <!-- الشعار وعنوان المنصة -->
+            <a href="index.html" class="flex items-center gap-3 sm:gap-4 min-w-0">
+                <img src="static/images/mewa_logo.png" alt="وزارة البيئة والمياه والزراعة" class="h-11 sm:h-16 w-auto object-contain flex-shrink-0">
+                <div class="border-r-2 border-slate-200 pr-3 sm:pr-4 flex flex-col justify-center min-w-0">
+                    <h1 class="text-base sm:text-xl md:text-2xl font-black text-mewa-800 tracking-tight leading-tight truncate">
+                        المنصة الوطنية للتسويق
+                    </h1>
+                    <p class="hidden md:block text-[11px] sm:text-xs text-slate-500 font-medium leading-tight mt-0.5 truncate">
+                        المنظومة الرقمية الموحدة لربط وتداول السلع الزراعية بأسواق النفع العام
+                    </p>
+                </div>
+            </a>
+
+            <!-- شعار نما ورؤية 2030 -->
+            <div class="flex items-center gap-3">
+                <img src="static/images/naama_logo.png" alt="منصة نماء" class="h-8 sm:h-12 w-auto object-contain">
+                <div class="h-8 w-px bg-slate-200 hidden sm:block"></div>
+                <div class="hidden sm:flex flex-col text-left">
+                    <span class="text-[10px] text-slate-400 font-bold">مستهدفات وطنية</span>
+                    <span class="text-xs font-black text-emerald-800">رؤية السعودية 2030</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- المحتوى الرئيسي -->
+    <main class="flex-grow">
+
+        <!-- ==================== قسم الترحيب والتوجيه الاستراتيجي ==================== -->
+        <section class="relative hero-pattern text-white pt-12 pb-24 overflow-hidden border-b-4 border-naamaGold-500">
+            <!-- عناصر ديكورية ضوئية -->
+            <div class="absolute top-0 right-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute bottom-0 left-1/4 w-96 h-96 bg-naamaGold-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-6">
+                
+                <!-- شارة الاعتماد السيادي -->
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs sm:text-sm font-bold text-naamaGold-300">
+                    <i data-lucide="shield-check" class="w-4 h-4 text-naamaGold-400"></i>
+                    <span>بإشراف وزارة البيئة والمياه والزراعة • بوابة الدخول الموحدة</span>
+                </div>
+
+                <!-- العنوان الترحيبي الرئيسي -->
+                <div class="max-w-4xl mx-auto space-y-3">
+                    <h2 class="text-2xl sm:text-4xl md:text-5xl font-black leading-tight sm:leading-tight text-white">
+                        بوابتك الرقمية المركزية لتداول السلع الزراعية بالمملكة
+                    </h2>
+                    <p class="text-xs sm:text-base md:text-lg text-emerald-100 font-normal leading-relaxed max-w-3xl mx-auto">
+                        منظومة وطنية متكاملة تربط المزارعين، التجار، سلاسل التجزئة، وإدارات الأسواق المركزية؛ اختر مسار التداول المناسب لعملياتك التجارية للوصول إلى الخدمات المعتمدة.
+                    </p>
+                </div>
+
+                <!-- تنبيه توجيهي لاختيار المسار -->
+                <div class="inline-flex items-center gap-2 text-xs font-bold text-emerald-200 bg-mewa-900/80 border border-emerald-700/50 px-4 py-2 rounded-xl">
+                    <i data-lucide="help-circle" class="w-4 h-4 text-naamaGold-400"></i>
+                    <span>اختر أحد المسارين أدناه للمتابعة إلى واجهة العمليات المخصصة</span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ==================== كروت المسارين الرئيسيين (قلب الصفحة) ==================== -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-14 relative z-20 pb-16">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+
+                <!-- ================= المسار 1: مسار الشراء المباشر ================= -->
+                <div class="portal-card bg-white rounded-3xl border-2 border-slate-200 hover:border-emerald-600 shadow-xl overflow-hidden flex flex-col justify-between group">
+                    <div>
+                        <!-- شريط هوية المسار العلوي -->
+                        <div class="bg-gradient-to-r from-slate-100 via-emerald-50 to-slate-100 p-6 border-b border-slate-200 flex items-center justify-between gap-4">
+                            <div class="flex items-center gap-3.5">
+                                <div class="w-14 h-14 rounded-2xl bg-emerald-600 text-white flex items-center justify-center shadow-md shadow-emerald-900/20 group-hover:scale-105 transition">
+                                    <i data-lucide="shopping-cart" class="w-7 h-7"></i>
+                                </div>
+                                <div>
+                                    <span class="text-[11px] font-black text-emerald-700 uppercase tracking-wide bg-emerald-100/70 px-2.5 py-0.5 rounded-full inline-block">المسار الأول</span>
+                                    <h3 class="text-xl sm:text-2xl font-black text-slate-900 mt-1">مسار الشراء المباشر</h3>
+                                </div>
+                            </div>
+                            <span class="hidden sm:inline-flex px-3 py-1 rounded-full text-xs font-bold bg-white text-slate-700 border border-slate-200">
+                                توريد فوري ثابت
+                            </span>
+                        </div>
+
+                        <!-- المحتوى والمواصفات -->
+                        <div class="p-6 sm:p-8 space-y-6">
+                            <p class="text-sm text-slate-600 leading-relaxed font-medium">
+                                التسوق والتوريد المباشر للسلع والمنتجات الزراعية بأسعار معلنة ومحددة مسبقاً دون الدخول في مزادات، مخصص للتجار وسلاسل التجزئة والمطاعم ومشتريات الجملة السريعة.
+                            </p>
+
+                            <!-- قائمة المزايا والركائز -->
+                            <div class="space-y-3 pt-2">
+                                <h4 class="text-xs font-black text-slate-900 uppercase tracking-wider flex items-center gap-1.5">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600"></i>
+                                    <span>أبرز خصائص مسار الشراء المباشر:</span>
+                                </h4>
+                                <ul class="space-y-2.5 text-xs text-slate-700">
+                                    <li class="flex items-start gap-2.5 bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+                                        <i data-lucide="check" class="w-4 h-4 text-emerald-600 mt-0.5 shrink-0 font-bold"></i>
+                                        <span><strong>شراء فوري مباشر:</strong> تصفح كتالوج السلع الزراعية وإتمام أوامر الشراء بكميات تجارية وسرعة تسليم.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2.5 bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+                                        <i data-lucide="check" class="w-4 h-4 text-emerald-600 mt-0.5 shrink-0 font-bold"></i>
+                                        <span><strong>بوابة البائع والمزرعة:</strong> إدارة المخزون، تسعير المنتجات، ومتابعة الطلبات الواردة وقنوات التوزيع.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2.5 bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+                                        <i data-lucide="check" class="w-4 h-4 text-emerald-600 mt-0.5 shrink-0 font-bold"></i>
+                                        <span><strong>سداد إلكتروني وفواتير:</strong> دفع رقمي مباشر مع إصدار فواتير شراء معتمدة ومتابعة حالة الشحنات.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- أزرار الإجراء والدخول -->
+                    <div class="p-6 sm:p-8 pt-0 bg-white space-y-3">
+                        <a href="portal.html" class="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-black py-4 px-6 rounded-2xl shadow-lg hover:shadow-xl transition flex items-center justify-center gap-3 text-sm sm:text-base group-hover:bg-emerald-800">
+                            <span>الدخول إلى مسار الشراء المباشر</span>
+                            <i data-lucide="arrow-left" class="w-5 h-5 transition group-hover:-translate-x-1"></i>
+                        </a>
+
+                        <!-- روابط سريعة فرعية -->
+                        <div class="flex items-center justify-center gap-3 pt-2 text-[11px] font-bold text-slate-500 flex-wrap">
+                            <span class="text-slate-400">روابط سريعة:</span>
+                            <a href="store.html" class="hover:text-emerald-700 hover:underline">متجر المنتجات</a>
+                            <span>•</span>
+                            <a href="inventory.html" class="hover:text-emerald-700 hover:underline">بوابة البائع</a>
+                            <span>•</span>
+                            <a href="my_orders.html" class="hover:text-emerald-700 hover:underline">فواتيري وطلباتي</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ================= المسار 2: مسار المزادات الوطنية ================= -->
+                <div class="portal-card bg-white rounded-3xl border-2 border-naamaGold-400 hover:border-mewa-700 shadow-2xl overflow-hidden flex flex-col justify-between group relative">
+                    <!-- شارة مميزة -->
+                    <div class="absolute top-4 left-4 z-10">
+                        <span class="px-3 py-1 rounded-full text-[11px] font-black bg-gradient-to-r from-naamaGold-500 to-amber-600 text-white shadow-sm flex items-center gap-1.5 pulse-gold">
+                            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> منظومة التحول المستقبلي
+                        </span>
+                    </div>
+
+                    <div>
+                        <!-- شريط هوية المسار العلوي -->
+                        <div class="bg-gradient-to-r from-mewa-950 via-mewa-900 to-mewa-800 text-white p-6 border-b border-naamaGold-500 flex items-center justify-between gap-4">
+                            <div class="flex items-center gap-3.5">
+                                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-naamaGold-400 to-naamaGold-600 text-mewa-950 flex items-center justify-center shadow-lg group-hover:scale-105 transition font-black">
+                                    <i data-lucide="gavel" class="w-7 h-7 text-mewa-950"></i>
+                                </div>
+                                <div>
+                                    <span class="text-[11px] font-black text-naamaGold-300 uppercase tracking-wide bg-white/10 px-2.5 py-0.5 rounded-full inline-block">المسار الثاني</span>
+                                    <h3 class="text-xl sm:text-2xl font-black text-white mt-1">مسار المزادات الوطنية</h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- المحتوى والمواصفات -->
+                        <div class="p-6 sm:p-8 space-y-6">
+                            <p class="text-sm text-slate-600 leading-relaxed font-medium">
+                                قاعة المزايدة الإلكترونية الموحدة لربط كافة أسواق الجملة بالمملكة، مدعومة بفحص مخبري إلزامي عند البوابات، سلاسل تبريد ذكية بحساسات IoT، ودفع مضمون بحساب الضمان المالي (Escrow).
+                            </p>
+
+                            <!-- قائمة المزايا والركائز -->
+                            <div class="space-y-3 pt-2">
+                                <h4 class="text-xs font-black text-slate-900 uppercase tracking-wider flex items-center gap-1.5">
+                                    <i data-lucide="shield-check" class="w-4 h-4 text-naamaGold-600"></i>
+                                    <span>أبرز معايير منظومة المزادات:</span>
+                                </h4>
+                                <ul class="space-y-2.5 text-xs text-slate-700">
+                                    <li class="flex items-start gap-2.5 bg-amber-50/50 p-2.5 rounded-xl border border-amber-200/60">
+                                        <i data-lucide="check" class="w-4 h-4 text-naamaGold-600 mt-0.5 shrink-0 font-bold"></i>
+                                        <span><strong>مزاد رقمي علني لحظي:</strong> تداول وشراء إلكتروني عن بُعد لكافة السلع المعروضة بالأسواق المركزية.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2.5 bg-amber-50/50 p-2.5 rounded-xl border border-amber-200/60">
+                                        <i data-lucide="check" class="w-4 h-4 text-naamaGold-600 mt-0.5 shrink-0 font-bold"></i>
+                                        <span><strong>فحص مخبري وجودة وسعودي جاب:</strong> إصدار شهادات فحص رقمية وتحديد درجات الجودة والسعر الاسترشادي.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2.5 bg-amber-50/50 p-2.5 rounded-xl border border-amber-200/60">
+                                        <i data-lucide="check" class="w-4 h-4 text-naamaGold-600 mt-0.5 shrink-0 font-bold"></i>
+                                        <span><strong>حساب ضمان بنكي Escrow:</strong> حجز قيمة المزاد وصرف فوري لحساب المزارع البنكي بعد تأكيد الاستلام.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2.5 bg-amber-50/50 p-2.5 rounded-xl border border-amber-200/60">
+                                        <i data-lucide="check" class="w-4 h-4 text-naamaGold-600 mt-0.5 shrink-0 font-bold"></i>
+                                        <span><strong>رقابة سلاسل التبريد اللحظية (IoT):</strong> تتبع نافذة التفريغ والتبريد لخفض الفاقد الزراعي لأقل من 4.2%.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- أزرار الإجراء والدخول -->
+                    <div class="p-6 sm:p-8 pt-0 bg-white space-y-3">
+                        <a href="future_portal.html" class="w-full bg-gradient-to-r from-mewa-900 via-mewa-800 to-mewa-700 hover:from-mewa-950 hover:to-mewa-800 text-white font-black py-4 px-6 rounded-2xl shadow-xl hover:shadow-2xl transition flex items-center justify-center gap-3 text-sm sm:text-base border-2 border-naamaGold-400">
+                            <span>الدخول إلى مسار المزادات الوطنية</span>
+                            <i data-lucide="arrow-left" class="w-5 h-5 text-naamaGold-300 transition group-hover:-translate-x-1"></i>
+                        </a>
+
+                        <!-- روابط سريعة فرعية -->
+                        <div class="flex items-center justify-center gap-3 pt-2 text-[11px] font-bold text-slate-500 flex-wrap">
+                            <span class="text-slate-400">محطات المنظومة:</span>
+                            <a href="future_auction.html" class="hover:text-mewa-800 hover:underline">قاعة المزاد</a>
+                            <span>•</span>
+                            <a href="future_farmer_lots.html" class="hover:text-mewa-800 hover:underline">بوابة المزارع</a>
+                            <span>•</span>
+                            <a href="future_oversight.html" class="hover:text-mewa-800 hover:underline">الرقابة والأسعار</a>
+                            <span>•</span>
+                            <a href="future_infographic.html" class="hover:text-mewa-800 hover:underline">الإنفوجرافيك 4K</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ==================== شريط الأرقام والمؤشرات الوطنية ==================== -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+            <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm">
+                <div class="text-center max-w-2xl mx-auto mb-8 space-y-1">
+                    <span class="text-[11px] font-black text-emerald-800 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200 inline-block">
+                        مستهدفات التحول الوطني 2026
+                    </span>
+                    <h3 class="text-lg sm:text-2xl font-black text-slate-900">ركائز موحدة تضمن كفاءة واستدامة القطاع الزراعي</h3>
+                </div>
+
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 text-center">
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100 space-y-1">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 mx-auto flex items-center justify-center mb-2">
+                            <i data-lucide="map-pin" class="w-5 h-5"></i>
+                        </div>
+                        <div class="text-2xl sm:text-3xl font-black text-slate-900">13 منطقة</div>
+                        <div class="text-xs text-slate-500 font-bold">تغطية أسواق المملكة</div>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100 space-y-1">
+                        <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-800 mx-auto flex items-center justify-center mb-2">
+                            <i data-lucide="microscope" class="w-5 h-5"></i>
+                        </div>
+                        <div class="text-2xl sm:text-3xl font-black text-slate-900">100%</div>
+                        <div class="text-xs text-slate-500 font-bold">فحص مخبري وجودة معتمدة</div>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100 space-y-1">
+                        <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-800 mx-auto flex items-center justify-center mb-2">
+                            <i data-lucide="shield" class="w-5 h-5"></i>
+                        </div>
+                        <div class="text-2xl sm:text-3xl font-black text-slate-900">Escrow</div>
+                        <div class="text-xs text-slate-500 font-bold">حساب ضمان مالي سيادي</div>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100 space-y-1">
+                        <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-800 mx-auto flex items-center justify-center mb-2">
+                            <i data-lucide="snowflake" class="w-5 h-5"></i>
+                        </div>
+                        <div class="text-2xl sm:text-3xl font-black text-emerald-700">&lt; 4.2%</div>
+                        <div class="text-xs text-slate-500 font-bold">مستهدف خفض الفاقد الزراعي</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- الفوتر الرسمي الموحد بهوية نما -->
+    <footer class="bg-white border-t border-slate-200 py-8 text-xs text-slate-500 no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-4 border-b border-slate-100 pb-6">
+                <div class="flex items-center gap-3">
+                    <img src="static/images/mewa_logo.png" alt="وزارة البيئة والمياه والزراعة" class="h-8 w-auto">
+                    <img src="static/images/naama_logo.png" alt="نماء" class="h-7 w-auto">
+                    <span class="font-bold text-slate-800">المنصة الوطنية للتسويق</span>
+                </div>
+                <div class="flex items-center gap-4 text-xs font-bold text-slate-600">
+                    <a href="portal.html" class="hover:text-emerald-700">مسار الشراء المباشر</a>
+                    <span>•</span>
+                    <a href="future_portal.html" class="hover:text-mewa-800">مسار المزادات الوطنية</a>
+                    <span>•</span>
+                    <a href="future_infographic.html" class="hover:text-mewa-800">الإنفوجرافيك التنفيذي</a>
+                    <span>•</span>
+                    <a href="presentation.html" class="hover:text-mewa-800">العرض التقديمي</a>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-2 text-slate-400 text-[11px]">
+                <p>جميع الحقوق محفوظة © 2026 — وزارة البيئة والمياه والزراعة، المملكة العربية السعودية</p>
+                <div class="flex items-center gap-2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                    <span>النظام يعمل بكفاءة ومطابقة تامة لمعايير أمن المعلومات والتحول الرقمي</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+        });
+        if (window.lucide) {
+            lucide.createIcons();
+        }
+    </script>
 </body>
 </html>
